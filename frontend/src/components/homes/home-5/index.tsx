@@ -1,3 +1,4 @@
+import ScrollIndicator from "@/components/common/ScrollIndicator";
 import FooterFive from "@/layout/footers/FooterFive";
 import HeaderFive from "@/layout/headers/HeaderFive"; 
 import ProjectAreaHomeTwo from "../home-2/ProjectAreaHomeTwo";
@@ -13,9 +14,11 @@ import ToolestAeaHomeFive from "./ToolestAeaHomeFive";
 
 
 
+
 const HomeFive = () => {
     return (
         <> 
+            <ScrollIndicator/>
             <HeaderFive/>
             <main>
                 <HeroBannerHomeFive />
