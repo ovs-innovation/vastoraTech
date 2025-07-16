@@ -1,5 +1,5 @@
 import FooterFive from "@/layout/footers/FooterFive";
-import HeaderFour from "@/layout/headers/HeaderFour"; 
+import HeaderFive from "@/layout/headers/HeaderFive"; 
 import ProjectAreaHomeTwo from "../home-2/ProjectAreaHomeTwo";
 import ReviewAreaHomeFour from "../home-4/ReviewAreaHomeFour";
 import AboutAreaHomeFive from "./AboutAreaHomeFive";
@@ -16,7 +16,7 @@ import ToolestAeaHomeFive from "./ToolestAeaHomeFive";
 const HomeFive = () => {
     return (
         <> 
-            <HeaderFour />
+            <HeaderFive/>
             <main>
                 <HeroBannerHomeFive />
                 <FeatureAreaHomeFive />
