@@ -1,15 +1,16 @@
-import HomeOne from "@/components/homes/home";
+import HomeFive from "@/components/homes/home-5";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-  title: "Home Main - SEO Marketing - Digital Marketing & SEO Agency Next js Template", 
+  title: "SEO Campaign - Digital Marketing & SEO Agency Next js Template",
 };
+
 const index = () => {
   return (
-    <Wrapper> 
-       <HomeOne />
-       <ScrollToTop style={false} />
+    <Wrapper>
+      <HomeFive />
+      <ScrollToTop style={false} />
     </Wrapper>
   );
 };
