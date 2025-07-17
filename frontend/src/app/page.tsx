@@ -10,7 +10,7 @@ const index = () => {
   return (
     <Wrapper>
       <HomeFive />
-      <ScrollToTop style={false} />
+      <ScrollToTop style={true} />
     </Wrapper>
   );
 };

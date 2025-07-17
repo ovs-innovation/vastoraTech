@@ -7,7 +7,7 @@ import HeroLangIcon from "@/svg/home-5-icons/HeroLangIcon";
 import LeftBG from "@/assets/img/shape/banner-5-shape-1.png";
 import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
 
-import banner_img from "@/assets/img/banner/banner-5-bg-1.png";
+import banner_img from "@/assets/img/banner/banner_home.png";
 
 import banner_shape_1 from "@/assets/img/shape/banner-5-shape-7.png";
 import banner_shape_2 from "@/assets/img/shape/banner-5-shape-2.png";
@@ -162,8 +162,8 @@ const HeroBannerHomeFive = () => {
               </div>
               <div className="col-xl-5 col-lg-6 order-1 order-lg-2">
                 <div className="banner-5-thumb p-relative">
-                  <Image src={banner_img} alt="theme-pure" />
-                  <div className="banner-5-thumb-shape d-none d-md-block">
+                  <Image src={banner_img} alt="theme-pure" height={700} width={700} />
+                  <div className="banner-5-thumb-shape">
                     {banner_shapes.map((item, i) => (
                       <div
                         key={i}
