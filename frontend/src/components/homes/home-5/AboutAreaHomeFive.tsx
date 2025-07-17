@@ -12,20 +12,20 @@ import about_shape_2 from "@/assets/img/shape/about-5-shape-2.svg";
 
 const about_content = {
 	sub_title: "Abour Us",
-	title: "Meet pure visibility",
-	sm_des: "Our experience spans a wide range of industries, fromhealthcare and <br /> ecommerce to multi-location businesses",
+	title: "Empowering Brand Growth Together",
+	sm_des: "At Vastora Tech, we empower brand growth by delivering tailored, innovative technology solutions that drive success and create lasting impact for your business.",
 	about_data: [
 		{
 			id: 1,
 			cls: "about-5-item",
 			img: about_shape_1,
-			info: <>We pride our selves on working <br /> as an extension of your marketing <br /> team & making tailored to your <br /> industry, business goals.</>,
+			info: <>To provide innovative, user-friendly, and scalable software solutions that help businesses thrive in the digital era. We are committed to quality, reliability, and customer satisfaction in every project we undertake.</>,
 		},
 		{
 			id: 2,
 			cls: "about-5-item about-5-item-2",
 			img: about_shape_2,
-			info: <>We work with the teams that build <br /> brands to understand, improve, <br /> and protect.</>,
+			info: <>At Vastora Tech, we collaborate closely with clients to deliver customized, scalable solutions using agile methodologies—ensuring seamless execution, continuous support, and driving brand growth through innovative technology.</>,
 		},
 	]
 
