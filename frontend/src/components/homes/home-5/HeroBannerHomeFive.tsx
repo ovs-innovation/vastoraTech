@@ -6,6 +6,8 @@ import Image, { StaticImageData } from "next/image";
 import HeroLangIcon from "@/svg/home-5-icons/HeroLangIcon";
 import LeftBG from "@/assets/img/shape/banner-5-shape-1.png";
 import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
+import { TypeAnimation } from "react-type-animation";
+
 
 import banner_img from "@/assets/img/banner/banner-5-bg-1.png";
 
@@ -113,9 +115,27 @@ type hero_content_type = {
   brand_title: string;
 };
 const hero_content_home_5: hero_content_type = {
-  title:  <> All in one <br /> SEO software made simple. </>,
-  sm_info: <>We are a UK based SEO agency and the creators of the famous <br /> website
-  crawler and log file analyser tools.</> ,
+  title: (
+    <>
+      All in one SEO software made {" "}
+      <span className="cd-words-wrapper">
+        <TypeAnimation
+          sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
+          // wrapper="b"
+          speed={5}
+          style={{ display: "inline-block", color: "#2B6BB3" }}
+          repeat={Infinity}
+        />
+      </span>
+       .
+    </>
+  ),
+  sm_info: (
+    <>
+      We are a UK based SEO agency and the creators of the famous <br /> website
+      crawler and log file analyser tools.
+    </>
+  ),
   brand_title: "Trusted by the big ones, loved by everyone",
 };
 const { title, sm_info, brand_title } = hero_content_home_5;
@@ -155,7 +175,13 @@ const HeroBannerHomeFive = () => {
                       Start Free Trial
                     </Link>
                     <span>
-                      Already using vault? <Link href="/sign-in">Sign in</Link>
+                      Already using vault?{" "}
+                      <Link
+                        href="/sign-in"
+                        style={{ color: "#4260FF", fontWeight: 600 }}
+                      >
+                        Sign in
+                      </Link>
                     </span>
                   </div>
                 </div>
