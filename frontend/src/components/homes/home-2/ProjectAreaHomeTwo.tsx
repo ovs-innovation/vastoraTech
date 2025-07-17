@@ -26,10 +26,10 @@ interface project_content_type {
 }
 // project content data
 const project_content: project_content_type = {
-    title: <>Our Handpicked <br /> <span> SEO Projects <UnderlineSeven /> </span></>,
-    title_2: <>Our Handpicked <br /> <span>SEO Projects</span></>,
-    sm_info: "Cold pressed before they sold out flexitarian chicharrones. Retro lo-fi hot chicken.",
-    sm_info_2: "Cold pressed before they sold out flexitarian chicharrones. Retro lo-fi hot chicken.",
+    title: <>Our Handpicked <br /> <span> Projects <UnderlineSeven /> </span></>,
+    title_2: <>Our Handpicked <br /> <span>Projects</span></>,
+    sm_info: "We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
+    sm_info_2: "We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
     project_data: [
         {
             id: 1,
