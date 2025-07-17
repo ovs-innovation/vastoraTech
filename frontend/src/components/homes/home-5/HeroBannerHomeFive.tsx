@@ -163,7 +163,7 @@ const HeroBannerHomeFive = () => {
               <div className="col-xl-5 col-lg-6 order-1 order-lg-2">
                 <div className="banner-5-thumb p-relative">
                   <Image src={banner_img} alt="theme-pure" height={700} width={700} />
-                  <div className="banner-5-thumb-shape">
+                  <div className="banner-5-thumb-shape d-none d-md-block">
                     {banner_shapes.map((item, i) => (
                       <div
                         key={i}
