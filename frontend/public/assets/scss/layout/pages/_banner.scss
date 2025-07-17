@@ -834,7 +834,7 @@
             }
             &-two {
                 position: absolute;
-                left: 5%;
+                left: 0%;
                 bottom: 55%;
                 animation: hero-shape-anim-2 1s infinite alternate;
             }
@@ -854,7 +854,7 @@
             &-four {
                 position: absolute;
                 right: -13%;
-                top: 7%;
+                top: 5%;
                 animation: hero-shape-anim 1.5s  infinite alternate;
                 @media #{$xl} {
                     right: 3%;
@@ -870,8 +870,8 @@
             }
             &-five {
                 position: absolute;
-                right: -37%;
-                top: 26%;
+                right: -50%;
+                top: 20%;
                 animation: hero-shape-anim-2 1.2s  infinite alternate;
                 @media #{$xxl} {
                     right: -20%;
@@ -890,7 +890,7 @@
             }    
             &-six {
                 position: absolute;
-                right: -30%;
+                right: -55%;
                 bottom: 36%;
                 animation: hero-shape-anim 1.2s infinite alternate;
                 @media #{$xxl} {

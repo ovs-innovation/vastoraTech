@@ -7,9 +7,11 @@ import HeroLangIcon from "@/svg/home-5-icons/HeroLangIcon";
 import LeftBG from "@/assets/img/shape/banner-5-shape-1.png";
 import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
 import { TypeAnimation } from "react-type-animation";
+import { useState, useEffect } from "react";
 
 
-import banner_img from "@/assets/img/banner/banner_home.png";
+import banner_img1 from "@/assets/img/banner/banner_mobile.png";
+import banner_img2 from "@/assets/img/banner/banner_home.png";
 
 import banner_shape_1 from "@/assets/img/shape/banner-5-shape-7.png";
 import banner_shape_2 from "@/assets/img/shape/banner-5-shape-2.png";
@@ -17,7 +19,7 @@ import banner_shape_3 from "@/assets/img/shape/banner-5-shape-3.png";
 import banner_shape_4 from "@/assets/img/shape/banner-5-shape-4.png";
 import banner_shape_5 from "@/assets/img/shape/banner-5-shape-5.png";
 import banner_shape_6 from "@/assets/img/shape/banner-5-shape-6.png";
-import banner_shape_7 from "@/assets/img/shape/banner-5-shape-8.png";
+// import banner_shape_7 from "@/assets/img/shape/banner-5-shape-8.png";
 import banner_shape_8 from "@/assets/img/shape/banner-5-shape-9.png";
 
 import brand_img_1 from "@/assets/img/brand/brand-5-1.png";
@@ -27,13 +29,11 @@ import brand_img_4 from "@/assets/img/brand/brand-5-4.png";
 import brand_img_5 from "@/assets/img/brand/brand-5-5.png";
 import brand_img_6 from "@/assets/img/brand/brand-5-6.png";
 
-// banner shape data type
 interface banner_shapes_type {
   id: number;
   img: StaticImageData;
   cls: string;
 }
-// banner shape data
 const banner_shapes: banner_shapes_type[] = [
   { id: 1, img: banner_shape_1, cls: "one d-none d-lg-block" },
   { id: 2, img: banner_shape_2, cls: "two" },
@@ -41,7 +41,7 @@ const banner_shapes: banner_shapes_type[] = [
   { id: 4, img: banner_shape_4, cls: "four" },
   { id: 5, img: banner_shape_5, cls: "five" },
   { id: 6, img: banner_shape_6, cls: "six" },
-  { id: 7, img: banner_shape_7, cls: "seven" },
+  // { id: 7, img: banner_shape_7, cls: "seven" },
   { id: 8, img: banner_shape_8, cls: "eight" },
 ];
 
@@ -91,24 +91,23 @@ const setting = {
     {
       breakpoint: 992,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
       },
     },
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 3,
       },
     },
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 3,
       },
     },
   ],
 };
-// hero content type
 type hero_content_type = {
   title: JSX.Element;
   sm_info: JSX.Element;
@@ -121,7 +120,6 @@ const hero_content_home_5: hero_content_type = {
       <span className="cd-words-wrapper">
         <TypeAnimation
           sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
-          // wrapper="b"
           speed={5}
           style={{ display: "inline-block", color: "#2B6BB3" }}
           repeat={Infinity}
@@ -142,6 +140,16 @@ const { title, sm_info, brand_title } = hero_content_home_5;
 
 const HeroBannerHomeFive = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = [banner_img1, banner_img2];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 3000); 
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <>
       <section className="banner-area banner-brand fix">
@@ -172,26 +180,22 @@ const HeroBannerHomeFive = () => {
                       className="light-blue-btn mr-20"
                       href="/keyword-search"
                     >
-                      Start Free Trial
+                      Get Started
                     </Link>
-                    <span>
-                      Already using vault?{" "}
-                      <Link
-                        href="/sign-in"
-                        style={{ color: "#4260FF", fontWeight: 600 }}
-                      >
-                        Sign in
-                      </Link>
-                    </span>
                   </div>
                 </div>
               </div>
               <div className="col-xl-5 col-lg-6 order-1 order-lg-2">
                 <div className="banner-5-thumb p-relative">
-                  <Image src={banner_img} alt="theme-pure" height={700} width={700} />
+                  {currentSlide === 0 && (
+                    <Image src={banner_img1} alt="theme-pure" height={700} width={700} style={{ display: 'block', margin: '0 auto' }} />
+                  )}
+                  {currentSlide === 1 && (
+                    <Image src={banner_img2} alt="theme-pure" height={700} width={700} style={{ display: 'block', margin: '0 auto' }} />
+                  )}
                   <div className="banner-5-thumb-shape d-none d-md-block">
                     {banner_shapes.map((item, i) => (
-                      <div
+                     <div
                         key={i}
                         className={`banner-5-thumb-shape-${item.cls}`}
                       >
@@ -204,32 +208,7 @@ const HeroBannerHomeFive = () => {
             </div>
           </div>
         </div>
-        <div className="barnda-area pb-195">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="brand-content mb-50 text-center">
-                  <h4 className="brand-title">{brand_title}</h4>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <Slider
-                  {...setting}
-                  ref={sliderRef}
-                  className="barnd-5 tpbrand-active-5"
-                >
-                  {brands.map((brand, index) => (
-                    <div key={index} className="brand-5-item">
-                      <Image src={brand} alt="theme-pure" />
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </section>
     </>
   );
