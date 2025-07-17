@@ -103,8 +103,23 @@ const HeaderFive = () => {
                       </ul>
                     </div>
                     <div className="d-flex align-items-center">
-                      <div className="tpheader-btn-5 d-none d-md-block ml-25">
-                        <Link href="/sign-in">Sign Up</Link>
+                      <div className="tpheader-btn-5  d-none d-md-block ml-25">
+                        <Link
+                          href="/sign-in"
+                          style={{
+                            background: "#4260FF",
+                            color: "#fff",
+                            borderRadius: 4,
+                            display: "inline-block",
+                            fontFamily: "var(--tp-ff-jakarta)",
+                            fontWeight: 600,
+                            fontSize: 16,
+                            lineHeight: 1,
+                            padding: "14px 23.5px",
+                          }}
+                        >
+                          Sign Up
+                        </Link>
                       </div>
                       <div className="offcanvas-btn d-xl-none ml-20">
                         <button
