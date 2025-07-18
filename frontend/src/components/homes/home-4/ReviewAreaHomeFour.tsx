@@ -1,9 +1,9 @@
 
 // review user logo 
 import Image, { StaticImageData } from "next/image";
-import review_user_logo_1 from "@/assets/img/icon/review-4-logo-1.png";
-import review_user_logo_2 from "@/assets/img/icon/review-4-logo-2.png";
-import review_user_logo_3 from "@/assets/img/icon/review-4-logo-3.png";
+import review_user_logo_1 from "@/assets/img/brand/brand10.png";
+import review_user_logo_2 from "@/assets/img/brand/brand11.png";
+import review_user_logo_3 from "@/assets/img/brand/brand12.png";
 
 
 // review data type
@@ -19,19 +19,19 @@ const review_data: review_data_type[] = [
       id: 1,
       cls: "",
       img: review_user_logo_1,
-      review_text: "4.58 out of 5 stars from 1,045 reviews",
+      review_text: "5 out of 5 stars from 1,020 reviews",
     },
     {
       id: 2,
       cls: "review-side-border",
       img: review_user_logo_2,
-      review_text: "4.58 out of 5 stars from 1,045 reviews",
+      review_text: "4.9 out of 5 stars from 1,045 reviews",
     },
     {
       id: 3,
       cls: "",
       img: review_user_logo_3,
-      review_text: "4.58 out of 5 stars from 1,045 reviews",
+      review_text: "4.5 out of 5 stars from 1,015 reviews",
     },
   ];
 
@@ -53,7 +53,7 @@ const ReviewAreaHomeFour = ({style, service_style}: style_type) => {
                                 <div key={i} className="col-lg-4 col-md-6">
                                     <div className={`tpreview-4 ${item.cls} text-center mb-30`}>
                                         <div className="tpreview-4-icon mb-15">
-                                        <Image src={item.img} alt="theme-pure" />
+                                        <Image src={item.img} alt="theme-pure" className="w-50 h-50" />
                                         </div>
                                         <div className="tpreview-4-content">
                                         <p>{item.review_text}</p>
