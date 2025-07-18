@@ -4,10 +4,10 @@ import Image, { StaticImageData } from "next/image";
 import { useState, useEffect } from 'react';
 import UnderlineSeven from "@/svg/underline_7";
 // project thumb 
-import project_thumb_1 from "@/assets/img/banner/project-2-thumb-2.jpg";
-import project_thumb_2 from "@/assets/img/banner/project-2-thumb-3.jpg";
-import project_thumb_3 from "@/assets/img/banner/project-2-thumb-1.jpg";
-import project_thumb_4 from "@/assets/img/banner/project-2-thumb-4.jpg";
+import project_thumb_1 from "@/assets/img/banner/project-thumb-1.png";
+import project_thumb_2 from "@/assets/img/banner/project-thumb-2.png";
+import project_thumb_3 from "@/assets/img/banner/project-thumb-3.png";
+import project_thumb_4 from "@/assets/img/banner/project-thumb-4.png";
 import panel_icon from "@/assets/img/icon/panel-icon-3.png";
 
 // project content data type
@@ -41,16 +41,16 @@ const project_content: project_content_type = {
         {
             id: 2,
             img: project_thumb_2,
-            title: "SEO Fashion Website",
-            meta_tag_1: "Digital Art",
-            meta_tag_2: "Illustrations",
+            title: "CandyFloss - Personalized Salon Care",
+            meta_tag_1: "Tailored Beauty Services",
+            meta_tag_2: "Beauty Salon",
         },
         {
             id: 3,
             img: project_thumb_3,
-            title: "SEO Fashion Website",
-            meta_tag_1: "Digital Art",
-            meta_tag_2: "Illustrations",
+            title: "The Learn Skills – E-Learning Website",
+            meta_tag_1: "LMS",
+            meta_tag_2: "E-Learning",
         },
         {
             id: 4,
