@@ -9,7 +9,6 @@ import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
 
-
 import banner_img1 from "@/assets/img/banner/banner_mobile.png";
 import banner_img2 from "@/assets/img/banner/banner_home.png";
 
@@ -116,7 +115,7 @@ type hero_content_type = {
 const hero_content_home_5: hero_content_type = {
   title: (
     <>
-      All in one SEO software made {" "}
+      All in one SEO software made{" "}
       <span className="cd-words-wrapper">
         <TypeAnimation
           sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
@@ -125,7 +124,7 @@ const hero_content_home_5: hero_content_type = {
           repeat={Infinity}
         />
       </span>
-       .
+      .
     </>
   ),
   sm_info: (
@@ -146,7 +145,7 @@ const HeroBannerHomeFive = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 3000); 
+    }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -159,8 +158,8 @@ const HeroBannerHomeFive = () => {
               <Image src={ArrowPlane} alt="theme-pure" />
             </div>
             <div className="banner-5-content-shape-two">
-              <i> 
-                <HeroLangIcon /> 
+              <i>
+                <HeroLangIcon />
               </i>
             </div>
           </div>
@@ -188,14 +187,26 @@ const HeroBannerHomeFive = () => {
               <div className="col-xl-5 col-lg-6 order-1 order-lg-2">
                 <div className="banner-5-thumb p-relative">
                   {currentSlide === 0 && (
-                    <Image src={banner_img1} alt="theme-pure" height={700} width={700} style={{ display: 'block', margin: '0 auto' }} />
+                    <Image
+                      src={banner_img1}
+                      alt="theme-pure"
+                      height={700}
+                      width={700}
+                      style={{ display: "block", margin: "0 auto" }}
+                    />
                   )}
                   {currentSlide === 1 && (
-                    <Image src={banner_img2} alt="theme-pure" height={700} width={700} style={{ display: 'block', margin: '0 auto' }} />
+                    <Image
+                      src={banner_img2}
+                      alt="theme-pure"
+                      height={700}
+                      width={700}
+                      style={{ display: "block", margin: "0 auto" }}
+                    />
                   )}
                   <div className="banner-5-thumb-shape d-none d-md-block">
                     {banner_shapes.map((item, i) => (
-                     <div
+                      <div
                         key={i}
                         className={`banner-5-thumb-shape-${item.cls}`}
                       >
@@ -208,7 +219,6 @@ const HeroBannerHomeFive = () => {
             </div>
           </div>
         </div>
-        
       </section>
     </>
   );

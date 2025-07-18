@@ -11,6 +11,8 @@ import ProjectFeaturHomefive from "./ProjectFeaturHomefive";
 import TeamAreaHomeFive from "./TeamAreaHomeFive";
 import TestimonialAreaHomeFive from "./TestimonialAreaHomeFive";
 import ToolestAeaHomeFive from "./ToolestAeaHomeFive";
+import BrandAreaHomeFour from "../home-4/BrandAreaHomeFour";
+
 
 
 
@@ -30,6 +32,7 @@ const HomeFive = () => {
                 <ProjectFeaturHomefive />
                 <TeamAreaHomeFive />
                 <TestimonialAreaHomeFive />
+                <BrandAreaHomeFour />
                 <ReviewAreaHomeFour style={true} />
             </main>
             <FooterFive />
