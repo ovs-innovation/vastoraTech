@@ -30,6 +30,10 @@ const PortfolioAreaTwo = () => {
 	const handleLoadMore = () => {
 		setNext((value) => value + 3);
 	};
+
+	// Remove duplicate items by id
+	const uniqueItems = Array.from(new Map(items.map(item => [item.id + item.title, item])).values());
+
 	return (
 		<>
 			<section className="portfolio-area pt-190 pb-110">
@@ -59,19 +63,19 @@ const PortfolioAreaTwo = () => {
 						</div>
 					</div>
 					<div className="row grid">
-						{items.slice(0, next).map((item, i) =>
-							<div key={i} className="col-lg-4 col-md-6 grid-item port-details3  port-details5">
+						{uniqueItems.slice(0, next).map((item) =>
+							<div key={item.id + item.title} className="col-lg-4 col-md-6 grid-item port-details3  port-details5">
 								<div className="portfolio-inner-item-2 mb-40">
 									<div className="portfolio-inner-thumb-2">
-										<Image src={item.img} alt="theme-pure" />
+										<Image src={item.img} alt="theme-pure"  />
 									</div>
 									<div className="portfolio-inner-content-2">
-										<div className="portfolio-inner-title-2"><a href="portfolio-details.html">{item.title}</a></div>
+										<div className="portfolio-inner-title-2"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></div>
 										<p>{item.sm_des}</p>
 										<div className="portfolio-inner-tag-2">
-											<a href="#">Branding</a>{' '}
-											<a href="#">Website</a>{' '}
-											<a href="#">Design</a>{' '}
+											{item.tags && item.tags.map((tag, idx) => (
+												<a href="#" key={idx}>{tag}</a>
+											))}
 										</div>
 									</div>
 								</div>
