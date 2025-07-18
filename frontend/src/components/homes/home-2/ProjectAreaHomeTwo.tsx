@@ -114,7 +114,7 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
                     <div className="tp-panel-top mb-30">
                         <p>{sm_info_2}</p>
                         <div className="tp-panel-btn">
-                          <Link className="light-blue-btn" href="/portfolio-2">View all Projects</Link>
+                          <Link className="light-blue-btn" href="/portfolio">View all Projects</Link>
                         </div>
                     </div>
                   </div>

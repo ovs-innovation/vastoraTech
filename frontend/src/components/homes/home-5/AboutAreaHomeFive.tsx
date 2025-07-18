@@ -11,7 +11,7 @@ import about_shape_1 from "@/assets/img/shape/about-5-shape-1.svg";
 import about_shape_2 from "@/assets/img/shape/about-5-shape-2.svg";
 
 const about_content = {
-	sub_title: "Abour Us",
+	sub_title: "About Us",
 	title: "Empowering Brand Growth Together",
 	sm_des: "At Vastora Tech, we empower brand growth by delivering tailored, innovative technology solutions that drive success and create lasting impact for your business.",
 	about_data: [
@@ -42,7 +42,7 @@ const AboutAreaHomeFive = () => {
 					<div className="row">
 						<div className="col-lg-7">
 							<div className="about-5">
-								<div className="about-5-section mb-70">
+								<div className="section-wrapper mb-70">
 									<span className="sub-title">{sub_title}</span>
 									<h4 className="title">{title}</h4>
 									<p>{sm_des}</p>

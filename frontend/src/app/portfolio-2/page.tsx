@@ -1,15 +1,15 @@
 import ScrollToTop from "@/components/common/scroll-to-top";
-import PortfolioTwo from "@/components/inner-pages/portfolio-2";
+import Portfolio from "@/components/inner-pages/portfolio";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-    title: "Portfolio Two - Digital Marketing & SEO Agency Next js Template", 
+    title: "Portfolio - Digital Marketing & SEO Agency Next js Template", 
 };
 const index = () => {
     return (
         <Wrapper>
-            <PortfolioTwo />
-            <ScrollToTop />
+            <Portfolio />  
+            <ScrollToTop />                     
         </Wrapper>
     );
 };
