@@ -22,6 +22,7 @@ interface project_content_type {
         title: string;
         meta_tag_1: string;
         meta_tag_2: string;
+        link: string;
     }[];
 }
 // project content data
@@ -34,9 +35,10 @@ const project_content: project_content_type = {
         {
             id: 1,
             img: project_thumb_1,
-            title: "SEO Fashion Website",
-            meta_tag_1: "Digital Art",
-            meta_tag_2: "Illustrations",
+            title: "TossMart - E-commerce Website",
+            meta_tag_1: "E-commerce",
+            meta_tag_2: "Online Shopping",
+            link: "https://tossmart.com/"
         },
         {
             id: 2,
@@ -44,6 +46,7 @@ const project_content: project_content_type = {
             title: "CandyFloss - Personalized Salon Care",
             meta_tag_1: "Tailored Beauty Services",
             meta_tag_2: "Beauty Salon",
+            link: "https://candyflossbeautypalace.com/"
         },
         {
             id: 3,
@@ -51,13 +54,15 @@ const project_content: project_content_type = {
             title: "The Learn Skills – E-Learning Website",
             meta_tag_1: "LMS",
             meta_tag_2: "E-Learning",
+            link: "https://thelearnskills.com/"
         },
         {
             id: 4,
             img: project_thumb_4,
-            title: "SEO Fashion Website",
-            meta_tag_1: "Digital Art",
-            meta_tag_2: "Illustrations",
+            title: "Hotel Sweet Dreams",
+            meta_tag_1: "Hotel Booking",
+            meta_tag_2: "Hotel Management",
+            link: "https://hotelsweetdreams.ovsinnovation.com/"
         },
     ]
 }
@@ -151,7 +156,7 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
                         </div>
                         <div className="tp-panel-text">
                           <h4 className="tp-panel-title mb-15">
-                            <Link href="/portfolio-details">{item.title}</Link>
+                            <Link href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</Link>
                           </h4>
                           <ul className="tp-panel-meta">
                             <li>{item.meta_tag_1}</li>
