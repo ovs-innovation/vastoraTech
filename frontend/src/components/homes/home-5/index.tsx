@@ -4,6 +4,7 @@ import HeaderFive from "@/layout/headers/HeaderFive";
 import ProjectAreaHomeTwo from "../home-2/ProjectAreaHomeTwo";
 import ReviewAreaHomeFour from "../home-4/ReviewAreaHomeFour";
 import BlogAreaHomeFour from "../home-4/BlogAreaHomeFour";
+import ServicesAreaHomeFour from "../home-4/ServicesAreaHomeFour";
 import AboutAreaHomeFive from "./AboutAreaHomeFive";
 import ContactAreaHomeFour from "../home-4/ContactAreaHomeFour";
 import CounterAreaHomeFive from "./CounterAreaHomeFive";
@@ -29,6 +30,7 @@ const HomeFive = () => {
                 <FeatureAreaHomeFive />
                 <AboutAreaHomeFive />
                 <CounterAreaHomeFive />
+                <ServicesAreaHomeFour />
                 <ToolestAeaHomeFive />
                 <ProjectAreaHomeTwo style={true} />
                 <ProjectFeaturHomefive />

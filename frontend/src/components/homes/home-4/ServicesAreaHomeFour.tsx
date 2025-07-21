@@ -5,6 +5,7 @@ import MarketingIcon from "@/svg/marketing_icon";
 import RightArrowThree from "@/svg/right_arrow_3";
 import SEOAnalyticsIcon from "@/svg/SEO_analytics_icon";
 import SocialMarketingIcon from "@/svg/social_marketing_icon";
+import WebIcon from "@/svg/web_icon";
 
 import header_rocket from "@/assets/img/shape/header-rocket.png";
 import service_shape_1 from "@/assets/img/shape/choose-4-shape-1.png";
@@ -50,6 +51,13 @@ const service_content: service_content_type = {
             icon: <SocialMarketingIcon />,
             title: "Social Marketing",
             sm_des: "We develop digital strategies, products and services appreciated by clients.",
+        },
+        {
+            id: 4, 
+            shape: service_shape_3,
+            icon: <WebIcon />,
+            title: "Web Development",
+            sm_des: "We build fast, responsive websites with secure backend for businesses and e-commerce.",
         },
     ],
     sm_info: <>You can also find our <Link href="/service"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</>,
