@@ -269,13 +269,17 @@ const TestimonialAreaHomeFour = () => {
                             zIndex: circlePositions[i].zIndex,
                           }}
                         >
-                          <div style={{ width: '100%', height: '100%', transform: `rotate(${-rotation - staticAngle}deg)` }}>
-                            <Image
-                              src={testimonial_data[dataIdx].shape || test_img_1}
-                              alt={typeof testimonial_data[dataIdx].author === 'string' ? testimonial_data[dataIdx].author : 'testimonial'}
-                              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
-                            />
-                          </div>
+                          <Image
+                            src={testimonial_data[dataIdx].shape || test_img_1}
+                            alt={typeof testimonial_data[dataIdx].author === 'string' ? testimonial_data[dataIdx].author : 'testimonial'}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              borderRadius: '50%',
+                              transform: `rotate(${-rotation}deg)`
+                            }}
+                          />
                         </div>
                       );
                     }
