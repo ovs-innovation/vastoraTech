@@ -1,6 +1,4 @@
- 
-
-const SocialMarketingIcon = () => {
+ const SocialMarketingIcon = () => {
   return (
     <>
       <svg

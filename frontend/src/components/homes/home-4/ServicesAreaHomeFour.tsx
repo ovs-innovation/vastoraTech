@@ -5,12 +5,14 @@ import MarketingIcon from "@/svg/marketing_icon";
 import RightArrowThree from "@/svg/right_arrow_3";
 import SEOAnalyticsIcon from "@/svg/SEO_analytics_icon";
 import SocialMarketingIcon from "@/svg/social_marketing_icon";
+import AndroideIcon from "@/svg/androide_icon";
 import WebIcon from "@/svg/web_icon";
 
 import header_rocket from "@/assets/img/shape/header-rocket.png";
 import service_shape_1 from "@/assets/img/shape/choose-4-shape-1.png";
 import service_shape_2 from "@/assets/img/shape/choose-4-shape-2.png";
 import service_shape_3 from "@/assets/img/shape/choose-4-shape-3.png";
+import service_shape_4 from "@/assets/img/shape/choose-4-shape-4.png";
 
 interface service_content_type {
     sub_title: string;
@@ -58,6 +60,13 @@ const service_content: service_content_type = {
             icon: <WebIcon />,
             title: "Web Development",
             sm_des: "We build fast, responsive websites with secure backend for businesses and e-commerce.",
+        },
+        {
+            id: 5, 
+            shape: service_shape_4,
+            icon: <AndroideIcon />,
+            title: "Mobile App Development",
+            sm_des: "We develop cross-platform mobile apps for iOS and Android, ensuring seamless user experiences.",
         },
     ],
     sm_info: <>You can also find our <Link href="/service"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</>,
