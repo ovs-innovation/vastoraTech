@@ -30,7 +30,7 @@ const process_content: process_content_type = {
             cls_1: "p-relative",
             cls_2: "",
             cls_3: "one", 
-            title: <>Brainstorming and Creative <br /> ideas & Research</>,
+            title: <>Understanding Your Needs <br /> and Goals</>,
             shape: <ProcessShape />,
         },
         {
@@ -38,7 +38,7 @@ const process_content: process_content_type = {
             cls_1: "p-relative ml-30",
             cls_2: "tpprocess__two",
             cls_3: "two", 
-            title: <>Fully-Automated Keyword <br /> Grouping</>,
+            title: <>Developing a Custom <br /> Strategy</>,
             shape: <ProcessShapTwo />,
         },
         {
@@ -46,14 +46,14 @@ const process_content: process_content_type = {
             cls_1: "p-relative ml-55",
             cls_2: "tpprocess__three",
             cls_3: "three", 
-            title: <>Building the strategy to <br /> boost Your Sales</>,
+            title: <>Implementing the Strategy <br /> and Monitoring Results</>,
             shape: <ProcessShape />,
         },
         {
             id: 4,
             cls_1: "d-flex justify-content-end",
             cls_2: "tpprocess__four", 
-            title: <>Helping to achieve more <br /> People</>,
+            title: <>Continuous Optimization <br /> and Improvement</>,
             
         },
     ]

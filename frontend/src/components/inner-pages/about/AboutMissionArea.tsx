@@ -13,9 +13,9 @@ type about_content_type = {
 
 const about_content: about_content_type = {
   sm_info_1:
-    "e are in business to develop an SEO software that allows anyone to independently optimize and promote a website on the web, regardless of the level of expertise.",
+    "To provide innovative, user-friendly, and scalable software solutions that help businesses thrive in the digital era. We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
   sm_info_2:
-    "We aim to constantly improve the user experience, functionality, and support to provide the best possible options for search engine optimization.",
+    "We collaborate closely with clients to craft customized, scalable solutions using agile methodologies, ensuring seamless delivery and ongoing support. Our goal is to empower your brand’s growth through innovative technology and continuous improvement.",
 };
 const {sm_info_1, sm_info_2} = about_content;
 
