@@ -41,7 +41,7 @@ const HomeFive = () => {
                 <ContactAreaHomeFour />
                 <BlogAreaHomeFour />
             </main>
-            <FooterFive />
+            <FooterFive style={true} />
         </>
     );
 };

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeaderSixLogo from "@/svg/logo/header_6";
 import FooterFiveLogo from "@/svg/logo/FooterFiveLogo";
+import HeaderLogoHomeFive from "@/svg/logo/header_logo_home_5";
 import PhoneIcon from "@/assets/img/icon/phone-icon.png";
 import { CopyRight, SocialLinksTwo } from "@/components/common/social-links";
 import AuditFooterLogo from "@/svg/logo/AuditFooterLogo";
@@ -31,13 +32,13 @@ interface footer_five_content_type {
 }
 // footer five content 
 const footer_five_content: footer_five_content_type = {
-	sm_des: "Best Award-winning SEO agency.!",
-	phone_number: "(229) 888-5203",
+	sm_des: "Improve efficiency, provide a better Customer experience with modern Technology services available.",
+	phone_number: "+91 9667092077",
 	btn_text: "Enquire Now",
 	work_title: "Information",
 	work_times: [
-		{ id: 1, day: "Working days:", time: "10AM - 8PM" },
-		{ id: 2, day: "Saturday:", time: "19AM - 6PM" },
+		{ id: 1, day: "Working days:", time: "10AM - 6:30PM" },
+		{ id: 2, day: "Saturday:", time: "10AM - 6:30PM" },
 		{ id: 3, day: "Sunday:", time: "Closed" },
 	],
 	footer_link_data: [
@@ -87,9 +88,9 @@ const FooterFive = ({ style, style_audit, style_2 }: any) => {
 										<div className="footer-widget-logo mb-20">
 											<Link href="/">
 												<span>
-													{style_audit ? <AuditFooterLogo />
+													{style_audit ? <HeaderLogoHomeFive />
 														:
-														<>{style ? <HeaderSixLogo /> : <FooterFiveLogo />}</>
+														<>{style ? <HeaderLogoHomeFive /> : <HeaderLogoHomeFive />}</>
 													}
 												</span>
 											</Link>

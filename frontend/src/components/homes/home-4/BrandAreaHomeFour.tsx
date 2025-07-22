@@ -208,7 +208,7 @@ const BrandAreaHomeFour = () => {
                       <div key={i} className="tpbrand-item-4 mb-35">
                         <Image
                           src={item}
-                          alt="theme-pure"
+                          alt="vastora tech clients"
                           className="w-50 h-50 "
                         />
                       </div>
