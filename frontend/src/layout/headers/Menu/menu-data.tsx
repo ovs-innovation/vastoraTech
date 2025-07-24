@@ -1,17 +1,17 @@
 import { StaticImageData } from "next/image";
 import RightArrowMenu from "@/svg/home-1/RightArrowMenu";
 // home demo
-import home_demo_1 from "@/assets/img/menu/home-1.jpg";
-import home_demo_2 from "@/assets/img/menu/home-2.jpg";
-import home_demo_3 from "@/assets/img/menu/home-3.jpg";
-import home_demo_4 from "@/assets/img/menu/home-4.jpg";
-import home_demo_5 from "@/assets/img/menu/home-5.jpg";
+// import home_demo_1 from "@/assets/img/menu/home-1.jpg";
+// import home_demo_2 from "@/assets/img/menu/home-2.jpg";
+// import home_demo_3 from "@/assets/img/menu/home-3.jpg";
+// import home_demo_4 from "@/assets/img/menu/home-4.jpg";
+// import home_demo_5 from "@/assets/img/menu/home-5.jpg";
 // service deme 
-import service_demo_1 from "@/assets/img/header-icon/keyword.png";
-import service_demo_2 from "@/assets/img/header-icon/audit.png";
+import service_demo_1 from "@/assets/img/header-icon/web.png";
+import service_demo_2 from "@/assets/img/header-icon/mobile.png";
 import service_demo_3 from "@/assets/img/header-icon/building.png";
 import service_demo_4 from "@/assets/img/header-icon/media.png";
-import service_demo_5 from "@/assets/img/header-icon/analysis.png";
+import service_demo_5 from "@/assets/img/header-icon/keyword.png";
 
 import menu_banner from "@/assets/img/header-icon/header-banner/header-banner-1.png";
  
@@ -46,16 +46,16 @@ const menu_data: menu_data_type[] = [
   {
     id: 1,
     title: "Home",
-    link: "#",
-    has_dropdown: true,
+    link: "/",
+    has_dropdown: false,
     img_dropdown: true,
-    sub_menus: [
-      { link: "/",       title: "SEO Marketing",  demo_img: home_demo_1,  },
-      { link: "/home-2", title: "SEO Analysis",   demo_img: home_demo_2,  },
-      { link: "/home-3", title: "Business SEO",   demo_img: home_demo_3,  },
-      { link: "/home-4", title: "SEO Agency",     demo_img: home_demo_4,  },
-      { link: "/home-5", title: "SEO Campaign",   demo_img: home_demo_5,  },
-    ],
+    // sub_menus: [
+    //   { link: "/",       title: "SEO Marketing",  demo_img: home_demo_1,  },
+    //   { link: "/home-2", title: "SEO Analysis",   demo_img: home_demo_2,  },
+    //   { link: "/home-3", title: "Business SEO",   demo_img: home_demo_3,  },
+    //   { link: "/home-4", title: "SEO Agency",     demo_img: home_demo_4,  },
+    //   { link: "/home-5", title: "SEO Campaign",   demo_img: home_demo_5,  },
+    // ],
   },
   {
     id: 2,
@@ -71,11 +71,11 @@ const menu_data: menu_data_type[] = [
     service_dropdown: true,
     inner_title: "Services Overview",
     sub_menus: [
-      { link: "/keyword-search",           title: "Keyword Research",         demo_img: service_demo_1,  },
-      { link: "/seo-audit",                title: "SEO Audit Services",       demo_img: service_demo_2,  },
-      { link: "/social-services",          title: "Link Building Services",   demo_img: service_demo_3,  },
-      { link: "/media-markiting",          title: "Social Media Marketing",   demo_img: service_demo_4,  },
-      { link: "/marketing-analysis",       title: "SEO analysis.",            demo_img: service_demo_5,  },
+      { link: "/web-development",           title: "Web Development",         demo_img: service_demo_1,  },
+      { link: "/mobile-app-development",    title: "Mobile App Development",   demo_img: service_demo_2,  },
+      { link: "/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
+      { link: "/social-media-marketing",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
+      { link: "/seo-services",         title: "SEO Services",        demo_img: service_demo_5,  },
     ],
     banner_sub_title: "Software Development & Digital Marketing Agency",
     banner_title: <>The #1 Software <br/> Development and Digital Marketing Agency <br /> for fast growing  companies.</>,

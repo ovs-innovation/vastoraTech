@@ -35,39 +35,39 @@ const service_content: service_content_type = {
     service_data: [
         {
             id: 1, 
-            shape: service_shape_1,
-            icon: <MarketingIcon />,
-            title: "Digital Marketing",
-            sm_des: "We develop digital strategies, products and services appreciated by clients.",
-        },
-        {
-            id: 2, 
-            shape: service_shape_2,
-            icon: <SEOAnalyticsIcon />,
-            title: "SEO Analytics",
-            sm_des: "We develop digital strategies, products and services appreciated by clients.",
-        },
-        {
-            id: 3, 
-            shape: service_shape_3,
-            icon: <SocialMarketingIcon />,
-            title: "Social Marketing",
-            sm_des: "We develop digital strategies, products and services appreciated by clients.",
-        },
-        {
-            id: 4, 
             shape: service_shape_3,
             icon: <WebIcon />,
             title: "Web Development",
             sm_des: "We build fast, responsive websites with secure backend for businesses and e-commerce.",
         },
         {
-            id: 5, 
+            id: 2, 
             shape: service_shape_4,
             icon: <AndroideIcon />,
             title: "Mobile App Development",
             sm_des: "We develop cross-platform mobile apps for iOS and Android, ensuring seamless user experiences.",
         },
+        {
+            id: 3, 
+            shape: service_shape_1,
+            icon: <MarketingIcon />,
+            title: "Digital Marketing",
+            sm_des: "We develop digital strategies, products and services appreciated by clients.",
+        },
+        {
+            id: 4, 
+            shape: service_shape_2,
+            icon: <SEOAnalyticsIcon />,
+            title: "SEO Analytics",
+            sm_des: "We analyze your website's performance and provide actionable insights to improve your search engine rankings.",
+        },
+        {
+            id: 5, 
+            shape: service_shape_3,
+            icon: <SocialMarketingIcon />,
+            title: "Social Marketing",
+            sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
+        }
     ],
     sm_info: <>You can also find our <Link href="/service"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</>,
 }
