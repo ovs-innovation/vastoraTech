@@ -14,8 +14,8 @@ const SeoAudit = () => {
         <>
              <HeaderSix style={true} />
              <main>
-                <BreadcrumbThree sub_title="SEO Audit Services"  title={<>In-Deepth Site Audit for <br /> your website</>}
-                img={banner_service} style={false} />
+                <BreadcrumbThree sub_title="SEO Services"  title={<>SEO Services <br /> for your business</>}
+                img={banner_service} style={true} />
                  <AuditServiceArea />
                  <QualityServicesArea />
                  <AuditFeatureArea />

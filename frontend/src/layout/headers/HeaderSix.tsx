@@ -6,6 +6,7 @@ import HeaderSixLogo from "@/svg/logo/header_6";
 import ServiceHeaderLogo from "@/svg/logo/service_header_logo";
 import OffcanvasArea from "@/components/common/OffcanvasArea";
 import useSticky from "@/hooks/use-sticky";
+import HeaderFiveLogo from "@/svg/logo/header_logo_home_5";
 
 const HeaderSix = ({ style }: any) => {
 	const { sticky } = useSticky()
@@ -22,11 +23,11 @@ const HeaderSix = ({ style }: any) => {
 									<div className="tplogo__area">
 										{sticky ?
 											<Link href="/" className="sticky-logo">
-												<span>  <HeaderSixLogo /> </span>
+												<span>  <HeaderFiveLogo /> </span>
 											</Link>
 											:
 											<Link href="/" className="header-logo">
-												<span> {style ? <ServiceHeaderLogo /> : <HeaderSixLogo />} </span>
+												<span> {style ? <HeaderFiveLogo /> : <HeaderFiveLogo />} </span>
 											</Link>
 										}
 									</div>

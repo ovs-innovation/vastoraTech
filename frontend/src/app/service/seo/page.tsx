@@ -1,14 +1,14 @@
 import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
-import SeoAudit from "@/components/services/seo-audit";
+import SeoServices from "@/components/services/seo-services";
 
 export const metadata = {
-    title: "SEO Audit Services - Digital Marketing & SEO Agency Next js Template", 
+    title: "SEO Services", 
 };
 const index = () => {
     return (
         <Wrapper>
-            <SeoAudit />
+            <SeoServices />
             <ScrollToTop style={false} />
         </Wrapper>
     );
