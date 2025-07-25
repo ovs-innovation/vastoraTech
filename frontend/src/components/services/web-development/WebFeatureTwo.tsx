@@ -12,8 +12,8 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "Check your site health in 4 easy steps",
-    sm_info: <>Looking for 404 errors or redirect chains? Check <br /> status codes of any web page.</>,
+    title: "We Don’t Just Build Websites — We Build Growth",
+    sm_info: <>We don’t just build websites — we build growth. Our websites are designed to convert, perform, and scale with your business.</>,
  }
  const {title, sm_info} = audit_2_content
 

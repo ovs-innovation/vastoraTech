@@ -11,8 +11,8 @@ type web_content_type = {
     sm_info: JSX.Element,
 }
 const web_content: web_content_type = {
-    title: <>Fix your SEO <br /> Issues in a few minutes</>,
-    sm_info: <>Looking for 404 errors or redirect chains? Check <br /> status codes of any web page.</>,
+    title: <>High-Performance Websites<br /> Built to Grow Your Business</>,
+    sm_info: <>From landing pages to full-scale web apps — we craft fast, responsive, and modern websites that deliver real results.</>,
 }
 const {title, sm_info}  = web_content
  
