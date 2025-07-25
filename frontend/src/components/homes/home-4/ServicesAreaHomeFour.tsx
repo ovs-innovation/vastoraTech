@@ -24,6 +24,7 @@ interface service_content_type {
         icon: JSX.Element;
         title: string;
         sm_des: string;
+        link: string;
     }[];
     sm_info: JSX.Element;
 }
@@ -39,6 +40,7 @@ const service_content: service_content_type = {
             icon: <WebIcon />,
             title: "Web Development",
             sm_des: "We build fast, responsive websites with secure backend for businesses and e-commerce.",
+            link: "/service/web-development",
         },
         {
             id: 2, 
@@ -46,6 +48,7 @@ const service_content: service_content_type = {
             icon: <AndroideIcon />,
             title: "Mobile App Development",
             sm_des: "We develop cross-platform mobile apps for iOS and Android, ensuring seamless user experiences.",
+            link: "/service/mobile-app-development",
         },
         {
             id: 3, 
@@ -53,6 +56,7 @@ const service_content: service_content_type = {
             icon: <MarketingIcon />,
             title: "Digital Marketing",
             sm_des: "We develop digital strategies, products and services appreciated by clients.",
+            link: "/service/digital-marketing",
         },
         {
             id: 4, 
@@ -60,6 +64,7 @@ const service_content: service_content_type = {
             icon: <SEOAnalyticsIcon />,
             title: "SEO Analytics",
             sm_des: "We analyze your website's performance and provide actionable insights to improve your search engine rankings.",
+            link: "/service/seo",
         },
         {
             id: 5, 
@@ -67,6 +72,7 @@ const service_content: service_content_type = {
             icon: <SocialMarketingIcon />,
             title: "Social Marketing",
             sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
+            link: "/service/social-media-marketing",
         }
     ],
     sm_info: <>You can also find our <Link href="/service"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</>,
@@ -99,7 +105,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                                         <h5 className="title mb-20">{item.title}</h5>
                                         <p>{item.sm_des}</p> 
                                         <div className={`${style ? "services-inner-btn" : "services-btn-4"} p-relative`}>
-                                            <Link href="/marketing-analysis">
+                                            <Link href={item.link}>
                                                 <span>Read More</span>
                                                 <i> <RightArrowThree />  </i>
                                             </Link>

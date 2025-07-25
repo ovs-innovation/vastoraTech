@@ -8,13 +8,13 @@ import FooterFive from "@/layout/footers/FooterFive";
 import BreadcrumbThree from "@/components/common/breadcrumb/breadcrumb-3";
 
 // image import 
-import banner_service from "@/assets/img/services/social-media/services-social-media-bg-5.jpg";
+import banner_service from "@/assets/img/services/web-dev-bg-img.jpg";
 const WebDevelopment = () => {
     return (
         <>
              <HeaderSix style={true} />
              <main>
-                <BreadcrumbThree sub_title="Web Development Services"  title={<>Web Development <br /> for your business</>}
+                <BreadcrumbThree sub_title="Web Development Services"  title={<>We Develop high<br />performance web for your business</>}
                 img={banner_service} style={true} />
                  <WebServiceArea />
                  <QualityServicesArea />

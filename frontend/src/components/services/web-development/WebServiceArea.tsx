@@ -1,12 +1,12 @@
 import Link from "next/link";
  import Image, { StaticImageData } from "next/image";
 
-import audit_service_1 from "@/assets/img/services/services-1-icon-1.png";
-import audit_service_2 from "@/assets/img/services/services-1-icon-2.png";
-import audit_service_3 from "@/assets/img/services/services-1-icon-3.png";
-import audit_service_4 from "@/assets/img/services/services-1-icon-4.png";
-import audit_service_5 from "@/assets/img/services/services-1-icon-5.png";
-import audit_service_6 from "@/assets/img/services/services-1-icon-6.png"; 
+import web_service_1 from "@/assets/img/services/e-commerce-icon.png";
+import audit_service_2 from "@/assets/img/services/cms-development-icon.png";
+import audit_service_3 from "@/assets/img/services/wordpress-development-icon.png";
+import audit_service_4 from "@/assets/img/services/constom-web-development-icon.png";
+import audit_service_5 from "@/assets/img/services/api-integration-service-icon.png";
+import audit_service_6 from "@/assets/img/services/web-maintenance-icon.png"; 
 // audit data type
 type web_service_data_type = {
     id: number;
@@ -18,39 +18,39 @@ type web_service_data_type = {
 const web_service_data: web_service_data_type = [
     {
         id: 1,
-        img: audit_service_1,
-        title: "Social Marketing",
-        sm_info: <>Instant account activation <br /> if instant access.</>,
+        img: web_service_1,
+        title: "E-commerce Development",
+        sm_info: <>Customized e-commerce,<br />WooCommerce, Shopify, etc.</>,
     },
     {
         id: 2,
         img: audit_service_2,
-        title: "SEO Optimization",
-        sm_info: <>Services activation <br /> if  need  access.</>,
+        title: "CMS/ERP website",
+        sm_info: <>CRM, dashboards, booking  <br />  systems, SaaS platforms.</>,
     },
     {
         id: 3,
         img: audit_service_3,
-        title: "One Page SEO",
-        sm_info: <>Account activation <br /> if instant  access.</>,
+        title: "WordPress website",
+        sm_info: <>Custom WordPress website <br /> development.</>,
     },
     {
         id: 4,
         img: audit_service_4,
-        title: "Content Marketing",
-        sm_info: <>SEO account activation <br /> if instant  access.</>,
+        title: "Custom Website Development",
+        sm_info: <>Business websites, portfolios,<br /> blogs, etc.</>,
     },
     {
         id: 5,
         img: audit_service_5,
-        title: "Email Marketing",
-        sm_info: <>Email Marketing activation <br /> if instant access.</>,
+        title: "API Integration",
+        sm_info: <>Payment gateways, <br />third-party tools integration.</>,
     },
     {
         id: 6,
         img: audit_service_6,
-        title: "Keyword Research",
-        sm_info: <>Keyword Research activation <br /> if instant access.</>,
+        title: "Website Maintenance",
+        sm_info: <>Ongoing support, updates,<br /> bug fixes.</>,
     },
 ]
 

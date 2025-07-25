@@ -18,52 +18,58 @@ const quality_data: quality_data_type[] = [
         id: 1,
         tab_id: "home",
         img: service_tab_img_1,
-        title: <>What is Covered in the <br /> SEO Audit</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>How We Develop for Your Success</>,
+        info: <>We use the latest technologies and proven design principles to craft websites that are responsive, fast, and user-focused.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Tech Stack: React.js, Next.js, Node.js, MongoDB or WordPress",
+            "Mobile-responsive & SEO-ready layout",
+            "Admin dashboard: Easy-to-use",
+            "API integration (Payment, CRM, Analytics)",
+            "Speed, security & performance optimization",
         ],
     },
     {
         id: 2,
         tab_id: "profile",
         img: service_tab_img_2,
-        title: <>How is Covered in the <br /> SEO Audit</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Smart, Scalable, & Secure Architecture</>,
+        info: <>We build websites that are future-proof and ready to grow with your business.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Modular & scalable codebase",
+            "Clean structure for easy updates",
+            "Integrated security practices",
+            "Database design optimized for performance",
+            "Continuous code reviews & testing",
         ],
     },
     {
         id: 3,
         tab_id: "messages",
         img: service_tab_img_3,
-        title: <>Why need Covered in the <br /> SEO Audit</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Designed for User Experience</>,
+        info: <>Your website should not just work—it should engage and convert.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Research-based UI design",
+            "Smooth animations & microinteractions",
+            "Conversion-focused CTAs",
+            "Accessibility & mobile-first approach",
+            "Clean, modern visual identity",
+            "Responsive design for all devices",
         ],
     },
     {
         id: 4,
         tab_id: "settings",
         img: service_tab_img_4,
-        title: <>Benifits of SEO audit<br /> at present</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Ongoing Maintenance & Support</>,
+        info: <>We don’t just build websites — we keep them secure, updated, and running at peak performance.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Security updates & patches",
+            "Performance monitoring & optimization",
+            "Regular backups & disaster recovery",
+            "Technical support & troubleshooting",
+            "Custom feature development",
+            "Ongoing website updates",
         ],
     },
 ]
@@ -77,7 +83,7 @@ const QualityServicesArea = () => {
                         <div className="col-lg-12">
                             <div className="optimize-subtitle mb-60">
                                 <span>Value Proposition</span>
-                                <h5 className="section-title-4 fs-54">High-quality <br /> Link building services</h5>
+                                <h5 className="section-title-4 fs-54">We Don’t Just Build Websites — We Build Growth</h5>
                             </div>
                         </div>
                     </div>
@@ -103,7 +109,7 @@ const QualityServicesArea = () => {
                                                             strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                One-way <br /> Link building
+                                                How We Develop for<br /> Your Success <br />
                                             </span>
                                         </button>
                                         <button className="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
@@ -123,7 +129,7 @@ const QualityServicesArea = () => {
                                                             strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Find powerful <br /> backlinks
+                                                Smart, Scalable, & <br /> Secure Architecture
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
@@ -154,7 +160,7 @@ const QualityServicesArea = () => {
                                                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Resource <br /> link building
+                                                Designed for User<br /> Experience
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
@@ -224,8 +230,8 @@ const QualityServicesArea = () => {
                                                             strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Citation <br /> link building
-                                            </span>
+                                                Ongoing Maintenance & Support
+                                                </span>
                                         </button>
                                     </div>
                                 </div>
