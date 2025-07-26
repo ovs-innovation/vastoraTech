@@ -12,7 +12,7 @@ import banner_service from "@/assets/img/services/web-dev-bg-img.jpg";
 const WebDevelopment = () => {
     return (
         <>
-             <HeaderSix style={true} />
+             <HeaderSix style={false} />
              <main>
                 <BreadcrumbThree sub_title="Web Development Services"  title={<>We Develop high<br />performance web for your business</>}
                 img={banner_service} style={true} />
