@@ -6,6 +6,7 @@ import Image, { StaticImageData } from "next/image";
 import HeroLangIcon from "@/svg/home-5-icons/HeroLangIcon";
 import LeftBG from "@/assets/img/shape/banner-5-shape-1.png";
 import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
+import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
 
@@ -151,15 +152,21 @@ const HeroBannerHomeFive = () => {
 
   return (
     <>
+    <MouseParallaxContainer>
       <section className="banner-area banner-brand fix">
         <div className="banner-5 p-relative">
           <div className="banner-5-content-shape">
             <div className="banner-5-content-shape-one">
-              <Image src={ArrowPlane} alt="theme-pure" />
+              <MouseParallaxChild factorX={0.02} factorY={0.02} >
+                <Image src={ArrowPlane} alt="theme-pure" />
+              </MouseParallaxChild>
             </div>
+            
             <div className="banner-5-content-shape-two">
               <i>
-                <HeroLangIcon />
+                <MouseParallaxChild factorX={0.02} factorY={0.02} >
+                  <HeroLangIcon />
+                </MouseParallaxChild>
               </i>
             </div>
           </div>
@@ -210,7 +217,9 @@ const HeroBannerHomeFive = () => {
                         key={i}
                         className={`banner-5-thumb-shape-${item.cls}`}
                       >
-                        <Image src={item.img} alt="theme-pure" />
+                        <MouseParallaxChild factorX={0.02} factorY={0.02} >
+                          <Image src={item.img} alt="theme-pure" />
+                        </MouseParallaxChild>
                       </div>
                     ))}
                   </div>
@@ -218,8 +227,9 @@ const HeroBannerHomeFive = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </MouseParallaxContainer>
     </>
   );
 };
