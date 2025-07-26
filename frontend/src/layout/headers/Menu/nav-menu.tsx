@@ -8,9 +8,9 @@ const NavMenu = () => {
     <>
       <ul>
         {menu_data.map((item, i) => (
-          <li key={i}  className={`${item.id === 1 ? "has-dropdown has-mega-menu" : ""} ${item.id === 3 ? "header-services has-dropdown has-mega-menu" : ""} ${item.id === 4 ? "has-dropdown has-megamenu" : ""} ${item.id === 5 ? "has-dropdown" : ""}`}>
+          <li key={i}  className={`${item.id === 3 ? "header-services has-dropdown has-mega-menu" : ""} ${item.id === 4 ? "has-dropdown has-megamenu" : ""} ${item.id === 5 ? "has-dropdown" : ""}`}>
             <Link href={item.link}>{item.title}</Link>
-            {item.id === 1 &&
+            {/* {item.id === 1 &&
               <div className="tp-submenu submenu has-homemenu tp-mega-menu">
                 <div className="row gx-6 row-cols-1 row-cols-md-2 row-cols-xl-5">
                   {item.sub_menus?.map((home_item, h_index) =>
@@ -30,7 +30,7 @@ const NavMenu = () => {
                   )}
                 </div>
               </div>
-            }
+            } */}
             {item.id === 3 &&
                <div className="tp-mega-menu tp-submenu submenu">
                   <div className="row">

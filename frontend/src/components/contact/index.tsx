@@ -1,5 +1,5 @@
 import FooterFive from "@/layout/footers/FooterFive";
-import HeaderSix from "@/layout/headers/HeaderSix";
+import HeaderFive from "@/layout/headers/HeaderFive";
 import ContactArea from "./ContactArea";
 import GoogleMapArea from "./GoogleMapArea";
 
@@ -8,7 +8,7 @@ import GoogleMapArea from "./GoogleMapArea";
 const Contact = () => {
     return (
         <>
-            <HeaderSix />
+            <HeaderFive />
             <main>
                 <ContactArea />
                 <GoogleMapArea />

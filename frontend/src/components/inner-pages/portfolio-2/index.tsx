@@ -1,13 +1,13 @@
 
 import React from 'react';
-import HeaderSix from '@/layout/headers/HeaderSix';
+import HeaderFive from '@/layout/headers/HeaderFive';
 import PortfolioAreaTwo from './PortfolioAreaTwo';
 import FooterFive from '@/layout/footers/FooterFive';
 
 const PortfolioTwo = () => {
     return (
         <>
-            <HeaderSix />
+            <HeaderFive />
             <main>
                 <PortfolioAreaTwo />
             </main>

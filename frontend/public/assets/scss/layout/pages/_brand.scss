@@ -114,7 +114,7 @@
     }
     & .slick-slide img {
         display: inline-block;
-        opacity: .6;
+        opacity: 1;
         @include transition (.3s);
         &:hover {
             opacity: 1;

@@ -6,7 +6,7 @@ import PricingAreaHomeOne from "@/components/homes/home/PricingAreaHomeOne";
 import FooterFive from "@/layout/footers/FooterFive";
 import HeaderSix from "@/layout/headers/HeaderSix";
 import KeywordCtaArea from "@/componentsservices/keyword-search/KeywordCtaArea";
-import AuditServiceArea from "@/componentsservices/seo-audit/AuditServiceArea";
+import AuditServiceArea from "@/components/services/web-development/WebServiceArea";
 import ServiceAboutArea from "./ServiceAboutArea";
 import Serviceabout from "./Serviceabout";
 

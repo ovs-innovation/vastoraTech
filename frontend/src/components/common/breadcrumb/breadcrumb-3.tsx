@@ -53,7 +53,7 @@ const BreadcrumbThree = ({sub_title, title, img , style} : props_type) => {
                     <div className="row">
                     <div className="col-lg-12">
                         <div className="markiting-bg">
-                            <Image src={img} alt="" />
+                            <Image src={img} className="img-fluid markiting-bg-img" alt="" style={{ width: '100%', height: 'auto', maxHeight: '600px' }} />
                         </div>
                     </div>
                     </div>

@@ -1,8 +1,7 @@
 
 
 import LocationIconContact from "@/svg/contact_icon/LocationIconContact";
-const google_map_link = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d193502.96100813415!2d-74.1369342267891!3d40.729379535002856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1685268313256!5m2!1sen!2sbd"
- 
+const google_map_link = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28029.235959811875!2d77.36680300000003!3d28.580136000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x81c7d17f374edabb%3A0xed66ff7a40389b8a!2sOVS%20Innovation!5e0!3m2!1sen!2sus!4v1753181193525!5m2!1sen!2sus"
 type google_map_content_type = {
     sub_title: string;
     title: string;
@@ -15,23 +14,17 @@ type google_map_content_type = {
     }[];
 }
  const google_map_content: google_map_content_type = {
-    sub_title: "OUR OFFICES",
-    title: "Visit one of our offices around the World",
+    sub_title: "OUR OFFICE",
+    title: "Visit our office in India",
     locations: [
         {
             id: 1, 
             icon: <LocationIconContact />,
-            country: "United Kingdom",
-            address: <>20 Great Marlborough Street, <br /> London, UK W18HU</>,
-            address_link: "https://www.google.com/maps/@40.7293795,-74.1369342,11z?hl=en&entry=ttu",
+            country: "Noida Sector-51, India",
+            address: <>2nd Floor, JS Acade, 203, above PNB Bank, Hoshiyarpur, Sector 51, Noida, Uttar Pradesh 201301</>,
+            address_link: "https://maps.app.goo.gl/WmdQFpw8LhnPeirb6",
         },
-        {
-            id: 1, 
-            icon: <LocationIconContact />,
-            country: "USA",
-            address: <>208 Hamilton Avenue, Palo <br /> Alto, California, 901</>,
-            address_link: "https://www.google.com/maps/@40.7293795,-74.1369342,11z?hl=en&entry=ttu",
-        },
+        
     ]
  }
  const {sub_title, title, locations} = google_map_content

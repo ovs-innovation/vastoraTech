@@ -105,7 +105,7 @@ const HeaderFive = () => {
                     <div className="d-flex align-items-center">
                       <div className="tpheader-btn-5  d-none d-md-block ml-25">
                         <Link
-                          href="/sign-in"
+                          href="/contact"
                           style={{
                             background: "#4260FF",
                             color: "#fff",
@@ -118,7 +118,7 @@ const HeaderFive = () => {
                             padding: "14px 23.5px",
                           }}
                         >
-                          Sign Up
+                          Get a Quote
                         </Link>
                       </div>
                       <div className="offcanvas-btn d-xl-none ml-20">

@@ -12,7 +12,7 @@ import Image  from 'next/image';
 
  const company_content: company_content_type = {
     title: "Discovery our culture",
-    sm_des: <>More 15,000 Companies & partners <br /> trusted & choice SEOMY.</>,
+    sm_des: <>More than 100+ Companies & partners <br /> trusted & choice Vastora Tech.</>,
  }
  const {title, sm_des}  = company_content
 

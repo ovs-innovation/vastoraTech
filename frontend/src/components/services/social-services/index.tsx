@@ -7,7 +7,7 @@ import HeaderSix from "@/layout/headers/HeaderSix";
 import FooterFive from "@/layout/footers/FooterFive";
 import SocialServicesImportant from "./SocialServicesImportant";
 import BreadcrumbThree from "@/components/common/breadcrumb/breadcrumb-3";
-import QualityServicesArea from "../seo-audit/QualityServicesArea";
+import QualityServicesArea from "../web-development/QualityServicesArea";
 import ServicesAreaHomeFour from "@/components/homes/home-4/ServicesAreaHomeFour";
 
 const SocialServices = () => {

@@ -19,9 +19,9 @@ type breadcrumb_content_type = {
 const breadcrumb_content: breadcrumb_content_type = {
     top_title: "About Us",
     title: "About Us",
-    sub_title: "sub_title",
-    inner_title: "Working Hard to Make SEO Easy. Together",
-    inner_info: <>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit.</>,
+    sub_title: "Who We are",
+    inner_title: "Empowering Brand Growth Together",
+    inner_info: <>We are a team of experienced professionals who are dedicated to helping businesses grow and succeed.</>,
 }
 const {top_title, title, sub_title, inner_title, inner_info}  = breadcrumb_content
 

@@ -17,8 +17,8 @@ type contact_conent_type = {
 const contact_conent: contact_conent_type = {
     title: "Get in Touch",
     sm_info: <>If you need help with your account or have questions about <br /> credit sesame, please visit our Help center.!</>,
-    email: "Info@contact.com",
-    phone: "+1 415 704 6387",
+    email: "info@ovsinnovation.in",
+    phone: "+91 9667092077",
     btn_text: "Contact Us",
 }
 const { title, sm_info, email, phone, btn_text } = contact_conent
