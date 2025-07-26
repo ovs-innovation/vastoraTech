@@ -148,7 +148,7 @@
   --tp-grey-8: #55585B;
   --tp-text-body: #565764;
   --tp-text-1: #271D3A;
-  --tp-theme-primary: #4260FF;
+  --tp-theme-primary: #2B6BB3;
   --tp-theme-secondary: #131683;
   --tp-theme-3: #05003B;
   --tp-theme-green: #59BA41;
@@ -1092,14 +1092,14 @@ div.test img {
   font-size: 16px;
   line-height: 1;
   color: var(--tp-common-white);
-  background-color: #007CF5;
+  background-color: #2B6BB3;
   display: inline-block;
   padding: 12px 32px;
   border-radius: 4px;
-  border: 2px solid #007CF5;
+  border: 2px solid #2B6BB3;
 }
 .light-blue-btn:hover {
-  color: #007CF5;
+  color: #2B6BB3;
   background-color: transparent;
 }
 
@@ -2053,13 +2053,13 @@ div.test img {
   -o-border-radius: 7px;
   -ms-border-radius: 7px;
   border-radius: 7px;
-  border: 2px solid #4260FF;
+  border: 2px solid #2B6BB3;
   font-size: 15px;
   font-weight: 600;
   font-family: var(--tp-ff-jakarta);
 }
 .basic-pagination ul li a i, .basic-pagination ul li span i {
-  color: #4260FF;
+  color: #2B6BB3;
   transform: translateY(-1px);
   display: inline-block;
 }
@@ -3248,7 +3248,7 @@ div.test img {
 
 #scroll-indicator,
 #scroll-indicator-2 {
-  background: linear-gradient(to right, #4260FF, #4260FF, #4260FF);
+  background: linear-gradient(to right, #2B6BB3, #2B6BB3, #2B6BB3);
   height: 4px;
   width: 0%;
   position: fixed;
@@ -6544,7 +6544,7 @@ blockquote cite::before {
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #4260FF;
+  color: #2B6BB3;
   background: rgba(66, 96, 255, 0.1);
   border-radius: 6px;
   display: inline-block;
@@ -6801,7 +6801,7 @@ blockquote cite::before {
   line-height: 1;
   color: #FFFFFF;
   display: inline-block;
-  background: #4260FF;
+  background: #2B6BB3;
   border-radius: 6px;
   padding: 12px 31px 13px 31px;
 }
@@ -6886,7 +6886,7 @@ blockquote cite::before {
   margin-bottom: 8px;
 }
 .sidebar__widget-social a:hover {
-  background: #4260FF;
+  background: #2B6BB3;
   color: var(--tp-common-white);
 }
 .sidebar__widget-input input {
@@ -6914,7 +6914,7 @@ blockquote cite::before {
   color: var(--tp-common-white);
   text-align: center;
   width: 100%;
-  background: #4260FF;
+  background: #2B6BB3;
   border-radius: 6px;
   display: inline-block;
   padding: 21px 20px;
@@ -7111,7 +7111,7 @@ blockquote cite::before {
   }
 }
 .tpmasonry-item {
-  background: linear-gradient(180deg, #184CFF 0%, #809BF9 101.28%);
+  background: linear-gradient(180deg, #2B6BB3 0%, #809BF9 101.28%);
   border-radius: 10px;
   padding: 88px 50px 78px 38px;
 }
@@ -7186,7 +7186,7 @@ blockquote cite::before {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--tp-common-white);
-  background: #4260FF;
+  background: #2B6BB3;
   border-radius: 6px;
   padding: 8px 14px;
   margin-bottom: 12px;
@@ -8218,7 +8218,7 @@ blockquote cite::before {
   background-color: var(--tp-common-white);
 }
 .footer-5 .footer-widget-social a i:hover {
-  border-color: #007CF5;
+  border-color: #2B6BB3;
 }
 
 .footer-5-col-1 .phone-call {
@@ -8362,7 +8362,7 @@ blockquote cite::before {
   color: #FF5527;
 }
 .footer-bottom-5 .footer-widget-social a:hover i {
-  background-color: #007CF5;
+  background-color: #2B6BB3;
 }
 .footer-bottom-5 .footer-widget-copyright {
   padding: 40px 0;
@@ -8388,7 +8388,7 @@ blockquote cite::before {
   letter-spacing: 0;
 }
 .footer-bottom-inner .footer-widget-social a:hover i {
-  background-color: #007CF5;
+  background-color: #2B6BB3;
 }
 .footer-bottom-inner .footer-widget-copyright {
   padding: 40px 0;
@@ -10016,7 +10016,7 @@ blockquote cite::before {
   top: 2px;
   bottom: 2px;
   right: 53.3%;
-  background-color: #4260FF;
+  background-color: #2B6BB3;
   border-radius: 36px;
   z-index: 1;
   transition: 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -11541,15 +11541,15 @@ blockquote cite::before {
   font-size: 16px;
   line-height: 1;
   color: var(--tp-common-white);
-  background-color: #007CF5;
+  background-color: #2B6BB3;
   display: inline-block;
   padding: 13px 32px;
   border-radius: 4px;
-  border: 2px solid #007CF5;
+  border: 2px solid #2B6BB3;
 }
 .tp-panel-top .light-blue-btn:hover {
   background-color: transparent;
-  color: #007CF5;
+  color: #2B6BB3;
 }
 
 .project-5 .tp-panel-item img {
@@ -12531,7 +12531,7 @@ div.price-open {
   }
 }
 .pricing-inner-item.active {
-  background: #4260FF;
+  background: #2B6BB3;
   border-radius: 10px;
   margin: 0 -10px;
 }
@@ -13981,7 +13981,7 @@ div.price-open {
   margin: 0 4px;
 }
 .testimonial-5-content .slick-dots li.slick-active {
-  background-color: #007CF5;
+  background-color: #2B6BB3;
 }
 
 .author-title-5 {
@@ -14140,7 +14140,7 @@ div.price-open {
   color: var(--tp-common-white);
 }
 .tpcontact-form-input input:focus, .tpcontact-form-input textarea:focus {
-  border-color: #4260FF;
+  border-color: #2B6BB3;
 }
 .tpcontact-form-input input:focus::placeholder, .tpcontact-form-input textarea:focus::placeholder {
   opacity: 0;
@@ -16876,7 +16876,7 @@ div.price-open {
   bottom: -10px;
   height: 100%;
   width: 100%;
-  background: radial-gradient(109.39% 109.39% at 93.51% 103.88%, #007CF5 0%, rgba(0, 124, 245, 0.52) 100%);
+  background: radial-gradient(109.39% 109.39% at 93.51% 103.88%, #2B6BB3 0%, rgba(0, 124, 245, 0.52) 100%);
   border-radius: 10px;
   z-index: -2;
 }
@@ -16957,8 +16957,8 @@ div.price-open {
   left: 0;
 }
 .agreement .switcher label input:checked + span {
-  background: #007CF5;
-  border-color: #007CF5;
+  background: #2B6BB3;
+  border-color: #2B6BB3;
 }
 .agreement .switcher label input:checked + span small {
   left: 50%;
@@ -16977,7 +16977,7 @@ div.price-open {
   border: 2px solid transparent;
 }
 .web-item input:focus {
-  border-color: #007CF5;
+  border-color: #2B6BB3;
   height: 54px;
 }
 .web-item input::-webkit-input-placeholder {
@@ -17593,7 +17593,7 @@ div.price-open {
   font-family: var(--tp-ff-jakarta);
   font-weight: 500;
   font-size: 16px;
-  color: #4260FF;
+  color: #2B6BB3;
   position: relative;
 }
 .about-inner-content span::before {
@@ -17798,7 +17798,7 @@ div.price-open {
   font-family: var(--tp-ff-jakarta);
   font-weight: 500;
   font-size: 15px;
-  color: #4260FF;
+  color: #2B6BB3;
   margin-bottom: 8px;
   display: inline-block;
 }
@@ -18514,7 +18514,7 @@ div.price-open {
   font-size: 12px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #4260FF;
+  color: #2B6BB3;
   background-color: rgba(66, 96, 255, 0.06);
   border-radius: 6px;
   display: inline-block;
@@ -19665,7 +19665,7 @@ div.price-open {
 }
 
 .brand-inner-content {
-  background: #4260FF;
+  background: #2B6BB3;
   display: inline-block;
   position: relative;
   z-index: 2;
@@ -20208,7 +20208,7 @@ div.price-open {
 }
 .tp-accordion-progress-active {
   position: absolute;
-  background: #007CF5;
+  background: #2B6BB3;
   height: 100%;
   width: 4px;
 }
@@ -20869,7 +20869,7 @@ div.price-open {
   padding-top: 180px;
   padding-bottom: 325px;
   position: relative;
-  background: linear-gradient(180deg, #4260FF 0%, #2346FF 100%);
+  background: linear-gradient(180deg, #2B6BB3 0%, #2346FF 100%);
   z-index: 1;
 }
 .markiting-shape {
@@ -21484,7 +21484,7 @@ div.price-open {
   opacity: 1;
 }
 .services-seo-link-check span {
-  color: #4260FF;
+  color: #2B6BB3;
   font-family: var(--tp-ff-jakarta);
   font-weight: 500;
   font-size: 13px;
@@ -21542,7 +21542,7 @@ div.price-open {
   position: absolute;
   content: "";
   position: absolute;
-  background: #007CF5;
+  background: #2B6BB3;
   height: 100%;
   width: 3px;
   bottom: auto;

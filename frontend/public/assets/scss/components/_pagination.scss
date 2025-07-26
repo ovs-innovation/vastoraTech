@@ -18,12 +18,12 @@
 				line-height: 39px;
 				text-align: center;
 				@include border-radius(7px);
-				border: 2px solid #4260FF;
+				border: 2px solid #2B6BB3;
 				font-size: 15px;
 				font-weight: 600;
 				font-family: var(--tp-ff-jakarta);
 				& i {
-					color: #4260FF;
+					color: #2B6BB3;
 					transform: translateY(-1px);
 					display: inline-block;
 				}
