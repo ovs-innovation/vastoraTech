@@ -1,12 +1,12 @@
 import Link from "next/link";
  import Image, { StaticImageData } from "next/image";
 
-import audit_service_1 from "@/assets/img/services/services-1-icon-1.png";
-import audit_service_2 from "@/assets/img/services/services-1-icon-2.png";
-import audit_service_3 from "@/assets/img/services/services-1-icon-3.png";
-import audit_service_4 from "@/assets/img/services/services-1-icon-4.png";
-import audit_service_5 from "@/assets/img/services/services-1-icon-5.png";
-import audit_service_6 from "@/assets/img/services/services-1-icon-6.png"; 
+import audit_service_1 from "@/assets/img/services/websiteAudit.png";
+import audit_service_2 from "@/assets/img/services/optimization.png";
+import audit_service_3 from "@/assets/img/services/internet.png";
+import audit_service_4 from "@/assets/img/services/offPageSeo.png";
+import audit_service_5 from "@/assets/img/services/content-marketing (1).png";
+import audit_service_6 from "@/assets/img/services/keywords.png"; 
 // audit data type
 type audit_service_data_type = {
     id: number;
@@ -19,7 +19,7 @@ const audit_service_data: audit_service_data_type = [
     {
         id: 1,
         img: audit_service_1,
-        title: "Social Marketing",
+        title: "Website Audit",
         sm_info: <>Instant account activation <br /> if instant access.</>,
     },
     {
@@ -31,19 +31,19 @@ const audit_service_data: audit_service_data_type = [
     {
         id: 3,
         img: audit_service_3,
-        title: "One Page SEO",
+        title: "On Page SEO",
         sm_info: <>Account activation <br /> if instant  access.</>,
     },
     {
         id: 4,
         img: audit_service_4,
-        title: "Content Marketing",
+        title: "Off Page SEO",
         sm_info: <>SEO account activation <br /> if instant  access.</>,
     },
     {
         id: 5,
         img: audit_service_5,
-        title: "Email Marketing",
+        title: "Content Marketing",
         sm_info: <>Email Marketing activation <br /> if instant access.</>,
     },
     {
@@ -71,7 +71,7 @@ const AuditServiceArea = ({style} : style_type) => {
                       <ul>
                         {audit_service_data.map((item, i) => (
                           <li key={i}>
-                            <div className={`tpservices-wrapper tpservices-item${item.id}`}>
+                            <div className={`tpservices-wrapper tpservices-item${item}`}>
                               <div className="tpservices-img mb-35">
                                 <Image src={item.img} alt="theme-pure" />
                               </div>
