@@ -2,11 +2,11 @@ import Link from "next/link";
  import Image, { StaticImageData } from "next/image";
 
 import web_service_1 from "@/assets/img/services/e-commerce-icon.png";
-import audit_service_2 from "@/assets/img/services/cms-development-icon.png";
-import audit_service_3 from "@/assets/img/services/wordpress-development-icon.png";
-import audit_service_4 from "@/assets/img/services/constom-web-development-icon.png";
-import audit_service_5 from "@/assets/img/services/api-integration-service-icon.png";
-import audit_service_6 from "@/assets/img/services/web-maintenance-icon.png"; 
+import web_service_2 from "@/assets/img/services/cms-development-icon.png";
+import web_service_3 from "@/assets/img/services/wordpress-development-icon.png";
+import web_service_4 from "@/assets/img/services/constom-web-development-icon.png";
+import web_service_5 from "@/assets/img/services/api-integration-service-icon.png";
+import web_service_6 from "@/assets/img/services/web-maintenance-icon.png"; 
 // audit data type
 type web_service_data_type = {
     id: number;
@@ -24,31 +24,31 @@ const web_service_data: web_service_data_type = [
     },
     {
         id: 2,
-        img: audit_service_2,
+        img: web_service_2,
         title: "CMS/ERP website",
         sm_info: <>CRM, dashboards, booking  <br />  systems, SaaS platforms.</>,
     },
     {
         id: 3,
-        img: audit_service_3,
+        img: web_service_3,
         title: "WordPress website",
         sm_info: <>Custom WordPress website <br /> development.</>,
     },
     {
         id: 4,
-        img: audit_service_4,
+        img: web_service_4,
         title: "Custom Website Development",
         sm_info: <>Business websites, portfolios,<br /> blogs, etc.</>,
     },
     {
         id: 5,
-        img: audit_service_5,
+        img: web_service_5,
         title: "API Integration",
         sm_info: <>Payment gateways, <br />third-party tools integration.</>,
     },
     {
         id: 6,
-        img: audit_service_6,
+        img: web_service_6,
         title: "Website Maintenance",
         sm_info: <>Ongoing support, updates,<br /> bug fixes.</>,
     },
@@ -71,7 +71,7 @@ const AuditServiceArea = ({style} : style_type) => {
                       <ul>
                         {web_service_data.map((item, i) => (
                           <li key={i}>
-                            <div className={`tpservices-wrapper tpservices-item${item.id}`}>
+                            <div className={`tpservices-wrapper tpservices-item${1}`}>
                               <div className="tpservices-img mb-35">
                                 <Image src={item.img} alt="theme-pure" />
                               </div>

@@ -107,7 +107,7 @@ const HeaderFive = () => {
                         <Link
                           href="/contact"
                           style={{
-                            background: "#4260FF",
+                            background: "#2B6BB3",
                             color: "#fff",
                             borderRadius: 4,
                             display: "inline-block",

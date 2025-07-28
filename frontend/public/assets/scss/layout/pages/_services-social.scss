@@ -8,7 +8,7 @@
         padding-top: 180px;
         padding-bottom: 325px;
         position: relative;
-        background: linear-gradient(180deg, #4260FF 0%, #2346FF 100%);
+        background: linear-gradient(180deg, #2B6BB3 0%, #2346FF 100%);
         z-index: 1;
     }
     &-shape {
@@ -602,7 +602,7 @@
                     }
                 }
                 & span {
-                    color: #4260FF;
+                    color: #2B6BB3;
                     font-family: var(--tp-ff-jakarta);
                     font-weight: 500;
                     font-size: 13px;
@@ -653,7 +653,7 @@
                     position: absolute;
                     content: '';
                     position: absolute;
-                    background: #007CF5;
+                    background: #2B6BB3;
                     height: 100%;
                     width: 3px;
                     bottom: auto;
