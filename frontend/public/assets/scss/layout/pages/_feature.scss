@@ -850,7 +850,7 @@
         bottom: -10px;
         height: 100%;
         width: 100%;
-        background: radial-gradient(109.39% 109.39% at 93.51% 103.88%, #007CF5 0%, rgba(0, 124, 245, 0.52) 100%);
+        background: radial-gradient(109.39% 109.39% at 93.51% 103.88%, #2B6BB3 0%, rgba(0, 124, 245, 0.52) 100%);
         border-radius: 10px;
         z-index: -2;
     }
@@ -932,8 +932,8 @@
         left: 0;
     }
     & .switcher label input:checked + span {
-        background: #007CF5;
-        border-color: #007CF5;
+        background: #2B6BB3;
+        border-color: #2B6BB3;
     }
     & .switcher label input:checked + span small {
         left: 50%;
@@ -950,7 +950,7 @@
         border-radius: 8px;
         border: 2px solid transparent;
         &:focus {
-            border-color: #007CF5;
+            border-color: #2B6BB3;
             height: 54px;
         }
         @include tp-placeholder {
