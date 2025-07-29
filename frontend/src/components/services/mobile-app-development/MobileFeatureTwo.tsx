@@ -12,12 +12,14 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "We Build Websites That Drive Results",
-    sm_info: <>Our web solutions are crafted to engage your audience, accelerate growth, and adapt seamlessly as your business evolves.</>,
+    title: "Mobile Solutions Designed for Growth, Built for Impact",
+    sm_info: <>Every tap, swipe, and screen is engineered to deliver results. Our mobile apps are built not just to launch — but to convert, scale, and evolve with your business goals.
+
+    </>,
  }
  const {title, sm_info} = audit_2_content
 
-const AuditFeatureTwo = () => {
+const MobileFeatureTwo = () => {
     return (
         <>
             <section className="feature-area pb-50">
@@ -49,4 +51,4 @@ const AuditFeatureTwo = () => {
     );
 };
 
-export default AuditFeatureTwo;
+export default MobileFeatureTwo;
