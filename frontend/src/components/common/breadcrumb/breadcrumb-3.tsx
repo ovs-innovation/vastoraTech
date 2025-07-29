@@ -3,20 +3,19 @@ import Image, { StaticImageData } from 'next/image';
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 
-import shape_1 from "@/assets/img/shape/banner-plus.png";
-import shape_2 from "@/assets/img/shape/banner-dots.png";
-import shape_3 from "@/assets/img/shape/banner-archer.png";
-import shape_4 from "@/assets/img/shape/banner-pose.png";
-import shape_5 from "@/assets/img/shape/banner-tree.png";
-import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
-
 type props_type = {
     sub_title: string,
     title: JSX.Element,
     img: StaticImageData,
     style: boolean,
+    shape_1_2: StaticImageData,
+    shape_1: StaticImageData,
+    shape_2: StaticImageData,
+    shape_3: StaticImageData,
+    shape_4: StaticImageData,
+    shape_5: StaticImageData,
 }
-const BreadcrumbThree = ({ sub_title, title, img, style }: props_type) => {
+const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4,shape_5 }: props_type) => {
     return (
         <> <MouseParallaxContainer>
             <section className="markiting-area markiting-wrap" style={{ background: '#E4ECF8' }}>
