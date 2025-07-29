@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RightArrowAdit from "@/svg/arrow_btn/RightArrowAdit";
 
-import audit_shpae_1 from "@/assets/img/feature/inner/feature-inner-thumb-2.png";
+import audit_shpae_1 from "@/assets/img/feature/inner/feature-inner-thumb-2.webp";
 import audit_shpae_2 from "@/assets/img/feature/inner/feature-inner-shape-1.png";
 
 // data type
@@ -36,7 +36,7 @@ const WebFeatureArea = () => {
                                 <Image src={audit_shpae_1} alt="theme-pure" />
                                 <div className="feature-inner-wrap-shape">
                                     <div className="feature-inner-wrap-shape-1">
-                                        <Image src={audit_shpae_2} alt="theme-pure" />
+                                        <Image src={audit_shpae_2} alt="theme-pure"/>
                                     </div>
                                 </div>
                             </div>
