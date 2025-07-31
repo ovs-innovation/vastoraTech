@@ -7,6 +7,7 @@ import FooterFive from "@/layout/footers/FooterFive";
 import HeaderSix from "@/layout/headers/HeaderSix";
 import KeywordCtaArea from "@/componentsservices/keyword-search/KeywordCtaArea";
 import AuditServiceArea from "@/components/services/web-development/WebServiceArea";
+import ServiceAreaHomeFour from "@/components/homes/home-4/ServicesAreaHomeFour";
 import ServiceAboutArea from "./ServiceAboutArea";
 import Serviceabout from "./Serviceabout";
 
@@ -18,7 +19,7 @@ const Service = () => {
             <main>
                 <BreadcrumbFour />
                 <ServiceAboutArea />
-                <AuditServiceArea style={true} />
+                <ServiceAreaHomeFour style={true} />
                 <Serviceabout />
                 <ProjectFeaturHomefive style={true} />
                 <PricingAreaHomeOne />

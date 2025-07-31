@@ -32,8 +32,8 @@ interface service_content_type {
 
 const service_content: service_content_type = {
     sub_title: 'Why services Us',
-    sub_title_2: "Why Choose Us",
-    title: "Our à services",
+    sub_title_2: "",
+    title: "Our Services",
     service_data: [
         {
             id: 1, 
@@ -98,7 +98,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                     <div className="col-lg-12"> 
                         <div className={`${style ? "optimize-subtitle mb-50" : "section-wrapper mb-60"} text-center`}>
                             <span>{style ? sub_title_2 : sub_title }</span>
-                            <h5 className={`section-title-4 ${style ? "fs-54" : ""}`}>{title}</h5>
+                            <h5 className={`section-title-4 ${style ? "fs-54" : ""}`}>{ style ? "" : title}</h5>
                         </div>
                     </div>
                     </div>
