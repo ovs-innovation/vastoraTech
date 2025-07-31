@@ -5,6 +5,7 @@ import MarketingIcon from "@/svg/marketing_icon";
 import RightArrowThree from "@/svg/right_arrow_3";
 import SEOAnalyticsIcon from "@/svg/SEO_analytics_icon";
 import SocialMarketingIcon from "@/svg/social_marketing_icon";
+import UiUxDesignIcon from "@/svg/ui_ux_design";
 import AndroideIcon from "@/svg/androide_icon";
 import WebIcon from "@/svg/web_icon";
 
@@ -52,6 +53,14 @@ const service_content: service_content_type = {
         },
         {
             id: 3, 
+            shape: service_shape_2,
+            icon: <UiUxDesignIcon />,
+            title: "UI/UX Design",
+            sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
+            link: "/service/ui-ux-design",
+        },
+        {
+            id: 4, 
             shape: service_shape_1,
             icon: <MarketingIcon />,
             title: "Digital Marketing",
@@ -59,15 +68,15 @@ const service_content: service_content_type = {
             link: "/service/digital-marketing",
         },
         {
-            id: 4, 
+            id: 5, 
             shape: service_shape_2,
             icon: <SEOAnalyticsIcon />,
-            title: "SEO Analytics",
+            title: "SEO Optimization",
             sm_des: "We analyze your website's performance and provide actionable insights to improve your search engine rankings.",
             link: "/service/seo",
         },
         {
-            id: 5, 
+            id: 6, 
             shape: service_shape_3,
             icon: <SocialMarketingIcon />,
             title: "Social Marketing",
