@@ -1,18 +1,17 @@
 import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
-import MediaMarkiting from "@/components/services/media-markiting";
+import DigitalMarketingServices from "@/components/services/digital-marketing-services";
 
 export const metadata = {
-    title: "Social Media Marketing - Digital Marketing & SEO Agency Next js Template", 
+    title: "Digital Marketing Services", 
 };
-
 const index = () => {
     return (
         <Wrapper>
-            <MediaMarkiting />
+            <DigitalMarketingServices />
             <ScrollToTop style={false} />
         </Wrapper>
     );
 };
 
-export default index;
+export default index; 

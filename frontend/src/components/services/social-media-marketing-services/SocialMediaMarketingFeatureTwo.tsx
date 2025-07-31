@@ -3,8 +3,8 @@ import Image from "next/image";
 import RightArrowAdit from "@/svg/arrow_btn/RightArrowAdit";
 
 
-import audit_shpae_1 from "@/assets/img/feature/inner/app_service_02.webp";
-// import audit_shpae_2 from "@/assets/img/feature/inner/feature-inner-shape-2.png";
+import audit_shpae_1 from "@/assets/img/feature/inner/feature-inner-thumb-3.png";
+import audit_shpae_2 from "@/assets/img/feature/inner/feature-inner-shape-2.png";
 
 type audit_2_content_type = {
     title: string;
@@ -12,14 +12,12 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "Mobile Solutions Designed for Growth, Built for Impact",
-    sm_info: <>Every tap, swipe, and screen is engineered to deliver results. Our mobile apps are built not just to launch — but to convert, scale, and evolve with your business goals.
-
-    </>,
+    title: "Check your Social Media Marketing health in 4 easy steps",
+    sm_info: <>Looking for engagement optimization or audience targeting? Check <br /> performance metrics of any social media campaign.</>,
  }
  const {title, sm_info} = audit_2_content
 
-const MobileFeatureTwo = () => {
+const SocialMediaMarketingFeatureTwo = () => {
     return (
         <>
             <section className="feature-area pb-50">
@@ -30,7 +28,7 @@ const MobileFeatureTwo = () => {
                                 <Image src={audit_shpae_1} alt="theme-pure" />
                                 <div className="feature-inner-wrap-shape">
                                     <div className="feature-inner-wrap-shape-2">
-                                    {/* <Image src={audit_shpae_2} alt="theme-pure" /> */}
+                                    <Image src={audit_shpae_2} alt="theme-pure" />
                                     </div>
                                 </div>
                             </div>
@@ -51,4 +49,4 @@ const MobileFeatureTwo = () => {
     );
 };
 
-export default MobileFeatureTwo;
+export default SocialMediaMarketingFeatureTwo; 

@@ -5,6 +5,7 @@ import MarketingIcon from "@/svg/marketing_icon";
 import RightArrowThree from "@/svg/right_arrow_3";
 import SEOAnalyticsIcon from "@/svg/SEO_analytics_icon";
 import SocialMarketingIcon from "@/svg/social_marketing_icon";
+import UiUxDesignIcon from "@/svg/ui_ux_design";
 import AndroideIcon from "@/svg/androide_icon";
 import WebIcon from "@/svg/web_icon";
 
@@ -31,8 +32,8 @@ interface service_content_type {
 
 const service_content: service_content_type = {
     sub_title: 'Why services Us',
-    sub_title_2: "Why Choose Us",
-    title: "Our à services",
+    sub_title_2: "",
+    title: "Our Services",
     service_data: [
         {
             id: 1, 
@@ -52,6 +53,14 @@ const service_content: service_content_type = {
         },
         {
             id: 3, 
+            shape: service_shape_2,
+            icon: <UiUxDesignIcon />,
+            title: "UI/UX Design",
+            sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
+            link: "/service/ui-ux-design",
+        },
+        {
+            id: 4, 
             shape: service_shape_1,
             icon: <MarketingIcon />,
             title: "Digital Marketing",
@@ -59,15 +68,15 @@ const service_content: service_content_type = {
             link: "/service/digital-marketing",
         },
         {
-            id: 4, 
+            id: 5, 
             shape: service_shape_2,
             icon: <SEOAnalyticsIcon />,
-            title: "SEO Analytics",
+            title: "SEO Optimization",
             sm_des: "We analyze your website's performance and provide actionable insights to improve your search engine rankings.",
             link: "/service/seo",
         },
         {
-            id: 5, 
+            id: 6, 
             shape: service_shape_3,
             icon: <SocialMarketingIcon />,
             title: "Social Marketing",
@@ -89,7 +98,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                     <div className="col-lg-12"> 
                         <div className={`${style ? "optimize-subtitle mb-50" : "section-wrapper mb-60"} text-center`}>
                             <span>{style ? sub_title_2 : sub_title }</span>
-                            <h5 className={`section-title-4 ${style ? "fs-54" : ""}`}>{title}</h5>
+                            <h5 className={`section-title-4 ${style ? "fs-54" : ""}`}>{ style ? "" : title}</h5>
                         </div>
                     </div>
                     </div>

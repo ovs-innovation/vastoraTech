@@ -1,0 +1,17 @@
+import ScrollToTop from "@/components/common/scroll-to-top";
+import Wrapper from "@/layout/Wrapper";
+import SocialMediaMarketingServices from "@/components/services/social-media-marketing-services";
+
+export const metadata = {
+    title: "Social Media Marketing Services", 
+};
+const index = () => {
+    return (
+        <Wrapper>
+            <SocialMediaMarketingServices />
+            <ScrollToTop style={false} />
+        </Wrapper>
+    );
+};
+
+export default index; 

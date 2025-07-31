@@ -11,8 +11,8 @@ type breadcrumb_4_content_type = {
 }
 
 const breadcrumb_4_content: breadcrumb_4_content_type = {
-    top_title: "Services",
-    title: "SEO Services",
+    top_title: "Our Services",
+    title: "UI/UX Design",
     dots_shape: dots_shape_img,
 
 }
