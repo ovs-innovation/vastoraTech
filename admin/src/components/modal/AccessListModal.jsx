@@ -6,7 +6,7 @@ const AccessListModal = ({ isOpen, onClose, staff, showingTranslateValue }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <h1 className="text-xl font-medium text-center pb-6 dark:text-gray-300">
         List of route access for{" "}
-        <span className="text-pink-600">
+        <span className="text-blue-600">
           {showingTranslateValue(staff?.name)}
         </span>
       </h1>

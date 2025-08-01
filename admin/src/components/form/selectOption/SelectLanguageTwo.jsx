@@ -18,7 +18,7 @@ const SelectLanguageTwo = ({ handleSelectLanguage, register }) => {
           required: `language is required!`,
         })}
         onChange={(e) => handleSelectLanguage(e.target.value)}
-        className="block w-20 h-10 border border-pink-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 text-sm dark:text-gray-300 focus:outline-none rounded-md form-select focus:bg-white dark:focus:bg-gray-700"
+        className="block w-20 h-10 border border-blue-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 text-sm dark:text-gray-300 focus:outline-none rounded-md form-select focus:bg-white dark:focus:bg-gray-700"
       >
         <option value={lang} defaultChecked hidden>
           {lang}

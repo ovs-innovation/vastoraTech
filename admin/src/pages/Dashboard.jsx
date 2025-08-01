@@ -250,7 +250,7 @@ const Dashboard = () => {
             card={todayCardPayment || 0}
             credit={todayCreditPayment || 0}
             price={todayOrderAmount || 0}
-            className="text-white dark:text-pink-100 bg-teal-600"
+            className="text-white dark:text-blue-100 bg-teal-600"
             loading={loadingOrderAmount}
           />
 
@@ -272,7 +272,7 @@ const Dashboard = () => {
             title2="ThisMonth"
             Icon={FiShoppingCart}
             price={dashboardOrderAmount?.thisMonthlyOrderAmount || 0}
-            className="text-white dark:text-pink-100 bg-blue-500"
+            className="text-white dark:text-blue-100 bg-blue-500"
             loading={loadingOrderAmount}
           />
 
@@ -290,7 +290,7 @@ const Dashboard = () => {
             title2="AllTimeSales"
             Icon={ImCreditCard}
             price={dashboardOrderAmount?.totalAmount || 0}
-            className="text-white dark:text-pink-100 bg-pink-600"
+            className="text-white dark:text-blue-100 bg-blue-600"
             loading={loadingOrderAmount}
           />
         </div>
@@ -323,7 +323,7 @@ const Dashboard = () => {
             Icon={FiCheck}
             loading={loadingOrderCount}
             quantity={dashboardOrderCount?.totalDeliveredOrder || 0}
-            className="text-pink-600 dark:text-pink-100 bg-pink-100 dark:bg-pink-500"
+            className="text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500"
           />
         </div>
 

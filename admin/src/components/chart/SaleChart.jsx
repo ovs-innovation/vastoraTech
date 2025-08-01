@@ -6,7 +6,7 @@ const SaleChart = ({ salesReport }) => {
   const { getNumberTwo } = useUtilsFunction();
   const [activeButton, setActiveButton] = useState({
     title: "Sales",
-    color: "pink",
+    color: "blue",
   });
 
   const handleClick = ({ title, color }) => {
@@ -50,11 +50,11 @@ const SaleChart = ({ salesReport }) => {
         <ul className="flex flex-wrap -mb-px">
           <li className="mr-2">
             <button
-              onClick={() => handleClick({ title: "Sales", color: "pink" })}
+              onClick={() => handleClick({ title: "Sales", color: "blue" })}
               type="button"
               className={`inline-block p-2 rounded-t-lg border-b-2 border-transparent ${
                 activeButton.title === "Sales"
-                  ? "text-pink-600 border-pink-600 dark:text-pink-500 dark:border-pink-500"
+                  ? "text-blue-600 border-blue-600 dark:text-blue-500 dark:border-blue-500"
                   : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
               }  focus:outline-none`}
             >

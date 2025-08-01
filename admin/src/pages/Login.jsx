@@ -71,7 +71,7 @@ const Login = () => {
                     <CMButton
                       disabled={loading}
                       type="submit"
-                      className={`bg-pink-600 rounded-md mt-4 h-12 w-full`}
+                      className={`bg-blue-600 rounded-md mt-4 h-12 w-full`}
                       to="/dashboard"
                     />
                   ) : (
@@ -102,7 +102,7 @@ const Login = () => {
                 </form>
                 <p className="mt-4">
                   <Link
-                    className="text-sm font-medium text-pink-500 dark:text-pink-400 hover:underline"
+                    className="text-sm font-medium text-blue-500 dark:text-blue-400 hover:underline"
                     to="/forgot-password"
                   >
                     {t("ForgotPassword")}

@@ -1,5 +1,5 @@
 export const doughnutLegends = [
-  { title: "Fresh Vegetable", color: "bg-pink-500" },
+  { title: "Fresh Vegetable", color: "bg-blue-500" },
   { title: "Cooking Essentials", color: "bg-blue-500" },
   { title: "Drinks", color: "bg-orange-500" },
   { title: "Organic Food", color: "bg-indigo-500" },
@@ -11,7 +11,7 @@ export const lineLegends = [
 ];
 
 export const barLegends = [
-  { title: "Fresh Vegetable", color: "bg-pink-500" },
+  { title: "Fresh Vegetable", color: "bg-blue-500" },
   { title: "Cooking Essentials", color: "bg-blue-500" },
   { title: "Drinks", color: "bg-orange-500" },
   { title: "Organic Food", color: "bg-indigo-500" },
@@ -31,7 +31,7 @@ export const doughnutOptions = {
          * These colors come from Tailwind CSS palette
          * https://tailwindcss.com/docs/customizing-colors/#default-color-palette
          */
-        backgroundColor: ["#10B981", "#3B82F6", "#F97316", "#0EA5E9"],
+        backgroundColor: ["#10B981", "#296CB3", "#F97316", "#0EA5E9"],
         label: "Dataset 1",
       },
     ],
@@ -119,7 +119,7 @@ export const barOptions = {
       },
       {
         label: "Cooking Essentials",
-        backgroundColor: "#3B82F6",
+        backgroundColor: "#296CB3",
         // borderColor: window.chartColors.blue,
         borderWidth: 1,
         data: [5, 25, 50, 35, 24, 32, 84],

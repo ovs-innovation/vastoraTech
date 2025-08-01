@@ -27,7 +27,7 @@ const Invoice = ({ data, currency, getNumberTwo }) => {
               {getNumberTwo(item.price)}
             </TableCell>
 
-            <TableCell className="px-6 py-1 whitespace-nowrap text-right font-bold text-red-500 dark:text-pink-500">
+            <TableCell className="px-6 py-1 whitespace-nowrap text-right font-bold text-red-500 dark:text-blue-500">
               {currency}
               {getNumberTwo(item.itemTotal)}
             </TableCell>

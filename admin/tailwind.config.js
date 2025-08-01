@@ -5,6 +5,21 @@ const config = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        customBlue: '#296CB3',
+        blue: {
+          50: '#f0f4f8',
+          100: '#d9e2ec',
+          200: '#bcccdc',
+          300: '#9fb3c8',
+          400: '#829ab1',
+          500: '#296CB3',
+          600: '#1e4d8c',
+          700: '#1a3d6b',
+          800: '#152a4a',
+          900: '#0f1a2e',
+        },
+      },
       fontFamily: {
         sans: ["Open Sans", "sans-serif"],
         serif: ["Inter", ...defaultTheme.fontFamily.sans],

@@ -226,7 +226,7 @@ const OrderInvoice = () => {
                 <span className="mb-1 font-bold font-serif text-sm uppercase text-gray-600 dark:text-gray-500 block">
                   {t("InvoiceTotalAmount")}
                 </span>
-                <span className="text-xl font-serif font-bold text-red-500 dark:text-pink-500 block">
+                <span className="text-xl font-serif font-bold text-red-500 dark:text-blue-500 block">
                   {currency}
                   {getNumberTwo(data.total)}
                 </span>
@@ -253,7 +253,7 @@ const OrderInvoice = () => {
               loading ? (
                 "Loading..."
               ) : (
-                <button className="flex items-center text-sm leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-2 rounded-md text-white bg-pink-500 border border-transparent active:bg-pink-600 hover:bg-pink-600  w-auto cursor-pointer">
+                <button className="flex items-center text-sm leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-2 rounded-md text-white bg-blue-500 border border-transparent active:bg-blue-600 hover:bg-blue-600  w-auto cursor-pointer">
                   Download Invoice
                   <span className="ml-2 text-base">
                     <IoCloudDownloadOutline />
@@ -270,7 +270,7 @@ const OrderInvoice = () => {
                   <Button
                     disabled={true}
                     type="button"
-                    className="text-sm h-10 leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-2 ml-4 md:px-4 lg:px-6 py-4 md:py-3.5 lg:py-4 hover:text-white bg-pink-400 hover:bg-pink-500"
+                    className="text-sm h-10 leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-2 ml-4 md:px-4 lg:px-6 py-4 md:py-3.5 lg:py-4 hover:text-white bg-blue-400 hover:bg-blue-500"
                   >
                     <img
                       src={spinnerLoadingImage}
@@ -300,7 +300,7 @@ const OrderInvoice = () => {
             <div className="md:w-auto w-full">
               <ReactToPrint
                 trigger={() => (
-                  <button className="flex items-center text-sm leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-2 rounded-md text-white bg-pink-500 border border-transparent active:bg-pink-600 hover:bg-pink-600  md:w-auto w-full h-10 justify-center">
+                  <button className="flex items-center text-sm leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-2 rounded-md text-white bg-blue-500 border border-transparent active:bg-blue-600 hover:bg-blue-600  md:w-auto w-full h-10 justify-center">
                     {t("PrintInvoice")}{" "}
                     <span className="ml-2">
                       <FiPrinter />
