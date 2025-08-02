@@ -289,13 +289,13 @@ const Notifications = () => {
                                 </div>
 
                                 {value.status === "unread" && (
-                                  <span className="px-2 md:flex hidden focus:outline-none text-pink-600">
+                                  <span className="px-2 md:flex hidden focus:outline-none text-blue-600">
                                     <img
                                       src={ellipse}
                                       width={12}
                                       height={12}
                                       alt="ellipse"
-                                      className="w-3 h-3 text-pink-600"
+                                      className="w-3 h-3 text-blue-600"
                                     />
                                   </span>
                                 )}

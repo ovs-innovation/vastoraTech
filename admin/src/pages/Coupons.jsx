@@ -165,7 +165,7 @@ const Coupons = () => {
               </div>
               <div className="flex items-center gap-2 flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
                 <div className="w-full mx-1">
-                  <Button type="submit" className="h-12 w-full bg-pink-700">
+                  <Button type="submit" className="h-12 w-full bg-blue-700">
                     Filter
                   </Button>
                 </div>

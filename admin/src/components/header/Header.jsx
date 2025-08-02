@@ -136,7 +136,7 @@ const Header = () => {
   return (
     <>
       <header className="z-30 py-4 bg-white shadow-sm dark:bg-gray-800">
-        <div className="container flex items-center justify-between h-full px-6 mx-auto text-pink-500 dark:text-pink-500">
+        <div className="container flex items-center justify-between h-full px-6 mx-auto text-blue-500 dark:text-blue-500">
           <button
             type="button"
             onClick={() => setNavBar(!navBar)}
@@ -211,7 +211,7 @@ const Header = () => {
                 className="relative align-middle rounded-md focus:outline-none"
                 onClick={handleNotificationOpen}
               >
-                <FiBell className="w-5 h-5 text-pink-500" aria-hidden="true" />
+                <FiBell className="w-5 h-5 text-blue-500" aria-hidden="true" />
 
                 <span className="absolute z-10 top-0 right-0 inline-flex items-center justify-center p-1 h-5 w-5 text-xs font-medium leading-none text-red-100 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">
                   {totalUnreadDoc}
@@ -291,7 +291,7 @@ const Header = () => {
                                         width={12}
                                         height={12}
                                         alt="ellipse"
-                                        className="w-3 h-3 text-pink-600"
+                                        className="w-3 h-3 text-blue-600"
                                       />
                                     </span>
                                   )}
@@ -338,7 +338,7 @@ const Header = () => {
             {/* <!-- Profile menu --> */}
             <li className="relative inline-block text-left" ref={pRef}>
               <button
-                className="rounded-full dark:bg-gray-500 bg-pink-500 text-white h-8 w-8 font-medium mx-auto focus:outline-none"
+                className="rounded-full dark:bg-gray-500 bg-blue-500 text-white h-8 w-8 font-medium mx-auto focus:outline-none"
                 onClick={handleProfileOpen}
               >
                 {adminInfo.image ? (
@@ -354,7 +354,7 @@ const Header = () => {
 
               {profileOpen && (
                 <ul className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none">
-                  <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                  <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                     <Link to="/dashboard">
                       <span className="flex items-center text-sm">
                         <FiGrid className="w-4 h-4 mr-3" aria-hidden="true" />
@@ -363,7 +363,7 @@ const Header = () => {
                     </Link>
                   </li>
 
-                  <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                  <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                     <Link to="/edit-profile">
                       <span className="flex items-center text-sm">
                         <FiSettings
@@ -377,7 +377,7 @@ const Header = () => {
 
                   <li
                     onClick={handleLogOut}
-                    className="cursor-pointer justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    className="cursor-pointer justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                   >
                     <span className="flex items-center text-sm">
                       <FiLogOut className="w-4 h-4 mr-3" aria-hidden="true" />

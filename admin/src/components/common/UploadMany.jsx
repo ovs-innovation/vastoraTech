@@ -176,7 +176,7 @@ const UploadMany = ({
               onClick={() => {
                 setDropDown(!dropDown);
               }}
-              className="border flex justify-center items-center border-gray-300 hover:border-pink-400 hover:text-pink-400  dark:text-gray-300 cursor-pointer h-10 w-20 rounded-md focus:outline-none"
+              className="border flex justify-center items-center border-gray-300 hover:border-blue-400 hover:text-blue-400  dark:text-gray-300 cursor-pointer h-10 w-20 rounded-md focus:outline-none"
             >
               {/* <BsPlus className="text-4xl" /> */}
               <FiUpload className="mr-2" />
@@ -188,7 +188,7 @@ const UploadMany = ({
               className="origin-top-left absolute  w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none z-40"
               style={{}}
             >
-              <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+              <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                 <button
                   type="button"
                   onClick={handleExportCSV}
@@ -210,7 +210,7 @@ const UploadMany = ({
                 </button>
               </li>
 
-              <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+              <li className="justify-between font-serif font-medium py-2 pl-4 transition-colors duration-150 hover:bg-gray-100 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                 <button
                   type="button"
                   className="focus:outline-none"
@@ -248,7 +248,7 @@ const UploadMany = ({
       {isImportBoxShown && (
         <>
           <div className="w-full my-2 lg:my-0 md:my-0 flex">
-            <div className="h-10 border border-dashed border-pink-500 rounded-md">
+            <div className="h-10 border border-dashed border-blue-500 rounded-md">
               <label className="w-full rounded-lg h-10 flex justify-center items-center text-xs dark:text-gray-400 leading-none">
                 <Input
                   disabled={isDisabled}
@@ -260,7 +260,7 @@ const UploadMany = ({
                   filename
                 ) : (
                   <>
-                    <FiUploadCloud className="mx-2 text-pink-500 text-lg dark:text-gray-400" />{" "}
+                    <FiUploadCloud className="mx-2 text-blue-500 text-lg dark:text-gray-400" />{" "}
                     {t("SelectYourJSON")} {title} {t("File")}
                   </>
                 )}
