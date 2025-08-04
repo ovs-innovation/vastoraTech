@@ -7,6 +7,7 @@ import {
   FiSlack,
   FiGlobe,
   FiTarget,
+  FiChrome,
 } from "react-icons/fi";
 
 /**
@@ -99,6 +100,16 @@ const sidebar = [
       {
         path: "/store/store-settings",
         name: "StoreSettings",
+      },
+    ],
+  },
+  {
+    icon: FiChrome,
+    name: "VastoraTech",
+    routes: [
+      {
+        path: "/vastora-tech/lead-management",
+        name: "LeadManagement",
       },
     ],
   },
