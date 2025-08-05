@@ -24,6 +24,8 @@ const Setting = lazy(() => import("@/pages/Setting"));
 const StoreHome = lazy(() => import("@/pages/StoreHome"));
 const StoreSetting = lazy(() => import("@/pages/StoreSetting"));
 const Notifications = lazy(() => import("@/pages/Notifications"));
+const LeadManagement = lazy(() => import("@/pages/LeadManagement"));
+const LeadDetails = lazy(() => import("@/pages/LeadDetails"));
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -122,6 +124,14 @@ const routes = [
     path: "/notifications",
     component: Notifications,
   },
+  {
+    path: "/vastora-tech/lead-management",
+    component: LeadManagement,
+  },
+  {
+    path: "/lead/:id",
+    component: LeadDetails,
+  },
 ];
 
 const routeAccessList = [
@@ -151,6 +161,7 @@ const routeAccessList = [
     value: "customer-order",
   },
   { label: "Notification", value: "notifications" },
+  { label: "Lead Management", value: "vastora-tech/lead-management" },
   { label: "Coming Soon", value: "coming-soon" },
 ];
 
