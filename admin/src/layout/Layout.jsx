@@ -1,5 +1,5 @@
 import React, { useContext, Suspense, useEffect, lazy } from "react";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 //internal import
 import Main from "@/layout/Main";
@@ -39,20 +39,19 @@ const Layout = () => {
           <Header />
           <Main>
             <Suspense fallback={<ThemeSuspense />}>
-              <Switch>
+              <Routes>
                 {routes.map((route, i) => {
                   return route.component ? (
                     <Route
                       key={i}
-                      exact={true}
                       path={`${route.path}`}
-                      render={(props) => <route.component {...props} />}
+                      element={<route.component />}
                     />
                   ) : null;
                 })}
-                <Redirect exact from="/" to="/dashboard" />
-                <Route component={Page404} />
-              </Switch>
+                <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                <Route path="*" element={<Page404 />} />
+              </Routes>
             </Suspense>
           </Main>
         </div>

@@ -2,9 +2,9 @@ import React, { lazy } from "react";
 import { ToastContainer } from "react-toastify";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import AccessibleNavigationAnnouncer from "@/components/AccessibleNavigationAnnouncer";
 import PrivateRoute from "@/components/login/PrivateRoute";
@@ -20,16 +20,14 @@ const App = () => {
       <ToastContainer />
       <Router>
         <AccessibleNavigationAnnouncer />
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/forgot-password" component={ForgetPassword} />
-          <Route path="/reset-password/:token" component={ResetPassword} />
-          <PrivateRoute>
-            <Route path="/" component={Layout} />
-          </PrivateRoute>
-          <Redirect exact from="/" to="/login" />
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgetPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/*" element={<PrivateRoute><Layout /></PrivateRoute>} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
       </Router>
     </>
   );

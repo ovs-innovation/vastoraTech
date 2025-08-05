@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 //internal import
 import { AdminContext } from "@/context/AdminContext";
@@ -11,7 +11,7 @@ import { notifyError, notifySuccess } from "@/utils/toast";
 const useLoginSubmit = () => {
   const [loading, setLoading] = useState(false);
   const { dispatch } = useContext(AdminContext);
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const {
     register,
@@ -35,7 +35,7 @@ const useLoginSubmit = () => {
             sameSite: "None",
             secure: true,
           });
-          history.replace("/dashboard");
+          navigate("/dashboard", { replace: true });
         }
       }
 
@@ -55,7 +55,7 @@ const useLoginSubmit = () => {
             sameSite: "None",
             secure: true,
           });
-          history.replace("/");
+          navigate("/", { replace: true });
         }
       }
 
