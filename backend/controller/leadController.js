@@ -16,18 +16,6 @@ const createLead = async (req, res) => {
       notes,
     } = req.body;
 
-    // Check if lead already exists with same email or phone
-    const existingLead = await Lead.findOne({
-      $or: [{ emailId }, { phoneNumber }],
-    });
-
-    if (existingLead) {
-      return res.status(400).json({
-        success: false,
-        message: "Lead with this email or phone number already exists",
-      });
-    }
-
     const lead = new Lead({
       name,
       emailId,
@@ -185,11 +173,6 @@ const updateLead = async (req, res) => {
   try {
     const { id } = req.params;
     const updateData = req.body;
-
-    // Remove fields that shouldn't be updated
-    delete updateData.emailId; // Email should not be changed
-    delete updateData.createdAt;
-    delete updateData.updatedAt;
 
     const lead = await Lead.findByIdAndUpdate(
       id,

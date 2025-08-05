@@ -35,14 +35,27 @@ const useLeadSubmit = (id) => {
 
       if (id) {
         const res = await LeadServices.updateLead(id, leadData);
-        setIsUpdate(true);
-        notifySuccess(res.message);
-        closeDrawer();
+        if (res.success) {
+          setIsUpdate(true);
+          notifySuccess(res.message);
+          closeDrawer();
+        } else {
+          notifyError(res.message || "Failed to update lead");
+        }
+      } else {
+        const res = await LeadServices.createLead(leadData);
+        if (res.success) {
+          setIsUpdate(true);
+          notifySuccess(res.message);
+          closeDrawer();
+        } else {
+          notifyError(res.message || "Failed to create lead");
+        }
       }
-      setIsSubmitting(false);
     } catch (err) {
-      notifyError(err?.response?.data?.message || err?.message);
-      closeDrawer();
+      notifyError(err?.response?.data?.message || err?.message || "An error occurred");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -51,20 +64,23 @@ const useLeadSubmit = (id) => {
       (async () => {
         try {
           const res = await LeadServices.getLeadById(id);
-          if (res) {
-            setValue("name", res.name);
-            setValue("emailId", res.emailId);
-            setValue("phoneNumber", res.phoneNumber);
-            setValue("businessName", res.businessName);
-            setValue("location", res.location);
-            setValue("service", res.service);
-            setValue("customService", res.customService);
-            setValue("status", res.status);
-            setValue("source", res.source);
-            setValue("notes", res.notes);
+          if (res.success && res.data) {
+            const lead = res.data;
+            setValue("name", lead.name || "");
+            setValue("emailId", lead.emailId || "");
+            setValue("phoneNumber", lead.phoneNumber || "");
+            setValue("businessName", lead.businessName || "");
+            setValue("location", lead.location || "");
+            setValue("service", lead.service || "other");
+            setValue("customService", lead.customService || "");
+            setValue("status", lead.status || "new");
+            setValue("source", lead.source || "website");
+            setValue("notes", lead.notes || "");
+          } else {
+            notifyError("Failed to fetch lead data");
           }
         } catch (err) {
-          notifyError(err?.response?.data?.message || err?.message);
+          notifyError(err?.response?.data?.message || err?.message || "Failed to fetch lead data");
         }
       })();
     }

@@ -115,13 +115,15 @@ const LeadDrawer = ({ id }) => {
                   {...register("service")}
                   className="border border-gray-300 bg-gray-50 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 >
-                  <option value="other">{t("Other")}</option>
-                  <option value="web-development">{t("WebDevelopment")}</option>
-                  <option value="mobile-development">{t("MobileDevelopment")}</option>
-                  <option value="ui-ux-design">{t("UIUXDesign")}</option>
-                  <option value="digital-marketing">{t("DigitalMarketing")}</option>
+                  <option value="">{t("Select a service")}</option>
                   <option value="seo">{t("SEO")}</option>
-                  <option value="consulting">{t("Consulting")}</option>
+                  <option value="social-media-marketing">{t("Social Media Marketing")}</option>
+                  <option value="website-design">{t("Website Design")}</option>
+                  <option value="ecommerce-website">{t("Ecommerce Website")}</option>
+                  <option value="mobile-app-development">{t("Mobile App Development")}</option>
+                  <option value="google-ads">{t("Google Ads")}</option>
+                  <option value="content-marketing">{t("Content Marketing")}</option>
+                  <option value="other">{t("Other")}</option>
                 </Select>
                 <Error errorName={errors.service} />
               </div>

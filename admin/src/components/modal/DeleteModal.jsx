@@ -17,6 +17,7 @@ import ProductServices from "@/services/ProductServices";
 import useToggleDrawer from "@/hooks/useToggleDrawer";
 import AttributeServices from "@/services/AttributeServices";
 import CurrencyServices from "@/services/CurrencyServices";
+import LeadServices from "@/services/LeadServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import useDisableForDemo from "@/hooks/useDisableForDemo";
 
@@ -35,6 +36,29 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
     }
     try {
       setIsSubmitting(true);
+      
+      if (location.pathname === "/leads" || location.pathname === "/vastora-tech/lead-management") {
+        if (id === undefined || !id) {
+          notifyError("Please select a lead first!");
+          setIsSubmitting(false);
+          return closeModal();
+        }
+        try {
+          const res = await LeadServices.deleteLead(id);
+          if (res.success) {
+            setIsUpdate(true);
+            notifySuccess(res.message || "Lead deleted successfully");
+            setServiceId();
+            closeModal();
+          } else {
+            notifyError(res.message || "Failed to delete lead");
+          }
+        } catch (error) {
+          notifyError(error?.response?.data?.message || error?.message || "Failed to delete lead");
+        }
+        setIsSubmitting(false);
+      }
+
       if (location.pathname === "/products") {
         if (ids) {
           const res = await ProductServices.deleteManyProducts({

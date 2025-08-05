@@ -79,7 +79,7 @@ const LeadTable = ({ leads }) => {
             </TableCell>
             <TableCell>
               <div className="flex justify-end text-right">
-                <div className="p-2 cursor-pointer text-gray-400 hover:text-blue-600">
+                {/* <div className="p-2 cursor-pointer text-gray-400 hover:text-blue-600">
                   <Link to={`/lead/${lead._id}`}>
                     <Tooltip
                       id="view"
@@ -88,7 +88,7 @@ const LeadTable = ({ leads }) => {
                       bgColor="#34D399"
                     />
                   </Link>
-                </div>
+                </div> */}
 
                 <EditDeleteButton
                   title={lead.name}
