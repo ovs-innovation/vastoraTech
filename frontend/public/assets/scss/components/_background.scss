@@ -33,3 +33,10 @@
 .theme-bg-4 {
 	background: var(--tp-theme-dark-blue);
 }
+
+.feature-inner-wrap-shape-1 {
+	margin-left: 10rem;
+	@media (max-width: 767px) {
+	  margin-left: 0;
+	}
+  }

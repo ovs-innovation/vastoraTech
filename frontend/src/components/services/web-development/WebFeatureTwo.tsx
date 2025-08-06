@@ -12,8 +12,8 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "We Don’t Just Build Websites — We Build Growth",
-    sm_info: <>We don’t just build websites — we build growth. Our websites are designed to convert, perform, and scale with your business.</>,
+    title: "We Build Websites That Drive Results",
+    sm_info: <>Our web solutions are crafted to engage your audience, accelerate growth, and adapt seamlessly as your business evolves.</>,
  }
  const {title, sm_info} = audit_2_content
 

@@ -151,7 +151,7 @@
   --tp-theme-primary: #2B6BB3;
   --tp-theme-secondary: #131683;
   --tp-theme-3: #05003B;
-  --tp-theme-green: #59BA41;
+  --tp-theme-green: #2B6BB3;
   --tp-theme-apple: #F5F1EB;
   --tp-theme-dark-blue: #1E2B8A;
   --tp-theme-blue: #775AFC;
@@ -3258,7 +3258,7 @@ div.test img {
 }
 
 #scroll-indicator-2 {
-  background: linear-gradient(to right, #59BA41, #59BA41, #59BA41);
+  background: linear-gradient(to right, #2B6BB3, #2B6BB3, #2B6BB3);
 }
 
 .tptransparent__header.header-sticky {
@@ -7548,7 +7548,7 @@ blockquote cite::before {
 }
 .footer-widget-newsletter2-input2 input:focus {
   color: #495057;
-  border-color: #59BA41;
+  border-color: #2B6BB3;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(89, 186, 65, 0.25);
 }
@@ -15346,7 +15346,7 @@ div.price-open {
 }
 .seo-5-list-icon i {
   font-size: 24px;
-  color: #59BA41;
+  color: #2B6BB3;
 }
 .seo-5-list-text .title {
   font-family: var(--tp-ff-jakarta);

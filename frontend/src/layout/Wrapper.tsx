@@ -8,7 +8,6 @@ if (typeof window !== "undefined") {
 
 const Wrapper = ({children} : any) => {
     useEffect(() => {
-        // animation
         const timer = setTimeout(() => {
           animationCreate();
         }, 100);

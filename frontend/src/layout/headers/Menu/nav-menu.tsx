@@ -56,7 +56,7 @@ const NavMenu = () => {
                                 <span>{item.banner_sub_title}</span>
                                 <h5 className="tp-menu-banner-title-2">{item.banner_title}</h5>
                                 <div className="tp-menu-banner-btn">
-                                <Link href="/services">
+                                <Link href="/service">
                                     Learn more 
                                     <span>{item.icon}</span>
                                 </Link>

@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import WebDevelopment from "@/components/services/web-development";
 
 export const metadata = {
-    title: "Web Development Services", 
+    title: "Web Development-Service", 
 };
 const index = () => {
     return (

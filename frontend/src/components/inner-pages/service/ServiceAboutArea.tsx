@@ -1,7 +1,7 @@
 const service_service_data = {
   sub_title: "What",
-  title: <> Expect great <br /> things from your SEO agency.! </> ,
-  sm_info:  <> Iterative approaches to corporate strategy foster collaborative thinking to further <br /> the overall value. Leverage agile frameworks to provide a robust high level over <br /> views. In an ideal world this text {"wouldn’t"} exist.</> ,
+  title: <> Expect great <br /> things from your Software Development and Digital Marketing Agency </> ,
+  sm_info: <> We are a team of experienced software developers and digital marketers who are dedicated to helping businesses grow and succeed. </> ,
 };
 const { sub_title, title, sm_info } = service_service_data;
 

@@ -42,9 +42,6 @@ const HeaderSix = ({ style }: any) => {
 								<div className="col-xl-3 col-lg-6 col-sm-8 col-6">
 									<div className={`tpheader__right ${style ? "tpheader__right-white" : ""} d-flex align-items-center justify-content-end`}>
 										<div className="d-flex align-items-center">
-											<div className="tpheader__sign d-none d-md-block">
-												<Link href="/sign-in">Sign in</Link>
-											</div>
 											<div className="tpheader__btn ml-25 d-none d-md-block">
 												<Link href="/contact" className="tp-header-btn">Get a Quote</Link>
 											</div>

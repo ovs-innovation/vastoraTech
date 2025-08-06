@@ -12,6 +12,7 @@ import service_demo_2 from "@/assets/img/header-icon/mobile.png";
 import service_demo_3 from "@/assets/img/header-icon/building.png";
 import service_demo_4 from "@/assets/img/header-icon/media.png";
 import service_demo_5 from "@/assets/img/header-icon/keyword.png";
+import service_demo_6 from "@/assets/img/header-icon/ui-ux.png";
 
 import menu_banner from "@/assets/img/header-icon/header-banner/header-banner-1.png";
  
@@ -76,6 +77,7 @@ const menu_data: menu_data_type[] = [
       { link: "/service/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
       { link: "/service/social-media-marketing",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
       { link: "/service/seo",         title: "SEO Services",        demo_img: service_demo_5,  },
+      { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
     ],
     banner_sub_title: "Software Development & Digital Marketing Agency",
     banner_title: <>The #1 Software <br/> Development and Digital Marketing Agency <br /> for fast growing  companies.</>,

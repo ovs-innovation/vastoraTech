@@ -78,7 +78,7 @@ const AuditServiceArea = ({style} : style_type) => {
                               <div className="tpservices-content">
                                 <span>{item.title}</span>
                                 <h4 className="tpservices-title">
-                                  <Link href="/seo-audit">{item.sm_info}</Link>
+                                  <div>{item.sm_info}</div>
                                 </h4>
                               </div>
                             </div>
