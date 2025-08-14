@@ -2,12 +2,12 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
 
 // Define interfaces for our data structures
 interface EnrollFormState {
@@ -70,7 +70,7 @@ interface Content {
 export default function Home() {
   // Function to handle demo button click
   const handleDemoClick = () => {
-    window.open('https://admin.ecommerce-demo.ovsinnovation.com/', '_blank');
+    window.open("https://admin.ecommerce-demo.ovsinnovation.com/", "_blank");
   };
 
   // Add custom styles for enhanced visual appeal
@@ -126,6 +126,118 @@ export default function Home() {
     .portfolio-swiper .swiper-button-prev::after {
       font-size: 16px !important;
       font-weight: bold !important;
+    }
+
+    /* Testimonial Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .testimonial-card {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+    .testimonial-card:nth-child(2) { animation-delay: 0.3s; }
+    .testimonial-card:nth-child(3) { animation-delay: 0.5s; }
+
+    .quote-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .rating-stars {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .client-avatar {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .client-avatar:hover {
+      transform: scale(1.15) rotate(3deg);
+      box-shadow: 0 20px 40px rgba(13, 110, 253, 0.5);
+    }
+
+    .client-avatar:hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer 0.8s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .client-avatar .decorative-dot {
+      transition: all 0.3s ease;
+    }
+
+    .client-avatar:hover .decorative-dot {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    .verification-badge {
+      transition: all 0.3s ease;
+    }
+
+    .verification-badge:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+    }
+
+    /* Gradient Text Effect */
+    .gradient-text {
+      background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .floating-element:nth-child(3) {
+      animation-delay: 2s;
     }
   `;
   const [enrollForm, setEnrollForm] = useState<EnrollFormState>({
@@ -602,7 +714,7 @@ export default function Home() {
       <section className="bg-white py-2 py-lg-2">
         <div className="container">
           <div className="text-center">
-            <button 
+            <button
               className="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm mb-3"
               onClick={handleDemoClick}
             >
@@ -1033,100 +1145,103 @@ export default function Home() {
               expertise
             </p>
           </div>
-            {/* Portfolio Swiper Slider */}
-            <div className="position-relative">
-              <Swiper
-                modules={[Navigation, Autoplay]}
-                spaceBetween={32}
-                slidesPerView={1}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 32,
-                  },
-                }}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                navigation={true}
-                loop={true}
-                grabCursor={true}
-                touchRatio={1}
-                touchAngle={45}
-                resistance={true}
-                resistanceRatio={0.85}
-                speed={600}
-                effect="slide"
-                watchSlidesProgress={true}
-                watchOverflow={true}
-                className="portfolio-swiper"
-              >
-                {content.portfolio.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
-                      {/* Portfolio Image */}
-                      <div className="position-relative overflow-hidden">
-                        <img
-                          src={item.img}
-                          alt={item.title}
-                          className="card-img-top"
-                          style={{ height: "200px", objectFit: "cover" }}
-                        />
-                        <div className="position-absolute top-0 end-0 m-3">
-                          <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
-                            {item.category}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Portfolio Content */}
-                      <div className="card-body p-4">
-                        <h3 className="h5 fw-bold text-dark mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted small mb-4 lh-base">
-                          {item.sm_des}
-                        </p>
-
-                        {/* Tags */}
-                        <div className="d-flex flex-wrap gap-2 mb-4">
-                          {item.tags.map((tag, tagIndex) => (
-                            <span
-                              key={tagIndex}
-                              className="badge bg-light text-dark px-3 py-2 rounded-pill small"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Visit Link Button */}
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
-                        >
-                          <i className="bi bi-box-arrow-up-right me-2"></i>
-                          Visit Website
-                        </a>
+          {/* Portfolio Swiper Slider */}
+          <div className="position-relative">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={32}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 32,
+                },
+              }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              navigation={true}
+              loop={true}
+              grabCursor={true}
+              touchRatio={1}
+              touchAngle={45}
+              resistance={true}
+              resistanceRatio={0.85}
+              speed={600}
+              effect="slide"
+              watchSlidesProgress={true}
+              watchOverflow={true}
+              className="portfolio-swiper"
+            >
+              {content.portfolio.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
+                    {/* Portfolio Image */}
+                    <div className="position-relative overflow-hidden">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="card-img-top"
+                        style={{ height: "200px", objectFit: "cover" }}
+                      />
+                      <div className="position-absolute top-0 end-0 m-3">
+                        <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
+                          {item.category}
+                        </span>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
 
-              {/* Mobile Swipe Hint */}
-              <div className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none" style={{ backdropFilter: 'blur(10px)' }}>
-                ← Swipe to navigate →
-              </div>
+                    {/* Portfolio Content */}
+                    <div className="card-body p-4">
+                      <h3 className="h5 fw-bold text-dark mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted small mb-4 lh-base">
+                        {item.sm_des}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="d-flex flex-wrap gap-2 mb-4">
+                        {item.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="badge bg-light text-dark px-3 py-2 rounded-pill small"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Visit Link Button */}
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
+                      >
+                        <i className="bi bi-box-arrow-up-right me-2"></i>
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Mobile Swipe Hint */}
+            <div
+              className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none"
+              style={{ backdropFilter: "blur(10px)" }}
+            >
+              ← Swipe to navigate →
             </div>
+          </div>
 
           {/* Portfolio CTA */}
           <div className="text-center mt-5">
@@ -1331,49 +1446,197 @@ export default function Home() {
       </section>
 
       {/* Professional Testimonials */}
-      <section className="bg-light py-5 py-lg-5">
+      <section
+        className="bg-gradient-to-bottom py-5 py-lg-5"
+        style={{
+          background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
+        }}
+      >
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="h2 mb-3">What Our Students Say</h2>
-            <p className="lead text-muted">
-              Hear from our successful graduates who have transformed their
-              careers with our program
+            <div className="position-relative d-inline-block">
+              <h2 className="h1 fw-bold mb-3 position-relative">
+                What Our Clients Say
+                <div className="position-absolute bottom-0 start-50 translate-middle-x w-25 h-1 bg-primary rounded-pill"></div>
+              </h2>
+            </div>
+            <p className="lead text-muted fs-5">
+              Real feedback from businesses we've helped grow online
             </p>
+            <div className="d-flex justify-content-center align-items-center gap-3 mt-3">
+              <div className="d-flex align-items-center">
+                <i className="bi bi-star-fill text-warning fs-5 me-1"></i>
+                <span className="fw-semibold text-dark">4.9</span>
+              </div>
+              <span className="text-muted">•</span>
+              <span className="text-muted">500+ Happy Clients</span>
+              <span className="text-muted">•</span>
+              <span className="text-muted">8+ Years Experience</span>
+            </div>
           </div>
 
           <div className="row g-4">
             {content.testimonials.map((testimonial, index) => (
-              <div key={index} className="col-md-4">
-                <div className="card h-100 border-0 shadow-sm">
-                  <div className="card-body p-4">
-                    <p className="text-muted fst-italic mb-4">
-                      "{testimonial.testimonial}"
-                    </p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="d-flex align-items-center">
+              <div key={index} className="col-lg-4 col-md-6">
+                <div
+                  className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden testimonial-card"
+                  style={{
+                    borderRadius: "20px",
+                    transition:
+                      "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                    transform: "translateY(0)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(-10px) scale(1.02)";
+                    e.currentTarget.style.boxShadow =
+                      "0 25px 50px rgba(0,0,0,0.15)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0) scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 10px 30px rgba(0,0,0,0.1)";
+                  }}
+                >
+                  {/* Quote Icon */}
+                  <div
+                    className="position-absolute top-0 start-0 m-4 opacity-20 quote-icon"
+                    style={{ zIndex: 0 }}
+                  >
+                    <i
+                      className="bi bi-quote text-primary"
+                      style={{ fontSize: "3rem" }}
+                    ></i>
+                  </div>
+
+                  <div
+                    className="card-body p-4 p-lg-5 position-relative"
+                    style={{ zIndex: 1 }}
+                  >
+                    {/* Rating Stars */}
+                    <div className="d-flex justify-content-center mb-4 rating-stars">
+                      {[...Array(5)].map((_, i) => (
+                        <i
+                          key={i}
+                          className="bi bi-star-fill text-warning fs-5 me-1"
+                          style={{
+                            filter:
+                              "drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3))",
+                            animation: `fadeInUp 0.6s ease-out ${
+                              i * 0.1
+                            }s both`,
+                          }}
+                        ></i>
+                      ))}
+                    </div>
+
+                    {/* Testimonial Text */}
+                    <div className="text-center mb-4">
+                      <p
+                        className="text-dark fst-italic fs-6 lh-base mb-0 position-relative"
+                        style={{
+                          fontFamily: "Georgia, serif",
+                          lineHeight: "1.8",
+                        }}
+                      >
+                        <span className="position-relative">
+                          "{testimonial.testimonial}"
+                          <span
+                            className="position-absolute bottom-0 start-0 w-100 h-1 bg-gradient-to-right rounded-pill opacity-25"
+                            style={{
+                              background:
+                                "linear-gradient(90deg, #0d6efd, #6f42c1)",
+                            }}
+                          ></span>
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* Client Info */}
+                    <div className="text-center">
+                      <div className="d-flex justify-content-center align-items-center mb-3">
                         <div
-                          className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 me-3"
-                          style={{ width: "48px", height: "48px" }}
+                          className="bg-gradient-to-br rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4 me-3 shadow-lg position-relative client-avatar"
+                          style={{
+                            width: "70px",
+                            height: "70px",
+                            background:
+                              "linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%)",
+                            border: "4px solid white",
+                            boxShadow: "0 8px 25px rgba(13, 110, 253, 0.3)",
+                          }}
                         >
-                          {testimonial.name.charAt(0)}
+                          <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center">
+                            {/* Main Avatar Circle */}
+                            <div className="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center fw-bold fs-3">
+                              {testimonial.name.charAt(0).toUpperCase()}
+                            </div>
+
+                            {/* Inner Glow Effect */}
+                            <div
+                              className="position-absolute top-50 start-50 translate-middle w-75 h-75 rounded-circle opacity-25"
+                              style={{
+                                background:
+                                  "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)",
+                                transform: "translate(-50%, -50%)",
+                              }}
+                            ></div>
+
+                            {/* Outer Ring */}
+                            <div
+                              className="position-absolute top-0 start-0 w-100 h-100 rounded-circle border-3 border-white opacity-30"
+                              style={{
+                                border: "3px solid rgba(255,255,255,0.4)",
+                              }}
+                            ></div>
+
+                            {/* Decorative Dots */}
+                            <div
+                              className="position-absolute top-0 end-0 translate-middle-x bg-white rounded-circle opacity-60 decorative-dot"
+                              style={{
+                                width: "8px",
+                                height: "8px",
+                                transform: "translateX(50%)",
+                              }}
+                            ></div>
+                            <div
+                              className="position-absolute bottom-0 start-0 translate-middle-x bg-white rounded-circle opacity-60 decorative-dot"
+                              style={{
+                                width: "6px",
+                                height: "6px",
+                                transform: "translateX(-50%)",
+                              }}
+                            ></div>
+                          </div>
                         </div>
-                        <div>
-                          <h5 className="mb-0">{testimonial.name}</h5>
-                          <p className="text-muted small mb-0">
-                            {testimonial.city}
-                          </p>
+                        <div className="text-start">
+                          <h5 className="mb-1 fw-bold text-dark">
+                            {testimonial.name}
+                          </h5>
+                          <div className="d-flex align-items-center">
+                            <i className="bi bi-geo-alt-fill text-primary me-2"></i>
+                            <span className="text-muted fw-medium">
+                              {testimonial.city}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div>
-                        {[...Array(5)].map((_, i) => (
-                          <i
-                            key={i}
-                            className="bi bi-star-fill text-warning"
-                          ></i>
-                        ))}
+
+                      {/* Verification Badge */}
+                      <div className="d-inline-flex align-items-center bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill small fw-semibold verification-badge">
+                        <i className="bi bi-patch-check-fill me-2"></i>
+                        Verified Client
                       </div>
                     </div>
                   </div>
+
+                  {/* Bottom Accent */}
+                  <div
+                    className="position-absolute bottom-0 start-0 w-100 h-3 bg-gradient-to-right rounded-bottom"
+                    style={{
+                      background: "linear-gradient(90deg, #0d6efd, #6f42c1)",
+                    }}
+                  ></div>
                 </div>
               </div>
             ))}
