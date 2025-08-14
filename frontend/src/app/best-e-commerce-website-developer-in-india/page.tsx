@@ -9,6 +9,9 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+// Import Bootstrap Icons CSS for production
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 // Define interfaces for our data structures
 interface EnrollFormState {
   name: string;
@@ -577,8 +580,15 @@ export default function Home() {
 
   return (
     <div className="min-vh-100 bg-light">
-      {/* Custom Styles */}
-      <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+             {/* Custom Styles */}
+       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+       
+       {/* Bootstrap Icons CDN Fallback */}
+       <link 
+         rel="stylesheet" 
+         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+         crossOrigin="anonymous"
+       />
 
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
