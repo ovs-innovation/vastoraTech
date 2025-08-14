@@ -1243,46 +1243,128 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Portfolio CTA */}
-          <div className="text-center mt-5">
-            <div className="bg-primary bg-opacity-10 rounded-3 p-5 border border-primary">
-              <h3 className="h2 mb-4">Ready to See Similar Results?</h3>
-              <p className="text-muted lead mb-4">
-                Let's discuss how we can help your business achieve the same
-                level of success. Get a free consultation and custom strategy
-                tailored to your needs.
-              </p>
-
-              <div className="d-flex flex-wrap justify-content-center gap-3">
-                <button
-                  onClick={scrollToForm}
-                  className="btn btn-primary btn-lg px-4 py-3"
-                >
-                  <i className="bi bi-chat-dots me-2"></i>
-                  Get Free Consultation
-                </button>
-                <button
-                  onClick={handleCall}
-                  className="btn btn-success btn-lg px-4 py-3"
-                >
-                  <i className="bi bi-telephone me-2"></i>
-                  Call +91 9667092077
-                </button>
+                     {/* Portfolio CTA - Transparent Pricing Style */}
+           <div className="text-center mt-5">
+             <div className="bg-white rounded-4 shadow-lg p-4 p-lg-5 border-0 w-100 position-relative">
+              {/* Decorative Background Elements */}
+              <div
+                className="position-absolute top-0 end-0 opacity-10"
+                style={{ zIndex: 0 }}
+              >
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-primary"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="25"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    className="text-primary"
+                  />
+                </svg>
+              </div>
+              <div
+                className="position-absolute bottom-0 start-0 opacity-10"
+                style={{ zIndex: 0 }}
+              >
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="30"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-primary"
+                  />
+                </svg>
               </div>
 
-              <div className="d-flex flex-wrap justify-content-center gap-4 mt-4 text-muted">
-                <span className="d-flex align-items-center">
-                  <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  Free Consultation
-                </span>
-                <span className="d-flex align-items-center">
-                  <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  Custom Strategy
-                </span>
-                <span className="d-flex align-items-center">
-                  <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  No Commitment
-                </span>
+              <div className="position-relative" style={{ zIndex: 1 }}>
+                {/* Header */}
+                <h3 className="h1 fw-bold mb-3 text-dark">
+                  Transparent Pricing
+                </h3>
+                <p className="lead text-muted mb-4">
+                  Get started with our affordable e-commerce development
+                  services
+                </p>
+
+                {/* Main Pricing Card */}
+                <div className="bg-light rounded-4 p-4 p-lg-5 mb-4 border">
+                  {/* Prominent Price */}
+                  <div className="text-center mb-3">
+                    <div className="display-4 fw-bold text-primary mb-2">
+                      Starting at ₹4,999 Only
+                    </div>
+                    <div className="text-muted small">T&C Apply</div>
+                  </div>
+
+                  {/* Applicability Note */}
+                  <div className="text-center mb-4">
+                    <p className="fw-bold text-dark mb-0">
+                      This price is applicable for a basic e-commerce website
+                      only.
+                    </p>
+                  </div>
+
+                  {/* Please Note Section */}
+                  <div className="mb-4">
+                    <p className="fw-semibold text-dark mb-3">Please note:</p>
+
+                    {/* First Note */}
+                    <div className="bg-white rounded-3 p-3 mb-3 border d-flex align-items-start">
+                      <i className="bi bi-check-circle-fill text-primary fs-5 me-3 mt-1"></i>
+                      <span className="text-muted">
+                        If you require advanced features or want a
+                        custom-designed website, additional charges may apply.
+                      </span>
+                    </div>
+
+                    {/* Second Note */}
+                    <div className="bg-white rounded-3 p-3 border d-flex align-items-start">
+                      <i className="bi bi-check-circle-fill text-primary fs-5 me-3 mt-1"></i>
+                      <span className="text-muted">
+                        The mentioned price does not include domain and hosting.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                  <button
+                    onClick={scrollToForm}
+                    className="btn btn-primary btn-lg px-4 py-3 fw-bold shadow-sm"
+                    style={{ borderRadius: "50px" }}
+                  >
+                    <i className="bi bi-arrow-up-circle me-2"></i>
+                    Get Started Now
+                  </button>
+                  <button
+                    onClick={handleCall}
+                    className="btn btn-success btn-lg px-4 py-3 fw-bold"
+                    style={{ borderRadius: "50px" }}
+                  >
+                    <i className="bi bi-telephone me-2"></i>
+                    Call +91 9667092077
+                  </button>
+                </div>
+
+                {/* Bottom Disclaimer */}
+                <p className="text-muted small mb-0">
+                  Need a custom quote? Contact us for personalized pricing based
+                  on your specific requirements.
+                </p>
               </div>
             </div>
           </div>
