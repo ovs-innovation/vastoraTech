@@ -587,9 +587,15 @@ export default function Home() {
             <div className="d-flex align-items-center">
               <div>
                 <img
-                  src="/logo-ovs1.webp"
-                  alt="OVS Innovation"
-                  className="h-7"
+                  src="assets/img/logo/Vastora-Logo.jpg"
+                  alt="Vastora Tech"
+                  className="img-fluid"
+                  style={{
+                    height: "60px",
+                    width: "auto",
+                    maxWidth: "200px",
+                    objectFit: "contain",
+                  }}
                 />
               </div>
             </div>
@@ -1161,7 +1167,7 @@ export default function Home() {
                       style={{ height: "40px" }}
                     />
                   </div>
-                  <h3 className="h4 card-title mb-3">
+                  <h3 className="h4 card-title mb-3 ">
                     Shopify Ecommerce Website Development
                   </h3>
                   <p className="card-text text-muted mb-4">
@@ -1569,7 +1575,7 @@ export default function Home() {
                 </div>
 
                 <div className="col-md-6 d-flex">
-                  <div className="bg-purple text-white p-3 rounded me-3">
+                  <div className="bg-danger text-white p-3 rounded me-3">
                     <i className="bi bi-gear fs-3"></i>
                   </div>
                   <div>
@@ -1657,7 +1663,7 @@ export default function Home() {
                         V
                       </div>
                       <div
-                        className="bg-purple rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
+                        className="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
                         style={{ width: "64px", height: "64px" }}
                       >
                         S
