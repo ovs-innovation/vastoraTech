@@ -62,6 +62,27 @@ interface Content {
 }
 
 export default function Home() {
+  // Add custom styles for enhanced visual appeal
+  const customStyles = `
+    .hover-shadow:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
+    }
+    
+    .rounded-circle {
+      transition: all 0.3s ease;
+    }
+    
+    .rounded-circle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 35px rgba(13, 110, 253, 0.4) !important;
+    }
+    
+    .timeline-line {
+      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+      box-shadow: 0 0 30px rgba(13, 110, 253, 0.4);
+    }
+  `;
   const [enrollForm, setEnrollForm] = useState<EnrollFormState>({
     name: "",
     emailId: "",
@@ -399,6 +420,9 @@ export default function Home() {
 
   return (
     <div className="min-vh-100 bg-light">
+      {/* Custom Styles */}
+      <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+      
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
         <div className="container">
@@ -547,7 +571,7 @@ export default function Home() {
       <section className="bg-light py-5 py-lg-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="h1 mb-3">
+            <h2 className="h2 mb-3">
               Why Choose OVS Innovation for E-Commerce Development?
             </h2>
             <p className="lead text-muted">
@@ -557,15 +581,15 @@ export default function Home() {
 
           <div className="row">
             {/* Left: Professional Enrollment Steps */}
-            <div className="col-lg-6 position-relative mb-5 mb-lg-0">
-              <div className="position-absolute start-0 top-0 bottom-0 w-1 bg-primary ms-3"></div>
+                <div className="col-lg-6 position-relative mb-5 mb-lg-0">
+               <div className="position-absolute start-0 top-0 bottom-0 w-2 bg-primary ms-4 rounded-pill timeline-line"></div>
 
               <div>
                 {content.enrollmentSteps.map((step, index) => (
                   <div key={index} className="position-relative mb-4">
                     <div className="d-flex">
                       <div className="flex-shrink-0 position-relative">
-                        <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center shadow p-3">
+                                                 <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center shadow-lg p-4" style={{ width: "64px", height: "64px", boxShadow: '0 8px 25px rgba(13, 110, 253, 0.3)' }}>
                           {step.icon === "ecommerce" && (
                             <i className="bi bi-cart fs-3"></i>
                           )}
@@ -590,12 +614,12 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="flex-grow-1 ms-3">
-                        <div className="bg-white rounded shadow-sm p-4 border">
-                          <h3 className="h5 mb-2">{step.title}</h3>
-                          <p className="text-muted small mb-0">{step.desc}</p>
-                        </div>
-                      </div>
+                                             <div className="flex-grow-1 ms-4">
+                         <div className="bg-white rounded-3 shadow-lg p-4 border-0 hover-shadow transition-all" style={{ transform: 'translateY(0)', transition: 'all 0.3s ease' }}>
+                           <h3 className="h5 mb-3 fw-bold text-dark">{step.title}</h3>
+                           <p className="text-muted mb-0 lh-base">{step.desc}</p>
+                         </div>
+                       </div>
                     </div>
                   </div>
                 ))}
@@ -795,7 +819,7 @@ export default function Home() {
       <section className="bg-white py-5 py-lg-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="h1 mb-3">Our Services</h2>
+            <h2 className="h2 mb-3">Our Services</h2>
             <p className="lead text-muted">
               Comprehensive e-commerce marketing solutions designed to grow your
               online store, drive traffic, and boost conversions.
@@ -939,7 +963,7 @@ export default function Home() {
       <section className="bg-light py-5 py-lg-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="h1 mb-3">Our Work Portfolio</h2>
+            <h2 className="h2 mb-3">Our Work Portfolio</h2>
             <p className="lead text-muted">
               See how we've transformed businesses with our digital marketing
               expertise
@@ -1036,7 +1060,7 @@ export default function Home() {
         <div className="container">
           <div className="row g-5">
             <div className="col-lg-6">
-              <h2 className="h1 mb-4">About OVS Innovation</h2>
+              <h2 className="h2 mb-4">About OVS Innovation</h2>
               <p className="text-muted mb-4">
                 OVS Innovation is a web development and digital marketing
                 company based in India, established in November 2018. The
@@ -1182,7 +1206,7 @@ export default function Home() {
       <section className="bg-light py-5 py-lg-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="h1 mb-3">What Our Students Say</h2>
+            <h2 className="h2 mb-3">What Our Students Say</h2>
             <p className="lead text-muted">
               Hear from our successful graduates who have transformed their
               careers with our program
