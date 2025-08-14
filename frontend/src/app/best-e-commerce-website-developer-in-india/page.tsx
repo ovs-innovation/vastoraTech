@@ -583,7 +583,7 @@ export default function Home() {
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
         <div className="container">
-          <div className="d-flex justify-content-between align-items-center py-3">
+          <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
               <div>
                 <img
@@ -591,7 +591,7 @@ export default function Home() {
                   alt="Vastora Tech"
                   className="img-fluid"
                   style={{
-                    height: "60px",
+                    height: "80px",
                     width: "auto",
                     maxWidth: "200px",
                     objectFit: "contain",
@@ -650,163 +650,230 @@ export default function Home() {
               </div>
             </div>
 
-                         {/* Right Content - Two Device Mockup */}
-             <div className="col-lg-4 text-center">
-               <div className="position-relative d-flex justify-content-center align-items-center" style={{ minHeight: '400px', paddingBottom: '60px' }}>
-                 {/* Laptop Device */}
-                 <div className="position-relative" 
-                      style={{ 
-                        width: '320px', 
-                        height: '224px',
-                        transform: 'rotate(3deg)',
-                        transition: 'all 0.5s ease'
+            {/* Right Content - Two Device Mockup */}
+            <div className="col-lg-4 text-center">
+              <div
+                className="position-relative d-flex justify-content-center align-items-center"
+                style={{ minHeight: "400px", paddingBottom: "60px" }}
+              >
+                {/* Laptop Device */}
+                <div
+                  className="position-relative"
+                  style={{
+                    width: "320px",
+                    height: "224px",
+                    transform: "rotate(3deg)",
+                    transition: "all 0.5s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "rotate(0deg) scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "rotate(3deg) scale(1)";
+                  }}
+                >
+                  {/* Laptop Screen Frame */}
+                  <div
+                    className="position-relative w-100 h-100 rounded-3 shadow-lg"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, #374151, #111827)",
+                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    {/* Screen Bezel */}
+                    <div
+                      className="position-absolute"
+                      style={{
+                        top: "4px",
+                        left: "4px",
+                        right: "4px",
+                        bottom: "4px",
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'rotate(3deg) scale(1)';
-                      }}>
-                   {/* Laptop Screen Frame */}
-                   <div className="position-relative w-100 h-100 rounded-3 shadow-lg" 
-                        style={{ 
-                          background: 'linear-gradient(to bottom, #374151, #111827)',
-                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                        }}>
-                     {/* Screen Bezel */}
-                     <div className="position-absolute" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
-                       {/* Screen Content - EASILY CHANGEABLE IMAGE */}
-                       <div className="position-absolute bg-white rounded-2 overflow-hidden" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
-                         <img 
-                           src="/portfolio/laptop-banner.png" 
-                           alt="Dashboard Interface"
-                           className="w-100 h-100"
-                           style={{
-                             objectFit: 'cover',
-                             objectPosition: 'center top'
-                           }}
-                         />
-                         {/* Screen Reflection */}
-                         <div className="position-absolute top-0 start-0 w-100 h-100" 
-                              style={{ 
-                                background: 'linear-gradient(to bottom right, transparent, rgba(255,255,255,0.1), transparent)',
-                                pointerEvents: 'none'
-                              }}></div>
-                       </div>
-                     </div>
-                     
-                     {/* Laptop Base */}
-                     <div className="position-absolute" 
-                          style={{ 
-                            bottom: '-8px',
-                            left: '8px',
-                            right: '8px',
-                            height: '12px',
-                            background: 'linear-gradient(to bottom, #4B5563, #111827)',
-                            borderRadius: '0 0 12px 12px',
-                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
-                          }}></div>
-                     
-                     {/* Laptop Stand */}
-                     <div className="position-absolute" 
-                          style={{ 
-                            bottom: '-16px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '64px',
-                            height: '8px',
-                            background: '#374151',
-                            borderRadius: '9999px',
-                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                          }}></div>
-                   </div>
-                 </div>
+                    >
+                      {/* Screen Content - EASILY CHANGEABLE IMAGE */}
+                      <div
+                        className="position-absolute bg-white rounded-2 overflow-hidden"
+                        style={{
+                          top: "4px",
+                          left: "4px",
+                          right: "4px",
+                          bottom: "4px",
+                        }}
+                      >
+                        <img
+                          src="/portfolio/laptop-banner.png"
+                          alt="Dashboard Interface"
+                          className="w-100 h-100"
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center top",
+                          }}
+                        />
+                        {/* Screen Reflection */}
+                        <div
+                          className="position-absolute top-0 start-0 w-100 h-100"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom right, transparent, rgba(255,255,255,0.1), transparent)",
+                            pointerEvents: "none",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
 
-                                   {/* Mobile Device */}
-                  <div className="position-absolute" 
-                       style={{ 
-                         bottom: '20px',
-                         right: '-20px',
-                         width: '112px',
-                         height: '176px',
-                         transform: 'rotate(-6deg)',
-                         transition: 'all 0.5s ease'
-                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+                    {/* Laptop Base */}
+                    <div
+                      className="position-absolute"
+                      style={{
+                        bottom: "-8px",
+                        left: "8px",
+                        right: "8px",
+                        height: "12px",
+                        background:
+                          "linear-gradient(to bottom, #4B5563, #111827)",
+                        borderRadius: "0 0 12px 12px",
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
                       }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'rotate(-6deg) scale(1)';
-                      }}>
-                   <div className="position-relative w-100 h-100 rounded-4 shadow-lg" 
-                        style={{ 
-                          background: 'linear-gradient(to bottom, #374151, #111827)',
-                          borderRadius: '24px',
-                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                        }}>
-                     {/* Phone Bezel */}
-                     <div className="position-absolute" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
-                       {/* Phone Content - EASILY CHANGEABLE IMAGE */}
-                       <div className="position-absolute bg-white rounded-3 overflow-hidden" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
-                         <img 
-                           src="/portfolio/mobile-banner.png" 
-                           alt="Mobile App"
-                           className="w-100 h-100"
-                           style={{
-                             objectFit: 'cover',
-                             objectPosition: 'center'
-                           }}
-                         />
-                         {/* Screen Reflection */}
-                         <div className="position-absolute top-0 start-0 w-100 h-100" 
-                              style={{ 
-                                background: 'linear-gradient(to bottom right, transparent, rgba(255,255,255,0.05), transparent)',
-                                pointerEvents: 'none'
-                              }}></div>
-                       </div>
-                     </div>
-                     
-                     {/* Camera */}
-                     <div className="position-absolute bg-secondary rounded-circle" 
-                          style={{ 
-                            top: '8px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '8px',
-                            height: '8px'
-                          }}></div>
-                     
-                     {/* Home Indicator */}
-                     <div className="position-absolute bg-secondary rounded-pill" 
-                          style={{ 
-                            bottom: '8px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '32px',
-                            height: '4px'
-                          }}></div>
-                   </div>
-                 </div>
+                    ></div>
 
-                 {/* Floating Elements for Realism */}
-                 <div className="position-absolute bg-primary rounded-circle shadow" 
-                      style={{ 
-                        top: '16px',
-                        right: '16px',
-                        width: '12px',
-                        height: '12px',
-                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                      }}></div>
-                 <div className="position-absolute bg-success rounded-circle shadow" 
-                      style={{ 
-                        bottom: '32px',
-                        left: '16px',
-                        width: '8px',
-                        height: '8px',
-                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s'
-                      }}></div>
-               </div>
-             </div>
+                    {/* Laptop Stand */}
+                    <div
+                      className="position-absolute"
+                      style={{
+                        bottom: "-16px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "64px",
+                        height: "8px",
+                        background: "#374151",
+                        borderRadius: "9999px",
+                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Mobile Device */}
+                <div
+                  className="position-absolute"
+                  style={{
+                    bottom: "20px",
+                    right: "-20px",
+                    width: "112px",
+                    height: "176px",
+                    transform: "rotate(-6deg)",
+                    transition: "all 0.5s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "rotate(0deg) scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "rotate(-6deg) scale(1)";
+                  }}
+                >
+                  <div
+                    className="position-relative w-100 h-100 rounded-4 shadow-lg"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, #374151, #111827)",
+                      borderRadius: "24px",
+                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    {/* Phone Bezel */}
+                    <div
+                      className="position-absolute"
+                      style={{
+                        top: "4px",
+                        left: "4px",
+                        right: "4px",
+                        bottom: "4px",
+                      }}
+                    >
+                      {/* Phone Content - EASILY CHANGEABLE IMAGE */}
+                      <div
+                        className="position-absolute bg-white rounded-3 overflow-hidden"
+                        style={{
+                          top: "4px",
+                          left: "4px",
+                          right: "4px",
+                          bottom: "4px",
+                        }}
+                      >
+                        <img
+                          src="/portfolio/mobile-banner.png"
+                          alt="Mobile App"
+                          className="w-100 h-100"
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                        {/* Screen Reflection */}
+                        <div
+                          className="position-absolute top-0 start-0 w-100 h-100"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom right, transparent, rgba(255,255,255,0.05), transparent)",
+                            pointerEvents: "none",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    {/* Camera */}
+                    <div
+                      className="position-absolute bg-secondary rounded-circle"
+                      style={{
+                        top: "8px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "8px",
+                        height: "8px",
+                      }}
+                    ></div>
+
+                    {/* Home Indicator */}
+                    <div
+                      className="position-absolute bg-secondary rounded-pill"
+                      style={{
+                        bottom: "8px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "32px",
+                        height: "4px",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Floating Elements for Realism */}
+                <div
+                  className="position-absolute bg-primary rounded-circle shadow"
+                  style={{
+                    top: "16px",
+                    right: "16px",
+                    width: "12px",
+                    height: "12px",
+                    animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                  }}
+                ></div>
+                <div
+                  className="position-absolute bg-success rounded-circle shadow"
+                  style={{
+                    bottom: "32px",
+                    left: "16px",
+                    width: "8px",
+                    height: "8px",
+                    animation:
+                      "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s",
+                  }}
+                ></div>
+              </div>
+            </div>
           </div>
 
           {/* Bottom Program Details */}
@@ -1157,7 +1224,24 @@ export default function Home() {
           <div className="row g-4">
             {/* Shopify Ecommerce Website Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
+              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
+                   style={{ 
+                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                     transform: 'translateY(0) rotateX(0deg)',
+                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                   }}
+                   onMouseEnter={(e) => {
+                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
+                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+                     // Change title color to primary on hover
+                     const title = e.currentTarget.querySelector('.card-title');
+                   }}
+                   onMouseLeave={(e) => {
+                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
+                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                     // Reset title color on hover leave
+                     const title = e.currentTarget.querySelector('.card-title');
+                   }}>
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
@@ -1167,9 +1251,9 @@ export default function Home() {
                       style={{ height: "40px" }}
                     />
                   </div>
-                  <h3 className="h4 card-title mb-3 ">
-                    Shopify Ecommerce Website Development
-                  </h3>
+                                     <h3 className="h4 card-title mb-3 text-dark">
+                     Shopify Ecommerce Website Development
+                   </h3>
                   <p className="card-text text-muted mb-4">
                     Shopify is one of the most preferred E-commerce Platform by
                     business owners. It is known for it's extremely easy to use
@@ -1201,7 +1285,24 @@ export default function Home() {
 
             {/* WooCommerce / WordPress Ecommerce Website Design and Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
+              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
+                   style={{ 
+                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                     transform: 'translateY(0) rotateX(0deg)',
+                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                   }}
+                   onMouseEnter={(e) => {
+                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
+                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+                     // Change title color to primary on hover
+                     const title = e.currentTarget.querySelector('.card-title');
+                   }}
+                   onMouseLeave={(e) => {
+                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
+                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                     // Reset title color on hover leave
+                     const title = e.currentTarget.querySelector('.card-title');
+                   }}>
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
@@ -1211,10 +1312,10 @@ export default function Home() {
                       style={{ height: "56px" }}
                     />
                   </div>
-                  <h3 className="h4 card-title mb-3">
-                    Woocommerce / WordPress Ecommerce Website Design and
-                    Development
-                  </h3>
+                                     <h3 className="h4 card-title mb-3 text-dark">
+                     Woocommerce / WordPress Ecommerce Website Design and
+                     Development
+                   </h3>
                   <p className="card-text text-muted mb-4">
                     If you are planning to sell a wide range of products and
                     services to the customers directly through your website
@@ -1245,7 +1346,20 @@ export default function Home() {
 
             {/* Custom Ecommerce Website Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
+              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
+                   style={{ 
+                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                     transform: 'translateY(0) rotateX(0deg)',
+                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                   }}
+                   onMouseEnter={(e) => {
+                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
+                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+                   }}
+                   onMouseLeave={(e) => {
+                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
+                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                   }}>
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
@@ -1255,9 +1369,9 @@ export default function Home() {
                       style={{ height: "40px" }}
                     />
                   </div>
-                  <h3 className="h4 card-title mb-3">
-                    Custom Ecommerce Website Development
-                  </h3>
+                                     <h3 className="h4 card-title mb-3 text-dark">
+                     Custom Ecommerce Website Development
+                   </h3>
                   <p className="card-text text-muted mb-4">
                     At ovsinnovation we offer wide variety of ecommerce
                     solutions for our clients. Reach out to us for a specific
@@ -1396,9 +1510,9 @@ export default function Home() {
             </div>
           </div>
 
-                     {/* Portfolio CTA - Transparent Pricing Style */}
-           <div className="text-center mt-5">
-             <div className="bg-white rounded-4 shadow-lg p-4 p-lg-5 border-0 w-100 position-relative">
+          {/* Portfolio CTA - Transparent Pricing Style */}
+          <div className="text-center mt-5">
+            <div className="bg-white rounded-4 shadow-lg p-4 p-lg-5 border-0 w-100 position-relative">
               {/* Decorative Background Elements */}
               <div
                 className="position-absolute top-0 end-0 opacity-10"
@@ -1598,11 +1712,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-              <button className="btn btn-primary btn-lg px-4 py-3">
-                <i className="bi bi-info-circle me-2"></i>
-                Learn More About Us
-              </button>
             </div>
 
             <div className="col-lg-6">
