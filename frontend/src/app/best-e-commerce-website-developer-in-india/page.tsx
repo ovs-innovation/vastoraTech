@@ -73,6 +73,7 @@ export default function Home() {
     .hover-shadow:hover {
       transform: translateY(-5px) !important;
       box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
+      border: 2px solid #0d6efd !important;
     }
     
     .rounded-circle {
@@ -461,7 +462,7 @@ export default function Home() {
     <div className="min-vh-100 bg-light">
       {/* Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-      
+
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
         <div className="container">
@@ -487,12 +488,12 @@ export default function Home() {
             <div className="col-lg-8 mb-5 mb-lg-0">
               <div className="mb-4">
                 <h1 className="display-8 fw-bold mb-3">
-                  Custom E-Commerce Development Solutions for 10x Business Growth
-                  Online
+                  Custom E-Commerce Development Solutions for 10x Business
+                  Growth Online
                 </h1>
                 <p className="lead fw-semibold mb-4">
-                  We build secure, scalable, and sales-driven e-commerce websites
-                  for startups, brands, and enterprises
+                  We build secure, scalable, and sales-driven e-commerce
+                  websites for startups, brands, and enterprises
                 </p>
                 <p className="text-muted mb-4">
                   Launch your own online store with advanced features and a
@@ -547,7 +548,9 @@ export default function Home() {
                     <i className="bi bi-list fs-2"></i>
                   </div>
                   <div>
-                    <h3 className="h5 fw-semibold">Complete E-Commerce Solutions</h3>
+                    <h3 className="h5 fw-semibold">
+                      Complete E-Commerce Solutions
+                    </h3>
                     <p className="text-muted small mb-0">
                       From product listing to payment gateways — we build
                       everything your online store needs to run smoothly.
@@ -590,7 +593,6 @@ export default function Home() {
         </div>
       </section>
 
-      
       {/* Call to Action Section */}
       <section className="bg-white py-2 py-lg-2">
         <div className="container">
@@ -620,15 +622,22 @@ export default function Home() {
 
           <div className="row">
             {/* Left: Professional Enrollment Steps */}
-                <div className="col-lg-6 position-relative mb-5 mb-lg-0">
-               <div className="position-absolute start-0 top-0 bottom-0 w-2 bg-primary ms-4 rounded-pill timeline-line"></div>
+            <div className="col-lg-6 position-relative mb-5 mb-lg-0">
+              <div className="position-absolute start-0 top-0 bottom-0 w-2 bg-primary ms-4 rounded-pill timeline-line"></div>
 
               <div>
                 {content.enrollmentSteps.map((step, index) => (
                   <div key={index} className="position-relative mb-4">
                     <div className="d-flex">
                       <div className="flex-shrink-0 position-relative">
-                                                 <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center shadow-lg p-4" style={{ width: "64px", height: "64px", boxShadow: '0 8px 25px rgba(13, 110, 253, 0.3)' }}>
+                        <div
+                          className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center shadow-lg p-4"
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            boxShadow: "0 8px 25px rgba(13, 110, 253, 0.3)",
+                          }}
+                        >
                           {step.icon === "ecommerce" && (
                             <i className="bi bi-cart fs-3"></i>
                           )}
@@ -653,12 +662,20 @@ export default function Home() {
                         </div>
                       </div>
 
-                                             <div className="flex-grow-1 ms-4">
-                         <div className="bg-white rounded-3 shadow-lg p-4 border-0 hover-shadow transition-all" style={{ transform: 'translateY(0)', transition: 'all 0.3s ease' }}>
-                           <h3 className="h5 mb-3 fw-bold text-dark">{step.title}</h3>
-                           <p className="text-muted mb-0 lh-base">{step.desc}</p>
-                         </div>
-                       </div>
+                      <div className="flex-grow-1 ms-4">
+                        <div
+                          className="bg-white rounded-3 shadow-lg p-4 border-0 hover-shadow transition-all"
+                          style={{
+                            transform: "translateY(0)",
+                            transition: "all 0.3s ease",
+                          }}
+                        >
+                          <h3 className="h5 mb-3 fw-bold text-dark">
+                            {step.title}
+                          </h3>
+                          <p className="text-muted mb-0 lh-base">{step.desc}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -853,7 +870,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Our Services Section */}
       <section className="bg-white py-5 py-lg-5">
         <div className="container">
@@ -872,7 +888,7 @@ export default function Home() {
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
-                      src="/img/portfolio/Shopify.png"
+                      src="assets/img/landingpage/shopify.png"
                       alt="Shopify"
                       className="img-fluid mb-4"
                       style={{ height: "40px" }}
@@ -884,8 +900,8 @@ export default function Home() {
                   <p className="card-text text-muted mb-4">
                     Shopify is one of the most preferred E-commerce Platform by
                     business owners. It is known for it's extremely easy to use
-                    panel. Shopify is an excellent solution if you are a small to
-                    medium business and you want a hassle free easy-to-use
+                    panel. Shopify is an excellent solution if you are a small
+                    to medium business and you want a hassle free easy-to-use
                     platform for your E-commerce Business.
                   </p>
                   <ul className="list-unstyled">
@@ -916,7 +932,7 @@ export default function Home() {
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
-                      src="/img/portfolio/wordpress.png"
+                      src="assets/img/landingpage/wordpress.png"
                       alt="WooCommerce"
                       className="img-fluid mb-4"
                       style={{ height: "56px" }}
@@ -960,7 +976,7 @@ export default function Home() {
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                     <img
-                      src="/img/portfolio/mern.png"
+                      src="assets/img/landingpage/mern.png"
                       alt="MERN"
                       className="img-fluid mb-4"
                       style={{ height: "40px" }}
@@ -970,8 +986,9 @@ export default function Home() {
                     Custom Ecommerce Website Development
                   </h3>
                   <p className="card-text text-muted mb-4">
-                    At ovsinnovation we offer wide variety of ecommerce solutions
-                    for our clients. Reach out to us for a specific requirement.
+                    At ovsinnovation we offer wide variety of ecommerce
+                    solutions for our clients. Reach out to us for a specific
+                    requirement.
                   </p>
                   <ul className="list-unstyled">
                     <li className="mb-2 d-flex">
@@ -1008,8 +1025,7 @@ export default function Home() {
               expertise
             </p>
           </div>
-
-                                           {/* Portfolio Swiper Slider */}
+            {/* Portfolio Swiper Slider */}
             <div className="position-relative">
               <Swiper
                 modules={[Navigation, Autoplay]}
@@ -1272,17 +1288,26 @@ export default function Home() {
                   <div className="text-center">
                     <h3 className="h4 mb-4">Our Expert Team</h3>
                     <p className="text-muted mb-4">
-                      Meet our passionate team of digital marketing professionals
-                      who are committed to your success.
+                      Meet our passionate team of digital marketing
+                      professionals who are committed to your success.
                     </p>
                     <div className="d-flex justify-content-center gap-3 mb-4">
-                      <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4" style={{ width: "64px", height: "64px" }}>
+                      <div
+                        className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
+                        style={{ width: "64px", height: "64px" }}
+                      >
                         O
                       </div>
-                      <div className="bg-success rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4" style={{ width: "64px", height: "64px" }}>
+                      <div
+                        className="bg-success rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
+                        style={{ width: "64px", height: "64px" }}
+                      >
                         V
                       </div>
-                      <div className="bg-purple rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4" style={{ width: "64px", height: "64px" }}>
+                      <div
+                        className="bg-purple rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
+                        style={{ width: "64px", height: "64px" }}
+                      >
                         S
                       </div>
                     </div>
@@ -1318,17 +1343,25 @@ export default function Home() {
                     </p>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="d-flex align-items-center">
-                        <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 me-3" style={{ width: "48px", height: "48px" }}>
+                        <div
+                          className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 me-3"
+                          style={{ width: "48px", height: "48px" }}
+                        >
                           {testimonial.name.charAt(0)}
                         </div>
                         <div>
                           <h5 className="mb-0">{testimonial.name}</h5>
-                          <p className="text-muted small mb-0">{testimonial.city}</p>
+                          <p className="text-muted small mb-0">
+                            {testimonial.city}
+                          </p>
                         </div>
                       </div>
                       <div>
                         {[...Array(5)].map((_, i) => (
-                          <i key={i} className="bi bi-star-fill text-warning"></i>
+                          <i
+                            key={i}
+                            className="bi bi-star-fill text-warning"
+                          ></i>
                         ))}
                       </div>
                     </div>
