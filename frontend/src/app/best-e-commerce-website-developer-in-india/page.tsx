@@ -644,16 +644,163 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Content - Real Image */}
-            <div className="col-lg-4 text-center">
-              <div className="position-relative">
-                <img
-                  src="https://mentorkart.com/PolicyBazaarImages/HeroImage.svg"
-                  alt="Professional Digital Marketing Expert"
-                  className="img-fluid"
-                />
-              </div>
-            </div>
+                         {/* Right Content - Two Device Mockup */}
+             <div className="col-lg-4 text-center">
+               <div className="position-relative d-flex justify-content-center align-items-center" style={{ minHeight: '400px', paddingBottom: '60px' }}>
+                 {/* Laptop Device */}
+                 <div className="position-relative" 
+                      style={{ 
+                        width: '320px', 
+                        height: '224px',
+                        transform: 'rotate(3deg)',
+                        transition: 'all 0.5s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'rotate(3deg) scale(1)';
+                      }}>
+                   {/* Laptop Screen Frame */}
+                   <div className="position-relative w-100 h-100 rounded-3 shadow-lg" 
+                        style={{ 
+                          background: 'linear-gradient(to bottom, #374151, #111827)',
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                        }}>
+                     {/* Screen Bezel */}
+                     <div className="position-absolute" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
+                       {/* Screen Content - EASILY CHANGEABLE IMAGE */}
+                       <div className="position-absolute bg-white rounded-2 overflow-hidden" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
+                         <img 
+                           src="/portfolio/laptop-banner.png" 
+                           alt="Dashboard Interface"
+                           className="w-100 h-100"
+                           style={{
+                             objectFit: 'cover',
+                             objectPosition: 'center top'
+                           }}
+                         />
+                         {/* Screen Reflection */}
+                         <div className="position-absolute top-0 start-0 w-100 h-100" 
+                              style={{ 
+                                background: 'linear-gradient(to bottom right, transparent, rgba(255,255,255,0.1), transparent)',
+                                pointerEvents: 'none'
+                              }}></div>
+                       </div>
+                     </div>
+                     
+                     {/* Laptop Base */}
+                     <div className="position-absolute" 
+                          style={{ 
+                            bottom: '-8px',
+                            left: '8px',
+                            right: '8px',
+                            height: '12px',
+                            background: 'linear-gradient(to bottom, #4B5563, #111827)',
+                            borderRadius: '0 0 12px 12px',
+                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                          }}></div>
+                     
+                     {/* Laptop Stand */}
+                     <div className="position-absolute" 
+                          style={{ 
+                            bottom: '-16px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '64px',
+                            height: '8px',
+                            background: '#374151',
+                            borderRadius: '9999px',
+                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                          }}></div>
+                   </div>
+                 </div>
+
+                                   {/* Mobile Device */}
+                  <div className="position-absolute" 
+                       style={{ 
+                         bottom: '20px',
+                         right: '-20px',
+                         width: '112px',
+                         height: '176px',
+                         transform: 'rotate(-6deg)',
+                         transition: 'all 0.5s ease'
+                       }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'rotate(-6deg) scale(1)';
+                      }}>
+                   <div className="position-relative w-100 h-100 rounded-4 shadow-lg" 
+                        style={{ 
+                          background: 'linear-gradient(to bottom, #374151, #111827)',
+                          borderRadius: '24px',
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                        }}>
+                     {/* Phone Bezel */}
+                     <div className="position-absolute" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
+                       {/* Phone Content - EASILY CHANGEABLE IMAGE */}
+                       <div className="position-absolute bg-white rounded-3 overflow-hidden" style={{ top: '4px', left: '4px', right: '4px', bottom: '4px' }}>
+                         <img 
+                           src="/portfolio/mobile-banner.png" 
+                           alt="Mobile App"
+                           className="w-100 h-100"
+                           style={{
+                             objectFit: 'cover',
+                             objectPosition: 'center'
+                           }}
+                         />
+                         {/* Screen Reflection */}
+                         <div className="position-absolute top-0 start-0 w-100 h-100" 
+                              style={{ 
+                                background: 'linear-gradient(to bottom right, transparent, rgba(255,255,255,0.05), transparent)',
+                                pointerEvents: 'none'
+                              }}></div>
+                       </div>
+                     </div>
+                     
+                     {/* Camera */}
+                     <div className="position-absolute bg-secondary rounded-circle" 
+                          style={{ 
+                            top: '8px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '8px',
+                            height: '8px'
+                          }}></div>
+                     
+                     {/* Home Indicator */}
+                     <div className="position-absolute bg-secondary rounded-pill" 
+                          style={{ 
+                            bottom: '8px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '32px',
+                            height: '4px'
+                          }}></div>
+                   </div>
+                 </div>
+
+                 {/* Floating Elements for Realism */}
+                 <div className="position-absolute bg-primary rounded-circle shadow" 
+                      style={{ 
+                        top: '16px',
+                        right: '16px',
+                        width: '12px',
+                        height: '12px',
+                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                      }}></div>
+                 <div className="position-absolute bg-success rounded-circle shadow" 
+                      style={{ 
+                        bottom: '32px',
+                        left: '16px',
+                        width: '8px',
+                        height: '8px',
+                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s'
+                      }}></div>
+               </div>
+             </div>
           </div>
 
           {/* Bottom Program Details */}
