@@ -558,19 +558,19 @@ export default function Home() {
         name: "Himanshu Singh",
         city: "Mumbai",
         testimonial:
-          "Working at OVS Innovation is a great experience. The company values its employees, encourages new ideas, and provides opportunities to grow. The team is supportive, the work environment is positive, and there's a good balance between work and personal life. It's a great place to build your career.",
+          "Working at Vastora Tech is a great experience. The company values its employees, encourages new ideas, and provides opportunities to grow. The team is supportive, the work environment is positive, and there's a good balance between work and personal life. It's a great place to build your career.",
       },
       {
         name: "Vishakha Agarwal",
         city: "Delhi",
         testimonial:
-          "Working at OVS Innovation has been an incredible experience! The team is supportive, innovative, and passionate about digital marketing. I've had the opportunity to learn and grow professionally while contributing to impactful projects.😊",
+          "Working at Vastora Tech has been an incredible experience! The team is supportive, innovative, and passionate about digital marketing. I've had the opportunity to learn and grow professionally while contributing to impactful projects.😊",
       },
       {
         name: "Sandhya Singh",
         city: "Bangalore",
         testimonial:
-          "OVS Innovation is a fantastic digital marketing agency! Their team is incredibly knowledgeable and creative, delivering outstanding results for our business. They took the time to understand our goals and tailored a comprehensive strategy that boosted our online presence significantly. Their communication and professionalism are top-notch.",
+          "Vastora Tech is a fantastic digital marketing agency! Their team is incredibly knowledgeable and creative, delivering outstanding results for our business. They took the time to understand our goals and tailored a comprehensive strategy that boosted our online presence significantly. Their communication and professionalism are top-notch.",
       },
     ],
   };
@@ -948,12 +948,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why OVS Innovation with CTA */}
+      {/* Why Vastora Tech with CTA */}
       <section className="bg-light py-5 py-lg-5">
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="h2 mb-3">
-              Why Choose OVS Innovation for E-Commerce Development?
+              Why Choose Vastora Tech for E-Commerce Development?
             </h2>
             <p className="lead text-muted">
               We're not just a development team. We're your partners in growth.
@@ -1643,9 +1643,9 @@ export default function Home() {
         <div className="container">
           <div className="row g-5">
             <div className="col-lg-6">
-              <h2 className="h2 mb-4">About OVS Innovation</h2>
+              <h2 className="h2 mb-4">About Vastora Tech</h2>
               <p className="text-muted mb-4">
-                OVS Innovation is a web development and digital marketing
+                Vastora Tech is a web development and digital marketing
                 company based in India, established in November 2018. The
                 company specializes in enhancing businesses' online presence
                 through comprehensive SEO services, including on-page and
@@ -1655,7 +1655,7 @@ export default function Home() {
               <p className="text-muted mb-5">
                 Their expertise extends to web development, offering custom
                 website solutions, e-commerce platforms, CMS integration, and
-                UI/UX design. Additionally, OVS Innovation provides digital
+                UI/UX design. Additionally, Vastora Tech provides digital
                 marketing services such as social media marketing, PPC
                 advertising, and content marketing to help businesses grow their
                 online reach. With a client-centric approach and a focus on
