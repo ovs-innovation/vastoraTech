@@ -2,12 +2,12 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
 
 // Define interfaces for our data structures
 interface EnrollFormState {
@@ -470,9 +470,15 @@ export default function Home() {
             <div className="d-flex align-items-center">
               <div>
                 <img
-                  src="/logo-ovs1.webp"
-                  alt="OVS Innovation"
-                  className="h-7"
+                  src="assets/img/logo/Vastora-Logo.jpg"
+                  alt="Vastora Tech"
+                  className="img-fluid"
+                  style={{
+                    height: "60px",
+                    width: "auto",
+                    maxWidth: "200px",
+                    objectFit: "contain",
+                  }}
                 />
               </div>
             </div>
@@ -894,7 +900,7 @@ export default function Home() {
                       style={{ height: "40px" }}
                     />
                   </div>
-                  <h3 className="h4 card-title mb-3">
+                  <h3 className="h4 card-title mb-3 ">
                     Shopify Ecommerce Website Development
                   </h3>
                   <p className="card-text text-muted mb-4">
@@ -1025,100 +1031,103 @@ export default function Home() {
               expertise
             </p>
           </div>
-            {/* Portfolio Swiper Slider */}
-            <div className="position-relative">
-              <Swiper
-                modules={[Navigation, Autoplay]}
-                spaceBetween={32}
-                slidesPerView={1}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 32,
-                  },
-                }}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                navigation={true}
-                loop={true}
-                grabCursor={true}
-                touchRatio={1}
-                touchAngle={45}
-                resistance={true}
-                resistanceRatio={0.85}
-                speed={600}
-                effect="slide"
-                watchSlidesProgress={true}
-                watchOverflow={true}
-                className="portfolio-swiper"
-              >
-                {content.portfolio.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
-                      {/* Portfolio Image */}
-                      <div className="position-relative overflow-hidden">
-                        <img
-                          src={item.img}
-                          alt={item.title}
-                          className="card-img-top"
-                          style={{ height: "200px", objectFit: "cover" }}
-                        />
-                        <div className="position-absolute top-0 end-0 m-3">
-                          <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
-                            {item.category}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Portfolio Content */}
-                      <div className="card-body p-4">
-                        <h3 className="h5 fw-bold text-dark mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted small mb-4 lh-base">
-                          {item.sm_des}
-                        </p>
-
-                        {/* Tags */}
-                        <div className="d-flex flex-wrap gap-2 mb-4">
-                          {item.tags.map((tag, tagIndex) => (
-                            <span
-                              key={tagIndex}
-                              className="badge bg-light text-dark px-3 py-2 rounded-pill small"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Visit Link Button */}
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
-                        >
-                          <i className="bi bi-box-arrow-up-right me-2"></i>
-                          Visit Website
-                        </a>
+          {/* Portfolio Swiper Slider */}
+          <div className="position-relative">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={32}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 32,
+                },
+              }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              navigation={true}
+              loop={true}
+              grabCursor={true}
+              touchRatio={1}
+              touchAngle={45}
+              resistance={true}
+              resistanceRatio={0.85}
+              speed={600}
+              effect="slide"
+              watchSlidesProgress={true}
+              watchOverflow={true}
+              className="portfolio-swiper"
+            >
+              {content.portfolio.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
+                    {/* Portfolio Image */}
+                    <div className="position-relative overflow-hidden">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="card-img-top"
+                        style={{ height: "200px", objectFit: "cover" }}
+                      />
+                      <div className="position-absolute top-0 end-0 m-3">
+                        <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
+                          {item.category}
+                        </span>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
 
-              {/* Mobile Swipe Hint */}
-              <div className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none" style={{ backdropFilter: 'blur(10px)' }}>
-                ← Swipe to navigate →
-              </div>
+                    {/* Portfolio Content */}
+                    <div className="card-body p-4">
+                      <h3 className="h5 fw-bold text-dark mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted small mb-4 lh-base">
+                        {item.sm_des}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="d-flex flex-wrap gap-2 mb-4">
+                        {item.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="badge bg-light text-dark px-3 py-2 rounded-pill small"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Visit Link Button */}
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
+                      >
+                        <i className="bi bi-box-arrow-up-right me-2"></i>
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Mobile Swipe Hint */}
+            <div
+              className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none"
+              style={{ backdropFilter: "blur(10px)" }}
+            >
+              ← Swipe to navigate →
             </div>
+          </div>
 
           {/* Portfolio CTA */}
           <div className="text-center mt-5">
@@ -1217,7 +1226,7 @@ export default function Home() {
                 </div>
 
                 <div className="col-md-6 d-flex">
-                  <div className="bg-purple text-white p-3 rounded me-3">
+                  <div className="bg-danger text-white p-3 rounded me-3">
                     <i className="bi bi-gear fs-3"></i>
                   </div>
                   <div>
@@ -1305,7 +1314,7 @@ export default function Home() {
                         V
                       </div>
                       <div
-                        className="bg-purple rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
+                        className="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
                         style={{ width: "64px", height: "64px" }}
                       >
                         S
