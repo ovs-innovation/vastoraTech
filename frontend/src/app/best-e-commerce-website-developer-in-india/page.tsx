@@ -2,6 +2,12 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 // Define interfaces for our data structures
 interface EnrollFormState {
@@ -82,6 +88,39 @@ export default function Home() {
     .timeline-line {
       background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
       box-shadow: 0 0 30px rgba(13, 110, 253, 0.4);
+    }
+    
+    /* Portfolio Swiper Styles */
+    .portfolio-swiper {
+      padding: 20px 0;
+    }
+    
+    .portfolio-swiper .swiper-slide {
+      height: auto;
+    }
+    
+    .portfolio-swiper .swiper-button-next,
+    .portfolio-swiper .swiper-button-prev {
+      color: #0d6efd !important;
+      background: white !important;
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .portfolio-swiper .swiper-button-next:hover,
+    .portfolio-swiper .swiper-button-prev:hover {
+      background: #0d6efd !important;
+      color: white !important;
+      transform: scale(1.1) !important;
+    }
+    
+    .portfolio-swiper .swiper-button-next::after,
+    .portfolio-swiper .swiper-button-prev::after {
+      font-size: 16px !important;
+      font-weight: bold !important;
     }
   `;
   const [enrollForm, setEnrollForm] = useState<EnrollFormState>({
@@ -297,7 +336,7 @@ export default function Home() {
     portfolio: [
       {
         id: 1,
-        img: "/img/portfolio/project-portfolio-1.png",
+        img: "/portfolio/project-portfolio-1.png",
         category: "E-commerce",
         title: "TossMart",
         sm_des:
@@ -307,7 +346,7 @@ export default function Home() {
       },
       {
         id: 7,
-        img: "/img/portfolio/project-portfolio-7.png",
+        img: "/portfolio/project-portfolio-7.png",
         category: "E-commerce",
         title: "Botso",
         sm_des:
@@ -317,7 +356,7 @@ export default function Home() {
       },
       {
         id: 3,
-        img: "/img/portfolio/project-portfolio-3.png",
+        img: "/portfolio/project-portfolio-3.png",
         category: "E-learning",
         title: "The Learn Skills",
         sm_des:
@@ -327,7 +366,7 @@ export default function Home() {
       },
       {
         id: 4,
-        img: "/img/portfolio/project-portfolio-4.png",
+        img: "/portfolio/project-portfolio-4.png",
         category: "Hotel Booking",
         title: "Hotel Sweet Dreams",
         sm_des:
@@ -338,7 +377,7 @@ export default function Home() {
 
       {
         id: 5,
-        img: "/img/portfolio/project-portfolio-5.png",
+        img: "/portfolio/project-portfolio-5.png",
         category: "Travel",
         title: "Arana Taj Tour",
         sm_des:
@@ -348,7 +387,7 @@ export default function Home() {
       },
       {
         id: 2,
-        img: "/img/portfolio/project-portfolio-2.png",
+        img: "/portfolio/project-portfolio-2.png",
         category: "Beauty",
         title: "CandyFloss",
         sm_des:
@@ -358,7 +397,7 @@ export default function Home() {
       },
       {
         id: 6,
-        img: "/img/portfolio/project-portfolio-6.png",
+        img: "/portfolio/project-portfolio-6.png",
         category: "Real Estate",
         title: "Prosperra Infra Estate",
         sm_des:
@@ -368,7 +407,7 @@ export default function Home() {
       },
       {
         id: 8,
-        img: "/img/portfolio/project-portfolio-8.png",
+        img: "/portfolio/project-portfolio-8.png",
         category: "Engineering",
         title: "Divizz Group",
         sm_des:
@@ -378,7 +417,7 @@ export default function Home() {
       },
       {
         id: 9,
-        img: "/img/portfolio/project-portfolio-9.png",
+        img: "/portfolio/project-portfolio-9.png",
         category: "Engineering",
         title: "PowerQ",
         sm_des:
@@ -388,7 +427,7 @@ export default function Home() {
       },
       {
         id: 10,
-        img: "/img/portfolio/project-portfolio-10.png",
+        img: "/portfolio/project-portfolio-10.png",
         category: "Health",
         title: "Health&Herbs",
         sm_des:
@@ -986,49 +1025,100 @@ export default function Home() {
               expertise
             </p>
           </div>
-
-          {/* Portfolio Cards */}
-          <div className="d-flex overflow-auto pb-4 mb-4 scrollbar-hidden">
-            {content.portfolio.map((item) => (
-              <div
-                key={item.id}
-                className="flex-shrink-0 me-4"
-                style={{ width: "320px" }}
+            {/* Portfolio Swiper Slider */}
+            <div className="position-relative">
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                spaceBetween={32}
+                slidesPerView={1}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 32,
+                  },
+                }}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                navigation={true}
+                loop={true}
+                grabCursor={true}
+                touchRatio={1}
+                touchAngle={45}
+                resistance={true}
+                resistanceRatio={0.85}
+                speed={600}
+                effect="slide"
+                watchSlidesProgress={true}
+                watchOverflow={true}
+                className="portfolio-swiper"
               >
-                <div className="card border-0 shadow-sm h-100">
-                  <img
-                    src={item.img}
-                    className="card-img-top"
-                    alt={item.title}
-                    style={{ height: "200px", objectFit: "cover" }}
-                  />
-                  <div className="card-body">
-                    <span className="badge bg-primary position-absolute top-0 end-0 m-3">
-                      {item.category}
-                    </span>
-                    <h3 className="h5 card-title">{item.title}</h3>
-                    <p className="card-text text-muted small">{item.sm_des}</p>
-                    <div className="d-flex flex-wrap gap-2 mb-3">
-                      {item.tags.map((tag, idx) => (
-                        <span key={idx} className="badge bg-light text-dark">
-                          {tag}
-                        </span>
-                      ))}
+                {content.portfolio.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
+                      {/* Portfolio Image */}
+                      <div className="position-relative overflow-hidden">
+                        <img
+                          src={item.img}
+                          alt={item.title}
+                          className="card-img-top"
+                          style={{ height: "200px", objectFit: "cover" }}
+                        />
+                        <div className="position-absolute top-0 end-0 m-3">
+                          <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
+                            {item.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Portfolio Content */}
+                      <div className="card-body p-4">
+                        <h3 className="h5 fw-bold text-dark mb-3">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted small mb-4 lh-base">
+                          {item.sm_des}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="d-flex flex-wrap gap-2 mb-4">
+                          {item.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="badge bg-light text-dark px-3 py-2 rounded-pill small"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Visit Link Button */}
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
+                        >
+                          <i className="bi bi-box-arrow-up-right me-2"></i>
+                          Visit Website
+                        </a>
+                      </div>
                     </div>
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary btn-sm w-100"
-                    >
-                      <i className="bi bi-box-arrow-up-right me-2"></i>
-                      Visit Website
-                    </a>
-                  </div>
-                </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Mobile Swipe Hint */}
+              <div className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none" style={{ backdropFilter: 'blur(10px)' }}>
+                ← Swipe to navigate →
               </div>
-            ))}
-          </div>
+            </div>
 
           {/* Portfolio CTA */}
           <div className="text-center mt-5">
