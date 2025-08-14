@@ -68,6 +68,11 @@ interface Content {
 }
 
 export default function Home() {
+  // Function to handle demo button click
+  const handleDemoClick = () => {
+    window.open('https://admin.ecommerce-demo.ovsinnovation.com/', '_blank');
+  };
+
   // Add custom styles for enhanced visual appeal
   const customStyles = `
     .hover-shadow:hover {
@@ -597,7 +602,10 @@ export default function Home() {
       <section className="bg-white py-2 py-lg-2">
         <div className="container">
           <div className="text-center">
-            <button className="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm mb-3">
+            <button 
+              className="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm mb-3"
+              onClick={handleDemoClick}
+            >
               <i className="bi bi-emoji-smile text-white me-2"></i>
               Get Free Demo
             </button>
