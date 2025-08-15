@@ -580,15 +580,15 @@ export default function Home() {
 
   return (
     <div className="min-vh-100 bg-light">
-             {/* Custom Styles */}
-       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-       
-       {/* Bootstrap Icons CDN Fallback */}
-       <link 
-         rel="stylesheet" 
-         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-         crossOrigin="anonymous"
-       />
+      {/* Custom Styles */}
+      <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+
+      {/* Bootstrap Icons CDN Fallback */}
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        crossOrigin="anonymous"
+      />
 
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
@@ -596,17 +596,17 @@ export default function Home() {
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
               <div>
-                <img
-                  src="assets/img/logo/Vastora-Logo.jpg"
-                  alt="Vastora Tech"
-                  className="img-fluid"
-                  style={{
-                    height: "80px",
-                    width: "auto",
-                    maxWidth: "200px",
-                    objectFit: "contain",
-                  }}
-                />
+                                 <img
+                   src="/assets/img/logo/Vastora-Logo.jpg"
+                   alt="Vastora Tech"
+                   className="img-fluid"
+                   style={{
+                     height: "80px",
+                     width: "auto",
+                     maxWidth: "200px",
+                     objectFit: "contain",
+                   }}
+                 />
               </div>
             </div>
           </div>
@@ -1234,36 +1234,39 @@ export default function Home() {
           <div className="row g-4">
             {/* Shopify Ecommerce Website Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
-                   style={{ 
-                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                     transform: 'translateY(0) rotateX(0deg)',
-                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-                   }}
-                   onMouseEnter={(e) => {
-                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
-                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
-                     // Change title color to primary on hover
-                     const title = e.currentTarget.querySelector('.card-title');
-                   }}
-                   onMouseLeave={(e) => {
-                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
-                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                     // Reset title color on hover leave
-                     const title = e.currentTarget.querySelector('.card-title');
-                   }}>
+              <div
+                className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden"
+                style={{
+                  transition:
+                    "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transform: "translateY(0) rotateX(0deg)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(-15px) rotateX(5deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 25px 50px rgba(0,0,0,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(0) rotateX(0deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 30px rgba(0,0,0,0.1)";
+                }}
+              >
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
-                    <img
-                      src="assets/img/landingpage/shopify.png"
-                      alt="Shopify"
-                      className="img-fluid mb-4"
-                      style={{ height: "40px" }}
-                    />
+                                         <img
+                       src="/assets/img/landingpage/shopify.png"
+                       alt="Shopify"
+                       className="img-fluid mb-4"
+                       style={{ height: "40px" }}
+                     />
                   </div>
-                                     <h3 className="h4 card-title mb-3 text-dark">
-                     Shopify Ecommerce Website Development
-                   </h3>
+                  <h3 className="h4 card-title mb-3 text-dark">
+                    Shopify Ecommerce Website Development
+                  </h3>
                   <p className="card-text text-muted mb-4">
                     Shopify is one of the most preferred E-commerce Platform by
                     business owners. It is known for it's extremely easy to use
@@ -1295,37 +1298,44 @@ export default function Home() {
 
             {/* WooCommerce / WordPress Ecommerce Website Design and Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
-                   style={{ 
-                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                     transform: 'translateY(0) rotateX(0deg)',
-                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-                   }}
-                   onMouseEnter={(e) => {
-                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
-                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
-                     // Change title color to primary on hover
-                     const title = e.currentTarget.querySelector('.card-title');
-                   }}
-                   onMouseLeave={(e) => {
-                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
-                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                     // Reset title color on hover leave
-                     const title = e.currentTarget.querySelector('.card-title');
-                   }}>
+              <div
+                className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden"
+                style={{
+                  transition:
+                    "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transform: "translateY(0) rotateX(0deg)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(-15px) rotateX(5deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 25px 50px rgba(0,0,0,0.25)";
+                  // Change title color to primary on hover
+                  const title = e.currentTarget.querySelector(".card-title");
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(0) rotateX(0deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 30px rgba(0,0,0,0.1)";
+                  // Reset title color on hover leave
+                  const title = e.currentTarget.querySelector(".card-title");
+                }}
+              >
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
-                    <img
-                      src="assets/img/landingpage/wordpress.png"
-                      alt="WooCommerce"
-                      className="img-fluid mb-4"
-                      style={{ height: "56px" }}
-                    />
+                                         <img
+                       src="/assets/img/landingpage/wordpress.png"
+                       alt="WooCommerce"
+                       className="img-fluid mb-4"
+                       style={{ height: "56px" }}
+                     />
                   </div>
-                                     <h3 className="h4 card-title mb-3 text-dark">
-                     Woocommerce / WordPress Ecommerce Website Design and
-                     Development
-                   </h3>
+                  <h3 className="h4 card-title mb-3 text-dark">
+                    Woocommerce / WordPress Ecommerce Website Design and
+                    Development
+                  </h3>
                   <p className="card-text text-muted mb-4">
                     If you are planning to sell a wide range of products and
                     services to the customers directly through your website
@@ -1356,32 +1366,39 @@ export default function Home() {
 
             {/* Custom Ecommerce Website Development */}
             <div className="col-lg-4">
-              <div className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden" 
-                   style={{ 
-                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                     transform: 'translateY(0) rotateX(0deg)',
-                     boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-                   }}
-                   onMouseEnter={(e) => {
-                     e.currentTarget.style.transform = 'translateY(-15px) rotateX(5deg)';
-                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
-                   }}
-                   onMouseLeave={(e) => {
-                     e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
-                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                   }}>
+              <div
+                className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden"
+                style={{
+                  transition:
+                    "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transform: "translateY(0) rotateX(0deg)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(-15px) rotateX(5deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 25px 50px rgba(0,0,0,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(0) rotateX(0deg)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 30px rgba(0,0,0,0.1)";
+                }}
+              >
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
-                    <img
-                      src="assets/img/landingpage/mern.png"
-                      alt="MERN"
-                      className="img-fluid mb-4"
-                      style={{ height: "40px" }}
-                    />
+                                         <img
+                       src="/assets/img/landingpage/mern.png"
+                       alt="MERN"
+                       className="img-fluid mb-4"
+                       style={{ height: "40px" }}
+                     />
                   </div>
-                                     <h3 className="h4 card-title mb-3 text-dark">
-                     Custom Ecommerce Website Development
-                   </h3>
+                  <h3 className="h4 card-title mb-3 text-dark">
+                    Custom Ecommerce Website Development
+                  </h3>
                   <p className="card-text text-muted mb-4">
                     At ovsinnovation we offer wide variety of ecommerce
                     solutions for our clients. Reach out to us for a specific
@@ -1655,12 +1672,12 @@ export default function Home() {
             <div className="col-lg-6">
               <h2 className="h2 mb-4">About Vastora Tech</h2>
               <p className="text-muted mb-4">
-                Vastora Tech is a web development and digital marketing
-                company based in India, established in November 2018. The
-                company specializes in enhancing businesses' online presence
-                through comprehensive SEO services, including on-page and
-                off-page optimization, technical SEO, keyword research, and
-                performance tracking.
+                Vastora Tech is a web development and digital marketing company
+                based in India, established in November 2018. The company
+                specializes in enhancing businesses' online presence through
+                comprehensive SEO services, including on-page and off-page
+                optimization, technical SEO, keyword research, and performance
+                tracking.
               </p>
               <p className="text-muted mb-5">
                 Their expertise extends to web development, offering custom
