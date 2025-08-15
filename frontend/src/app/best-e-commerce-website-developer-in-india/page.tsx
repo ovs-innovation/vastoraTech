@@ -81,7 +81,7 @@ export default function Home() {
     .hover-shadow:hover {
       transform: translateY(-5px) !important;
       box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
-      border: 2px solid #0d6efd !important;
+      border: 2px solid #296CB3 !important;
     }
     
     .rounded-circle {
@@ -90,12 +90,12 @@ export default function Home() {
     
     .rounded-circle:hover {
       transform: scale(1.1);
-      box-shadow: 0 15px 35px rgba(13, 110, 253, 0.4) !important;
+      box-shadow: 0 15px 35px rgba(41, 108, 179, 0.4) !important;
     }
     
     .timeline-line {
-      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
-      box-shadow: 0 0 30px rgba(13, 110, 253, 0.4);
+      background: linear-gradient(135deg, #296CB3 0%, #1e5a9e 100%);
+      box-shadow: 0 0 30px rgba(41, 108, 179, 0.4);
     }
     
     /* Portfolio Swiper Styles */
@@ -109,7 +109,7 @@ export default function Home() {
     
     .portfolio-swiper .swiper-button-next,
     .portfolio-swiper .swiper-button-prev {
-      color: #0d6efd !important;
+      color: #296CB3 !important;
       background: white !important;
       width: 40px !important;
       height: 40px !important;
@@ -120,7 +120,7 @@ export default function Home() {
     
     .portfolio-swiper .swiper-button-next:hover,
     .portfolio-swiper .swiper-button-prev:hover {
-      background: #0d6efd !important;
+      background: #296CB3 !important;
       color: white !important;
       transform: scale(1.1) !important;
     }
@@ -185,7 +185,7 @@ export default function Home() {
 
     .client-avatar:hover {
       transform: scale(1.15) rotate(3deg);
-      box-shadow: 0 20px 40px rgba(13, 110, 253, 0.5);
+      box-shadow: 0 20px 40px rgba(41, 108, 179, 0.5);
     }
 
     .client-avatar:hover::before {
@@ -224,7 +224,7 @@ export default function Home() {
 
     /* Gradient Text Effect */
     .gradient-text {
-      background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+      background: linear-gradient(135deg, #296CB3 0%, #4a7cbd 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -862,12 +862,14 @@ export default function Home() {
 
                 {/* Floating Elements for Realism */}
                 <div
-                  className="position-absolute bg-primary rounded-circle shadow"
+                  className="position-absolute rounded-circle shadow"
                   style={{
                     top: "16px",
                     right: "16px",
                     width: "12px",
                     height: "12px",
+                    backgroundColor: "#296CB3",
+                    color: "white",
                     animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
                   }}
                 ></div>
@@ -891,7 +893,7 @@ export default function Home() {
             <div className="bg-white rounded-3 shadow p-4 border">
               <div className="row g-4">
                 <div className="col-md-4 d-flex">
-                  <div className="me-3 text-primary">
+                  <div className="me-3" style={{ color: "#296CB3" }}>
                     <i className="bi bi-list fs-2"></i>
                   </div>
                   <div>
@@ -906,7 +908,7 @@ export default function Home() {
                 </div>
 
                 <div className="col-md-4 d-flex">
-                  <div className="me-3 text-primary">
+                  <div className="me-3" style={{ color: "#296CB3" }}>
                     <i className="bi bi-calendar fs-2"></i>
                   </div>
                   <div>
@@ -921,7 +923,7 @@ export default function Home() {
                 </div>
 
                 <div className="col-md-4 d-flex">
-                  <div className="me-3 text-primary">
+                  <div className="me-3" style={{ color: "#296CB3" }}>
                     <i className="bi bi-info-circle fs-2"></i>
                   </div>
                   <div>
@@ -945,7 +947,8 @@ export default function Home() {
         <div className="container">
           <div className="text-center">
             <button
-              className="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm mb-3"
+              className="btn btn-lg px-4 py-3 rounded-pill shadow-sm mb-3"
+              style={{ backgroundColor: "#296CB3", borderColor: "#296CB3", color: "white" }}
               onClick={handleDemoClick}
             >
               <i className="bi bi-emoji-smile text-white me-2"></i>
@@ -973,7 +976,7 @@ export default function Home() {
           <div className="row">
             {/* Left: Professional Enrollment Steps */}
             <div className="col-lg-6 position-relative mb-5 mb-lg-0">
-              <div className="position-absolute start-0 top-0 bottom-0 w-2 bg-primary ms-4 rounded-pill timeline-line"></div>
+              <div className="position-absolute start-0 top-0 bottom-0 w-2 ms-4 rounded-pill timeline-line" style={{ backgroundColor: "#296CB3" }}></div>
 
               <div>
                 {content.enrollmentSteps.map((step, index) => (
@@ -981,11 +984,12 @@ export default function Home() {
                     <div className="d-flex">
                       <div className="flex-shrink-0 position-relative">
                         <div
-                          className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center shadow-lg p-4"
+                          className="rounded-circle text-white d-flex align-items-center justify-content-center shadow-lg p-4"
                           style={{
                             width: "64px",
                             height: "64px",
-                            boxShadow: "0 8px 25px rgba(13, 110, 253, 0.3)",
+                            backgroundColor: "#296CB3",
+                            boxShadow: "0 8px 25px rgba(41, 108, 179, 0.3)",
                           }}
                         >
                           {step.icon === "ecommerce" && (
@@ -1207,7 +1211,8 @@ export default function Home() {
                   <div className="col-12">
                     <button
                       type="submit"
-                      className="btn btn-primary btn-lg w-100 py-3 fw-bold"
+                      className="btn btn-lg w-100 py-3 fw-bold"
+                      style={{ backgroundColor: "#296CB3", borderColor: "#296CB3", color: "white" }}
                     >
                       <i className="bi bi-send me-2"></i>
                       Submit
@@ -1258,7 +1263,7 @@ export default function Home() {
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
                                          <img
-                       src="/assets/img/landingpage/shopify.png"
+                       src="/assets/img/landingpage/shopifynew.png"
                        alt="Shopify"
                        className="img-fluid mb-4"
                        style={{ height: "40px" }}
@@ -1485,9 +1490,9 @@ export default function Home() {
                         style={{ height: "200px", objectFit: "cover" }}
                       />
                       <div className="position-absolute top-0 end-0 m-3">
-                        <span className="badge bg-primary px-3 py-2 rounded-pill fw-semibold">
-                          {item.category}
-                        </span>
+                                              <span className="badge px-3 py-2 rounded-pill fw-semibold" style={{ backgroundColor: "#296CB3" }}>
+                        {item.category}
+                      </span>
                       </div>
                     </div>
 
@@ -1517,7 +1522,8 @@ export default function Home() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-primary btn-sm w-100 d-inline-flex align-items-center justify-content-center"
+                        className="btn btn-sm w-100 d-inline-flex align-items-center justify-content-center"
+                        style={{ backgroundColor: "#296CB3", borderColor: "#296CB3", color: "white" }}
                       >
                         <i className="bi bi-box-arrow-up-right me-2"></i>
                         Visit Website
@@ -1551,18 +1557,16 @@ export default function Home() {
                     cy="50"
                     r="40"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#296CB3"
                     strokeWidth="2"
-                    className="text-primary"
                   />
                   <circle
                     cx="50"
                     cy="50"
                     r="25"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#296CB3"
                     strokeWidth="1"
-                    className="text-primary"
                   />
                 </svg>
               </div>
@@ -1576,9 +1580,8 @@ export default function Home() {
                     cy="40"
                     r="30"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#296CB3"
                     strokeWidth="2"
-                    className="text-primary"
                   />
                 </svg>
               </div>
@@ -1597,7 +1600,7 @@ export default function Home() {
                 <div className="bg-light rounded-4 p-4 p-lg-5 mb-4 border">
                   {/* Prominent Price */}
                   <div className="text-center mb-3">
-                    <div className="display-4 fw-bold text-primary mb-2">
+                    <div className="display-4 fw-bold mb-2" style={{ color: "#296CB3" }}>
                       Starting at ₹4,999 Only
                     </div>
                     <div className="text-muted small">T&C Apply</div>
@@ -1617,7 +1620,7 @@ export default function Home() {
 
                     {/* First Note */}
                     <div className="bg-white rounded-3 p-3 mb-3 border d-flex align-items-start">
-                      <i className="bi bi-check-circle-fill text-primary fs-5 me-3 mt-1"></i>
+                      <i className="bi bi-check-circle-fill fs-5 me-3 mt-1" style={{ color: "#296CB3" }}></i>
                       <span className="text-muted">
                         If you require advanced features or want a
                         custom-designed website, additional charges may apply.
@@ -1626,7 +1629,7 @@ export default function Home() {
 
                     {/* Second Note */}
                     <div className="bg-white rounded-3 p-3 border d-flex align-items-start">
-                      <i className="bi bi-check-circle-fill text-primary fs-5 me-3 mt-1"></i>
+                      <i className="bi bi-check-circle-fill fs-5 me-3 mt-1" style={{ color: "#296CB3" }}></i>
                       <span className="text-muted">
                         The mentioned price does not include domain and hosting.
                       </span>
@@ -1638,8 +1641,8 @@ export default function Home() {
                 <div className="d-flex flex-wrap justify-content-center gap-3 mb-4">
                   <button
                     onClick={scrollToForm}
-                    className="btn btn-primary btn-lg px-4 py-3 fw-bold shadow-sm"
-                    style={{ borderRadius: "50px" }}
+                    className="btn btn-lg px-4 py-3 fw-bold shadow-sm"
+                    style={{ borderRadius: "50px", backgroundColor: "#296CB3", borderColor: "#296CB3", color: "white" }}
                   >
                     <i className="bi bi-arrow-up-circle me-2"></i>
                     Get Started Now
@@ -1692,7 +1695,7 @@ export default function Home() {
 
               <div className="row g-4 mb-4">
                 <div className="col-md-6 d-flex">
-                  <div className="bg-primary text-white p-3 rounded me-3">
+                  <div className="text-white p-3 rounded me-3" style={{ backgroundColor: "#296CB3" }}>
                     <i className="bi bi-check-lg fs-3"></i>
                   </div>
                   <div>
@@ -1746,7 +1749,7 @@ export default function Home() {
                 <div className="col-md-6">
                   <div className="card text-center h-100 border-0 shadow-sm">
                     <div className="card-body p-4">
-                      <div className="display-4 fw-bold text-primary">120+</div>
+                      <div className="display-4 fw-bold" style={{ color: "#296CB3" }}>120+</div>
                       <div className="text-muted">Happy Clients</div>
                     </div>
                   </div>
@@ -1786,23 +1789,12 @@ export default function Home() {
                       professionals who are committed to your success.
                     </p>
                     <div className="d-flex justify-content-center gap-3 mb-4">
-                      <div
-                        className="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
-                        style={{ width: "64px", height: "64px" }}
-                      >
-                        O
-                      </div>
+                      
                       <div
                         className="bg-success rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
                         style={{ width: "64px", height: "64px" }}
                       >
-                        V
-                      </div>
-                      <div
-                        className="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
-                        style={{ width: "64px", height: "64px" }}
-                      >
-                        S
+                        <img src="/assets/img/logo/Vastora-Logo.jpg" alt="Team Member" className="img-fluid rounded-circle" style={{ width: "64px", height: "64px", objectFit: "cover" }} />
                       </div>
                     </div>
                     <p className="text-muted small mb-0">
@@ -1828,7 +1820,7 @@ export default function Home() {
             <div className="position-relative d-inline-block">
               <h2 className="h1 fw-bold mb-3 position-relative">
                 What Our Clients Say
-                <div className="position-absolute bottom-0 start-50 translate-middle-x w-25 h-1 bg-primary rounded-pill"></div>
+                <div className="position-absolute bottom-0 start-50 translate-middle-x w-25 h-1 rounded-pill" style={{ backgroundColor: "#296CB3" }}></div>
               </h2>
             </div>
             <p className="lead text-muted fs-5">
@@ -1875,8 +1867,8 @@ export default function Home() {
                     style={{ zIndex: 0 }}
                   >
                     <i
-                      className="bi bi-quote text-primary"
-                      style={{ fontSize: "3rem" }}
+                      className="bi bi-quote"
+                      style={{ fontSize: "3rem", color: "#296CB3" }}
                     ></i>
                   </div>
 
@@ -1916,7 +1908,7 @@ export default function Home() {
                             className="position-absolute bottom-0 start-0 w-100 h-1 bg-gradient-to-right rounded-pill opacity-25"
                             style={{
                               background:
-                                "linear-gradient(90deg, #0d6efd, #6f42c1)",
+                                "linear-gradient(90deg, #296CB3, #4a7cbd)",
                             }}
                           ></span>
                         </span>
@@ -1932,9 +1924,9 @@ export default function Home() {
                             width: "70px",
                             height: "70px",
                             background:
-                              "linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%)",
+                              "linear-gradient(135deg, #296CB3 0%, #4a7cbd 100%)",
                             border: "4px solid white",
-                            boxShadow: "0 8px 25px rgba(13, 110, 253, 0.3)",
+                                                          boxShadow: "0 8px 25px rgba(41, 108, 179, 0.3)",
                           }}
                         >
                           <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center">
@@ -1985,7 +1977,7 @@ export default function Home() {
                             {testimonial.name}
                           </h5>
                           <div className="d-flex align-items-center">
-                            <i className="bi bi-geo-alt-fill text-primary me-2"></i>
+                            <i className="bi bi-geo-alt-fill me-2" style={{ color: "#296CB3" }}></i>
                             <span className="text-muted fw-medium">
                               {testimonial.city}
                             </span>
@@ -2005,7 +1997,7 @@ export default function Home() {
                   <div
                     className="position-absolute bottom-0 start-0 w-100 h-3 bg-gradient-to-right rounded-bottom"
                     style={{
-                      background: "linear-gradient(90deg, #0d6efd, #6f42c1)",
+                      background: "linear-gradient(90deg, #296CB3, #4a7cbd)",
                     }}
                   ></div>
                 </div>
