@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -71,6 +72,8 @@ interface Content {
 }
 
 export default function Home() {
+  const router = useRouter();
+  
   // Function to handle demo button click
   const handleDemoClick = () => {
     window.open("https://admin.ecommerce-demo.ovsinnovation.com/", "_blank");
@@ -312,6 +315,11 @@ export default function Home() {
           customService: "",
           businessName: "",
         });
+        
+        // Navigate to thank-you page after successful submission
+        setTimeout(() => {
+          router.push("/thank-you");
+        }, 2000); // Wait 2 seconds to show the success toast
       } else {
         // Handle error
         const errorData = await response.json();
