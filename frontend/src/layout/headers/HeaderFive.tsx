@@ -74,15 +74,15 @@ const HeaderFive = () => {
                     <div className="header-bottom__lang d-none d-lg-block d-flex align-items-center justify-content-end">
                       <ul>
                         <li>
-                          <button
+                          {/* <button
                             id="header-bottom__lang-toggle"
                             onClick={toggleLangMenu}
                           >
                             <span>
                               <WorldIcon /> English <DownArrwo />
                             </span>
-                          </button>
-                          {isLangMenuOpen && (
+                          </button> */}
+                          {/* {isLangMenuOpen && (
                             <ul
                               className={`header-bottom__lang-submenu ${
                                 isLangMenuOpen ? "open" : ""
@@ -98,7 +98,7 @@ const HeaderFive = () => {
                                 <a href="#">Mandarin</a>
                               </li>
                             </ul>
-                          )}
+                          )} */}
                         </li>
                       </ul>
                     </div>

@@ -1,12 +1,5 @@
 import { StaticImageData } from "next/image";
 import RightArrowMenu from "@/svg/home-1/RightArrowMenu";
-// home demo
-// import home_demo_1 from "@/assets/img/menu/home-1.jpg";
-// import home_demo_2 from "@/assets/img/menu/home-2.jpg";
-// import home_demo_3 from "@/assets/img/menu/home-3.jpg";
-// import home_demo_4 from "@/assets/img/menu/home-4.jpg";
-// import home_demo_5 from "@/assets/img/menu/home-5.jpg";
-// service deme 
 import service_demo_1 from "@/assets/img/header-icon/web.png";
 import service_demo_2 from "@/assets/img/header-icon/mobile.png";
 import service_demo_3 from "@/assets/img/header-icon/building.png";
@@ -50,13 +43,6 @@ const menu_data: menu_data_type[] = [
     link: "/",
     has_dropdown: false,
     img_dropdown: true,
-    // sub_menus: [
-    //   { link: "/",       title: "SEO Marketing",  demo_img: home_demo_1,  },
-    //   { link: "/home-2", title: "SEO Analysis",   demo_img: home_demo_2,  },
-    //   { link: "/home-3", title: "Business SEO",   demo_img: home_demo_3,  },
-    //   { link: "/home-4", title: "SEO Agency",     demo_img: home_demo_4,  },
-    //   { link: "/home-5", title: "SEO Campaign",   demo_img: home_demo_5,  },
-    // ],
   },
   {
     id: 2,
@@ -86,59 +72,12 @@ const menu_data: menu_data_type[] = [
   },
   {
     id: 4,
-    title: "Pages",
-    link: "#",
-    has_dropdown: true,
-    has_megamenu: true,
-    sub_menus: [
-      {  
-      layout: [
-          { link: "/about",                 title: "About Us" }, 
-          { link: "/service",               title: "Services" }, 
-          { link: "/team",                  title: "Team Member" }, 
-          { link: "/team-details",          title: "Team Details" }, 
-          { link: "/sign-in",               title: "Sign In" }, 
-          { link: "/sign-out",              title: "Sign Up" }, 
-        ],
-      },
-      {  
-        layout: [
-            { link: "/pricing",            title: "Pricing" },  
-            { link: "/portfolio",          title: "Case Studies 2 Columns" },  
-            { link: "/portfolio-2",        title: "Case Studies 3 Columns" },  
-            { link: "/portfolio-details",  title: "Case Studies Details" },  
-            { link: "/blog-grid",          title: "Blog Grid" },  
-            { link: "/blog-masonry",       title: "Blog Masonry" },  
-          ],
-      },
-      {  
-        layout: [
-            { link: "/blog-list",          title: "Blog List" },  
-            { link: "/blog-details",       title: "Blog Details" },  
-            { link: "/blog-details-2",     title: "Blog Details Full Width" },  
-            { link: "/faq",                title: "FAQ" },  
-            { link: "/contact",            title: "Contact" },  
-          ],
-      }, 
-    ],
+    title: "Blog",
+    link: "/blog",
+    has_dropdown: false,
   },
   {
     id: 5,
-    title: "Blog",
-    link: "#",
-    has_dropdown: true,
-    blog_dropdown: true,
-    sub_menus: [
-      { link: "/blog",                    title: "Blog" },
-      { link: "/blog-grid",               title: "Blog Grid" },
-      { link: "/blog-masonry",            title: "Blog Masonry" },
-      { link: "/blog-list",               title: "Blog List" },
-      { link: "/blog-details",            title: "Blog Details" },
-      { link: "/blog-details-2",          title: "Blog Details Full Width" },
-    ],
-  },
-  {
-    id: 6,
     title: "Contact",
     link: "/contact",
     has_dropdown: false,     
