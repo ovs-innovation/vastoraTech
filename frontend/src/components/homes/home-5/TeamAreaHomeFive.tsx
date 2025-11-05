@@ -2,6 +2,9 @@ import Link from "next/link";
 import Image  from "next/image"; 
 import { TeamSocialLinks } from "@/components/common/social-links";
 import team_data from "@/data/team";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 // team data type
 interface team_content_type {
@@ -33,24 +36,49 @@ const TeamAreaHomeFive = ({style} : any) => {
                             }
                         </div>
                     </div>
-                    <div className="row gx-9 pb-30">
-                        {team_data.slice(0, 4).map((item, i) => 
-                            <div key={i} className="col-lg-3 col-md-6">
-                                <div className={`team-5-item ${item.cls} text-center mb-40`}>
-                                    <div className="team-5-thumb mb-25">
-                                        <Image src={item.avatar} alt="theme-pure" />
-                                        <div className="team-5-social">
-                                        <span className="icon"></span>
-                                        <TeamSocialLinks /> 
+                    <div className="row pb-30">
+                        <div className="col-12">
+                            <Swiper
+                                spaceBetween={30}
+                                slidesPerView={4}
+                                loop={true}
+                                modules={[Autoplay]}
+                                autoplay={{ delay: 3000 }}
+                                breakpoints={{
+                                    1200: {
+                                        slidesPerView: 4,
+                                    },
+                                    992: {
+                                        slidesPerView: 3,
+                                    },
+                                    576: {
+                                        slidesPerView: 2,
+                                    },
+                                    0: {
+                                        slidesPerView: 1,
+                                    },
+                                }}
+                                className="team-slider-active"
+                            >
+                                {team_data.map((item, i) => (
+                                    <SwiperSlide key={i}>
+                                        <div className={`team-5-item ${item.cls} text-center mb-40`}>
+                                            <div className="team-5-thumb mb-25">
+                                                <Image src={item.avatar} alt="theme-pure" />
+                                                <div className="team-5-social">
+                                                    <span className="icon"></span>
+                                                    <TeamSocialLinks />
+                                                </div>
+                                            </div>
+                                            <div className="team-5-content">
+                                                <h4 className="team-5-title"><Link href="/team-details">{item.name}</Link></h4>
+                                                <p>{item.job_title}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="team-5-content">
-                                        <h4 className="team-5-title"><Link href="/team-details">{item.name}</Link></h4>
-                                        <p>{item.job_title}</p>
-                                    </div>
-                                </div>
-                            </div>                            
-                        )} 
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
                     </div>
                     {!style && 
                         <div className="row">

@@ -1,3 +1,5 @@
+'use client';
+
 import ScrollIndicator from "@/components/common/ScrollIndicator";
 import FooterFive from "@/layout/footers/FooterFive";
 import HeaderFive from "@/layout/headers/HeaderFive"; 
