@@ -29,7 +29,7 @@ const HomeFive = () => {
             <HeaderFive/>
             <main>
                 <HeroBannerHomeFive />
-                <FeatureAreaHomeFive />
+                {/* <FeatureAreaHomeFive /> */}
                 <AboutAreaHomeFive />
                 <CounterAreaHomeFive />
                 <ServicesAreaHomeFour />

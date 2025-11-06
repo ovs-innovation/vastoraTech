@@ -16,7 +16,7 @@ const HeaderOne = () => {
 		<>
 			<header>
 				<div id="header-sticky" className={`tptransparent__header header-1 ${sticky && "header-sticky"}`}>
-					<div className="tp-header-top">
+					<div className="tp-header-top ">
 						<div className="container">
 							<div className="tp-mega-menu-wrapper">
 								<div className="row align-items-center">

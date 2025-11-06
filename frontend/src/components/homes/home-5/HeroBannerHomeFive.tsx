@@ -116,7 +116,7 @@ type hero_content_type = {
 const hero_content_home_5: hero_content_type = {
   title: (
     <>
-      All in one SEO software made{" "}
+      Launch Your Digital Store in Just 5 Days!{" "}
       <span className="cd-words-wrapper">
         <TypeAnimation
           sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
@@ -130,8 +130,7 @@ const hero_content_home_5: hero_content_type = {
   ),
   sm_info: (
     <>
-      We are a UK based SEO agency and the creators of the famous <br /> website
-      crawler and log file analyser tools.
+    Get your custom E-commerce Website with Admin Panel & Dashboard
     </>
   ),
   brand_title: "Trusted by the big ones, loved by everyone",
@@ -181,13 +180,14 @@ const HeroBannerHomeFive = () => {
                 <div className="banner-5-content p-relative pt-80">
                   <h4 className="banner-5-title">{title}</h4>
                   <p>{sm_info}</p>
-                  <div className="banner-5-btn">
+                  <div className="banner-5-btn d-flex gap-3">
                     <Link
-                      className="light-blue-btn mr-20"
-                      href="/keyword-search"
+                      className="light-blue-btn"
+                      href="/product/demo-product"
                     >
                       Get Started
                     </Link>
+                 
                   </div>
                 </div>
               </div>

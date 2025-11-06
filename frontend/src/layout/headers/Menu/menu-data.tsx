@@ -61,9 +61,12 @@ const menu_data: menu_data_type[] = [
       { link: "/service/web-development",           title: "Web Development",         demo_img: service_demo_1,  },
       { link: "/service/mobile-app-development",    title: "Mobile App Development",   demo_img: service_demo_2,  },
       { link: "/service/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
+      
       { link: "/service/social-media-marketing",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
       { link: "/service/seo",         title: "SEO Services",        demo_img: service_demo_5,  },
+      { link: "/product/demo-product", title: "White Label Solutions",        demo_img: service_demo_6,  },
       { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
+   
     ],
     banner_sub_title: "Software Development & Digital Marketing Agency",
     banner_title: <>The #1 Software <br/> Development and Digital Marketing Agency <br /> for fast growing  companies.</>,
@@ -72,12 +75,30 @@ const menu_data: menu_data_type[] = [
   },
   {
     id: 4,
+    title: "White Label",    
+    link: "/product/demo-product",
+    has_dropdown: false, 
+  },
+  {
+    id: 5,
+    title: "Projects",    
+    link: "/Projects",
+    has_dropdown: false, 
+  },
+  {
+    id: 6,
     title: "Blog",
     link: "/blog",
     has_dropdown: false,
   },
   {
-    id: 5,
+    id: 9001,
+    title: "Demos",
+    link: "/demos",
+    has_dropdown: false,
+  },
+  {
+    id: 7,
     title: "Contact",
     link: "/contact",
     has_dropdown: false,     

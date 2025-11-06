@@ -37,7 +37,7 @@ const AboutAreaHomeFive = () => {
 
 	return (
 		<>
-			<section className="about-area pb-60">
+			<section className="about-area mt-100 pb-60">
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-7">
