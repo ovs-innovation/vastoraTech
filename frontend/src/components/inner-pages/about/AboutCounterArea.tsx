@@ -73,6 +73,18 @@ const AboutCounterArea = () => {
                     </div>
                 </div>
             </div>
+            {/* Vision/Value Statement */}
+            <div className="counter-area-vision-text pb-60">
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-10 text-center">
+                            <p style={{fontSize: '1.22rem', fontWeight: 500, color: '#525263', margin: 0, lineHeight: 1.6}}>
+                                Vastorate is driven by the vision to empower businesses through digital innovation. We deliver ready-to-deploy solutions and foster the spirit of technology-driven growth. Our expertise, agility, and client-first approach turn today's ambitions into tomorrow's achievements—helping entrepreneurs and enterprises scale with confidence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
