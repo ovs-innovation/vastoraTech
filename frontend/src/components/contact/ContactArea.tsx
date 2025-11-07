@@ -2,9 +2,9 @@
 import EmailIconContact from "@/svg/contact_icon/EmailIconContact";
 import PhoneIconContact from "@/svg/contact_icon/PhoneIconContact";
 import RightArrowIconContact from "@/svg/contact_icon/RightArrowIconContact";
+import LocationIconContact from "@/svg/contact_icon/LocationIconContact";
 import { SocialLinksTwo } from "../common/social-links";
 import ContactUs from "../forms/ContactUs";
-
 
 type contact_conent_type = {
     title: string;
@@ -14,14 +14,18 @@ type contact_conent_type = {
     btn_text: string;
 }
 
-const contact_conent: contact_conent_type = {
+const contact_conent: contact_conent_type & { address: string; address_link: string; whatsapp: string; whatsapp_link: string } = {
     title: "Get in Touch",
     sm_info: <>If you need help with your account or have questions about <br /> credit sesame, please visit our Help center.!</>,
     email: "info@ovsinnovation.in",
     phone: "+91 9667092077",
     btn_text: "Contact Us",
+    address: "2nd Floor, JS Acade, 203, above PNB Bank, Hoshiyarpur, Sector 51, Noida, Uttar Pradesh 201301",
+    address_link: "https://maps.app.goo.gl/WmdQFpw8LhnPeirb6",
+    whatsapp: "+91 9667092077",
+    whatsapp_link: "https://wa.me/919667092077",
 }
-const { title, sm_info, email, phone, btn_text } = contact_conent
+const { title, sm_info, email, phone, btn_text, address, address_link, whatsapp, whatsapp_link } = contact_conent;
 
 const ContactArea = () => {
     return (
@@ -39,9 +43,14 @@ const ContactArea = () => {
                                         {email}
                                         <i> <RightArrowIconContact /> </i>
                                     </a>
-                                    <a href={`tel:${phone}`} className="contact-mail mb-20">
+                                    <a href={`tel:${phone}`} className="contact-mail mb-15">
                                         <span><PhoneIconContact /></span>
                                         {phone}
+                                        <i> <RightArrowIconContact /> </i>
+                                    </a>
+                                    <a href={whatsapp_link} className="contact-mail mb-15" target="_blank" rel="noopener noreferrer">
+                                        <span role="img" aria-label="WhatsApp">💬</span>
+                                        WhatsApp
                                         <i> <RightArrowIconContact /> </i>
                                     </a>
                                 </div>

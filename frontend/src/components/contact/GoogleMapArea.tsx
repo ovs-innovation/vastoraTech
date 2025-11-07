@@ -9,7 +9,7 @@ type google_map_content_type = {
         id: number;
         icon: JSX.Element;
         country: string;
-        address: JSX.Element;
+        address: string;
         address_link: string;
     }[];
 }
@@ -21,7 +21,7 @@ type google_map_content_type = {
             id: 1, 
             icon: <LocationIconContact />,
             country: "Noida Sector-51, India",
-            address: <>2nd Floor, JS Acade, 203, above PNB Bank, Hoshiyarpur, Sector 51, Noida, Uttar Pradesh 201301</>,
+            address: "2nd Floor, JS Acade, 203, above PNB Bank, Hoshiyarpur, Sector 51, Noida, Uttar Pradesh 201301",
             address_link: "https://maps.app.goo.gl/WmdQFpw8LhnPeirb6",
         },
         
@@ -35,34 +35,38 @@ const GoogleMapArea = () => {
             <section className="map-area map-wrapper">
                 <div className="container">
                     <div className="row">
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="map-wrap">
-                            <div className="map-content">
+                        <div className="col-12">
+                            <div className="map-bg">
+                                <iframe src={google_map_link} style={{ width: '100%', minHeight: 400, border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <div className="map-content mt-4" style={{textAlign:'left'}}>
                                 <span>{sub_title}</span>
                                 <h4 className="map-title">{title}</h4>
-                            </div>
-                            <ul>
-                                {locations.map((item, i)  => 
-                                    <li key={i}>
-                                        <div className="location">
-                                            <div className="location-icon">
-                                                <span>{item.icon}</span>
-                                            </div>
+                                {locations.map((item, i) => (
+                                    <div key={i} className="location d-flex align-items-start my-2">
+                                        <a
+                                            target="_blank"
+                                            href={item.address_link}
+                                            rel="noopener noreferrer"
+                                            className="location-icon me-2"
+                                        >
+                                            <span>{item.icon}</span>
+                                        </a>
+                                        <a
+                                            target="_blank"
+                                            href={item.address_link}
+                                            rel="noopener noreferrer"
+                                            className="location-icon me-2"
+                                        >
                                             <div className="location-content">
-                                                <h4 className="location-title">{item.country}</h4>
-                                                <p><a target="_blank" href={item.address_link}>{item.address}</a></p>
-                                            </div>
+                                            <h4 className="location-title mb-1">{item.country}</h4>
+                                            <p style={{margin:0}}>{item.address}</p>
                                         </div>
-                                    </li>                                
-                                )} 
-                            </ul>
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="map-bg">
-                            <iframe src={google_map_link}></iframe>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </section>
