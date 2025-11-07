@@ -29,6 +29,7 @@ const HomeFive = () => {
             <HeaderFive/>
             <main>
                 <HeroBannerHomeFive />
+                <BrandAreaHomeFour />
                 {/* <FeatureAreaHomeFive /> */}
                 <AboutAreaHomeFive />
                 <CounterAreaHomeFive />
@@ -38,8 +39,7 @@ const HomeFive = () => {
                 <ProjectFeaturHomefive />
                 <TeamAreaHomeFive />
                 <TestimonialAreaHomeFour />
-                <BrandAreaHomeFour />
-                <ReviewAreaHomeFour style={true} />
+                {/* <ReviewAreaHomeFour style={true} /> */}
                 <ContactAreaHomeFour />
                 <BlogAreaHomeFour />
             </main>
