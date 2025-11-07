@@ -17,25 +17,31 @@ type about_content_type = {
         id: 1,
         cls: "",
         img: counter_shape_1,
-        count_number: 8,
+        count_number: 10,
         info: <>Years <br /> Of Experience</>,
     },
     {
         id: 2,
-        cls: "ml-70",
+        cls: "",
         img: counter_shape_2,
-        count_number: 120,
-        info: <>Projects <br /> Completed</>,
+        count_number: 2000,
+        info: <>Successful Projects <br /> Delivered</>,
     },
     {
         id: 3,
-        cls: "d-flex justify-content-end",
+        cls: "",
         img: counter_shape_3,
-        count_number: 160,
-        info: <>Satisfied Clients On <br /> 24 Countries</>,
+        count_number: 1900,
+        info: <>Happy <br /> Clients</>,
     },
-
- ]
+    {
+        id: 4,
+        cls: "",
+        img: counter_shape_1,
+        count_number: 50,
+        info: <>Team <br /> Members</>,
+    },
+]
 
 const AboutCounterArea = () => {
     return (
@@ -45,14 +51,14 @@ const AboutCounterArea = () => {
                     <div className="counter-border">
                         <div className="row">
                             {about_counter.map((item, i) => 
-                                <div key={i} className="col-lg-4 col-md-6">
+                                <div key={i} className="col-lg-3 col-md-6">
                                     <div className={`inner-counter ${item.cls}`}>
                                         <div className={`inner-counter-shape inner-counter-shape-${item.id}`}>
                                             <Image src={item.img} alt="theme-pure" />
                                         </div>
                                         <div className="inner-counter-count d-flex align-items-center">
                                         <div className="inner-counter-list">
-                                            <span data-purecounter-duration="1" data-purecounter-end="340" className="purecounter">
+                                            <span data-purecounter-duration="1" data-purecounter-end={item.count_number} className="purecounter">
                                                 <Count number={item.count_number} />
                                             </span> 
                                         </div>

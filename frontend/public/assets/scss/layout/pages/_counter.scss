@@ -235,14 +235,19 @@
     border-top: 1px solid #EBEBEB;
     border-bottom: 1px solid #EBEBEB;
     padding: 72px 0;
+    /* Added for even spacing between counters */
+    .row {
+        display: flex;
+        gap: 54px; /* Or use any desired pixel size for even look */
+        justify-content: space-between;
+    }
 }
 .inner-counter {
     position: relative;
     z-index: 1;
     padding: 25px 0;
-    @media #{$md,$xs} {
-        margin-left: 0;
-    }
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     &-shape {
         position: absolute;
         left: 0;

@@ -16,6 +16,9 @@ import Image  from 'next/image';
  }
  const {title, sm_des}  = company_content
 
+const vision_paragraph =
+  "Vastorate is driven by a bold vision: to lead digital transformation through innovative, client-first solutions. For over a decade, our passion for technology and commitment to excellence have empowered 1900+ clients around the globe. We inspire progress by delivering measurable value, building lasting partnerships, and redefining possibilities through our team of digital innovators.";
+
 
 const AboutCompanyArea = () => {
     return (
@@ -28,6 +31,7 @@ const AboutCompanyArea = () => {
                             <div className="company-content">
                                 <h4 className="company-title">{title}</h4>
                                 <p>{sm_des}</p>
+                                <p style={{marginTop: 16, fontWeight: 500, color: '#4A4A4A'}}>{vision_paragraph}</p>
                             </div>
                             <div className="company-thumb">
                                 <Image src={company_img_1} alt="theme-pure" />
