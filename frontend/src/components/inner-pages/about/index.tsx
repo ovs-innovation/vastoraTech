@@ -2,6 +2,8 @@ import AboutBrandArea from './AboutBrandArea';
 import AboutCounterArea from './AboutCounterArea';
 import AboutCompanyArea from './AboutCompanyArea';
 import AboutMissionArea from './AboutMissionArea';
+import OurJourneyArea from './OurJourneyArea';
+import DirectorsMessageArea from './DirectorsMessageArea';
 import HeaderFive from "@/layout/headers/HeaderFive";
 import Breadcrumb from '@/components/common/breadcrumb/breadcrumb';
 import ProcessAreaHomeOne from '@/components/homes/home/ProcessAreaHomeOne';
@@ -18,9 +20,11 @@ const About = () => {
 				<Breadcrumb />
 				<AboutBrandArea />
 				<ProcessAreaHomeOne style={true} />
+				<OurJourneyArea />
 				<AboutMissionArea />
 				<AboutCounterArea />
-				<AboutCompanyArea />
+				<DirectorsMessageArea />
+				{/* <AboutCompanyArea /> */}
 				{/* <AwardAreaHomeFour style={true} /> */}
 				{/* <FunfactAreaHomeOne /> */}
 				<TeamAreaHomeFive style={true} />
