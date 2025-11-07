@@ -6,6 +6,7 @@ import service_demo_3 from "@/assets/img/header-icon/building.png";
 import service_demo_4 from "@/assets/img/header-icon/media.png";
 import service_demo_5 from "@/assets/img/header-icon/keyword.png";
 import service_demo_6 from "@/assets/img/header-icon/ui-ux.png";
+import service_demo_7 from "@/assets/img/header-icon/box.png";
 
 import menu_banner from "@/assets/img/header-icon/header-banner/header-banner-1.png";
  
@@ -64,7 +65,7 @@ const menu_data: menu_data_type[] = [
       
       { link: "/service/social-media-marketing",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
       { link: "/service/seo",         title: "SEO Services",        demo_img: service_demo_5,  },
-      { link: "/product/demo-product", title: "White Label Solutions",        demo_img: service_demo_6,  },
+      { link: "/product/demo-product", title: "White Label Solutions", demo_img: service_demo_7,  },
       { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
    
     ],
@@ -82,19 +83,13 @@ const menu_data: menu_data_type[] = [
   {
     id: 5,
     title: "Projects",    
-    link: "/Projects",
+    link: "/portfolio",
     has_dropdown: false, 
   },
   {
     id: 6,
     title: "Blog",
     link: "/blog",
-    has_dropdown: false,
-  },
-  {
-    id: 9001,
-    title: "Demos",
-    link: "/demos",
     has_dropdown: false,
   },
   {
