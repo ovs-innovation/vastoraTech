@@ -77,7 +77,7 @@ const menu_data: menu_data_type[] = [
   {
     id: 4,
     title: "White Label",    
-    link: "/product/demo-product",
+    link: "/product/demos",
     has_dropdown: false, 
   },
   {
