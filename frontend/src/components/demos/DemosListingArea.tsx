@@ -39,7 +39,7 @@ const DemosListingArea = () => {
                   <p className="text-muted small flex-grow-1">{demo.description}</p>
 
                   <div className="d-flex gap-2 mt-2">
-                    <Link href={`/demos/${demo.slug}`} className="btn btn-primary btn-sm w-100">
+                    <Link href={`/product/demos/${demo.slug}`} className="btn btn-primary btn-sm w-100">
                       Product Page
                     </Link>
                     {demo.demoUrl ? (
