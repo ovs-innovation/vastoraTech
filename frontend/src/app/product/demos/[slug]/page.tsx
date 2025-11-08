@@ -9,7 +9,7 @@ type PageProps = {
 };
 
 export const metadata = {
-    title: "Demo Details - Ready Website Demos | Next js Template",
+    title: "Demo Product Details - Ready Website Demos",
 };
 
 export default function DemoProductPage({ params }: PageProps) {
