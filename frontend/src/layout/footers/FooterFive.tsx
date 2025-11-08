@@ -44,32 +44,45 @@ const footer_five_content: footer_five_content_type = {
 	footer_link_data: [
 		{
 			id: 1,
-			cls: "footer-5-col-2",
+			cls: "footer-5-col-1",
 			title: "About",
 			links: [
 				{ id: 1, title: "Home", link: "/" },
-				{ id: 2, title: "Pricing", link: "/pricing" },
+				// { id: 2, title: "Pricing", link: "/pricing" },
 				{ id: 3, title: "About us", link: "/about" },
-				{ id: 4, title: "SEO Blog", link: "/blog-grid" },
-				{ id: 5, title: "Services", link: "/service" },
-				{ id: 6, title: "ontact", link: "/contact" },
-				{ id: 7, title: "Why SEO?", link: "/seo-audit" },
-				{ id: 8, title: "", link: "" },
+				// { id: 4, title: "SEO Blog", link: "/blog-grid" },
+				// { id: 5, title: "Services", link: "/service" },
+				{ id: 6, title: "Contact", link: "/contact" },
+				// { id: 7, title: "Why SEO?", link: "/seo-audit" },
+				// { id: 8, title: "", link: "" },
 				{ id: 9, title: "Team", link: "/team" },
 			]
 		},
+
 		{
 			id: 2,
-			cls: "footer-5-col-3",
-			title: "Expertise",
+			cls: "footer-5-col-1",
+			title: " Legal",
 			links: [
-				{ id: 1, title: "On Page SEO", link: "/seo-audit" },
-				{ id: 2, title: "Keyword Research", link: "/keyword-search" },
-				{ id: 3, title: "SEO Consulting", link: "/marketing-analysis" },
-				{ id: 4, title: "Off Page SEO", link: "/keyword-search" },
-				{ id: 5, title: "SEO Audit", link: "/seo-audit" },
+				{ id: 1, title: "Privacy Policy", link: "/privacy-policy" },
+				{ id: 2, title: "Terms & Conditions", link: "/terms-conditions" },
+				// { id: 3, title: "Site Map", link: "/site-map" },
+				{ id: 4, title: "Services", link: "/service" },
+				
 			]
 		},
+		// {
+		// 	id: 2,
+		// 	cls: "footer-5-col-3",
+		// 	title: "Expertise",
+		// 	links: [
+		// 		{ id: 1, title: "On Page SEO", link: "/seo-audit" },
+		// 		{ id: 2, title: "Keyword Research", link: "/keyword-search" },
+		// 		{ id: 3, title: "SEO Consulting", link: "/marketing-analysis" },
+		// 		{ id: 4, title: "Off Page SEO", link: "/keyword-search" },
+		// 		{ id: 5, title: "SEO Audit", link: "/seo-audit" },
+		// 	]
+		// },
 	]
 
 }
@@ -93,6 +106,7 @@ const FooterFive = ({ style, style_audit, style_2 }: any) => {
 														<>{style ? <HeaderLogoHomeFive /> : <HeaderLogoHomeFive />}</>
 													}
 												</span>
+
 											</Link>
 										</div>
 										<div className="footer-widget-content">
