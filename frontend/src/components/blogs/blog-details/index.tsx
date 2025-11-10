@@ -4,15 +4,15 @@ import HeaderSix from "@/layout/headers/HeaderSix";
 import BlogDetailsArticleArea from "./BlogDetailsArticleArea";
 import BlogDetailsPostboxArea from "./BlogDetailsPostboxArea";
 
-
-const BlogDetails = () => {
+const BlogDetails = ({ blog }) => {
     return (
         <>
             <HeaderSix style={true} />
-            <main> 
-                <BreadcrumbTen />
-                <BlogDetailsPostboxArea />
-                <BlogDetailsArticleArea />
+            <main>
+                <BreadcrumbTen blog={blog} />
+                <BlogDetailsPostboxArea blog={blog} />
+                {/* Optionally pass blog to BlogDetailsArticleArea as well */}
+                {/* <BlogDetailsArticleArea blog={blog} /> */}
             </main>
             <FooterFive style={true} style_2={true} />
         </>

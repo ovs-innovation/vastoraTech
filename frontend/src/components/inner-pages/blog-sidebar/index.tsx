@@ -1,4 +1,4 @@
-
+'use client';
 import BlogSearch from "@/components/forms/BlogSearch";
 import RecentPost from "./RecentPost";
 import Categories from "./Categories";
