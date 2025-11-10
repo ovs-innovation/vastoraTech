@@ -8,7 +8,7 @@ import blog_thumb_2 from "@/assets/img/blog/blog-big-2.jpg";
 import blog_slider_1 from "@/assets/img/blog/blog-big-4.jpg";
 import blog_slider_2 from "@/assets/img/blog/blog-big-5.jpg";
 import blog_slider_3 from "@/assets/img/blog/blog-big-6.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import PrevBlogIcon from "@/svg/inner-pages-icons/PrevBlogIcon";
@@ -125,7 +125,36 @@ const setting = {
 }
 
 const BlogPostboxArea = () => {
-	const [isVideoOpen, setIsVideoOpen] = useState(false);
+	const [blogs, setBlogs] = useState<any[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const fetchBlogs = async () => {
+			try {
+				const url = process.env.NEXT_PUBLIC_API_URL
+					? `${process.env.NEXT_PUBLIC_API_URL}/blogs`
+					: "http://localhost:8081/api/blogs";
+				const res = await fetch(url);
+				const data = await res.json();
+				// Accept various backend response envelopes
+				setBlogs(data.blogs || data.data || []);
+			} catch (err: any) {
+				setError("Could not fetch blogs");
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchBlogs();
+	}, []);
+
+	if (loading) {
+		return <div>Loading blogs...</div>;
+	}
+
+	if (error) {
+		return <div>{error}</div>;
+	}
 
 	return (
 		<>
@@ -134,88 +163,55 @@ const BlogPostboxArea = () => {
 					<div className="row">
 						<div className="col-xl-8 col-lg-8">
 							<div className="tp-postbox-wrapper">
-								{blog_article.map((item, i) =>
-									<article key={i} className={`tp-postbox-item ${item.cls_1} mb-50 transition-3`}>
-										{item.id === 3 ?
-											<div className="tp-postbox-quote">
-												<blockquote>
-													<p>There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.
-														<cite>MR Tanvir</cite>
-													</p>
-												</blockquote>
+								{blogs.length === 0 && <p>No blogs found.</p>}
+								{blogs.map((blog) => (
+									<article key={blog._id || blog.id} className="tp-postbox-item mb-50 transition-3">
+										{blog.image && (
+											<div
+												className="tp-postbox-thumb w-img"
+												style={{
+													width: "100%",
+													aspectRatio: "16/9",
+													maxHeight: "450px",
+													minHeight: "180px",
+													borderRadius: "10px",
+													background: "#fafbfc",
+													display: "flex",
+													alignItems: "center",
+													justifyContent: "center",
+													overflow: "hidden"
+												}}
+											>
+												<img
+													src={blog.image}
+													alt={blog.title}
+													style={{
+														width: "100%",
+														height: "100%",
+														objectPosition: "center",
+														borderRadius: "10px"
+													}}
+												/>
 											</div>
-											:
-											<>
-												{item.id === 1 ?
-													<div className="tp-postbox-thumb w-img">
-														<Link href="/blog-details">
-															{item.img ? <Image src={item.img} alt="theme-pure" /> : ""}
-														</Link>
-													</div>
-													: <></>
-												}
-
-												{item.id === 2 ?
-													<div className="tp-postbox-thumb tp-postbox-video w-img p-relative">
-														<Link href="/blog-details">
-															{item.img ? <Image src={item.img} alt="theme-pure" /> : ""}
-														</Link>
-														<a
-															onClick={() => setIsVideoOpen(true)}
-															style={{ cursor: "pointer" }}
-															className="tp-postbox-video-btn popup-video tpvideo-icon-anim"><i className="fas fa-play"></i></a>
-													</div>
-													: <></>
-												}
-
-												{item.id === 4 ?
-													<div className="tp-postbox-thumb tp-postbox-audio w-img p-relative">
-														<iframe allow="autoplay" src={item.audio_src}></iframe>
-													</div>
-													: <></>
-												}
-
-												{item.id === 5 ?
-													<Swiper {...setting}
-														modules={[Navigation]}
-														loop={true}
-														className="tp-postbox-thumb tp-postbox-slider swiper-container w-img p-relative">
-														<>
-															{item.slider?.map((slider, index) =>
-																<SwiperSlide key={index} className="tp-postbox-slider-item swiper-slide">
-																	<Image src={slider} alt="theme-pure" />
-																</SwiperSlide>
-															)}
-														</>
-														<div className="tp-postbox-nav">
-															<button className="tp-postbox-slider-button-next"><i className="fal fa-arrow-right"></i></button>
-															<button className="tp-postbox-slider-button-prev"><i className="fal fa-arrow-left"></i></button>
-														</div>
-													</Swiper>
-													: <></>
-												}
-
-
-												<div className="tp-postbox-content">
-													<div className="tp-postbox-meta">
-														<span><i className="far fa-calendar-check"></i> {item.time} </span>
-														<span><a href="#"><i className="far fa-user"></i> {item.post_writer}</a></span>
-														<span><a href="#"><i className="fal fa-comments"></i> {item.comments} Comments</a></span>
-													</div>
-													<h3 className="tp-postbox-title">
-														<Link href="/blog-details">{item.title}</Link>
-													</h3>
-													<div className="tp-postbox-text">
-														<p>{item.article}</p>
-													</div>
-													<div className="tp-postbox-read-more">
-														<Link href="/blog-details" className="tp-btn">Read More</Link>
-													</div>
-												</div>
-											</>
-										}
+										)}
+										<div className="tp-postbox-meta">
+											<span><i className="far fa-calendar-check"></i> {blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : ""} </span>
+											<span><a href="#"><i className="far fa-user"></i> {blog.author || "Unknown"}</a></span>
+											{blog.category && (
+												<span><a href="#"><i className="far fa-list"></i> {blog.category}</a></span>
+											)}
+										</div>
+										<h3 className="tp-postbox-title">
+											<Link href={"/blog-details/" + (blog.slug || blog._id)}>{blog.title}</Link>
+										</h3>
+										<div className="tp-postbox-text">
+											<p>{blog.description || blog.excerpt || "No description."}</p>
+										</div>
+										<div className="tp-postbox-read-more">
+											<Link href={"/blog-details/" + (blog.slug || blog._id)} className="tp-btn">Read More</Link>
+										</div>
 									</article>
-								)}
+								))}
 
 								<div className="basic-pagination mt-30 mb-30">
 									<nav>
@@ -232,15 +228,6 @@ const BlogPostboxArea = () => {
 					</div>
 				</div>
 			</section>
-
-
-			{/* video modal start */}
-			<VideoPopup
-				isVideoOpen={isVideoOpen}
-				setIsVideoOpen={setIsVideoOpen}
-				videoId={"TYYf8zYjP5k"}
-			/>
-			{/* video modal end */}
 		</>
 	);
 };
