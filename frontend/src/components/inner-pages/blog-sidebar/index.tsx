@@ -2,7 +2,6 @@
 import BlogSearch from "@/components/forms/BlogSearch";
 import RecentPost from "./RecentPost";
 import Categories from "./Categories";
-import Tags from "./Tags";
 import SocialLinks from "@/components/common/social-links";
 
 
@@ -24,7 +23,7 @@ const blog_sidebar_content: blog_sidebar_content_type = {
     social: "Social",
     subscribe: "Subscribe"
 }
-const { widget_title, categories, tags, newsletter, newsletter_info, social, subscribe } = blog_sidebar_content
+const { widget_title, categories, newsletter, newsletter_info, social, subscribe } = blog_sidebar_content
 
 const BlogSidebar = () => {
     return (
@@ -51,12 +50,6 @@ const BlogSidebar = () => {
                     <div className="sidebar__widget mb-20">
                         <h3 className="sidebar__widget-title">{categories}</h3>
                         <Categories />
-                    </div>
-                    <div className="sidebar__widget mb-20">
-                        <h3 className="sidebar__widget-title">{tags}</h3>
-                        <div className="sidebar__widget-content">
-                            <Tags />
-                        </div>
                     </div>
                     <div className="sidebar__widget mb-20">
                         <h3 className="sidebar__widget-title">{social}</h3>

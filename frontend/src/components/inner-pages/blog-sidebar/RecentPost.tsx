@@ -1,55 +1,49 @@
 
 import Link from "next/link";
-import recent_post_thumb_1 from "@/assets/img/blog/sidebar/blog-sm-1.jpg";
-import recent_post_thumb_2 from "@/assets/img/blog/sidebar/blog-sm-2.jpg";
-import recent_post_thumb_3 from "@/assets/img/blog/sidebar/blog-sm-3.jpg";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
-
-interface recent_post_data_type {
-    id: number;
-    img: StaticImageData;
-    title: JSX.Element;
-    time: string;
-}[]
-
-const recent_post_data: recent_post_data_type[] = [
-    {
-        id: 1,
-        img: recent_post_thumb_1,
-        title: <>Unpacking SEO for <br /> the Google Local Pack.</>,
-        time: "July 28,2023",
-    },
-    {
-        id: 2,
-        img: recent_post_thumb_2,
-        title: <>7 of the Best Examples of Beautiful Blog Design.</>,
-        time: "July 21, 2021",
-    },
-    {
-        id: 3,
-        img: recent_post_thumb_3,
-        title: <>Working From Home? Let’s Get Started.</>,
-        time: "July 21, 2021",
-    },
-]
+const fallbackImg = "/default-thumb.jpg"; // Make sure this exists in your public folder or choose another fallback
 
 const RecentPost = () => {
+    const [posts, setPosts] = useState<any[]>([]);
+
+    useEffect(() => {
+        async function fetchRecentBlogs() {
+            try {
+                const url = process.env.NEXT_PUBLIC_API_URL
+                    ? `${process.env.NEXT_PUBLIC_API_URL}/blogs?limit=3`
+                    : "http://localhost:8081/api/blogs?limit=3";
+                const res = await fetch(url);
+                const data = await res.json();
+                const blogs = data.blogs || data.data || [];
+                setPosts(blogs.slice(0,3)); // fallback to first 3 if no real pagination
+            } catch (err) {
+                setPosts([]);
+            }
+        }
+        fetchRecentBlogs();
+    }, []);
+
+    if (posts.length === 0) {
+        return <>No recent posts.</>;
+    }
+
     return (
         <>
-            {recent_post_data.map((item, i) =>
+            {posts.map((item, i) =>
                 <div key={i} className="rc__post mb-10 d-flex align-items-center">
                     <div className="rc__post-thumb mr-20">
-                        <Link href="/blog-details">
-                            <Image src={item.img} alt="theme-pure" />
+                        <Link href={"/blog-details/" + (item.slug || item._id)}>
+                            <Image src={item.image || fallbackImg} alt={item.title} width={72} height={72} style={{ borderRadius:8, objectFit:'cover' }} />
                         </Link>
                     </div>
                     <div className="rc__post-content">
-                        <h3 className="rc__post-title">
-                            <Link href="/blog-details">{item.title}</Link>
+                        <h3 className="rc__post-title" style={{ fontSize: 15 }}>
+                            <Link href={"/blog-details/" + (item.slug || item._id)}>{item.title}</Link>
                         </h3>
                         <div className="rc__meta">
-                            <span>{item.time}</span>
+                            <span>{item.createdAt ? new Date(item.createdAt).toLocaleDateString() : ""}</span>
                         </div>
                     </div>
                 </div>
