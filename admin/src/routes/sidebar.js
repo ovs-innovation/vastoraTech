@@ -120,6 +120,10 @@ const sidebar = [
         path: "/blog-categories",
         name: "Blog Categories",
       },
+      {
+        path: "/blog-comments",
+        name: "Blog Comments",
+      },
     ],
   },
 

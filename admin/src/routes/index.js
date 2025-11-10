@@ -28,6 +28,7 @@ const LeadManagement = lazy(() => import("@/pages/LeadManagement"));
 const LeadDetails = lazy(() => import("@/pages/LeadDetails"));
 const BlogCategories = lazy(() => import("@/pages/BlogCategories"));
 const Blogs = lazy(() => import("@/pages/Blogs"));
+const BlogComments = lazy(() => import("@/pages/BlogComments"));
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -145,6 +146,10 @@ const routes = [
   {
     path: "/blog/:id",
     component: LeadDetails, // You can create a BlogDetails page later
+  },
+  {
+    path: "/blog-comments",
+    component: BlogComments,
   },
 ];
 
