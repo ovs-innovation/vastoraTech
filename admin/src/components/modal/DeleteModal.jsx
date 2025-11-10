@@ -18,6 +18,7 @@ import useToggleDrawer from "@/hooks/useToggleDrawer";
 import AttributeServices from "@/services/AttributeServices";
 import CurrencyServices from "@/services/CurrencyServices";
 import LeadServices from "@/services/LeadServices";
+import BlogServices from "@/services/BlogServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import useDisableForDemo from "@/hooks/useDisableForDemo";
 
@@ -251,6 +252,40 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
           notifySuccess(res.message);
           setServiceId();
           closeModal();
+          setIsSubmitting(false);
+        }
+      }
+
+      if (location.pathname === "/blogs") {
+        if (ids) {
+          const res = await BlogServices.deleteManyBlogs({
+            ids: ids,
+          });
+          if (res.success) {
+            setIsUpdate(true);
+            notifySuccess(res.message || "Blogs deleted successfully");
+            setIsCheck([]);
+            setServiceId();
+            closeModal();
+          } else {
+            notifyError(res.message || "Failed to delete blogs");
+          }
+          setIsSubmitting(false);
+        } else {
+          if (id === undefined || !id) {
+            notifyError("Please select a blog first!");
+            setIsSubmitting(false);
+            return closeModal();
+          }
+          const res = await BlogServices.deleteBlog(id);
+          if (res.success) {
+            setIsUpdate(true);
+            notifySuccess(res.message || "Blog deleted successfully");
+            setServiceId();
+            closeModal();
+          } else {
+            notifyError(res.message || "Failed to delete blog");
+          }
           setIsSubmitting(false);
         }
       }

@@ -8,6 +8,7 @@ import {
   FiGlobe,
   FiTarget,
   FiChrome,
+  FiFileText,
 } from "react-icons/fi";
 
 /**
@@ -43,7 +44,7 @@ const sidebar = [
       {
         path: "/coupons",
         name: "Coupons",
-      },
+      }
     ],
   },
 
@@ -111,6 +112,14 @@ const sidebar = [
         path: "/vastora-tech/lead-management",
         name: "LeadManagement",
       },
+      {
+        path: "/blogs",
+        name: "Blogs",
+      },
+      {
+        path: "/blog-categories",
+        name: "Blog Categories",
+      },
     ],
   },
 
@@ -118,8 +127,6 @@ const sidebar = [
     icon: FiSlack,
     name: "Pages",
     routes: [
-      // submenu
-
       {
         path: "/404",
         name: "404",
