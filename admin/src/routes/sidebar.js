@@ -64,6 +64,7 @@ const sidebar = [
     icon: FiUser,
     name: "OurStaff",
   },
+  
 
   {
     path: "/settings?settingTab=common-settings",
@@ -126,7 +127,6 @@ const sidebar = [
       },
     ],
   },
-
   {
     icon: FiSlack,
     name: "Pages",
