@@ -107,12 +107,29 @@ const sidebar = [
   },
   {
     icon: FiChrome,
-    name: "VastoraTech",
+    name: "LeadManagement",
     routes: [
       {
         path: "/vastora-tech/lead-management",
-        name: "LeadManagement",
+        name: "LandingPageLeads",
+      }
+    ],
+  },
+   {
+    icon: FiChrome,
+    name: "Whitelabel",
+    routes: [
+      {
+        path: "/products/demos",
+        name: "ProductDemos",
       },
+    ],
+  },
+   {
+    icon: FiChrome,
+    name: "BlogManagement",
+    routes: [
+
       {
         path: "/blogs",
         name: "Blogs",
@@ -124,11 +141,7 @@ const sidebar = [
       {
         path: "/blog-comments",
         name: "Blog Comments",
-      },
-      {
-        path: "/demos",
-        name: "Demos",
-      },
+      }
     ],
   },
   {

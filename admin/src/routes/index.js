@@ -153,7 +153,7 @@ const routes = [
     component: BlogComments,
   },
   {
-    path: "/demos",
+    path: "/products/demos",
     component: Demos,
   },
 ];
