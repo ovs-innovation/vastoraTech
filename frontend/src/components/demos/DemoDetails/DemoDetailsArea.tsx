@@ -11,6 +11,20 @@ export type DemoDetailsAreaProps = {
   isAdmin?: boolean; // pass from parent/page if admin
 };
 
+const imgBox: React.CSSProperties = {
+  width: "100%",
+  maxWidth: 950,
+  minHeight: 320,
+  aspectRatio: "2.2/1",
+  background: "#f8f9fa",
+  position: "relative",
+  overflow: "hidden",
+  borderRadius: 18,
+  boxShadow: "0 4px 16px rgba(0,30,84,0.09)",
+  margin: '0 auto 36px auto',
+  display: 'block',
+};
+
 const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
   const [demo, setDemo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -29,90 +43,80 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
   if (!demo) return <div>No demo found.</div>;
 
   return (
-    <>
-      <div className="container py-5 mt-100">
-        <div className="row g-4 align-items-center mb-4">
-          {/* Main image and fields */}
-          <div className="col-lg-6">
-            <h1 className="h2 mb-2">{demo.title}</h1>
-            {demo.subtitle ? <p className="lead text-muted">{demo.subtitle}</p> : null}
-            <p className="text-muted">{demo.description}</p>
-            {demo.featuresOverview && typeof demo.featuresOverview === "object" ? (
-              <div className="mb-3">
-                <h5>Overview</h5>
-                <ul>
-                  {Object.entries(demo.featuresOverview).map(([key, value], i) => (
-                    <li key={i}><b>{key}:</b> {String(value)}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-            <div className="d-flex gap-3 mt-4">
-              {demo.demoUrl ? (
-                <a
-                  href={demo.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                >
-                  Frontend Live Preview
-                </a>
-              ) : null}
-              {isAdmin && demo.adminDemoUrl ? (
-                <a
-                  href={demo.adminDemoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline-primary"
-                >
-                  Admin Dashboard Preview
-                </a>
-              ) : null}
-              <Link href="/contact" className="btn btn-success">
-                Get This Website
-              </Link>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="card border-0 shadow-sm">
-              {/* Gallery if multiple images */}
-              {Array.isArray(demo.images) && demo.images.length > 0 ? (
-                <Image
-                  src={demo.images[0]}
-                  alt={demo.title}
-                  width={900}
-                  height={600}
-                  className="card-img-top"
-                />
-              ) : (
-                <Image
-                  src={demo.image || "/no-image.png"}
-                  alt={demo.title}
-                  width={900}
-                  height={600}
-                  className="card-img-top"
-                />
-              )}
-            </div>
-          </div>
-        </div>
-        {/* Features List section */}
-        <div className="row">
-          <div className="col-12">
-            <div className="bg-light p-4 rounded-3">
-              <h2 className="h4 mb-3">What you get</h2>
-              <ul className="mb-0">
-                {Array.isArray(demo.featuresList)
-                  ? demo.featuresList.map((f: string, i: number) => <li key={i}>{f}</li>)
-                  : demo.features && Array.isArray(demo.features)
-                  ? demo.features.map((f: string, i: number) => <li key={i}>{f}</li>)
-                  : null}
-              </ul>
-            </div>
+    <div className="container py-5 mt-100">
+      {/* BIG image at the very top always, centered */}
+      <div className="row justify-content-center">
+        <div className="col-12 col-xl-10 mx-auto">
+          <div style={imgBox} className="shadow-sm mx-auto">
+            <Image
+              src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
+              alt={demo.title}
+              fill
+              priority={true}
+              sizes="(max-width: 1200px) 100vw, 950px"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
       </div>
-    </>
+      {/* Details below image */}
+      <div className="row align-items-center g-5 mb-4 justify-content-center">
+        <div className="col-12 col-lg-10">
+          <h1 className="h2 mb-2 text-center">{demo.title}</h1>
+          {demo.subtitle ? <p className="lead text-muted text-center">{demo.subtitle}</p> : null}
+          <p className="text-muted mb-4 text-center">{demo.description}</p>
+          {demo.featuresOverview && typeof demo.featuresOverview === "object" && (
+            <div className="mb-3">
+              <h5>Overview</h5>
+              <ul style={{paddingLeft:0, listStyle:'none', textAlign:'left'}}>
+                {Object.entries(demo.featuresOverview).map(([key, value], i) => (
+                  <li key={i} style={{ marginBottom: 2 }}><b>{key}</b>: {String(value)}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div className="d-flex flex-column flex-md-row gap-3 my-4 justify-content-center">
+            {demo.demoUrl && (
+              <a
+                href={demo.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{background: '#2B6BB3', color: '#fff', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}>
+                Live Preview
+              </a>
+            )}
+            {demo.adminDemoUrl && (
+              <a
+                href={demo.adminDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{background: '#2B6BB3', color: '#fff', border: '1px solid #2B6BB3', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}
+                title="Open admin dashboard demo (may require credentials)">
+                Admin Dashboard Live Preview
+              </a>
+            )}
+            <Link href="/contact" style={{background: '#28a745', color: '#fff', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}>
+              Get This Website
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/* Features List section below */}
+      <div className="row">
+        <div className="col-12 col-xl-10 mx-auto">
+          <div className="bg-light p-4 rounded-3">
+            <h2 className="h4 mb-3">What you get</h2>
+            <ul className="mb-0">
+              {Array.isArray(demo.featuresList)
+                ? demo.featuresList.map((f: string, i: number) => <li key={i}>{f}</li>)
+                : demo.features && Array.isArray(demo.features)
+                ? demo.features.map((f: string, i: number) => <li key={i}>{f}</li>)
+                : null}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
