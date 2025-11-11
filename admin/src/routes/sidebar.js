@@ -125,6 +125,10 @@ const sidebar = [
         path: "/blog-comments",
         name: "Blog Comments",
       },
+      {
+        path: "/demos",
+        name: "Demos",
+      },
     ],
   },
   {

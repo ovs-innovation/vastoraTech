@@ -1,18 +1,18 @@
 import HeaderSix from "@/layout/headers/HeaderSix";
 import FooterFive from "@/layout/footers/FooterFive";
 import DemoDetailsArea from "./DemoDetailsArea";
-import { DemoProduct } from "@/data/demos";
 
 type DemoDetailsProps = {
-  demo: DemoProduct;
+  slug: string;
+  isAdmin?: boolean;
 };
 
-const DemoDetails = ({ demo }: DemoDetailsProps) => {
+const DemoDetails = ({ slug, isAdmin = false }: DemoDetailsProps) => {
     return (
         <>
             <HeaderSix />
             <main>
-                <DemoDetailsArea demo={demo} />
+                <DemoDetailsArea slug={slug} isAdmin={isAdmin} />
             </main>
             <FooterFive style={true} />
         </>

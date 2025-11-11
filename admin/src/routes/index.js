@@ -29,6 +29,7 @@ const LeadDetails = lazy(() => import("@/pages/LeadDetails"));
 const BlogCategories = lazy(() => import("@/pages/BlogCategories"));
 const Blogs = lazy(() => import("@/pages/Blogs"));
 const BlogComments = lazy(() => import("@/pages/BlogComments"));
+const Demos = lazy(() => import("@/pages/Demos"));
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -151,6 +152,10 @@ const routes = [
     path: "/blog-comments",
     component: BlogComments,
   },
+  {
+    path: "/demos",
+    component: Demos,
+  },
 ];
 
 const routeAccessList = [
@@ -183,6 +188,7 @@ const routeAccessList = [
   { label: "Lead Management", value: "vastora-tech/lead-management" },
   { label: "Blogs", value: "blogs" },
   { label: "Coming Soon", value: "coming-soon" },
+  { label: "Demos", value: "demos" },
 ];
 
 export { routeAccessList, routes };

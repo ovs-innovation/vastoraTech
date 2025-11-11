@@ -23,6 +23,7 @@ const leadRoutes = require("../routes/leadRoutes");
 const blogRoutes = require("../routes/blogRoutes");
 const blogCategoryRoutes = require("../routes/blogCategoryRoutes");
 const blogCommentRoutes = require("../routes/blogCommentRoutes");
+const demoRoutes = require("../routes/demoRoutes");
 const { isAuth, isAdmin } = require("../config/auth");
 // const {
 //   getGlobalSetting,
@@ -62,6 +63,7 @@ app.use("/api/leads/", leadRoutes);
 app.use("/api/blogs/", blogRoutes);
 app.use("/api/blog-categories/", blogCategoryRoutes);
 app.use("/api/blog-comments/", blogCommentRoutes);
+app.use("/api/demos/", demoRoutes);
 
 //if you not use admin dashboard then these two route will not needed.
 app.use("/api/admin/", adminRoutes);

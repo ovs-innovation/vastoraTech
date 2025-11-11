@@ -19,6 +19,7 @@ import AttributeServices from "@/services/AttributeServices";
 import CurrencyServices from "@/services/CurrencyServices";
 import LeadServices from "@/services/LeadServices";
 import BlogServices from "@/services/BlogServices";
+import DemoServices from "@/services/DemoServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import useDisableForDemo from "@/hooks/useDisableForDemo";
 
@@ -287,6 +288,46 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
             notifyError(res.message || "Failed to delete blog");
           }
           setIsSubmitting(false);
+        }
+      }
+
+      if (location.pathname === "/demos") {
+        if (ids && Array.isArray(ids) && ids.length > 0) {
+          try {
+            for (const demoId of ids) {
+              await DemoServices.deleteDemo(demoId);
+            }
+            setIsUpdate(true);
+            notifySuccess("Selected demos deleted successfully");
+            setIsCheck([]);
+            setServiceId();
+            closeModal();
+          } catch (error) {
+            notifyError(error?.response?.data?.message || "Failed to delete some demos");
+          } finally {
+            setIsSubmitting(false);
+          }
+        } else {
+          if (!id) {
+            notifyError("Please select a demo first!");
+            setIsSubmitting(false);
+            return closeModal();
+          }
+          try {
+            const res = await DemoServices.deleteDemo(id);
+            if (res?.success === false) {
+              notifyError(res.message || "Failed to delete demo");
+            } else {
+              setIsUpdate(true);
+              notifySuccess(res?.message || "Demo deleted successfully");
+              setServiceId();
+              closeModal();
+            }
+          } catch (error) {
+            notifyError(error?.response?.data?.message || "Failed to delete demo");
+          } finally {
+            setIsSubmitting(false);
+          }
         }
       }
     } catch (err) {
