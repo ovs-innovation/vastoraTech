@@ -183,7 +183,7 @@ const HeroBannerHomeFive = () => {
                   <div className="banner-5-btn d-flex gap-3">
                     <Link
                       className="light-blue-btn"
-                      href="/product/demo-product"
+                      href="/product/demos"
                     >
                       Get Started
                     </Link>
