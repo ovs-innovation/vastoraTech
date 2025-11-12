@@ -2,13 +2,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import VideoPopup from "@/componentsmodals/video-popup";
+import dynamic from "next/dynamic";
+import VideoPopup from "@/components/modals/video-popup";
 import UserIcon from "@/svg/inner-pages-icons/UserIcon";
 import ClockIcon from "@/svg/inner-pages-icons/ClockIcon";
 import blog_masonry_data from "@/data/blog-masonry-data";
 import PrevBlogIcon from "@/svg/inner-pages-icons/PrevBlogIcon";
 import NextBlogIcon from "@/svg/inner-pages-icons/NextBlogIcon";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+
+const ResponsiveMasonry = dynamic(
+  () => import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
+  { ssr: false }
+);
+const Masonry = dynamic(
+  () => import("react-responsive-masonry").then((mod) => mod.default),
+  { ssr: false }
+);
 
 const PostboxAreaMasonry = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);

@@ -1,3 +1,4 @@
+"use client";
 
 import ScrollToTop from '@/components/common/scroll-to-top';
 import BlogMasonry from '@/components/inner-pages/blog-masonry';
