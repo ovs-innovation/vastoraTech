@@ -185,12 +185,12 @@ const BlogDetailsTwoPostboxArea = () => {
 							</div>
 							<div className="postbox-comment mb-100">
 								<h3 className="postbox-comment-title mb-35">3 Comments</h3>
-								<PostComments />
+								<PostComments blogId="123" />
 							</div>
 							<div className="postbox-comment-form">
 								<h3 className="postbox-comment-form-title">Leave a Comment</h3>
 								<p>Your email address will not be published. Required fields are marked *</p>
-								<CommentForm />
+								<CommentForm blogId="123" />
 							</div>
 						</div>
 					</div>

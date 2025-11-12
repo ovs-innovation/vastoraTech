@@ -11,7 +11,7 @@ import BlogSidebar from '@/components/inner-pages/blog-sidebar';
 
 const fallbackImg = '/default-thumb.jpg'; // adjust as needed
 
-const BlogDetailsPostboxArea = ({ blog }) => {
+const BlogDetailsPostboxArea = ({ blog }: { blog: any }) => {
   if (!blog) return null;
   return (
     <section className="postbox-area mt-90 pb-120">
