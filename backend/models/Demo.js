@@ -55,6 +55,16 @@ const demoSchema = new mongoose.Schema(
       required: false,
       default: [],
     },
+    technologies: {
+      type: [String],
+      required: false,
+      default: [],
+    },
+    specifications: {
+      type: mongoose.Schema.Types.Mixed,
+      required: false,
+      default: {},
+    },
     status: {
       type: String,
       default: "published",

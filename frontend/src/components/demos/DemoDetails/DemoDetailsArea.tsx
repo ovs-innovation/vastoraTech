@@ -75,6 +75,54 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
               </ul>
             </div>
           )}
+          
+          {/* Technologies Section */}
+          {demo.technologies && Array.isArray(demo.technologies) && demo.technologies.length > 0 && (
+            <div className="mb-4">
+              <h5 className="mb-3">Technologies Used</h5>
+              <div className="d-flex flex-wrap gap-3 align-items-center">
+                {demo.technologies.map((techImg: string, i: number) => (
+                  <div key={i} className="d-flex align-items-center justify-content-center px-3 py-2 bg-light rounded" style={{border: '1px solid #e9ecef', minWidth: 80, minHeight: 80}}>
+                    <img
+                      src={techImg}
+                      alt={`Technology ${i + 1}`}
+                      style={{width: 'auto', height: 50, maxWidth: 80, objectFit: 'contain'}}
+                      onError={(e: any) => {
+                        e.target.style.display = "none";
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Specifications Section */}
+          {demo.specifications && typeof demo.specifications === "object" && Object.keys(demo.specifications).length > 0 && (
+            <div className="mb-4">
+              <h5 className="mb-3">Specifications</h5>
+              <div className="bg-white border rounded p-4" style={{maxWidth: '100%'}}>
+                <div className="row g-3">
+                  {Object.entries(demo.specifications).map(([key, value], i) => (
+                    <div key={i} className="col-12 col-md-6">
+                      <div className="d-flex">
+                        <div style={{fontWeight: 600, color: '#000', minWidth: '40%', marginRight: '12px'}}>
+                          {key}:
+                        </div>
+                        <div style={{color: '#6c757d', flex: 1}}>
+                          {String(value).includes(',') || String(value).includes('http') ? (
+                            <span style={{color: '#2B6BB3'}}>{String(value)}</span>
+                          ) : (
+                            <span>{String(value)}</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
           <div className="d-flex flex-column flex-md-row gap-3 my-4 justify-content-center">
             {demo.demoUrl && (
               <a

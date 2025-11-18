@@ -146,7 +146,7 @@ const routes = [
   },
   {
     path: "/blog/:id",
-    component: LeadDetails, // You can create a BlogDetails page later
+    component: LeadDetails,
   },
   {
     path: "/blog-comments",
@@ -159,10 +159,6 @@ const routes = [
 ];
 
 const routeAccessList = [
-  // {
-  //   label: "Root",
-  //   value: "/",
-  // },
   { label: "Dashboard", value: "dashboard" },
   { label: "Products", value: "products" },
   { label: "Categories", value: "categories" },
