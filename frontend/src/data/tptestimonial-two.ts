@@ -1,8 +1,8 @@
 import { StaticImageData } from "next/image";
-import avatar_1 from "@/assets/img//team/testimonial-2-avater-1.png";
+// import avatar_1 from "@/assets/img//team/testimonial-2-avater-1.png";
 import avatar_2 from "@/assets/img//team/testimonial-2-avater-2.png";
-import avatar_3 from "@/assets/img//team/testimonial-2-avater-3.png";
-import avatar_4 from "@/assets/img//team/testimonial-2-avater-4.png";
+// import avatar_3 from "@/assets/img//team/testimonial-2-avater-3.png";
+// import avatar_4 from "@/assets/img//team/testimonial-2-avater-4.png";
 
 interface testimonial_data_two_type {
   id: number;
@@ -16,7 +16,7 @@ interface testimonial_data_two_type {
 const testimonial_data_two: testimonial_data_two_type[] = [
   {
     id: 1,
-    img: avatar_1,
+    img: avatar_2,
     sm_des:
       "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
     name: "Alex Baradi",
@@ -32,7 +32,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
   },
   {
     id: 3,
-    img: avatar_3,
+    img: avatar_2,
     sm_des:
       "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
     name: "Anna Lin",
@@ -40,7 +40,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
   },
   {
     id: 4,
-    img: avatar_4,
+    img: avatar_2,
     sm_des:
       "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
     name: "Byron Conner",
@@ -48,7 +48,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
   },
   {
     id: 5,
-    img: avatar_3,
+    img: avatar_2,
     sm_des:
       "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
     name: "Anna Lin",
