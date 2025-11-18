@@ -21,8 +21,8 @@ const sidebarCard: React.CSSProperties = {
 
 const heroImageBox: React.CSSProperties = {
   width: "100%",
-  minHeight: 380,
-  aspectRatio: "1.7/1",
+  minHeight: 440,
+  aspectRatio: "16/9",
   background: "#f8f9fb",
   position: "relative",
 };
@@ -40,10 +40,10 @@ const buttonBase: React.CSSProperties = {
   alignItems: "center",
   gap: 8,
   borderRadius: 999,
-  padding: "12px 22px",
+  padding: "12px 18px",
   fontWeight: 600,
   fontFamily: "var(--tp-ff-jakarta)",
-  fontSize: 15,
+  fontSize: 14,
   textDecoration: "none",
 };
 
@@ -90,16 +90,16 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
 
       {/* Hero section */}
       <div className="row g-4 align-items-start justify-content-center">
-        <div className="col-12 col-xl-8">
-          <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
-            <div style={heroImageBox}>
+          <div className="col-12 col-xl-8">
+            <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
+             <div className="position-relative" style={{...heroImageBox, minHeight: "min(70vw, 440px)"}}>
               <Image
                 src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
                 alt={demo.title}
                 fill
                 priority={true}
                 sizes="(max-width: 1400px) 100vw, 900px"
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "fill" }}
               />
               {(demo.demoUrl || demo.adminDemoUrl) && (
                 <div style={{position:"absolute", left:0, right:0, bottom:0, padding:"26px 24px", background:"linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 85%)", display:"flex", justifyContent:"center", gap:16, flexWrap:"wrap"}}>
@@ -134,7 +134,12 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
             </div>
           </div>
           {demo.subtitle && (
-            <p className="lead text-muted mt-4 mb-3">{demo.subtitle}</p>
+            <p
+              className="mt-4 mb-3"
+              style={{fontSize: "1.25rem", fontWeight: 600, color: "#0f172a", letterSpacing: "-0.01em"}}
+            >
+              {demo.subtitle}
+            </p>
           )}
 
           <div className="mt-3">
