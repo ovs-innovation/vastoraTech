@@ -1,0 +1,89 @@
+.termsMain {
+  background: #fdfdfd;
+}
+
+.heroSection {
+  padding: 140px 0 70px;
+  background: radial-gradient(circle at top, rgba(236, 253, 245, 0.9), rgba(248, 250, 252, 0.9));
+  text-align: center;
+  color: #0f172a;
+}
+
+.heroEyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 18px;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.heroTitle {
+  font-size: 48px;
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.heroLead {
+  max-width: 780px;
+  margin: 0 auto 22px;
+  color: rgba(15, 23, 42, 0.75);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.heroDate {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.contentSection {
+  padding: 70px 0 110px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 1);
+  border-radius: 26px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
+}
+
+.card h2 {
+  margin-bottom: 18px;
+  font-size: 26px;
+  color: #0f172a;
+}
+
+.card p,
+.card li {
+  color: rgba(30, 41, 59, 0.9);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.card ul {
+  padding-left: 22px;
+  margin: 15px 0 0;
+  list-style: disc;
+}
+
+.card ul li + li {
+  margin-top: 8px;
+}
+
+.card a {
+  color: #0ea5e9;
+}
+
+@media (max-width: 991px) {
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+}

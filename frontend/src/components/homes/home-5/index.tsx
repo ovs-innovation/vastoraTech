@@ -14,7 +14,7 @@ import FeatureAreaHomeFive from "./FeatureAreaHomeFive";
 import HeroBannerHomeFive from "./HeroBannerHomeFive";
 import ProjectFeaturHomefive from "./ProjectFeaturHomefive";
 import TeamAreaHomeFive from "./TeamAreaHomeFive";
-import TestimonialAreaHomeFour from "../home-4/TestimonialAreaHomeFour";
+import TestimonialAreaHomeOne from "@/components/homes/home/TestimonialAreaHomeOne";
 import ToolestAeaHomeFive from "./ToolestAeaHomeFive";
 import BrandAreaHomeFour from "../home-4/BrandAreaHomeFour";
 
@@ -38,7 +38,7 @@ const HomeFive = () => {
                 <ProjectAreaHomeTwo style={true} />
                 <ProjectFeaturHomefive />
                 <TeamAreaHomeFive />
-                <TestimonialAreaHomeFour />
+                <TestimonialAreaHomeOne />
                 {/* <ReviewAreaHomeFour style={true} /> */}
                 <ContactAreaHomeFour />
                 <BlogAreaHomeFour />

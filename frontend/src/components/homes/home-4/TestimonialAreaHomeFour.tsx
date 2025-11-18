@@ -15,7 +15,7 @@ import test_img_2 from "@/assets/img/team/testimonial-4-shape-2.png";
 import test_img_3 from "@/assets/img/team/testimonial-4-shape-3.png";
 import test_img_4 from "@/assets/img/team/testimonial-4-shape-4.png";
 import test_img_5 from "@/assets/img/team/testimonial-4-shape-5.png";
-import test_img_6 from "@/assets/img/team/testimonial-4-shape-6.png";
+ 
 
 // REMOVE test_shape_data definition and usage
 
@@ -102,19 +102,7 @@ const testimonial_content: testimonial_content_type = {
       ),
       shape: test_img_5,
     },
-    {
-      id: 6,
-      author: "Habib Mahdi",
-      job_title: "CEO of Advisor Fuel",
-      sm_des: (
-        <>
-          As a strategy consultancy, {"we’re"} constantly multiple projects 
-          which meant we had little resources left our online marketing. we were
-          also reluctant to partner with marketing agencies as most package.!
-        </>
-      ),
-      shape: test_img_6,
-    },
+    
     
   ],
 };

@@ -15,7 +15,7 @@ interface portfolio_data_type {
     category: string;
     title: string;
 }[]
-const portfolio_data: portfolio_data_type[] = [
+const   portfolio_data: portfolio_data_type[] = [
     {
         id: 1, 
         img: portfolio_img_1,

@@ -187,33 +187,41 @@ const setting = {
 const BrandAreaHomeFour = () => {
   return (
     <>
-      <section className="brand-area brand-bg-3 mb-120 p-relative">
-        <div className="brand-bg-4">
+      <section className="brand-area brand-bg-3 mb-120 p-relative client-showcase">
+        <div className="client-showcase__glow client-showcase__glow--left" />
+        <div className="client-showcase__glow client-showcase__glow--right" />
+        <div className="brand-bg-4 client-showcase__inner">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <div className="brand-wrapper text-center">
+                  <div className="eyebrow">trusted by global brands</div>
                   <h5 className="title">Our Clients :</h5>
+                  <p className="subtitle">
+                    A curated glimpse of teams that ship with Vastora Tech every day.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="col-lg-12">
-                <div style={{ position: "relative" }}>
+                <div className="client-slider-shell">
                   <Slider
                     {...setting}
-                    className="tpbrand tpbrand-active-4 mb-170"
+                    className="tpbrand tpbrand-active-4 mb-0 client-slider"
                   >
                     {brands_images.map((item, i) => (
                       <div key={i} className="tpbrand-item-4 mb-35">
                         <Image
                           src={item}
                           alt="vastora tech clients"
-                          className="w-50 h-50 "
+                          className="client-logo"
                         />
                       </div>
                     ))}
                   </Slider>
+                  <div className="client-slider-shell__blur client-slider-shell__blur--one" />
+                  <div className="client-slider-shell__blur client-slider-shell__blur--two" />
                 </div>
               </div>
             </div>
@@ -244,6 +252,7 @@ const BrandAreaHomeFour = () => {
         </div>
         {/* <!-- wave-animation-end --> */}
       </section>
+     
     </>
   );
 };
