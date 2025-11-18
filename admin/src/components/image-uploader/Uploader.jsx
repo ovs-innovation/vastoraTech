@@ -5,7 +5,6 @@ import { useDropzone } from "react-dropzone";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { FiUploadCloud, FiXCircle } from "react-icons/fi";
-import Pica from "pica";
 
 // Internal imports
 import useUtilsFunction from "@/hooks/useUtilsFunction";
@@ -17,13 +16,10 @@ const Uploader = ({
   imageUrl,
   product,
   folder,
-  targetWidth = 800, // Set default fixed width
-  targetHeight = 800, // Set default fixed height
 }) => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setError] = useState("");
-  const pica = Pica(); // Initialize Pica instance
   const { globalSetting } = useUtilsFunction();
 
   const { getRootProps, getInputProps, fileRejections } = useDropzone({
@@ -34,13 +30,8 @@ const Uploader = ({
     maxSize: 5242880, // 5 MB in bytes
     maxFiles: globalSetting?.number_of_image_per_product || 2,
     onDrop: async (acceptedFiles) => {
-      const resizedFiles = await Promise.all(
-        acceptedFiles.map((file) =>
-          resizeImageToFixedDimensions(file, targetWidth, targetHeight)
-        )
-      );
       setFiles(
-        resizedFiles.map((file) =>
+        acceptedFiles.map((file) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
           })
@@ -48,31 +39,6 @@ const Uploader = ({
       );
     },
   });
-
-  const resizeImageToFixedDimensions = async (file, width, height) => {
-    const img = new Image();
-    img.src = URL.createObjectURL(file);
-
-    await img.decode();
-
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-
-    return new Promise((resolve) => {
-      pica
-        .resize(img, canvas, {
-          unsharpAmount: 80,
-          unsharpRadius: 0.6,
-          unsharpThreshold: 2,
-        })
-        .then((result) => pica.toBlob(result, file.type, 0.9))
-        .then((blob) => {
-          const resizedFile = new File([blob], file.name, { type: file.type });
-          resolve(resizedFile);
-        });
-    });
-  };
 
   useEffect(() => {
     if (fileRejections) {
@@ -195,10 +161,7 @@ const Uploader = ({
           <FiUploadCloud className="text-3xl text-blue-500" />
         </span>
         <p className="text-sm mt-2">{t("DragYourImage")}</p>
-        <em className="text-xs text-gray-400">
-          {t("imageFormat")}
-          {` (${targetWidth}x${targetHeight})`}
-        </em>
+        <em className="text-xs text-gray-400">{t("imageFormat")}</em>
       </div>
 
       <div className="text-blue-500">{loading && err}</div>

@@ -26,6 +26,10 @@ const DemoDrawer = ({ id }) => {
   const [featureKey, setFeatureKey] = useState("");
   const [featureValue, setFeatureValue] = useState("");
   const [featureItem, setFeatureItem] = useState("");
+  const [technologies, setTechnologies] = useState([]);
+  const [specifications, setSpecifications] = useState({});
+  const [specKey, setSpecKey] = useState("");
+  const [specValue, setSpecValue] = useState("");
 
   const {
     register,
@@ -64,6 +68,8 @@ const DemoDrawer = ({ id }) => {
             setImageUrl(demo.image || (demo.images && demo.images[0]) || "");
             setFeaturesList(demo.featuresList || demo.features || []);
             setFeaturesOverview(demo.featuresOverview || {});
+            setTechnologies(demo.technologies || []);
+            setSpecifications(demo.specifications || {});
           }
         })
         .catch((err) => {
@@ -75,6 +81,8 @@ const DemoDrawer = ({ id }) => {
       setImageUrl("");
       setFeaturesList([]);
       setFeaturesOverview({});
+      setTechnologies([]);
+      setSpecifications({});
     }
   }, [id, setValue, reset]);
 
@@ -95,6 +103,8 @@ const DemoDrawer = ({ id }) => {
         featuresList,
         featuresOverview,
         features: featuresList, // for backward compatibility
+        technologies,
+        specifications,
       };
 
       if (id) {
@@ -144,6 +154,20 @@ const DemoDrawer = ({ id }) => {
 
   const removeFeatureItem = (index) => {
     setFeaturesList(featuresList.filter((_, i) => i !== index));
+  };
+
+  const addSpecification = () => {
+    if (specKey && specValue) {
+      setSpecifications({ ...specifications, [specKey]: specValue });
+      setSpecKey("");
+      setSpecValue("");
+    }
+  };
+
+  const removeSpecification = (key) => {
+    const newSpecs = { ...specifications };
+    delete newSpecs[key];
+    setSpecifications(newSpecs);
   };
 
   return (
@@ -347,6 +371,64 @@ const DemoDrawer = ({ id }) => {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Technologies (Images)" />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={technologies}
+                  setImageUrl={setTechnologies}
+                  folder="demos/technologies"
+                  product={true}
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Upload technology logo/icon images (e.g., React, Next.js, Bootstrap icons).
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Specifications (Key-Value)" />
+              <div className="col-span-8 sm:col-span-4">
+                <div className="flex gap-2 mb-2">
+                  <Input
+                    value={specKey}
+                    onChange={(e) => setSpecKey(e.target.value)}
+                    placeholder="Specification Key (e.g., High Resolution)"
+                    className="flex-1"
+                  />
+                  <Input
+                    value={specValue}
+                    onChange={(e) => setSpecValue(e.target.value)}
+                    placeholder="Specification Value (e.g., Yes)"
+                    className="flex-1"
+                  />
+                  <Button type="button" onClick={addSpecification}>
+                    Add
+                  </Button>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {Object.entries(specifications).map(([key, value]) => (
+                    <span
+                      key={key}
+                      className="px-3 py-1 bg-green-100 dark:bg-green-900 rounded flex items-center gap-2"
+                    >
+                      <strong>{key}:</strong> {value}
+                      <button
+                        type="button"
+                        onClick={() => removeSpecification(key)}
+                        className="text-red-500 hover:text-red-700 ml-1"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Add specifications like "High Resolution", "Compatible Browsers", "Layout", etc.
+                </p>
               </div>
             </div>
           </div>
