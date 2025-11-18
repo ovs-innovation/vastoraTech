@@ -44,16 +44,46 @@ const DemosListingArea = () => {
     background: "#2B6BB3",
     color: "#fff",
     borderRadius: 4,
-    display: "inline-block",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
     fontFamily: "var(--tp-ff-jakarta)",
     fontWeight: 600,
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 1,
-    padding: "14px 23.5px",
-    border: 'none',
-    width: '100%',
-    textAlign: 'center',
+    padding: "12px 20px",
+    border: "none",
+    width: "100%",
+    textAlign: "center",
+    boxShadow: "0 8px 16px rgba(43, 107, 179, 0.2)",
   };
+
+  const iconProps = {
+    width: 16,
+    height: 16,
+    stroke: "currentColor",
+    strokeWidth: 2,
+    fill: "none",
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  const InfoIcon = () => (
+    <svg {...iconProps} viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <line x1="12" y1="16" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12" y2="8" />
+    </svg>
+  );
+
+  const ExternalIcon = () => (
+    <svg {...iconProps} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 3h7v7" />
+      <path d="M10 14 21 3" />
+      <path d="M21 14v7H3V3h7" />
+    </svg>
+  );
 
   const fetchDemos = (opts?: { search?: string; category?: string }) => {
     const params = new URLSearchParams();
@@ -146,7 +176,7 @@ const DemosListingArea = () => {
                     alt={demo.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "fill" as const }}
                     priority={false}
                   />
                 </div>
@@ -164,7 +194,12 @@ const DemosListingArea = () => {
                     {demo.description}
                   </p>
                   <div className="d-flex gap-2 mt-2">
-                    <Link href={`/product/demos/${demo.slug}`} style={buttonBlue}>
+                    <Link
+                      href={`/product/demos/${demo.slug}`}
+                      style={buttonBlue}
+                      className="text-decoration-none"
+                    >
+                      <InfoIcon />
                       Know More
                     </Link>
                     {demo.demoUrl ? (
@@ -173,10 +208,13 @@ const DemosListingArea = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={buttonBlue}
+                        className="text-decoration-none"
                       >
+                        <ExternalIcon />
                         Live Preview
                       </a>
                     ) : null}
+                    
                   </div>
                 </div>
               </div>
