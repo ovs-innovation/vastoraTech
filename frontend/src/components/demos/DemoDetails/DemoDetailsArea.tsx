@@ -11,18 +11,40 @@ export type DemoDetailsAreaProps = {
   isAdmin?: boolean; // pass from parent/page if admin
 };
 
-const imgBox: React.CSSProperties = {
+const sidebarCard: React.CSSProperties = {
+  background: "#fff",
+  borderRadius: 16,
+  border: "1px solid #e5e7eb",
+  boxShadow: "0 12px 30px rgba(19,33,68,0.08)",
+  padding: "24px 24px 32px 24px",
+};
+
+const heroImageBox: React.CSSProperties = {
   width: "100%",
-  maxWidth: 950,
-  minHeight: 320,
-  aspectRatio: "2.2/1",
-  background: "#f8f9fa",
+  minHeight: 380,
+  aspectRatio: "1.7/1",
+  background: "#f8f9fb",
   position: "relative",
-  overflow: "hidden",
-  borderRadius: 18,
-  boxShadow: "0 4px 16px rgba(0,30,84,0.09)",
-  margin: '0 auto 36px auto',
-  display: 'block',
+};
+
+const specRow: React.CSSProperties = {
+  borderBottom: "1px solid #edf0f5",
+  padding: "14px 0",
+  display: "flex",
+  justifyContent: "space-between",
+  gap: 12,
+};
+
+const buttonBase: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+  borderRadius: 999,
+  padding: "12px 22px",
+  fontWeight: 600,
+  fontFamily: "var(--tp-ff-jakarta)",
+  fontSize: 15,
+  textDecoration: "none",
 };
 
 const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
@@ -42,126 +64,176 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
   if (error) return <div>{error}</div>;
   if (!demo) return <div>No demo found.</div>;
 
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return "-";
+    const d = new Date(dateString);
+    return d.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  const hasQuickInfo = Boolean(demo.category || demo.status || demo.createdAt || demo.updatedAt);
+
   return (
     <div className="container py-5 mt-100">
-      {/* BIG image at the very top always, centered */}
-      <div className="row justify-content-center">
-        <div className="col-12 col-xl-10 mx-auto">
-          <div style={imgBox} className="shadow-sm mx-auto">
-            <Image
-              src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
-              alt={demo.title}
-              fill
-              priority={true}
-              sizes="(max-width: 1200px) 100vw, 950px"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+      {/* Title */}
+      <div className="row mb-3">
+        <div className="col-12">
+          <p className="text-uppercase text-muted fw-semibold mb-1" style={{letterSpacing: 1}}>
+            {demo.category ? `${demo.category} white label Solution` : "Demo Template"}
+          </p>
+          <h1 className="display-6 mb-0" style={{fontWeight: 700}}>{demo.title}</h1>
         </div>
       </div>
-      {/* Details below image */}
-      <div className="row align-items-center g-5 mb-4 justify-content-center">
-        <div className="col-12 col-lg-10">
-          <h1 className="h2 mb-2 text-center">{demo.title}</h1>
-          {demo.subtitle ? <p className="lead text-muted text-center">{demo.subtitle}</p> : null}
-          <p className="text-muted mb-4 text-center">{demo.description}</p>
-          {demo.featuresOverview && typeof demo.featuresOverview === "object" && (
-            <div className="mb-3">
-              <h5>Overview</h5>
-              <ul style={{paddingLeft:0, listStyle:'none', textAlign:'left'}}>
-                {Object.entries(demo.featuresOverview).map(([key, value], i) => (
-                  <li key={i} style={{ marginBottom: 2 }}><b>{key}</b>: {String(value)}</li>
-                ))}
-              </ul>
+
+      {/* Hero section */}
+      <div className="row g-4 align-items-start justify-content-center">
+        <div className="col-12 col-xl-8">
+          <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
+            <div style={heroImageBox}>
+              <Image
+                src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
+                alt={demo.title}
+                fill
+                priority={true}
+                sizes="(max-width: 1400px) 100vw, 900px"
+                style={{ objectFit: "cover" }}
+              />
+              {(demo.demoUrl || demo.adminDemoUrl) && (
+                <div style={{position:"absolute", left:0, right:0, bottom:0, padding:"26px 24px", background:"linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 85%)", display:"flex", justifyContent:"center", gap:16, flexWrap:"wrap"}}>
+                  {demo.demoUrl && (
+                    <a
+                      href={demo.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{...buttonBase, background:"#1473e6", color:"#fff"}}
+                    >
+                      <span style={{display:"inline-flex", width:16, height:16}}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M3 5h18M3 12h18M3 19h18" strokeLinecap="round"/><circle cx="7" cy="12" r="2.2"/></svg>
+                      </span>
+                      Live Preview
+                    </a>
+                  )}
+                  {demo.adminDemoUrl && (
+                    <a
+                      href={demo.adminDemoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{...buttonBase, background:"#ffffff", color:"#0f172a"}}
+                    >
+                      <span style={{display:"inline-flex", width:16, height:16}}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M4 7h16v10H4z"/><path d="M2 17h20v2H2z"/><path d="M9 12h6" strokeLinecap="round"/></svg>
+                      </span>
+                      Admin Preview
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
-          )}
-          
-          {/* Technologies Section */}
-          {demo.technologies && Array.isArray(demo.technologies) && demo.technologies.length > 0 && (
-            <div className="mb-4">
-              <h5 className="mb-3">Technologies Used</h5>
-              <div className="d-flex flex-wrap gap-3 align-items-center">
-                {demo.technologies.map((techImg: string, i: number) => (
-                  <div key={i} className="d-flex align-items-center justify-content-center px-3 py-2 bg-light rounded" style={{border: '1px solid #e9ecef', minWidth: 80, minHeight: 80}}>
-                    <img
-                      src={techImg}
-                      alt={`Technology ${i + 1}`}
-                      style={{width: 'auto', height: 50, maxWidth: 80, objectFit: 'contain'}}
-                      onError={(e: any) => {
-                        e.target.style.display = "none";
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+          </div>
+          {demo.subtitle && (
+            <p className="lead text-muted mt-4 mb-3">{demo.subtitle}</p>
           )}
 
-          {/* Specifications Section */}
-          {demo.specifications && typeof demo.specifications === "object" && Object.keys(demo.specifications).length > 0 && (
-            <div className="mb-4">
-              <h5 className="mb-3">Specifications</h5>
-              <div className="bg-white border rounded p-4" style={{maxWidth: '100%'}}>
-                <div className="row g-3">
-                  {Object.entries(demo.specifications).map(([key, value], i) => (
-                    <div key={i} className="col-12 col-md-6">
-                      <div className="d-flex">
-                        <div style={{fontWeight: 600, color: '#000', minWidth: '40%', marginRight: '12px'}}>
-                          {key}:
-                        </div>
-                        <div style={{color: '#6c757d', flex: 1}}>
-                          {String(value).includes(',') || String(value).includes('http') ? (
-                            <span style={{color: '#2B6BB3'}}>{String(value)}</span>
-                          ) : (
-                            <span>{String(value)}</span>
-                          )}
-                        </div>
-                      </div>
+          <div className="mt-3">
+            <p className="text-muted mb-4">{demo.description}</p>
+
+            {demo.featuresOverview && typeof demo.featuresOverview === "object" && (
+              <div className="mb-4 p-4 rounded-4" style={{border:"1px solid #e5e7eb", background:"#fff"}}>
+                <h5 className="mb-3">Features Overview</h5>
+                <ul style={{paddingLeft:0, listStyle:'none', textAlign:'left'}}>
+                  {Object.entries(demo.featuresOverview).map(([key, value], i) => (
+                    <li key={i} style={{ marginBottom: 8 }}><b>{key}</b>: {String(value)}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="bg-light p-4 rounded-4">
+              <h2 className="h4 mb-3">What you get</h2>
+              <ul className="mb-0">
+                {Array.isArray(demo.featuresList)
+                  ? demo.featuresList.map((f: string, i: number) => <li key={i}>{f}</li>)
+                  : demo.features && Array.isArray(demo.features)
+                  ? demo.features.map((f: string, i: number) => <li key={i}>{f}</li>)
+                  : null}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-xl-4">
+          <aside style={sidebarCard}>
+            {hasQuickInfo && (
+              <div className="mb-4">
+                <h4 className="mb-3">Quick Info</h4>
+                <ul style={{padding:0, margin:0, listStyle:"none"}}>
+                  {demo.category && (
+                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
+                      <span style={{fontWeight:600}}>Category</span>
+                      <span>{demo.category}</span>
+                    </li>
+                  )}
+                  {demo.status && (
+                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
+                      <span style={{fontWeight:600}}>Status</span>
+                      <span>{demo.status}</span>
+                    </li>
+                  )}
+                  {demo.createdAt && (
+                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
+                      <span style={{fontWeight:600}}>Created</span>
+                      <span>{formatDate(demo.createdAt)}</span>
+                    </li>
+                  )}
+                  {demo.updatedAt && (
+                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:0, color:"#4b5563"}}>
+                      <span style={{fontWeight:600}}>Last Update</span>
+                      <span>{formatDate(demo.updatedAt)}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )}
+
+            {Array.isArray(demo.technologies) && demo.technologies.length > 0 && (
+              <div className="mb-4">
+                <div className="d-flex align-items-center justify-content-between mb-3">
+                  <h5 className="mb-0">Technologies</h5>
+                  <span style={{fontSize: 12, color: '#64748b'}}>Toolkit</span>
+                </div>
+                <div className="d-flex flex-wrap gap-3 align-items-center">
+                  {demo.technologies.map((techImg: string, i: number) => (
+                    <div key={i} className="d-flex align-items-center justify-content-center px-3 py-2 bg-light rounded" style={{border: '1px solid #e9ecef', minWidth: 78, minHeight: 78}}>
+                      <img
+                        src={techImg}
+                        alt={`Technology ${i + 1}`}
+                        style={{width: 'auto', height: 48, maxWidth: 70, objectFit: 'contain'}}
+                        onError={(e: any) => {
+                          e.target.style.display = "none";
+                        }}
+                      />
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
-          )}
-          <div className="d-flex flex-column flex-md-row gap-3 my-4 justify-content-center">
-            {demo.demoUrl && (
-              <a
-                href={demo.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{background: '#2B6BB3', color: '#fff', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}>
-                Live Preview
-              </a>
             )}
-            {demo.adminDemoUrl && (
-              <a
-                href={demo.adminDemoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{background: '#2B6BB3', color: '#fff', border: '1px solid #2B6BB3', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}
-                title="Open admin dashboard demo (may require credentials)">
-                Admin Dashboard Live Preview
-              </a>
+
+            {demo.specifications && typeof demo.specifications === "object" && Object.keys(demo.specifications).length > 0 && (
+              <div>
+                <h5 className="mb-3">Specification</h5>
+                <div>
+                  {Object.entries(demo.specifications).map(([key, value], i) => (
+                    <div key={i} style={{...specRow, borderBottom: i === Object.keys(demo.specifications).length - 1 ? "none" : specRow.borderBottom}}>
+                      <span style={{fontWeight: 600, color: '#111928', minWidth: 120}}>{key}</span>
+                      <span style={{color: '#4b5563', textAlign: 'right'}}>{String(value)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
-            <Link href="/contact" style={{background: '#28a745', color: '#fff', borderRadius: 4, fontFamily: 'var(--tp-ff-jakarta)', fontWeight: 600, fontSize: 16, padding: '14px 23.5px', textAlign: 'center', minWidth: 160, textDecoration: 'none', display: 'inline-block'}}>
-              Get This Website
-            </Link>
-          </div>
-        </div>
-      </div>
-      {/* Features List section below */}
-      <div className="row">
-        <div className="col-12 col-xl-10 mx-auto">
-          <div className="bg-light p-4 rounded-3">
-            <h2 className="h4 mb-3">What you get</h2>
-            <ul className="mb-0">
-              {Array.isArray(demo.featuresList)
-                ? demo.featuresList.map((f: string, i: number) => <li key={i}>{f}</li>)
-                : demo.features && Array.isArray(demo.features)
-                ? demo.features.map((f: string, i: number) => <li key={i}>{f}</li>)
-                : null}
-            </ul>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
