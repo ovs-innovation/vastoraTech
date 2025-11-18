@@ -82,7 +82,7 @@ type testimonial_content_type = {
 }
 const testimonial_content: testimonial_content_type = {
 	title: "Client love us & we love them",
-	sm_info: "Trusted by over 4,000 clients worldwide",
+	sm_info: "Trusted by over 1,900 clients worldwide",
 }
 const { title, sm_info } = testimonial_content
 
@@ -106,9 +106,9 @@ const TestimonialAreaHomeOne = () => {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="tpsection__content text-center mb-60">
-								<div className="tptestimonial-avatar-bg mb-15">
+								{/* <div className="tptestimonial-avatar-bg mb-15">
 									<Image src={avatart_img} alt="theme-pure" />
-								</div>
+								</div> */}
 								<h2 className="tpsection__title">{title}</h2>
 								<p>{sm_info}</p>
 							</div>
@@ -120,9 +120,9 @@ const TestimonialAreaHomeOne = () => {
 						<Slider {...setting} ref={sliderRef} className="tptestimonial-wrapper tptestimonial-active">
 							{testimonial_data.map((item, i) =>
 								<div key={i} className="tptestimonial team_testimonial p-relative d-flex align-items-center">
-									<div className="tptestimonial-thumb mr-40">
+									{/* <div className="tptestimonial-thumb mr-40">
 										<Image src={item.img} alt="theme-pure" />
-									</div>
+									</div> */}
 									<div className="tptestimonial-content">
 										<div className="tptestimonial-shape mb-20">
 											<i> <QuteIcon /> </i>
