@@ -90,27 +90,31 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
 
       {/* Hero section */}
       <div className="row g-4 align-items-start justify-content-center">
-          <div className="col-12 col-xl-8">
-            <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
-             <div className="position-relative" style={{...heroImageBox, minHeight: "min(70vw, 440px)"}}>
+        <div className="col-12 col-xl-8">
+          <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
+            <div className="position-relative" style={{...heroImageBox, minHeight: "min(70vw, 440px)"}}>
               <Image
                 src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
                 alt={demo.title}
                 fill
                 priority={true}
                 sizes="(max-width: 1400px) 100vw, 900px"
-                style={{ objectFit: "fill" }}
+                style={{ objectFit: "fill" as const }}
               />
               {(demo.demoUrl || demo.adminDemoUrl) && (
-                <div style={{position:"absolute", left:0, right:0, bottom:0, padding:"26px 24px", background:"linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 85%)", display:"flex", justifyContent:"center", gap:16, flexWrap:"wrap"}}>
+                <div
+                  className="d-flex flex-row flex-sm-row gap-2 w-100 justify-content-center flex-wrap"
+                  style={{position:"absolute", left:0, right:0, bottom:0, padding:"14px 10px", background:"linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 90%)"}}
+                >
                   {demo.demoUrl && (
                     <a
                       href={demo.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{...buttonBase, background:"#1473e6", color:"#fff"}}
+                      className="w-auto"
+                      style={{...buttonBase, background:"#1473e6", color:"#fff", padding:"8px 14px", fontSize:13}}
                     >
-                      <span style={{display:"inline-flex", width:16, height:16}}>
+                      <span style={{display:"inline-flex", width:14, height:14}}>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M3 5h18M3 12h18M3 19h18" strokeLinecap="round"/><circle cx="7" cy="12" r="2.2"/></svg>
                       </span>
                       Live Preview
@@ -121,9 +125,10 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                       href={demo.adminDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{...buttonBase, background:"#ffffff", color:"#0f172a"}}
+                      className="w-auto"
+                      style={{...buttonBase, background:"#ffffff", color:"#0f172a", padding:"8px 14px", fontSize:13}}
                     >
-                      <span style={{display:"inline-flex", width:16, height:16}}>
+                      <span style={{display:"inline-flex", width:14, height:14}}>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M4 7h16v10H4z"/><path d="M2 17h20v2H2z"/><path d="M9 12h6" strokeLinecap="round"/></svg>
                       </span>
                       Admin Preview
