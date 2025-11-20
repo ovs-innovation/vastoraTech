@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from 'react';
 import VideoPopup from "@/componentsmodals/video-popup";
-import about_bg_img from "@/assets/img/bg/about-5-bg-2.webp";
+import about_bg_img from "@/assets/img/bg/about-5-bg-21.jpg";
 
 import video_shape_1 from "@/assets/img/shape/video-blue.png";
 import video_shape_2 from "@/assets/img/shape/video-white.png";

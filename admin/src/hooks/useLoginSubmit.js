@@ -24,6 +24,7 @@ const useLoginSubmit = () => {
     const cookieTimeOut = 0.5;
 
     try {
+    
       if (location.pathname === "/login") {
         const res = await AdminServices.loginAdmin({ email, password });
 

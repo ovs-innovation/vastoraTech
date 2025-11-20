@@ -26,6 +26,8 @@ const StoreSetting = lazy(() => import("@/pages/StoreSetting"));
 const Notifications = lazy(() => import("@/pages/Notifications"));
 const LeadManagement = lazy(() => import("@/pages/LeadManagement"));
 const LeadDetails = lazy(() => import("@/pages/LeadDetails"));
+const ContactLeads = lazy(() => import("@/pages/ContactLeads"));
+const WhiteLabelLeads = lazy(() => import("@/pages/WhiteLabelLeads"));
 const BlogCategories = lazy(() => import("@/pages/BlogCategories"));
 const Blogs = lazy(() => import("@/pages/Blogs"));
 const BlogComments = lazy(() => import("@/pages/BlogComments"));
@@ -129,8 +131,16 @@ const routes = [
     component: Notifications,
   },
   {
-    path: "/vastora-tech/lead-management",
+    path: "/vastora-tech/landing-page",
     component: LeadManagement,
+  },
+  {
+    path: "/vastora-tech/lead-management/contact-leads",
+    component: ContactLeads,
+  },
+  {
+    path: "/vastora-tech/lead-management/white-label-leads",
+    component: WhiteLabelLeads,
   },
   {
     path: "/lead/:id",
@@ -155,7 +165,7 @@ const routes = [
   {
     path: "/products/demos",
     component: Demos,
-  },
+  }
 ];
 
 const routeAccessList = [
@@ -182,9 +192,14 @@ const routeAccessList = [
   },
   { label: "Notification", value: "notifications" },
   { label: "Lead Management", value: "vastora-tech/lead-management" },
+  {
+    label: "Contact Responses",
+    value: "vastora-tech/lead-management?panel=contact",
+  },
   { label: "Blogs", value: "blogs" },
   { label: "Coming Soon", value: "coming-soon" },
   { label: "Demos", value: "demos" },
+  { label: "White Label Responses", value: "white-label/responses" },
 ];
 
 export { routeAccessList, routes };

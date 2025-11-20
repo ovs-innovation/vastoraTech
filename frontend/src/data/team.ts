@@ -43,19 +43,19 @@ const team_data: team_data_type[] = [
         name: "Shushmita Roy",
         job_title: "Frontend Developer",
     },
-    {
-        id: 4,
-        avatar: team_img_4,
-        cls: "team-5-item-4",
-        name: "Jyoti Agrawal",
-        job_title: "UI/UX Designer",
-    },
+    // {
+    //     id: 4,
+    //     avatar: team_img_4,
+    //     cls: "team-5-item-4",
+    //     name: "Jyoti Agrawal",
+    //     job_title: "UI/UX Designer",
+    // },
     {
         id: 5,
         avatar: team_img_5,
         cls: "team-5-item-5",
         name: "Rahul Roy",
-        job_title: "Frontend Developer",
+        job_title: "Full Stack Developer",
     },
     {
         id: 6,
@@ -69,7 +69,7 @@ const team_data: team_data_type[] = [
         avatar: team_img_7,
         cls: "team-5-item-7",
         name: "Arti Kumari",
-        job_title: "frontend Developer",
+        job_title: "Frontend Developer",
     },
     {
         id: 8,
@@ -78,13 +78,13 @@ const team_data: team_data_type[] = [
         name: "Priyanka Singh",
         job_title: "SEO Manager",
     },
-    {
-        id: 9,
-        avatar: team_img_9,
-        cls: "team-5-item-8",
-        name: "Kajal Massey",
-        job_title: "Full Stack Developer",
-    },
+    // {
+    //     id: 9,
+    //     avatar: team_img_9,
+    //     cls: "team-5-item-8",
+    //     name: "Kajal Massey",
+    //     job_title: "Full Stack Developer",
+    // },
 
 ]
 

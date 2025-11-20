@@ -1374,3 +1374,49 @@ input[type="number"]::-webkit-outer-spin-button {
 .tab-exit {
   animation: exitAnimation 0.8s ease forwards;
 }
+
+
+
+
+
+/* White Label Page Improved Styles */
+
+.white-label-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+}
+
+.white-label-table th {
+  background: #f8f9fa !important;
+  font-weight: 600;
+}
+
+.white-label-table td, 
+.white-label-table th {
+  padding: 12px 14px !important;
+  border: 1px solid #e5e5e5 !important;
+}
+
+.white-label-filter-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.status-badge {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.btn-group .btn-sm {
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+/* Responsive table on small screens */
+@media (max-width: 767px) {
+  .table-responsive {
+    font-size: 13px;
+  }
+}

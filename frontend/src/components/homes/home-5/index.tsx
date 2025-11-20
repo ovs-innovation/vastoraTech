@@ -3,7 +3,7 @@
 import ScrollIndicator from "@/components/common/ScrollIndicator";
 import FooterFive from "@/layout/footers/FooterFive";
 import HeaderFive from "@/layout/headers/HeaderFive"; 
-import ProjectAreaHomeTwo from "../home-2/ProjectAreaHomeTwo";
+import ProjectAreaHomeFive from "../home-2/ProjectAreaHomeTwo";
 import ReviewAreaHomeFour from "../home-4/ReviewAreaHomeFour";
 import BlogAreaHomeFour from "../home-4/BlogAreaHomeFour";
 import ServicesAreaHomeFour from "../home-4/ServicesAreaHomeFour";
@@ -35,7 +35,7 @@ const HomeFive = () => {
                 <CounterAreaHomeFive />
                 <ServicesAreaHomeFour />
                 <ToolestAeaHomeFive />
-                <ProjectAreaHomeTwo style={true} />
+                <ProjectAreaHomeFive style={true} />
                 <ProjectFeaturHomefive />
                 <TeamAreaHomeFive />
                 <TestimonialAreaHomeOne />
