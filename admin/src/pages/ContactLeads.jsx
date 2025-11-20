@@ -14,6 +14,7 @@ import {
 } from "@windmill/react-ui";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import dayjs from "dayjs";
 //internal import
 import TableLoading from "@/components/preloader/TableLoading";
 import NotFound from "@/components/table/NotFound";
@@ -117,7 +118,7 @@ const ContactLeads = () => {
 
   const formatDateTime = (value) => {
     if (!value) return "-";
-    return new Date(value).toLocaleString();
+    return dayjs(value).format("MMM D, YYYY");
   };
 
   const handleContactStatusChange = async (id, nextStatus) => {

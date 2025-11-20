@@ -115,11 +115,11 @@ const sidebar = [
       },
       {
         path: "/vastora-tech/lead-management/contact-leads",
-        name: "ContactResponses",
+        name: "ContactPageLeads",
       },
       {
         path: "/vastora-tech/lead-management/white-label-leads",
-        name: "WhiteLabelResponses",
+        name: "WhitePageLeads",
       }
     ],
   },

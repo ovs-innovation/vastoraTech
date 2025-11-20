@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiTrash2 } from "react-icons/fi";
+import dayjs from "dayjs";
 
 //internal import
 import TableLoading from "@/components/preloader/TableLoading";
@@ -138,7 +139,7 @@ const WhiteLabelLeads = () => {
 
   const formatDateTime = (value) => {
     if (!value) return "-";
-    return new Date(value).toLocaleString();
+    return dayjs(value).format("MMM D, YYYY");
   };
 
   const handleWhiteLabelStatusChange = async (id, nextStatus) => {
