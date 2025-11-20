@@ -47,6 +47,27 @@ const buttonBase: React.CSSProperties = {
   textDecoration: "none",
 };
 
+const modalInputStyle: React.CSSProperties = {
+  border: "1px solid #d7dce5",
+  borderRadius: 12,
+  padding: "10px 14px",
+  background: "#f9fafb",
+  fontSize: 14,
+  transition: "border 0.2s ease, box-shadow 0.2s ease",
+};
+
+const modalTextAreaStyle: React.CSSProperties = {
+  ...modalInputStyle,
+  resize: "none",
+};
+
+const modalActionButton: React.CSSProperties = {
+  borderRadius: 999,
+  padding: "10px 22px",
+  fontWeight: 600,
+  border: "none",
+};
+
 const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
   const [demo, setDemo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -296,6 +317,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
               width: "100%",
               background: "#ffffff",
               borderRadius: 20,
+              border: "1px solid #e2e8f0",
               boxShadow: "0 22px 60px rgba(15,23,42,0.30)",
               padding: "26px 24px 24px 24px",
             }}
@@ -365,6 +387,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                     type="text"
                     required
                     className="form-control"
+                    style={modalInputStyle}
                     value={wlForm.name}
                     onChange={(e) => setWlForm({ ...wlForm, name: e.target.value })}
                   />
@@ -375,6 +398,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                     type="email"
                     required
                     className="form-control"
+                    style={modalInputStyle}
                     value={wlForm.email}
                     onChange={(e) => setWlForm({ ...wlForm, email: e.target.value })}
                   />
@@ -384,6 +408,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                   <input
                     type="text"
                     className="form-control"
+                    style={modalInputStyle}
                     value={wlForm.company}
                     onChange={(e) => setWlForm({ ...wlForm, company: e.target.value })}
                   />
@@ -393,6 +418,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                   <input
                     type="tel"
                     className="form-control"
+                    style={modalInputStyle}
                     value={wlForm.phone}
                     onChange={(e) => setWlForm({ ...wlForm, phone: e.target.value })}
                   />
@@ -402,6 +428,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                   <input
                     type="text"
                     className="form-control"
+                    style={modalInputStyle}
                     value={wlForm.budget}
                     onChange={(e) => setWlForm({ ...wlForm, budget: e.target.value })}
                   />
@@ -412,6 +439,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                     required
                     className="form-control"
                     rows={4}
+                    style={modalTextAreaStyle}
                     value={wlForm.message}
                     onChange={(e) => setWlForm({ ...wlForm, message: e.target.value })}
                   />
@@ -432,16 +460,21 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
               <div className="d-flex justify-content-end gap-2 mt-4">
                 <button
                   type="button"
-                  className="btn btn-dark"
+                  className="btn"
                   onClick={() => setShowWhiteLabelModal(false)}
                   disabled={wlSubmitting}
+                  style={{
+                    ...modalActionButton,
+                    background: "#e2e8f0",
+                    color: "#0f172a",
+                  }}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   className="btn text-white"
-                  style={{background:"#2B6BB3"}}
+                  style={{...modalActionButton, background:"#2B6BB3"}}
                   disabled={wlSubmitting}
                 >
                   {wlSubmitting ? "Submitting..." : "Submit Enquiry"}
