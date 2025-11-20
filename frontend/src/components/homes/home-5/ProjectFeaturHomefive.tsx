@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
-import project_shape from "@/assets/img/bg/seo-5-bg-1.png";
+import project_shape from "@/assets/img/team/team-61.jpg";
 
 import shape_1 from "@/assets/img/shape/seo-5-shape-1.png";
 import shape_2 from "@/assets/img/shape/seo-5-shape-2.png";
@@ -26,7 +26,7 @@ interface project_feature_content_type {
 // project data 
 const project_feature_content: project_feature_content_type = {
 	shapes_data: [
-		{ id: 1, img: shape_1, cls: "one", parallax: "100" },
+		// { id: 1, img: shape_1, cls: "one", parallax: "100" },
 		{ id: 2, img: shape_2, cls: "two", parallax: "80" },
 		{ id: 3, img: shape_3, cls: "three", parallax: "" },
 		{ id: 4, img: shape_4, cls: "four", parallax: "50" },
@@ -54,7 +54,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 						<div className="col-lg-7">
 							<div className="seo-5-thumb p-relative mb-40">
 								<div className="seo-5-main-bg">
-									<Image src={project_shape} alt="theme-pure" />
+									<Image src={project_shape} alt="theme-pure" width={380}   />
 								</div>
 								<div className="seo-5-shape d-none d-md-block">
 									{shapes_data.map((item, i) =>

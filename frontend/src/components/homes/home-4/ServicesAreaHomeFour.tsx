@@ -14,6 +14,7 @@ import service_shape_1 from "@/assets/img/shape/choose-4-shape-1.png";
 import service_shape_2 from "@/assets/img/shape/choose-4-shape-2.png";
 import service_shape_3 from "@/assets/img/shape/choose-4-shape-3.png";
 import service_shape_4 from "@/assets/img/shape/choose-4-shape-4.png";
+import service_shape_5 from "@/assets/img/shape/video-blue.png";
 
 interface service_content_type {
     sub_title: string;
@@ -53,6 +54,14 @@ const service_content: service_content_type = {
         },
         {
             id: 3, 
+            shape: service_shape_5,
+            icon: <WebIcon />,
+            title: "White Label Solutions",
+            sm_des: "Our white-label solutions help you save time, reduce costs, and grow your business instantly.",
+            link: "/product/demos",
+        },
+        {
+            id: 4, 
             shape: service_shape_2,
             icon: <UiUxDesignIcon />,
             title: "UI/UX Design",
@@ -60,7 +69,7 @@ const service_content: service_content_type = {
             link: "/service/ui-ux-design",
         },
         {
-            id: 4, 
+            id: 5, 
             shape: service_shape_1,
             icon: <MarketingIcon />,
             title: "Digital Marketing",
@@ -68,7 +77,7 @@ const service_content: service_content_type = {
             link: "/service/digital-marketing",
         },
         {
-            id: 5, 
+            id: 6, 
             shape: service_shape_2,
             icon: <SEOAnalyticsIcon />,
             title: "SEO Optimization",
@@ -76,7 +85,7 @@ const service_content: service_content_type = {
             link: "/service/seo",
         },
         {
-            id: 6, 
+            id: 7, 
             shape: service_shape_3,
             icon: <SocialMarketingIcon />,
             title: "Social Marketing",

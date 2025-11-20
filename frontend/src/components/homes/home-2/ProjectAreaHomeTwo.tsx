@@ -1,13 +1,10 @@
 "use client"
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import Slider from "react-slick";
+import portfolio_data_2 from "@/data/portfolio-data-2";
 import UnderlineSeven from "@/svg/underline_7";
-// project thumb 
-import project_thumb_1 from "@/assets/img/banner/project-thumb-1.png";
-import project_thumb_2 from "@/assets/img/banner/project-thumb-2.png";
-import project_thumb_3 from "@/assets/img/banner/project-thumb-3.png";
-import project_thumb_4 from "@/assets/img/banner/project-thumb-4.png";
 import panel_icon from "@/assets/img/icon/panel-icon-3.png";
 
 // project content data type
@@ -16,14 +13,6 @@ interface project_content_type {
     title_2: JSX.Element;
     sm_info: string;
     sm_info_2: string;
-    project_data: {
-        id: number;
-        img: StaticImageData;
-        title: string;
-        meta_tag_1: string;
-        meta_tag_2: string;
-        link: string;
-    }[];
 }
 // project content data
 const project_content: project_content_type = {
@@ -31,50 +20,53 @@ const project_content: project_content_type = {
     title_2: <>Our Handpicked <br /> <span>Projects</span></>,
     sm_info: "We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
     sm_info_2: "We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
-    project_data: [
-        {
-            id: 1,
-            img: project_thumb_1,
-            title: "TossMart - E-commerce Website",
-            meta_tag_1: "E-commerce",
-            meta_tag_2: "Online Shopping",
-            link: "https://tossmart.com/"
-        },
-        {
-            id: 2,
-            img: project_thumb_2,
-            title: "CandyFloss - Personalized Salon Care",
-            meta_tag_1: "Tailored Beauty Services",
-            meta_tag_2: "Beauty Salon",
-            link: "https://candyflossbeautypalace.com/"
-        },
-        {
-            id: 3,
-            img: project_thumb_3,
-            title: "The Learn Skills – E-Learning Website",
-            meta_tag_1: "LMS",
-            meta_tag_2: "E-Learning",
-            link: "https://thelearnskills.com/"
-        },
-        {
-            id: 4,
-            img: project_thumb_4,
-            title: "Hotel Sweet Dreams",
-            meta_tag_1: "Hotel Booking",
-            meta_tag_2: "Hotel Management",
-            link: "https://hotelsweetdreams.ovsinnovation.com/"
-        },
-    ]
 }
-const {title, title_2, sm_info, sm_info_2, project_data}  = project_content
+const {title, title_2, sm_info, sm_info_2}  = project_content
+
+const chunkProjects = <T,>(items: T[], chunkSize: number): T[][] => {
+    const chunks: T[][] = [];
+    for (let i = 0; i < items.length; i += chunkSize) {
+        chunks.push(items.slice(i, i + chunkSize));
+    }
+    return chunks;
+};
 
 const ProjectAreaHomeTwo = ({style}: any ) => { 
+    const projectSlides = useMemo(() => chunkProjects(portfolio_data_2, 4), []);
 
-    const [active, setActive] = useState<number>(3);
+    const normalizeIndex = useCallback((index: number) => {
+      if (!projectSlides.length) return 0;
+      return ((index % projectSlides.length) + projectSlides.length) % projectSlides.length;
+    }, [projectSlides.length]);
+
+    const getDefaultActiveId = useCallback((slideIndex: number) => {
+      const normalized = normalizeIndex(slideIndex);
+      const slideItems = projectSlides[normalized];
+      if (!slideItems || !slideItems.length) return 0;
+      return slideItems[2]?.id ?? slideItems[slideItems.length - 1]?.id ?? slideItems[0].id;
+    }, [projectSlides, normalizeIndex]);
+
+    const [active, setActive] = useState<number>(() => getDefaultActiveId(0));
     const handleToggle = (id: number): void => {
       setActive(id);
     };
 
+    const sliderSettings = useMemo(() => ({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3500,
+      speed: 800,
+      dots: false,
+      responsive: [
+        { breakpoint: 992, settings: { dots: false } },
+      ],
+      beforeChange: (_: number, next: number) => {
+        setActive(getDefaultActiveId(normalizeIndex(next)));
+      },
+    }), [getDefaultActiveId, normalizeIndex, projectSlides.length]);
 
     const [allActive, setAllActive] = useState<boolean>(false)
 
@@ -138,35 +130,46 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
                   </div>
                 </div>
               }
-              <div className="row-custom">
-                {project_data.map((item, i) => (
-                  <div
-                    key={i}
-                    className={`col-custom ${item.id === active && !allActive ? "active" : ""} ${allActive? "active" : ""}`}
-                    onClick={() => handleToggle(item.id)}>
-                    <div className="tp-panel-item p-relative">
-                      <div className="tp-panel-thumb">
-                        <Image src={item.img} alt="theme-pure" />
-                      </div>
-                      <div className="tp-panel-content">
-                        <div className="tp-panel-icon mb-15">
-                          <span>
-                            <Image src={panel_icon} alt="theme-pure" />
-                          </span>
-                        </div>
-                        <div className="tp-panel-text">
-                          <h4 className="tp-panel-title mb-15">
-                            <Link href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</Link>
-                          </h4>
-                          <ul className="tp-panel-meta">
-                            <li>{item.meta_tag_1}</li>
-                            <li>{item.meta_tag_2}</li>
-                          </ul>
-                        </div>
+              <div className="project-slider-active">
+                <Slider {...sliderSettings}>
+                  {projectSlides.map((group, slideIndex) => (
+                    <div key={`project-slide-${slideIndex}`}>
+                      <div className="row-custom">
+                        {group.map((item) => (
+                          <div
+                            key={item.id}
+                            className={`col-custom ${item.id === active && !allActive ? "active" : ""} ${allActive ? "active" : ""}`}
+                            onClick={() => handleToggle(item.id)}
+                          >
+                            <div className="tp-panel-item p-relative">
+                              <div className="tp-panel-thumb">
+                                <Image src={item.img} alt={item.title} />
+                              </div>
+                              <div className="tp-panel-content">
+                                <div className="tp-panel-icon mb-15">
+                                  <span>
+                                    <Image src={panel_icon} alt="theme-pure" />
+                                  </span>
+                                </div>
+                                <div className="tp-panel-text">
+                                  <h4 className="tp-panel-title mb-15">
+                                    <Link href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</Link>
+                                  </h4>
+                                  <ul className="tp-panel-meta">
+                                    <li>{item.category}</li>
+                                    {item.tags.slice(0, 1).map((tag) => (
+                                      <li key={`${item.id}-${tag}`}>{tag}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </Slider>
               </div>
             </div>
           </div>

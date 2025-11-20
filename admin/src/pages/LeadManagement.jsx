@@ -5,10 +5,12 @@ import {
   Input,
   Pagination,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
   TableFooter,
   TableHeader,
+  TableRow,
   Select,
 } from "@windmill/react-ui";
 import React, { useState, useRef, useContext } from "react";
@@ -73,6 +75,8 @@ const LeadManagement = () => {
     };
     fetchStats();
   }, []);
+
+
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
@@ -180,13 +184,14 @@ const LeadManagement = () => {
         </AnimatedContent>
       )}
 
-      <AnimatedContent>
-        <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
-          <CardBody>
-            <form
-              onSubmit={handleSubmitUser}
-              className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
-            >
+      <>
+          <AnimatedContent>
+            <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
+              <CardBody>
+                <form
+                  onSubmit={handleSubmitUser}
+                  className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
+                >
               <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
                 <Input
                   ref={searchRef}
@@ -244,48 +249,49 @@ const LeadManagement = () => {
                   </Button>
                 </div>
               </div>
-            </form>
-          </CardBody>
-        </Card>
-      </AnimatedContent>
+                </form>
+              </CardBody>
+            </Card>
+          </AnimatedContent>
 
-      {loading ? (
-        <TableLoading row={12} col={9} width={190} height={20} />
-      ) : error ? (
-        <span className="text-center mx-auto text-red-500">{error}</span>
-      ) : leadsData?.length !== 0 ? (
-        <TableContainer className="mb-8 rounded-b-lg">
-          <Table>
-            <TableHeader>
-              <tr>
-                <TableCell>{t("LeadId")}</TableCell>
-                <TableCell>{t("Date")}</TableCell>
-                <TableCell>{t("Name")}</TableCell>
-                <TableCell>{t("Email")}</TableCell>
-                <TableCell>{t("Phone")}</TableCell>
-                <TableCell>{t("Business")}</TableCell>
-                <TableCell>{t("Location")}</TableCell>
-                <TableCell>{t("Status")}</TableCell>
-                <TableCell>{t("Source")}</TableCell>
-                <TableCell className="text-center">
-                  {t("Actions")}
-                </TableCell>
-              </tr>
-            </TableHeader>
-            <LeadTable leads={leadsData} />
-          </Table>
-          <TableFooter>
-            <Pagination
-              totalResults={totalResults}
-              resultsPerPage={resultsPerPage}
-              onChange={handleChangePage}
-              label="Table navigation"
-            />
-          </TableFooter>
-        </TableContainer>
-      ) : (
-        <NotFound title="Sorry, There are no leads right now." />
-      )}
+          {loading ? (
+            <TableLoading row={12} col={9} width={190} height={20} />
+          ) : error ? (
+            <span className="text-center mx-auto text-red-500">{error}</span>
+          ) : leadsData?.length !== 0 ? (
+            <TableContainer className="mb-8 rounded-b-lg">
+              <Table>
+                <TableHeader>
+                  <tr>
+                    <TableCell>{t("LeadId")}</TableCell>
+                    <TableCell>{t("Date")}</TableCell>
+                    <TableCell>{t("Name")}</TableCell>
+                    <TableCell>{t("Email")}</TableCell>
+                    <TableCell>{t("Phone")}</TableCell>
+                    <TableCell>{t("Business")}</TableCell>
+                    <TableCell>{t("Location")}</TableCell>
+                    <TableCell>{t("Status")}</TableCell>
+                    <TableCell>{t("Source")}</TableCell>
+                    <TableCell className="text-center">
+                      {t("Actions")}
+                    </TableCell>
+                  </tr>
+                </TableHeader>
+                <LeadTable leads={leadsData} />
+              </Table>
+              <TableFooter>
+                <Pagination
+                  totalResults={totalResults}
+                  resultsPerPage={resultsPerPage}
+                  onChange={handleChangePage}
+                  label="Table navigation"
+                />
+              </TableFooter>
+            </TableContainer>
+          ) : (
+            <NotFound title="Sorry, There are no leads right now." />
+          )}
+      </>
     </>
   );
 };

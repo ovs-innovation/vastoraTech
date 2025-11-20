@@ -11884,6 +11884,7 @@ blockquote cite::before {
   -o-animation: img-border 5s linear infinite alternate;
   animation: img-border 5s linear infinite alternate;
   transition: all 0.3s ease-out 0s;
+   
 }
 
 .tparrow-right {

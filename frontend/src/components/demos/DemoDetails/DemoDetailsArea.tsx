@@ -51,6 +51,18 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
   const [demo, setDemo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showWhiteLabelModal, setShowWhiteLabelModal] = useState(false);
+  const [wlSubmitting, setWlSubmitting] = useState(false);
+  const [wlError, setWlError] = useState<string | null>(null);
+  const [wlSuccess, setWlSuccess] = useState(false);
+  const [wlForm, setWlForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    budget: "",
+    message: "",
+  });
 
   useEffect(() => {
     fetch(`${API_URL}/demos/slug/${slug}`)
@@ -174,9 +186,29 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
           </div>
         </div>
         <div className="col-12 col-xl-4">
+          
           <aside style={sidebarCard}>
             {hasQuickInfo && (
               <div className="mb-4">
+                <button
+              type="button"
+              onClick={() => {
+                setShowWhiteLabelModal(true);
+                setWlError(null);
+                setWlSuccess(false);
+              }}
+              className="w-100  mb-4"
+              style={{
+                ...buttonBase,
+                justifyContent: "center",
+                width: "100%",
+                background: "#111827",
+                color: "#ffffff",
+                border: "none",
+              }}
+            >
+              Request White Label Solution
+            </button>
                 <h4 className="mb-3">Quick Info</h4>
                 <ul style={{padding:0, margin:0, listStyle:"none"}}>
                   {demo.category && (
@@ -243,9 +275,182 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 </div>
               </div>
             )}
+
+            
           </aside>
         </div>
       </div>
+
+      {showWhiteLabelModal && (
+        <div
+          className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+          style={{
+            background: "rgba(15,23,42,0.55)",
+            zIndex: 1050,
+            padding: "16px",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 560,
+              width: "100%",
+              background: "#ffffff",
+              borderRadius: 20,
+              boxShadow: "0 22px 60px rgba(15,23,42,0.30)",
+              padding: "26px 24px 24px 24px",
+            }}
+          >
+            <div className="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 style={{ fontSize: 22, marginBottom: 4 ,}}>White Label Enquiry – {demo.title}</h3>
+                <p className="mb-0" style={{ fontSize: 13, color: "#6b7280" }}>
+                  Share your requirements and we’ll reach out with a tailored proposal.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowWhiteLabelModal(false)}
+                style={{
+                  border: "none",
+                  background: "black",
+                  color: "white",
+                  cursor: "pointer",
+                  padding:"4px 8px",
+                  borderRadius: 6,
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                if (wlSubmitting) return;
+                setWlSubmitting(true);
+                setWlError(null);
+                setWlSuccess(false);
+                try {
+                  const res = await fetch(`${API_URL}/white-label-queries`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      demoId: demo._id,
+                      demoSlug: demo.slug,
+                      name: wlForm.name,
+                      email: wlForm.email,
+                      company: wlForm.company,
+                      phone: wlForm.phone,
+                      budget: wlForm.budget,
+                      message: wlForm.message,
+                    }),
+                  });
+                  const data = await res.json();
+                  if (!res.ok || data?.success === false) {
+                    throw new Error(data?.message || "Could not submit enquiry.");
+                  }
+                  setWlSuccess(true);
+                  setWlForm({ name: "", email: "", company: "", phone: "", budget: "", message: "" });
+                } catch (err: any) {
+                  setWlError(err.message || "Something went wrong.");
+                } finally {
+                  setWlSubmitting(false);
+                }
+              }}
+            >
+              <div className="row g-3 mt-2">
+                <div className="col-12 col-md-6">
+                  <label className="form-label mb-1">Name *</label>
+                  <input
+                    type="text"
+                    required
+                    className="form-control"
+                    value={wlForm.name}
+                    onChange={(e) => setWlForm({ ...wlForm, name: e.target.value })}
+                  />
+                </div>
+                <div className="col-12 col-md-6">
+                  <label className="form-label mb-1">Email *</label>
+                  <input
+                    type="email"
+                    required
+                    className="form-control"
+                    value={wlForm.email}
+                    onChange={(e) => setWlForm({ ...wlForm, email: e.target.value })}
+                  />
+                </div>
+                <div className="col-12 col-md-6">
+                  <label className="form-label mb-1">Company / Brand</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={wlForm.company}
+                    onChange={(e) => setWlForm({ ...wlForm, company: e.target.value })}
+                  />
+                </div>
+                <div className="col-12 col-md-6">
+                  <label className="form-label mb-1">Phone</label>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    value={wlForm.phone}
+                    onChange={(e) => setWlForm({ ...wlForm, phone: e.target.value })}
+                  />
+                </div>
+                <div className="col-12">
+                  <label className="form-label mb-1">Project Budget (optional)</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={wlForm.budget}
+                    onChange={(e) => setWlForm({ ...wlForm, budget: e.target.value })}
+                  />
+                </div>
+                <div className="col-12">
+                  <label className="form-label mb-1">Message / Requirements *</label>
+                  <textarea
+                    required
+                    className="form-control"
+                    rows={4}
+                    value={wlForm.message}
+                    onChange={(e) => setWlForm({ ...wlForm, message: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              {wlError && (
+                <p className="mt-3 mb-0" style={{ color: "#b91c1c", fontSize: 13 }}>
+                  {wlError}
+                </p>
+              )}
+              {wlSuccess && (
+                <p className="mt-3 mb-0" style={{ color: "#16a34a", fontSize: 13 }}>
+                  Thank you. Your white label enquiry has been submitted.
+                </p>
+              )}
+
+              <div className="d-flex justify-content-end gap-2 mt-4">
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  onClick={() => setShowWhiteLabelModal(false)}
+                  disabled={wlSubmitting}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="btn text-white"
+                  style={{background:"#2B6BB3"}}
+                  disabled={wlSubmitting}
+                >
+                  {wlSubmitting ? "Submitting..." : "Submit Enquiry"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

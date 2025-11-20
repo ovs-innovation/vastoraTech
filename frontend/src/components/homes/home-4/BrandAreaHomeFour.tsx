@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import Wavify from "react-wavify";
-import type { CustomArrowProps } from "react-slick";
+import type { CustomArrowProps, Settings } from "react-slick";
 // brands images
 import brand_log_1 from "@/assets/img/brand/brand1.png";
 import brand_log_2 from "@/assets/img/brand/brand2.png";
@@ -76,87 +76,77 @@ const brands_images = [
   brand_log_34,
 ];
 
-// const NextArrow = (props: CustomArrowProps) => {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{
-//         ...style,
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         position: "absolute",
-//         top: "40%",
-//         right: 0,
-//         transform: "translateY(-50%)",
-//         zIndex: 2,
-//         background: "#fff",
-//         borderRadius: "50%",
-//         boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-//         width: "40px",
-//         height: "40px",
-//         cursor: "pointer",
-//       }}
-//       onClick={onClick}
-//     >
-//       <span style={{ fontSize: "24px", color: "#888" }}>{">"}</span>
-//     </div>
-//   );
-// };
+type ArrowDirection = "next" | "prev";
 
-// const PrevArrow = (props: CustomArrowProps) => {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{
-//         ...style,
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         position: "absolute",
-//         top: "40%",
-//         left: 0,
-//         transform: "translateY(-50%)",
-//         zIndex: 2,
-//         background: "#fff",
-//         borderRadius: "50%",
-//         boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-//         width: "40px",
-//         height: "40px",
-//         cursor: "pointer",
-//       }}
-//       onClick={onClick}
-//     >
-//       <span style={{ fontSize: "24px", color: "#888" }}>{"<"}</span>
-//     </div>
-//   );
-// };
+const ArrowButton = ({ direction, onClick }: CustomArrowProps & { direction: ArrowDirection }) => (
+  <button
+    type="button"
+    aria-label={direction === "next" ? "Next brand" : "Previous brand"}
+    className={`brand-attractor__arrow brand-attractor__arrow--${direction}`}
+    onClick={onClick}
+  >
+    <span />
+  </button>
+);
 
-const setting = {
-  dots: true,
+const labelPool = ["FinTech", "Commerce", "Climate", "Product Studio", "AI Labs", "Marketplace"];
+const badgePool = ["Series B", "Enterprise", "Scale Up", "Bootstrapped", "Public", "Start-up"];
+const regionPool = ["San Francisco", "Singapore", "Berlin", "Toronto", "Sydney", "Dubai"];
+
+const heroSliderSettings: Settings = {
+  dots: false,
   infinite: true,
-  speed: 1000,
+  speed: 750,
   autoplay: true,
-  arrows: false,
-  // nextArrow: <NextArrow />,
-  // prevArrow: <PrevArrow />,
-  slidesToShow: 5,
+  autoplaySpeed: 3200,
+  cssEase: "ease-out",
+  arrows: true,
+  slidesToShow: 3,
   slidesToScroll: 1,
+  swipeToSlide: true,
+  centerMode: true,
+  centerPadding: "60px",
+  nextArrow: <ArrowButton direction="next" />,
+  prevArrow: <ArrowButton direction="prev" />,
   responsive: [
     {
-      breakpoint: 1600,
+      breakpoint: 1440,
       settings: {
-        slidesToShow: 5,
+        slidesToShow: 3,
+        centerPadding: "32px",
       },
     },
     {
-      breakpoint: 1400,
+      breakpoint: 1100,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
+        centerMode: true,
+        centerPadding: "40px",
       },
     },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+      },
+    },
+  ],
+};
+
+const tickerSliderSettings: Settings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  autoplay: true,
+  speed: 4500,
+  autoplaySpeed: 0,
+  cssEase: "linear",
+  slidesToShow: 6,
+  centerMode:true,
+  slidesToScroll: 1,
+  swipeToSlide: true,
+  responsive: [
     {
       breakpoint: 1200,
       settings: {
@@ -164,96 +154,79 @@ const setting = {
       },
     },
     {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
       breakpoint: 768,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 3,
       },
     },
     {
-      breakpoint: 480,
+      breakpoint: 520,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
       },
     },
   ],
 };
 
+const statsHighlights = [
+  { value: "180+", label: "Launch partners" },
+  { value: "42", label: "Countries activated" },
+  { value: "82%", label: "Faster release cycles" },
+  { value: "24/7", label: "Follow-the-sun coverage" },
+];
+
 const BrandAreaHomeFour = () => {
+  const heroBrands = brands_images.slice(0, 12);
+  const marqueeBrands = brands_images.slice(12).concat(brands_images.slice(0, 6));
+  const actionTags = ["Enterprise Delivery", "Design Systems", "CX Automation"];
+
   return (
-    <>
-      <section className="brand-area brand-bg-3 mb-120 p-relative client-showcase">
-        <div className="client-showcase__glow client-showcase__glow--left" />
-        <div className="client-showcase__glow client-showcase__glow--right" />
-        <div className="brand-bg-4 client-showcase__inner">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="brand-wrapper text-center">
-                  <div className="eyebrow">trusted by global brands</div>
-                  <h5 className="title">Our Clients :</h5>
-                  <p className="subtitle">
-                    A curated glimpse of teams that ship with Vastora Tech every day.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="client-slider-shell">
-                  <Slider
-                    {...setting}
-                    className="tpbrand tpbrand-active-4 mb-0 client-slider"
-                  >
-                    {brands_images.map((item, i) => (
-                      <div key={i} className="tpbrand-item-4 mb-35">
-                        <Image
-                          src={item}
-                          alt="vastora tech clients"
-                          className="client-logo"
-                        />
-                      </div>
-                    ))}
-                  </Slider>
-                  <div className="client-slider-shell__blur client-slider-shell__blur--one" />
-                  <div className="client-slider-shell__blur client-slider-shell__blur--two" />
-                </div>
-              </div>
+    <section className="client-showcase mb-120">
+      <div className="client-showcase__glow client-showcase__glow--left" />
+      <div className="client-showcase__glow client-showcase__glow--right" />
+      <div className="container">
+        <div className="client-showcase__inner">
+          <div className="brand-wrapper text-center">
+            
+            <h2 className="title">Where ambitious teams keep shipping bold customer moments.</h2>
+            <p className="subtitle">
+              From seed-stage darlings to global enterprise squads, Vastora Tech fuels launches across
+              every timezone and industry.
+            </p>
+            <div className="brand-wrapper__tags">
+              {actionTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
             </div>
           </div>
+
+           
+
+          <div className="client-slider-shell">
+           
+            <Slider {...heroSliderSettings} className="client-slider">
+              {heroBrands.map((logo, index) => {
+                const label = labelPool[index % labelPool.length];
+                const badge = badgePool[index % badgePool.length];
+                const region = regionPool[index % regionPool.length];
+
+                return (
+                  <div key={`hero-brand-${index}`} className="brand-spotlight">
+                    
+                    <div className="brand-spotlight__logo">
+                      <Image src={logo} alt={`Vastora client ${index + 1}`} className="client-logo" />
+                    </div>
+                    
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+ 
         </div>
-        {/* <!-- wave-animation --> */}
-        <div className="wave-bg">
-          <Wavify
-            fill="rgba(255, 255, 255, 1)"
-            paused={false}
-            className="wave wave-1"
-            options={{
-              height: 150,
-              amplitude: 70,
-              speed: 0.21,
-            }}
-          />
-          <Wavify
-            fill="#F7EFFD"
-            paused={false}
-            className="wave"
-            options={{
-              height: 150,
-              amplitude: 45,
-              speed: 0.24,
-            }}
-          />
-        </div>
-        {/* <!-- wave-animation-end --> */}
-      </section>
-     
-    </>
+      </div>
+ 
+    </section>
   );
 };
 

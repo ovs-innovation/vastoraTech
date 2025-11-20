@@ -13,6 +13,7 @@ const Admin = require("../models/Admin");
 
 const registerAdmin = async (req, res) => {
   try {
+    console.log("registerAdmin....", req.body);
     const isAdded = await Admin.findOne({ email: req.body.email });
     if (isAdded) {
       return res.status(403).send({

@@ -110,8 +110,16 @@ const sidebar = [
     name: "LeadManagement",
     routes: [
       {
-        path: "/vastora-tech/lead-management",
+        path: "/vastora-tech/landing-page",
         name: "LandingPageLeads",
+      },
+      {
+        path: "/vastora-tech/lead-management/contact-leads",
+        name: "ContactPageLeads",
+      },
+      {
+        path: "/vastora-tech/lead-management/white-label-leads",
+        name: "WhitePageLeads",
       }
     ],
   },
@@ -123,6 +131,10 @@ const sidebar = [
         path: "/products/demos",
         name: "ProductDemos",
       },
+      // {
+      //   path: "/white-label/responses",
+      //   name: "Responses",
+      // },
     ],
   },
    {
