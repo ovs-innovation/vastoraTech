@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, CSSProperties } from 'react';
 import Slider from "react-slick";
 import portfolio_data_2 from "@/data/portfolio-data-2";
 import UnderlineSeven from "@/svg/underline_7";
@@ -30,6 +30,52 @@ const chunkProjects = <T,>(items: T[], chunkSize: number): T[][] => {
     }
     return chunks;
 };
+
+type PortfolioItem = (typeof portfolio_data_2)[number];
+interface ArrowProps {
+  className?: string;
+  style?: CSSProperties;
+  onClick?: () => void;
+}
+
+const mobileArrowBase: CSSProperties = {
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  width: 48,
+  height: 48,
+  borderRadius: "999px",
+  backgroundColor: "#ffffff",
+  color: "#0b1626",
+  border: "1px solid rgba(11,22,38,0.12)",
+  boxShadow: "0 10px 25px rgba(4, 9, 20, 0.08)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 2,
+  cursor: "pointer",
+};
+
+const MobileArrow = ({ className, style, onClick, direction }: ArrowProps & { direction: "prev" | "next" }) => (
+  <button
+    type="button"
+    className={`project-mobile-arrow ${direction} ${className ?? ""}`}
+    style={{
+      ...mobileArrowBase,
+      ...(style || {}),
+      [direction === "prev" ? "left" : "right"]: 12,
+    }}
+    onClick={onClick}
+    aria-label={`Show ${direction === "prev" ? "previous" : "next"} project`}
+  >
+    <span style={{ fontSize: 18, fontWeight: 600 }}>
+      {direction === "prev" ? "←" : "→"}
+    </span>
+  </button>
+);
+
+const MobilePrevArrow = (props: ArrowProps) => <MobileArrow direction="prev" {...props} />;
+const MobileNextArrow = (props: ArrowProps) => <MobileArrow direction="next" {...props} />;
 
 const ProjectAreaHomeTwo = ({style}: any ) => { 
     const projectSlides = useMemo(() => chunkProjects(portfolio_data_2, 4), []);
@@ -66,29 +112,46 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
       beforeChange: (_: number, next: number) => {
         setActive(getDefaultActiveId(normalizeIndex(next)));
       },
-    }), [getDefaultActiveId, normalizeIndex, projectSlides.length]);
+    }), [getDefaultActiveId, normalizeIndex]);
 
-    const [allActive, setAllActive] = useState<boolean>(false)
+    const mobileSliderSettings = useMemo(() => ({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      arrows: true,
+      autoplay: true,
+      autoplaySpeed: 3500,
+      speed: 600,
+      dots: false,
+      prevArrow: <MobilePrevArrow />,
+      nextArrow: <MobileNextArrow />,
+    }), []);
 
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth < 992) {
-          setAllActive(true);
-        } else {
-          setAllActive(false);
-        }
-      };  
-      // Initial check for window size on component mount
-      handleResize();  
-      // Attach event listener to update state on window resize
-      window.addEventListener('resize', handleResize);
-      // Clean up the event listener when the component unmounts
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
-
-
+    const renderPanelBody = (item: PortfolioItem, isMobile = false) => (
+      <>
+        <div className="tp-panel-thumb">
+          <Image src={isMobile ? item.mobileImg : item.img} alt={item.title} />
+        </div>
+        <div className="tp-panel-content">
+          <div className="tp-panel-icon mb-15">
+            <span>
+              <Image src={panel_icon} alt="theme-pure" />
+            </span>
+          </div>
+          <div className="tp-panel-text">
+            <h4 className="tp-panel-title mb-15">
+              <Link href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</Link>
+            </h4>
+            <ul className="tp-panel-meta">
+              <li>{item.category}</li>
+              {item.tags.slice(0, 1).map((tag) => (
+                <li key={`${item.id}-${tag}`}>{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </>
+    );
 
     return (
       <> 
@@ -130,7 +193,7 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
                   </div>
                 </div>
               }
-              <div className="project-slider-active">
+              <div className="project-slider-active d-none d-lg-block">
                 <Slider {...sliderSettings}>
                   {projectSlides.map((group, slideIndex) => (
                     <div key={`project-slide-${slideIndex}`}>
@@ -138,34 +201,25 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
                         {group.map((item) => (
                           <div
                             key={item.id}
-                            className={`col-custom ${item.id === active && !allActive ? "active" : ""} ${allActive ? "active" : ""}`}
+                            className={`col-custom ${item.id === active ? "active" : ""}`}
                             onClick={() => handleToggle(item.id)}
                           >
                             <div className="tp-panel-item p-relative">
-                              <div className="tp-panel-thumb">
-                                <Image src={item.img} alt={item.title} />
-                              </div>
-                              <div className="tp-panel-content">
-                                <div className="tp-panel-icon mb-15">
-                                  <span>
-                                    <Image src={panel_icon} alt="theme-pure" />
-                                  </span>
-                                </div>
-                                <div className="tp-panel-text">
-                                  <h4 className="tp-panel-title mb-15">
-                                    <Link href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</Link>
-                                  </h4>
-                                  <ul className="tp-panel-meta">
-                                    <li>{item.category}</li>
-                                    {item.tags.slice(0, 1).map((tag) => (
-                                      <li key={`${item.id}-${tag}`}>{tag}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
+                              {renderPanelBody(item)}
                             </div>
                           </div>
                         ))}
+                      </div>
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+              <div className="project-slider-active d-block d-lg-none">
+                <Slider {...mobileSliderSettings}>
+                  {portfolio_data_2.map((item) => (
+                    <div key={`project-mobile-${item.id}`}>
+                      <div className="tp-panel-item p-relative">
+                        {renderPanelBody(item, true)}
                       </div>
                     </div>
                   ))}
