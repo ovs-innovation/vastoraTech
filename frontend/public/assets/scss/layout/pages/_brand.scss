@@ -174,13 +174,17 @@
             margin-left: -50px;
         }
         @media #{$md} {
-            padding: 35px 50px;
+            padding: 35px 10px;
             margin-left: 0;
+            display: none;
+          
         }
         @media #{$xs} {
-            padding: 30px 60px;
+            padding: 30px 10px;
             margin-left: 0;
             margin-bottom: 30px;
+            display: none;
+             
         }
     }
     &-title {

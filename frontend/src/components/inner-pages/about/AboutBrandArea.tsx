@@ -152,28 +152,72 @@ const AboutBrandArea = () => {
     const sliderRef = useRef(null)
     return (
         <>
-            <section className="brand-area pb-120">
-                <div className="container-fluid">
-                    <div className="row align-items-center">
-                        <div className="col-lg-2 col-md-4">
-                            <div className="brand-wrapper ">
-                                <div className="brand-inner-content">
-                                    <h4 className="brand-inner-title">{scroll_btn}</h4>
-                                    <a href="#our-misson">
-                                        <i><ScrollDownBtn /></i>
-                                    </a>
-                                </div>
-                            </div>
+            <section className="brand-area  " style={{paddingBottom: 0}}>
+                <div 
+                    className="brand-slider-fullscreen" 
+                    style={{
+                        width: "100%",
+                        height:"170px",
+                        position: "relative",
+                        overflow: "hidden",
+                        
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "0",
+                         
+                    }}
+                >
+                    <div 
+                        className="brand-scroll-cta"
+                        style={{
+                            position: "absolute",
+                            left:"0%",
+                             top:"0%",
+                            
+                            zIndex: 2,
+                            color: "#fff",
+                            textTransform: "uppercase",
+                            letterSpacing: 1,
+                             
+                        }}
+                    >
+                        <div className="brand-inner-content">
+                            <h4 className="brand-inner-title">{scroll_btn}</h4>
+                            <a href="#our-misson">
+                                <i><ScrollDownBtn /></i>
+                            </a>
                         </div>
-                        <div className="col-lg-5 col-md-8">
-                            <Slider {...setting} ref={sliderRef} className="brand-inner-wrapper tpbrand-inner-active">
-                                {about_brand.map((item, i)  => 
-                                    <div key={i} className="tpbrand-inner-item">
-                                        <Image src={item.img} alt="vastora tech clients" />
-                                    </div>                                
-                                )}                                
-                            </Slider>
-                        </div>
+                    </div>
+                    <div style={{width: "100%", maxWidth: "1600px", margin: 0, padding: 0}}>
+                        <Slider 
+                            {...setting} 
+                            ref={sliderRef} 
+                            className="brand-inner-wrapper tpbrand-inner-active  "
+                        >
+                            {about_brand.map((item, i)  => 
+                                <div 
+                                    key={i} 
+                                    className="tpbrand-inner-item"
+                                    style={{
+                                        margin: 0,
+                                        padding: 0,
+                                        display: "flex",
+                                         
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        
+                                    }}
+                                >
+                                    <Image 
+                                        src={item.img} 
+                                        alt="vastora tech clients"
+                                        style={{margin: 0, padding: 0}} 
+                                        width={180}
+                                    />
+                                </div>                                
+                            )}                                
+                        </Slider>
                     </div>
                 </div>
             </section>

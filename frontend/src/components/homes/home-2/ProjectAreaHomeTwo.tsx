@@ -56,6 +56,24 @@ const mobileArrowBase: CSSProperties = {
   cursor: "pointer",
 };
 
+const desktopArrowBase: CSSProperties = {
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  width: 56,
+  height: 56,
+  borderRadius: "999px",
+  backgroundColor: "#ffffff",
+  color: "#0b1626",
+  border: "1px solid rgba(11,22,38,0.18)",
+  boxShadow: "0 15px 35px rgba(4, 9, 20, 0.12)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 5,
+  cursor: "pointer",
+};
+
 const MobileArrow = ({ className, style, onClick, direction }: ArrowProps & { direction: "prev" | "next" }) => (
   <button
     type="button"
@@ -76,6 +94,27 @@ const MobileArrow = ({ className, style, onClick, direction }: ArrowProps & { di
 
 const MobilePrevArrow = (props: ArrowProps) => <MobileArrow direction="prev" {...props} />;
 const MobileNextArrow = (props: ArrowProps) => <MobileArrow direction="next" {...props} />;
+
+const DesktopArrow = ({ className, style, onClick, direction }: ArrowProps & { direction: "prev" | "next" }) => (
+  <button
+    type="button"
+    className={`project-desktop-arrow ${direction} ${className ?? ""}`}
+    style={{
+      ...desktopArrowBase,
+      ...(style || {}),
+      [direction === "prev" ? "left" : "right"]: -28,
+    }}
+    onClick={onClick}
+    aria-label={`Show ${direction === "prev" ? "previous" : "next"} projects`}
+  >
+    <span style={{ fontSize: 20, fontWeight: 600 }}>
+      {direction === "prev" ? "←" : "→"}
+    </span>
+  </button>
+);
+
+const DesktopPrevArrow = (props: ArrowProps) => <DesktopArrow direction="prev" {...props} />;
+const DesktopNextArrow = (props: ArrowProps) => <DesktopArrow direction="next" {...props} />;
 
 const ProjectAreaHomeTwo = ({style}: any ) => { 
     const projectSlides = useMemo(() => chunkProjects(portfolio_data_2, 4), []);
@@ -101,10 +140,12 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: true,
-      arrows: false,
+      arrows: true,
       autoplay: true,
       autoplaySpeed: 3500,
       speed: 800,
+      prevArrow: <DesktopPrevArrow />,
+      nextArrow: <DesktopNextArrow />,
       dots: false,
       responsive: [
         { breakpoint: 992, settings: { dots: false } },

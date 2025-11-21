@@ -37,7 +37,7 @@ const contact_content: contact_content_type ={
         {id: 2, img: contact_shape_2, cls: ""},
         // {id: 3, img: contact_shape_3, cls: ""},
         {id: 4, img: contact_shape_4, cls: ""},
-        {id: 5, img: contact_shape_5, cls: "d-none d-xxl-block"},
+        // {id: 5, img: contact_shape_5, cls: "d-none d-xxl-block"},
         {id: 6, img: contact_shape_6, cls: "d-none d-xxl-block"},
     ],
 }

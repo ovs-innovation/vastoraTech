@@ -5,8 +5,9 @@ import Image  from "next/image";
 import { TeamSocialLinks } from "@/components/common/social-links";
 import team_data from "@/data/team";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 
 // team data type
 interface team_content_type {
@@ -39,13 +40,17 @@ const TeamAreaHomeFive = ({style} : any) => {
                         </div>
                     </div>
                     <div className="row pb-30">
-                        <div className="col-12">
+                        <div className="col-12" style={{ position: "relative" }}>
                             <Swiper
                                 spaceBetween={30}
                                 slidesPerView={4}
                                 loop={true}
-                                modules={[Autoplay]}
+                                modules={[Autoplay, Navigation]}
                                 autoplay={{ delay: 3000 }}
+                                navigation={{
+                                    nextEl: ".team-swiper-button-next",
+                                    prevEl: ".team-swiper-button-prev",
+                                }}
                                 breakpoints={{
                                     1200: {
                                         slidesPerView: 4,
@@ -80,6 +85,17 @@ const TeamAreaHomeFive = ({style} : any) => {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
+                            {/* Navigation Arrows */}
+                            <button className="team-swiper-button-prev" aria-label="Previous slide">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
+                            <button className="team-swiper-button-next" aria-label="Next slide">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                     {!style && 
@@ -93,6 +109,67 @@ const TeamAreaHomeFive = ({style} : any) => {
                     }
                 </div>
             </section>
+            <style dangerouslySetInnerHTML={{__html: `
+                .team-swiper-button-prev,
+                .team-swiper-button-next {
+                    position: absolute;
+                    bottom: 10%;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: #ffffff;
+                    border: 2px solid #1a3a5c;
+                    color: #1a3a5c;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                }
+                .team-swiper-button-prev {
+                    left: -25px;
+                }
+                .team-swiper-button-next {
+                    right: -25px;
+                }
+                .team-swiper-button-prev:hover,
+                .team-swiper-button-next:hover {
+                    background: #1a3a5c;
+                    color: #ffffff;
+                    
+                    box-shadow: 0 6px 20px rgba(26, 58, 92, 0.3);
+                }
+                
+                .team-swiper-button-prev.swiper-button-disabled,
+                .team-swiper-button-next.swiper-button-disabled {
+                    opacity: 0.35;
+                    cursor: auto;
+                    pointer-events: none;
+                }
+                @media (max-width: 1200px) {
+                    .team-swiper-button-prev {
+                        left: -15px;
+                    }
+                    .team-swiper-button-next {
+                        right: -15px;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .team-swiper-button-prev,
+                    .team-swiper-button-next {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    .team-swiper-button-prev {
+                        left: -10px;
+                    }
+                    .team-swiper-button-next {
+                        right: -10px;
+                    }
+                }
+            `}} />
         </>
     );
 };
