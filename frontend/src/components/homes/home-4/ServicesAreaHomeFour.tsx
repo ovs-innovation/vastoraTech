@@ -60,14 +60,14 @@ const service_content: service_content_type = {
             sm_des: "Our white-label solutions help you save time, reduce costs, and grow your business instantly.",
             link: "/product/demos",
         },
-        {
-            id: 4, 
-            shape: service_shape_2,
-            icon: <UiUxDesignIcon />,
-            title: "UI/UX Design",
-            sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
-            link: "/service/ui-ux-design",
-        },
+        // {
+        //     id: 4, 
+        //     shape: service_shape_2,
+        //     icon: <UiUxDesignIcon />,
+        //     title: "UI/UX Design",
+        //     sm_des: "We create and manage social media campaigns to increase brand awareness and engagement.",
+        //     link: "/service/ui-ux-design",
+        // },
         {
             id: 5, 
             shape: service_shape_1,
