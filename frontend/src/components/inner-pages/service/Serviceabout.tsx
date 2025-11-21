@@ -2,7 +2,7 @@
 import Image, { StaticImageData } from "next/image";
 import { useRef } from "react";
 import Slider from "react-slick";
-import service_slider_img_1 from "@/assets/img/banner/about-inner-1.png";
+import service_slider_img_1 from "@/assets/img/banner/about-inner-1.jpg";
 import service_slider_img_2 from "@/assets/img/banner/about-inner-2.png";
 import service_slider_img_3 from "@/assets/img/banner/about-inner-4.png";
 import service_slider_img_4 from "@/assets/img/banner/about-inner-3.png";
