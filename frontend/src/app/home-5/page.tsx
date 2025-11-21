@@ -1,4 +1,4 @@
-import HomeOne from "@/components/homes/home";
+import HomeFive from "@/components/homes/home-5";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
 
@@ -9,7 +9,7 @@ export const metadata = {
 const index = () => {
   return (
     <Wrapper>
-      <HomeOne />
+      <HomeFive />
       <ScrollToTop style={false} />
     </Wrapper>
   );
