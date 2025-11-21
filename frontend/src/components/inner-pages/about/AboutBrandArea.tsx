@@ -155,7 +155,7 @@ const AboutBrandArea = () => {
             <section className="brand-area pb-120">
                 <div className="container-fluid">
                     <div className="row align-items-center">
-                        <div className="col-lg-2 offset-lg-5 col-md-4">
+                        <div className="col-lg-2 col-md-4">
                             <div className="brand-wrapper ">
                                 <div className="brand-inner-content">
                                     <h4 className="brand-inner-title">{scroll_btn}</h4>

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import journeyImg from '@/assets/img/banner/about-inner-1.png'; // Use existing relevant image, update path as needed
+import journeyImg from '@/assets/img/banner/about-inner-1.jpg'; // Use existing relevant image, update path as needed
 
 const OurJourneyArea = () => (
   <section className="our-journey-area pb-100 pt-100">
