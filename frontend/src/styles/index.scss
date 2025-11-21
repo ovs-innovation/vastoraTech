@@ -379,48 +379,104 @@
 }
 
 /* --------------------------------
-   WhatsApp Floating Button
+   Floating Contact Buttons
 --------------------------------- */
-.whatsapp-float {
+.floating-contact-stack {
   position: fixed;
-  right: 50px;
-  bottom: 110px;
+  left: 40px;
+  right: auto;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  z-index: 1200;
+}
+
+.whatsapp-float,
+.call-float {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 4px 4px;
+  justify-content: center;
   border-radius: 999px;
-  background: linear-gradient(135deg, #25d366, #1ebe5d);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 18px 30px rgba(6, 93, 44, 0.45);
-  z-index: 1200;
+  position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-float__label {
+  position: absolute;
+  left: 100%;
+  margin-left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(8, 12, 30, 0.92);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.call-float:hover .contact-float__label,
+.call-float:focus-visible .contact-float__label,
+.whatsapp-float:hover .contact-float__label,
+.whatsapp-float:focus-visible .contact-float__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.call-float {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #12204a, #1a2f72);
+  box-shadow: 0 15px 28px rgba(5, 12, 34, 0.45);
+}
+
+.call-float:hover,
+.call-float:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 34px rgba(5, 12, 34, 0.55);
+}
+
+.whatsapp-float {
+  padding: 6px;
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  box-shadow: 0 18px 30px rgba(6, 93, 44, 0.45);
 }
 
 .whatsapp-float:hover,
 .whatsapp-float:focus-visible {
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 0 24px 36px rgba(6, 93, 44, 0.55);
 }
 
-.whatsapp-float svg {
+.whatsapp-float svg,
+.call-float svg {
   flex-shrink: 0;
 }
 
-.whatsapp-float span {
-  white-space: nowrap;
-}
-
 @media (max-width: 576px) {
-  .whatsapp-float {
-    padding: 12px;
-    border-radius: 50%;
+  .floating-contact-stack {
+    left: 20px;
+    bottom: 20px;
+    gap: 12px;
   }
 
-  .whatsapp-float span {
-    display: none;
+  .call-float {
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-float {
+    padding: 10px;
+  }
+
+  .contact-float__label {
+    font-size: 11px;
+    margin-left: 8px;
   }
 }
 

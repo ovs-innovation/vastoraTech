@@ -28,12 +28,12 @@ const web_service_data: web_service_data_type = [
         title: "CMS/ERP website",
         sm_info: <>CRM, dashboards, booking  <br />  systems, SaaS platforms.</>,
     },
-    {
-        id: 3,
-        img: web_service_3,
-        title: "WordPress website",
-        sm_info: <>Custom WordPress website <br /> development.</>,
-    },
+    // {
+    //     id: 3,
+    //     img: web_service_3,
+    //     title: "WordPress website",
+    //     sm_info: <>Custom WordPress website <br /> development.</>,
+    // },
     {
         id: 4,
         img: web_service_4,
