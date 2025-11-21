@@ -1,5 +1,6 @@
 import "../styles/index.scss";
- 
+import WhatsappButton from "@/components/common/WhatsappButton";
+import TawkMessenger from "@/components/common/TawkMessenger";
 
 export default function RootLayout({
   children,
@@ -37,7 +38,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        {/* <TawkMessenger /> */}
         {children}
+        <WhatsappButton />
       </body>
     </html>
   );

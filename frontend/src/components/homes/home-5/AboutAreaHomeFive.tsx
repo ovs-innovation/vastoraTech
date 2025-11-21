@@ -12,20 +12,22 @@ import about_shape_2 from "@/assets/img/shape/about-5-shape-2.svg";
 
 const about_content = {
 	sub_title: "About Us",
-	title: "Empowering Brand Growth Together",
-	sm_des: "At Vastora Tech, we empower brand growth by delivering tailored, innovative technology solutions that drive success and create lasting impact for your business.",
+	title: "Building eCommerce Success, Together",
+	sm_des: "At Vastora Tech, we empower businesses to launch, scale, and grow their online stores with smart, high-performance eCommerce solutions.",
 	about_data: [
 		{
 			id: 1,
 			cls: "about-5-item",
 			img: about_shape_1,
-			info: <>To provide innovative, user-friendly, and scalable software solutions that help businesses thrive in the digital era. We are committed to quality, reliability, and customer satisfaction in every project we undertake.</>,
+			info: <>To empower businesses with smart, scalable eCommerce solutions that drive faster growth and better customer experiences.
+
+			</>,
 		},
 		{
 			id: 2,
 			cls: "about-5-item about-5-item-2",
 			img: about_shape_2,
-			info: <>At Vastora Tech, we collaborate closely with clients to deliver customized, scalable solutions using agile methodologies—ensuring seamless execution, continuous support, and driving brand growth through innovative technology.</>,
+			info: <>To be a trusted eCommerce partner helping brands of all sizes launch, scale, and succeed with innovative, technology-driven solutions.</>,
 		},
 	]
 

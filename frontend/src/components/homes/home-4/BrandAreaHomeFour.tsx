@@ -136,7 +136,7 @@ const heroSliderSettings: Settings = {
 
 const tickerSliderSettings: Settings = {
   dots: false,
-  arrows: false,
+  arrows: true,
   infinite: true,
   autoplay: true,
   speed: 4500,
@@ -193,7 +193,7 @@ const BrandAreaHomeFour = () => {
               From seed-stage darlings to global enterprise squads, Vastora Tech fuels launches across
               every timezone and industry.
             </p>
-            <div className="brand-wrapper__tags">
+            <div className="brand-wrapper__tags mb-4">
               {actionTags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
@@ -202,8 +202,9 @@ const BrandAreaHomeFour = () => {
 
            
 
-          <div className="client-slider-shell">
-           
+          <div className="client-slider-shell mb-4">
+            <div className="client-slider-shell__edge client-slider-shell__edge--left" aria-hidden="true" />
+            <div className="client-slider-shell__edge client-slider-shell__edge--right" aria-hidden="true" />
             <Slider {...heroSliderSettings} className="client-slider">
               {heroBrands.map((logo, index) => {
                 const label = labelPool[index % labelPool.length];

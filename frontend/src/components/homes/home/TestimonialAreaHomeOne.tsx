@@ -1,80 +1,40 @@
 "use client"
-import { useRef } from 'react';
+import { useRef } from "react";
 import Image from "next/image";
-import Slider from 'react-slick';
+import Slider from "react-slick";
+import type { Settings } from "react-slick";
 import QuteIcon from "@/svg/qute_icon";
 import PrevArrow from "@/svg/prev-arrow";
 import NextArrow from "@/svg/next_arrow";
 import testimonial_data from "@/data/tptestimonial-data";
-import avatart_img from "@/assets/img/team/test-avatar-bg-1.png";
 
 // slider setting 
-const setting = {
-	fade: false,
-	autoplay: false,
-	centerMode: true,
-	centerPadding: '509px',
-	slidesToShow: 1,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1800,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '400px',
-			}
-		},
-		{
-			breakpoint: 1600,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '200px',
-			}
-		},
-		{
-			breakpoint: 1400,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '200px',
-			}
-		},
-		{
-			breakpoint: 1300,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '150px',
-			}
-		},
-		{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '120px',
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '50px',
-			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '10px',
-			}
-		},
-		{
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				centerPadding: '5px',
-			}
-		}
-	],
-}
+const testimonialSliderSettings: Settings = {
+  fade: false,
+  autoplay: true,
+  centerMode: false,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: false,
+  infinite: true,
+  speed: 500,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 type testimonial_content_type = {
 	title: string;
@@ -115,33 +75,32 @@ const TestimonialAreaHomeOne = () => {
 						</div>
 					</div>
 				</div>
-				<div className="container-fluid">
-					<div className="tptestimonial-wrap p-relative">
-						<Slider {...setting} ref={sliderRef} className="tptestimonial-wrapper tptestimonial-active">
+				<div className="container">
+					<div className="testimonial-deck">
+						<Slider {...testimonialSliderSettings} ref={sliderRef} className="testimonial-deck__slider">
 							{testimonial_data.map((item, i) =>
-								<div key={i} className="tptestimonial team_testimonial p-relative d-flex align-items-center">
-									{/* <div className="tptestimonial-thumb mr-40">
-										<Image src={item.img} alt="theme-pure" />
-									</div> */}
-									<div className="tptestimonial-content">
-										<div className="tptestimonial-shape mb-20">
-											<i> <QuteIcon /> </i>
-										</div>
-										<p>{item.info}</p>
-										<div className="tptestimonial-avatar-info">
-											<h5 className="tptestimonial-avatar-title">{item.avatar_name}</h5>
-											<span>{item.job_title}</span>
-										</div>
+								<article key={item.id ?? i} className="testimonial-card">
+									<div className="testimonial-card__quote">
+										<QuteIcon />
 									</div>
-								</div>
+									{/* <div className="testimonial-card__avatar">
+										<Image src={item.img} alt={item.avatar_name} />
+									</div> */}
+									<p className="testimonial-card__text">{item.info}</p>
+									<div className="testimonial-card__meta">
+										<h5>{item.avatar_name}</h5>
+										<span>{item.job_title}</span>
+									</div>
+								</article>
 							)}
 						</Slider>
-						<div className="testimonial-fixed-bg fix"></div>
-						<div className="tptestimonial-arrow">
-							<div className="testimonial-arrows p-relative">
-								<button type="button" className="prev-slide prev-testimonial" onClick={handlePrev}> <PrevArrow /> </button>
-								<button type="button" className="next-slide next-testimonial" onClick={handleNext}> <NextArrow /> </button>
-							</div>
+						<div className="testimonial-nav">
+							<button type="button" className="testimonial-nav__btn" onClick={handlePrev} aria-label="Previous testimonial">
+								<PrevArrow />
+							</button>
+							<button type="button" className="testimonial-nav__btn" onClick={handleNext} aria-label="Next testimonial">
+								<NextArrow />
+							</button>
 						</div>
 					</div>
 				</div>
