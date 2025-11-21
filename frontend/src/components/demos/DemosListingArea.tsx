@@ -2,11 +2,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Dynamic fetch instead of static dummy data
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
 
 const DemosListingArea = () => {
+  const router = useRouter();
   const [demos, setDemos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -169,7 +171,19 @@ const DemosListingArea = () => {
         <div className="row g-4">
           {demos.map((demo: any) => (
             <div className="col-md-6 col-lg-4" key={demo.slug}>
-              <div className="card h-100 border-0 shadow-sm" style={{ borderRadius: 8 }}>
+              <div
+                className="card h-100 border-0 shadow-sm"
+                style={{ borderRadius: 8, cursor: "pointer" }}
+                role="button"
+                tabIndex={0}
+                onClick={() => router.push(`/product/demos/${demo.slug}`)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    router.push(`/product/demos/${demo.slug}`);
+                  }
+                }}
+              >
                 <div style={imgWrapStyle}>
                   <Image
                     src={demo.images?.[0] || demo.image || "/no-image.png"}
@@ -198,6 +212,7 @@ const DemosListingArea = () => {
                       href={`/product/demos/${demo.slug}`}
                       style={buttonBlue}
                       className="text-decoration-none"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <InfoIcon />
                       Know More
@@ -209,6 +224,7 @@ const DemosListingArea = () => {
                         rel="noopener noreferrer"
                         style={buttonBlue}
                         className="text-decoration-none"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalIcon />
                         Live Preview

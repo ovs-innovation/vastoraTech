@@ -4,9 +4,9 @@ import ContactFormHomeFour from "@/components/forms/ContactFormHomeFour";
 import contact_bg_shape from "@/assets/img/bg/contact-4-bg.jpg";
 
 // contact shape 
-import contact_shape_1 from "@/assets/img/shape/contact-4-shape-1.png";
+ 
 import contact_shape_2 from "@/assets/img/shape/contact-4-shape-2.png";
-import contact_shape_3 from "@/assets/img/shape/contact-4-shape-3.png";
+ 
 import contact_shape_4 from "@/assets/img/shape/contact-4-shape-4.png";
 import contact_shape_5 from "@/assets/img/shape/contact-4-shape-5.png";
 import contact_shape_6 from "@/assets/img/shape/contact-4-shape-6.png";
@@ -33,9 +33,9 @@ const contact_content: contact_content_type ={
     phone: "+91 9667092077",
     email: "info@ovsinnovation.in",
     cotact_shape: [
-        {id: 1, img: contact_shape_1, cls: ""},
+        // {id: 1, img: contact_shape_1, cls: ""},
         {id: 2, img: contact_shape_2, cls: ""},
-        {id: 3, img: contact_shape_3, cls: ""},
+        // {id: 3, img: contact_shape_3, cls: ""},
         {id: 4, img: contact_shape_4, cls: ""},
         {id: 5, img: contact_shape_5, cls: "d-none d-xxl-block"},
         {id: 6, img: contact_shape_6, cls: "d-none d-xxl-block"},
