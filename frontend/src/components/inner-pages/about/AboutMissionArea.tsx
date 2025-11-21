@@ -16,7 +16,6 @@ const about_content: about_content_type = {
     "To empower businesses with smart, scalable eCommerce solutions that drive faster growth and better customer experiences.",
   sm_info_2:
     "To be a trusted eCommerce partner helping brands of all sizes launch, scale, and succeed with innovative, technology-driven solutions.",
-    "To empower businesses with smart, scalable eCommerce solutions that drive faster growth and better customer experiences",
 };
 const {sm_info_1, sm_info_2} = about_content;
 
