@@ -70,7 +70,7 @@ const AboutAreaHomeFive = () => {
 						<div className="col-lg-5">
 							<div className="about-5-thumb p-relative">
 								<Image className="tpchoose-border-anim" src={about_bg_img} alt="theme-pure" />
-								<a
+								{/* <a
 									onClick={() => setIsVideoOpen(true)}
 									style={{ cursor: "pointer" }}
 									className="popup-video">
@@ -85,7 +85,7 @@ const AboutAreaHomeFive = () => {
 											<i className="fa-solid fa-play"></i>
 										</div>
 									</div>
-								</a>
+								</a> */}
 							</div>
 						</div>
 					</div>
