@@ -34,9 +34,10 @@ const project_feature_content: project_feature_content_type = {
 	sub_title: "Best SEO results?",
 	title: "Optimize your website easier",
 	feature_lists: [
-		{ id: 1, title: "Performance", sm_info: "Slow pages,too-large CSS or HTML" },
-		{ id: 2, title: "Localization", sm_info: "All issues with hrefiang,language" },
-		{ id: 3, title: "Content quality", sm_info: "Unconsolidated duplicate page" },
+		
+		{ id: 2, title: "Performance Marketing That Scales", sm_info: "Smart targeting, optimized ads, and data-backed decisions to drive maximum ROI across Google & Meta." },
+		{ id: 3, title: "Social Media That Builds Trust", sm_info: "Brand storytelling, creative content, and engagement strategies designed to grow your audience organically." },
+		{ id: 1, title: "Full-Funnel Growth Strategy", sm_info: "From awareness to sales— we create marketing funnels that convert at every stage." },
 	]
 }
 const { shapes_data, sub_title, title, feature_lists } = project_feature_content
@@ -80,7 +81,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 												</div>
 												<div className="seo-5-list-text">
 													<h4 className="title">{list.title}</h4>
-													<p>{list.sm_info}</p>
+													<p className="line-clamp-4">{list.sm_info}</p>
 												</div>
 											</div>
 										</li>
