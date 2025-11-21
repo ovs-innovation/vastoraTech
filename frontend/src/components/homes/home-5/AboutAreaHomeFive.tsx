@@ -19,13 +19,13 @@ const about_content = {
 			id: 1,
 			cls: "about-5-item",
 			img: about_shape_1,
-			info: <>To provide innovative, user-friendly, and scalable software solutions that help businesses thrive in the digital era. We are committed to quality, reliability, and customer satisfaction in every project we undertake.</>,
+			info: <>Our mission is to deliver innovative, user-friendly, and scalable e-commerce solutions that empower businesses to grow and succeed in the digital marketplace. We specialize in creating high-performance online stores that are secure, customizable, and optimized for seamless customer experiences.</>,
 		},
 		{
 			id: 2,
 			cls: "about-5-item about-5-item-2",
 			img: about_shape_2,
-			info: <>At Vastora Tech, we collaborate closely with clients to deliver customized, scalable solutions using agile methodologies—ensuring seamless execution, continuous support, and driving brand growth through innovative technology.</>,
+			info: <>At Vastora Tech, we deliver scalable and customized e-commerce solutions that help brands grow online with seamless performance, intuitive design, and reliable support.</>,
 		},
 	]
 
