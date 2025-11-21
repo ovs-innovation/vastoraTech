@@ -15,7 +15,7 @@ import shape_5 from "@/assets/img/shape/banner-tree.png";
 import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
 
 // image import 
-import banner_service from "@/assets/img/services/social-media/services-social-media-bg-5.jpg";
+import banner_service from "@/assets/img/services/social-media/services-social-media-bg-6.jpg";
 const SeoAudit = () => {
     return (
         <>
