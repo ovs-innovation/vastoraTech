@@ -74,7 +74,7 @@ const AboutCounterArea = () => {
                 </div>
             </div>
             {/* Vision/Value Statement */}
-            <div className="counter-area-vision-text pb-60">
+            {/* <div className="counter-area-vision-text pb-60">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10 text-center">
@@ -84,7 +84,7 @@ const AboutCounterArea = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };

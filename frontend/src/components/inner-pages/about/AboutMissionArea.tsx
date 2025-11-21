@@ -13,9 +13,9 @@ type about_content_type = {
 
 const about_content: about_content_type = {
   sm_info_1:
-    "To provide innovative, user-friendly, and scalable software solutions that help businesses thrive in the digital era. We are committed to quality, reliability, and customer satisfaction in every project we undertake.",
+    "To empower businesses with smart, scalable eCommerce solutions that drive faster growth and better customer experiences",
   sm_info_2:
-    "We collaborate closely with clients to craft customized, scalable solutions using agile methodologies, ensuring seamless delivery and ongoing support. Our goal is to empower your brand’s growth through innovative technology and continuous improvement.",
+    "To be a trusted eCommerce partner helping brands of all sizes launch, scale, and succeed with innovative, technology-driven solutions",
 };
 const {sm_info_1, sm_info_2} = about_content;
 

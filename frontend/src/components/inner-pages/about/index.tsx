@@ -23,7 +23,7 @@ const About = () => {
 				<OurJourneyArea />
 				<AboutMissionArea />
 				<AboutCounterArea />
-				<DirectorsMessageArea />
+				{/* <DirectorsMessageArea /> */}
 				{/* <AboutCompanyArea /> */}
 				{/* <AwardAreaHomeFour style={true} /> */}
 				{/* <FunfactAreaHomeOne /> */}

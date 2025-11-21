@@ -3,7 +3,7 @@ import Link  from 'next/link';
 import Image  from 'next/image';
 
 import inner_shape from "@/assets/img/shape/inner-hand-1.png";
-import banner_img from "@/assets/img/about/about-inner-1.jpg";
+import banner_img from "@/assets/img/about/About-inner-10.jpg";
 import breadcrumb_shape_1 from "@/assets/img/shape/about-inner-shape-1.png";
 import breadcrumb_shape_2 from "@/assets/img/shape/about-inner-shape-2.png";
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
