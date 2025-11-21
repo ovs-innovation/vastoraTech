@@ -1,13 +1,13 @@
 import AboutBrandArea from './AboutBrandArea';
 import AboutCounterArea from './AboutCounterArea';
-import AboutCompanyArea from './AboutCompanyArea';
+// import AboutCompanyArea from './AboutCompanyArea';
 import AboutMissionArea from './AboutMissionArea';
 import OurJourneyArea from './OurJourneyArea';
 import DirectorsMessageArea from './DirectorsMessageArea';
 import HeaderFive from "@/layout/headers/HeaderFive";
 import Breadcrumb from '@/components/common/breadcrumb/breadcrumb';
 import ProcessAreaHomeOne from '@/components/homes/home/ProcessAreaHomeOne';
-import FunfactAreaHomeOne from '@/components/homes/home/FunfactAreaHomeOne';
+// import FunfactAreaHomeOne from '@/components/homes/home/FunfactAreaHomeOne';
 import AwardAreaHomeFour from '@/components/homes/home-4/AwardAreaHomeFour';
 import TeamAreaHomeFive from '@/components/homes/home-5/TeamAreaHomeFive';
 import FooterFive from '@/layout/footers/FooterFive';
