@@ -12,10 +12,10 @@ type props_type = {
     shape_1: StaticImageData,
     shape_2: StaticImageData,
     shape_3: StaticImageData,
-    shape_4: StaticImageData,
-     
+    shape_4?: StaticImageData,
+    shape_5?: StaticImageData,
 }
-const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4 }: props_type) => {
+const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4,shape_5 }: props_type) => {
     return (
         <> <MouseParallaxContainer>
             <section className="markiting-area markiting-wrap" style={{ background: '#E4ECF8' }}>
@@ -38,12 +38,16 @@ const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape
                         <MouseParallaxChild factorX={0.02} factorY={0.02} className="tpbanner-shape-four">
                             <Image src={shape_3} alt="theme-pure" />
                         </MouseParallaxChild >
-                        {/* <MouseParallaxChild factorX={0.02} factorY={0.02} className="tpbanner-shape-five">
-                            <Image className="layer" data-depth="0.2" src={shape_4} alt="theme-pure" />
-                        </MouseParallaxChild> */}
-                        <MouseParallaxChild factorX={0.07} factorY={0.07} className="tpbanner-shape-six">
-                            {/* <Image className="layer" data-depth="0.3" src={shape_5} alt="theme-pure" /> */}
-                        </MouseParallaxChild>
+                        {shape_4 ? (
+                            <MouseParallaxChild factorX={0.02} factorY={0.02} className="tpbanner-shape-five">
+                                <Image className="layer" data-depth="0.2" src={shape_4} alt="theme-pure" />
+                            </MouseParallaxChild>
+                        ) : null}
+                        {shape_5 ? (
+                            <MouseParallaxChild factorX={0.07} factorY={0.07} className="tpbanner-shape-six">
+                                <Image className="layer" data-depth="0.3" src={shape_5} alt="theme-pure" />
+                            </MouseParallaxChild>
+                        ) : null}
                     </div>
                 </div>
 
