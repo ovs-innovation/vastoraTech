@@ -109,13 +109,7 @@ const TestimonialAreaHomeOne = () => {
               </div>
 
               {/* Content Layer */}
-              <div style={{
-                position: "relative",
-                zIndex: 2,
-                width: "100%",
-                padding: "60px 40px",
-                textAlign: "center"
-              }}>
+              <div className="fresh-testimonial-content">
                 <Slider
                   {...sliderSettings}
                   ref={sliderRef}
@@ -325,6 +319,14 @@ const TestimonialAreaHomeOne = () => {
             width: 100%;
           }
 
+          .fresh-testimonial-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+          }
+
           .fresh-testimonial-slider .slick-list {
             overflow: visible;
           }
@@ -401,6 +403,10 @@ const TestimonialAreaHomeOne = () => {
               min-height: 400px;
             }
             
+            .fresh-testimonial-content {
+              padding: 20px 10px;
+            }
+
             .testimonial-slide-content p {
               font-size: 18px !important;
             }
