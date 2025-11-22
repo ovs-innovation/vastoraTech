@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
-import cta_bg from "@/assets/img/banner/cta-inner-bg-1.png";
+import cta_bg from "@/assets/img/banner/cta-inner-bg-1.webp";
 import cta_shape_1 from "@/assets/img/shape/cta-shape-1.png";
 import cta_shape_2 from "@/assets/img/shape/cta-shape-2.png";
 import cta_shape_3 from "@/assets/img/shape/cta-shape-3.png";
@@ -18,7 +18,7 @@ type cta_content_type = {
 // cta content
 const cta_content: cta_content_type = {
 	title: "Grow your business today",
-	sm_des: <>Enim cras in eget urna. Ut proin integer tempor, bibendum <br /> quam ullamcorper faucibus</>,
+	sm_des: <>Grow your business today. <br />We are here to help you.</>,
 	cta_shapes: [
 		{
 			id: 1,
