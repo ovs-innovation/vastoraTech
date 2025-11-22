@@ -65,20 +65,27 @@ const PortfolioAreaTwo = () => {
 					<div className="row grid">
 						{uniqueItems.slice(0, next).map((item) =>
 							<div key={item.id + item.title} className="col-lg-4 col-md-6 grid-item port-details3  port-details5">
-								<div className="portfolio-inner-item-2 mb-40">
-									<div className="portfolio-inner-thumb-2">
-										<Image src={item.img} alt="theme-pure"  />
-									</div>
-									<div className="portfolio-inner-content-2">
-										<div className="portfolio-inner-title-2"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></div>
-										<p>{item.sm_des}</p>
-										<div className="portfolio-inner-tag-2">
-											{item.tags && item.tags.map((tag, idx) => (
-												<a href="#" key={idx}>{tag}</a>
-											))}
+								<a
+									href={item.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="portfolio-card-link"
+								>
+									<div className="portfolio-inner-item-2 mb-40">
+										<div className="portfolio-inner-thumb-2">
+											<Image src={item.img} alt="theme-pure"  />
+										</div>
+										<div className="portfolio-inner-content-2">
+											<div className="portfolio-inner-title-2">{item.title}</div>
+											<p>{item.sm_des}</p>
+											<div className="portfolio-inner-tag-2">
+												{item.tags && item.tags.map((tag, idx) => (
+													<span key={idx}>{tag}</span>
+												))}
+											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						)}
 					</div>

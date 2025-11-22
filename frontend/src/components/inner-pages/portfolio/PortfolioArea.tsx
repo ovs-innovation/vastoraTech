@@ -60,19 +60,21 @@ const PortfolioArea = () => {
 						</div>
 					</div>
 					<div className="row grid">
-						{items.slice(0, next).map((item, i) =>
+						{items.slice(0, next).map((item, i) => (
 							<div key={i} className="col-lg-6 col-md-6 grid-item port3 port4">
-								<div className="portfolio-inner-item mb-60">
-									<div className="portfolio-inner-thumb">
-										<Image src={item.img} alt="theme-pure" />
+								<Link href="/portfolio-details" className="portfolio-card-link" aria-label={`View project ${item.title}`}>
+									<div className="portfolio-inner-item mb-60">
+										<div className="portfolio-inner-thumb">
+											<Image src={item.img} alt="theme-pure" />
+										</div>
+										<div className="portfolio-inner-content">
+											<span>{item.category}</span>
+											<h4 className="portfolio-inner-title">{item.title}</h4>
+										</div>
 									</div>
-									<div className="portfolio-inner-content">
-										<span>{item.category}</span>
-										<h4 className="portfolio-inner-title"><Link href="/portfolio-details">{item.title}</Link></h4>
-									</div>
-								</div>
+								</Link>
 							</div>
-						)}
+						))}
 
 					</div>
 					{next < items.length && (

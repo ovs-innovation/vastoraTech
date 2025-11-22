@@ -21,10 +21,11 @@ const quality_data: quality_data_type[] = [
         title: <>What is Covered in the <br /> SEO Audit</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Links from trusted, high-domain authority websites",
+            "Improves your website’s credibility",
+            "Boosts organic search rankings",
+            "100% white-hat, safe, long-term results",  
+
         ],
     },
     {
@@ -34,10 +35,11 @@ const quality_data: quality_data_type[] = [
         title: <>How is Covered in the <br /> SEO Audit</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Manual outreach to relevant blogs & publishers",
+            "High-quality guest posts with engaging content",
+            "Natural, contextual backlinks inside articles",
+            "Stronger visibility & targeted traffic",
+
         ],
     },
     {
@@ -47,10 +49,12 @@ const quality_data: quality_data_type[] = [
         title: <>Why need Covered in the <br /> SEO Audit</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Backlinks from industry-specific websites",
+            "Increases search relevance for your niche",
+            "Helps rank faster for targeted keywords",
+            "Builds authority within your market"
+
+
         ],
     },
     {
@@ -60,10 +64,10 @@ const quality_data: quality_data_type[] = [
         title: <>Benifits of SEO audit<br /> at present</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Link Building ",
-            "Social Networking",
-            "Content Marketing",
-            "Brand mentions",
+            "Features on reputable media & PR platforms",
+            "Builds brand trust and credibility",
+            "Drives high-authority backlinks",
+            "Improves brand visibility & awareness"
         ],
     },
 ]
@@ -77,7 +81,7 @@ const QualityServicesArea = () => {
                         <div className="col-lg-12">
                             <div className="optimize-subtitle mb-60">
                                 <span>Value Proposition</span>
-                                <h5 className="section-title-4 fs-54">High-quality <br /> Link building services</h5>
+                                <h5 className="section-title-4 fs-54">Build Trust & Authority  With <br /> Quality Backlinks</h5>
                             </div>
                         </div>
                     </div>
@@ -103,7 +107,7 @@ const QualityServicesArea = () => {
                                                             strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                One-way <br /> Link building
+                                                 Outreach & Guest Posting
                                             </span>
                                         </button>
                                         <button className="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
@@ -123,7 +127,7 @@ const QualityServicesArea = () => {
                                                             strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Find powerful <br /> backlinks
+                                                Outreach & Guest Posting
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
@@ -154,7 +158,8 @@ const QualityServicesArea = () => {
                                                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Resource <br /> link building
+                                                Niche-Relevant Backlinks
+
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
@@ -224,7 +229,7 @@ const QualityServicesArea = () => {
                                                             strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Citation <br /> link building
+                                               Brand Mentions & PR Links
                                             </span>
                                         </button>
                                     </div>
@@ -243,7 +248,7 @@ const QualityServicesArea = () => {
                                                 </div>
                                                 <div className="services-quality-content">
                                                     <h4 className="services-quality-title">{item.title}</h4>
-                                                    <p> {item.info}   </p>
+                                                    {/* <p> {item.info}   </p> */}
                                                     <ul>
                                                         {item.features.map((feature, index) =>
                                                             <li key={index}>{feature} </li>

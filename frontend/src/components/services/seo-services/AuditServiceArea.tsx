@@ -20,37 +20,37 @@ const audit_service_data: audit_service_data_type = [
         id: 1,
         img: audit_service_1,
         title: "Website Audit",
-        sm_info: <>Instant account activation <br /> if instant access.</>,
+        sm_info: <>Full site health check to find <br /> issues and improvements.</>,
     },
     {
         id: 2,
         img: audit_service_2,
         title: "SEO Optimization",
-        sm_info: <>Services activation <br /> if  need  access.</>,
+        sm_info: <>Boost visibility with <br/> smart technical fixes.</>,
     },
     {
         id: 3,
         img: audit_service_3,
         title: "On Page SEO",
-        sm_info: <>Account activation <br /> if instant  access.</>,
+        sm_info: <>Optimize pages for better <br/> ranking and user experienc.</>,
     },
     {
         id: 4,
         img: audit_service_4,
         title: "Off Page SEO",
-        sm_info: <>SEO account activation <br /> if instant  access.</>,
+        sm_info: <>Build authority with <br/> high-quality backlinks.</>,
     },
     {
         id: 5,
         img: audit_service_5,
         title: "Content Marketing",
-        sm_info: <>Email Marketing activation <br /> if instant access.</>,
+        sm_info: <>Create content that attracts, <br/> engages, and converts.</>,
     },
     {
         id: 6,
         img: audit_service_6,
         title: "Keyword Research",
-        sm_info: <>Keyword Research activation <br /> if instant access.</>,
+        sm_info: <>Find the best keywords your <br/> customers search for.</>,
     },
 ]
 

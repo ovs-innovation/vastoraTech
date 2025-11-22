@@ -18,11 +18,11 @@ const Service = () => {
                 <BreadcrumbFour />
                 <ServiceAboutArea />
                 <ServiceAreaHomeFour style={true} />
-                <Serviceabout />
+                {/* <Serviceabout /> */}
                 <ProjectFeaturHomefive style={true} />
-                <TestimonialAreaHomeFour /> 
-                <ReviewAreaHomeFour style={true} service_style={true} />
-                <KeywordCtaArea />
+                {/* <TestimonialAreaHomeFour />  */}
+                {/* <ReviewAreaHomeFour style={true} service_style={true} /> */}
+                {/* <KeywordCtaArea /> */}
             </main>
             <FooterFive style={true} />
         </>

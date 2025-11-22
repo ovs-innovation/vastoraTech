@@ -13,9 +13,9 @@ type props_type = {
     shape_2: StaticImageData,
     shape_3: StaticImageData,
     shape_4: StaticImageData,
-    shape_5: StaticImageData,
+     
 }
-const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4,shape_5 }: props_type) => {
+const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4 }: props_type) => {
     return (
         <> <MouseParallaxContainer>
             <section className="markiting-area markiting-wrap" style={{ background: '#E4ECF8' }}>
@@ -42,7 +42,7 @@ const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape
                             <Image className="layer" data-depth="0.2" src={shape_4} alt="theme-pure" />
                         </MouseParallaxChild> */}
                         <MouseParallaxChild factorX={0.07} factorY={0.07} className="tpbanner-shape-six">
-                            <Image className="layer" data-depth="0.3" src={shape_5} alt="theme-pure" />
+                            {/* <Image className="layer" data-depth="0.3" src={shape_5} alt="theme-pure" /> */}
                         </MouseParallaxChild>
                     </div>
                 </div>

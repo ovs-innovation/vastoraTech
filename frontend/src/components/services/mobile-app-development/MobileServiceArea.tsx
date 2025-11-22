@@ -48,7 +48,7 @@ type  style_type = {
 const MobileServiceArea = ({style} : style_type) => {
     return (
       <>
-        <section className={`services-area ${style ? "pb-110" : "pt-120 pb-95"}`}>
+        <section className={`services-area ${style ? "pb-30" : "pt-10 pb-95"}`}>
           <div className="container">
             <div className="row">
               <div className="col-lg-12">

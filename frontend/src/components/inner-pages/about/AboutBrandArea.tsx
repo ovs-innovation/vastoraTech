@@ -1,7 +1,5 @@
 'use client'
-import { useRef } from 'react';
 import Image, { StaticImageData } from "next/image";
-import Slider from 'react-slick';
 import about_brand_img_1 from "@/assets/img/brand/brand1.png";
 import about_brand_img_2 from "@/assets/img/brand/brand2.png";
 import about_brand_img_3 from "@/assets/img/brand/brand3.png";
@@ -89,90 +87,64 @@ const about_brand_content: about_brand_content_type = {
 }
 const {scroll_btn, about_brand} = about_brand_content
 
-const setting = {
-    dots: false,
-    infinite: false,
-    speed: 1000,
-    autoplay: true,
-    arrows: false,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [
-        {
-            breakpoint: 1800,
-            settings: {
-                slidesToShow: 5,
-            }
-        },
-        {
-            breakpoint: 1700,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 1600,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-            }
-        }
-    ],
-}
 const AboutBrandArea = () => {
-    const sliderRef = useRef(null)
+    const marqueeItems = [...about_brand, ...about_brand];
     return (
         <>
-            <section className="brand-area pb-120">
-                <div className="container-fluid">
-                    <div className="row align-items-center">
-                        <div className="col-lg-2 col-md-4">
-                            <div className="brand-wrapper ">
-                                <div className="brand-inner-content">
-                                    <h4 className="brand-inner-title">{scroll_btn}</h4>
-                                    <a href="#our-misson">
-                                        <i><ScrollDownBtn /></i>
-                                    </a>
-                                </div>
-                            </div>
+            <section className="brand-area  " style={{paddingBottom: 0}}>
+                <div 
+                    className="brand-slider-fullscreen" 
+                    style={{
+                        width: "100%",
+                        height:"170px",
+                        position: "relative",
+                        overflow: "hidden",
+                        
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "40px 0px",
+                         
+                    }}
+                >
+                    <div 
+                        className="brand-scroll-cta"
+                        style={{
+                            position: "absolute",
+                            left:"0%",
+                             top:"0%",
+                            
+                            zIndex: 2,
+                            color: "#fff",
+                            textTransform: "uppercase",
+                            letterSpacing: 1,
+                             
+                        }}
+                    >
+                        <div className="brand-inner-content">
+                            <h4 className="brand-inner-title">{scroll_btn}</h4>
+                            <a href="#our-misson">
+                                <i><ScrollDownBtn /></i>
+                            </a>
                         </div>
-                        <div className="col-lg-5 col-md-8">
-                            <Slider {...setting} ref={sliderRef} className="brand-inner-wrapper tpbrand-inner-active">
-                                {about_brand.map((item, i)  => 
-                                    <div key={i} className="tpbrand-inner-item">
-                                        <Image src={item.img} alt="vastora tech clients" />
-                                    </div>                                
-                                )}                                
-                            </Slider>
+                    </div>
+                    <div style={{width: "100%", maxWidth: "1600px", margin: 0, padding: 0}}>
+                        <div className="brand-marquee" aria-label="Vastora Tech clients pt-10 pb-10">
+                            <div className="brand-marquee__track">
+                                {marqueeItems.map((item, index) => (
+                                    <div
+                                        key={`${item.id}-${index}`}
+                                        className="brand-marquee__item"
+                                        aria-hidden={index >= about_brand.length}
+                                    >
+                                        <Image
+                                            src={item.img}
+                                            alt="vastora tech clients"
+                                            width={180}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

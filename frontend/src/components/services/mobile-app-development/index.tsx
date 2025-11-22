@@ -5,6 +5,7 @@ import HeaderSix from "@/layout/headers/HeaderSix";
 import QualityServicesArea from "./QualityServicesArea";
 import FooterFive from "@/layout/footers/FooterFive";
 import BreadcrumbThree from "@/components/common/breadcrumb/breadcrumb-3";
+import ServiceMilestoneTimeline from "@/components/common/service-milestones";
 
 import shape_1 from "@/assets/img/shape/banner-plus.png";
 import shape_2 from "@/assets/img/shape/banner-dots.png";
@@ -14,7 +15,7 @@ import shape_5 from "@/assets/img/shape/ios_shape.png";
 import shape_1_2 from "@/assets/img/shape/androide_shape.png";
 
 
-import banner_service from "@/assets/img/services/app-dev-banner-bg.webp";
+import banner_service from "@/assets/img/services/app-dev-banner-bg.png";
 const MobileAppDevelopment = () => {
     return (
         <>
@@ -25,6 +26,7 @@ const MobileAppDevelopment = () => {
                     shape_1={shape_1} shape_2={shape_2} shape_3={shape_3} shape_4={shape_4} shape_5={shape_5} />
                 <MobileServiceArea />
                 <QualityServicesArea />
+                <ServiceMilestoneTimeline serviceKey="mobile-app-development" />
                 <MobileFeatureArea />
                 <MobileFeatureTwo />
             </main>

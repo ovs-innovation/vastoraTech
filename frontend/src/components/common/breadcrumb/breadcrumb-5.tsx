@@ -4,7 +4,7 @@ import Link from "next/link";
 const BreadcrumbFive = () => {
     return (
         <>
-            <section className="breadcrumb-area breadcrumb-2-bg pb-130 pt-195" style={{ backgroundImage: `url(/assets/img/breadcrumb/breadcrumb-bg-3.jpg)` }}>
+            <section className="breadcrumb-area breadcrumb-overlay pb-115 pt-195 p-relative jarallax" style={{ backgroundImage: `url(/assets/img/breadcrumb/breadcrumb-bg-1.jpg)` }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-xxl-12">

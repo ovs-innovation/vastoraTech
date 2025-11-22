@@ -49,7 +49,7 @@ const AboutMissionArea = () => {
                     <Image src={mission_shap_1} alt="theme-pure" />
                   </div>
                   <div className="mission-shape-3">
-                    <Image src={mission_shap_2} alt="theme-pure" />
+                    {/* <Image src={mission_shap_2} alt="theme-pure" /> */}
                   </div>
                 </div>
               </div>

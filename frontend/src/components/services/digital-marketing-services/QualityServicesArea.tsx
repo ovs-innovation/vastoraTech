@@ -9,7 +9,6 @@ interface quality_data_type {
     tab_id: string;
     img: any;
     title: JSX.Element;
-    info: JSX.Element;
     features: string[];
 }[]
 
@@ -18,52 +17,48 @@ const quality_data: quality_data_type[] = [
         id: 1,
         tab_id: "home",
         img: service_tab_img_1,
-        title: <>What is Covered in the <br /> Digital Marketing</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Social Media Strategy <br /> & Planning</>,
         features: [
-            "Social Media Marketing",
-            "Email Campaigns",
-            "Content Creation",
-            "PPC Management",
+            "Tailored strategies based on your goals and audience",
+            "Competitor and industry trend analysis",
+            "Monthly content and campaign roadmap",
+            "Growth-focused planning for consistent results",
         ],
     },
     {
         id: 2,
         tab_id: "profile",
         img: service_tab_img_2,
-        title: <>How is Covered in the <br /> Digital Marketing</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Content Creation <br /> & Branding</>,
         features: [
-            "Target Audience Analysis",
-            "Campaign Optimization",
-            "Performance Tracking",
-            "ROI Measurement",
+            "High-quality posts, reels, and stories",
+            "Brand-aligned visuals and messaging",
+            "Engaging captions that drive interaction",
+            "Creative concepts that boost visibility",
         ],
     },
     {
         id: 3,
         tab_id: "messages",
         img: service_tab_img_3,
-        title: <>Why need Covered in the <br /> Digital Marketing</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Social Media <br /> Management</>,
         features: [
-            "Custom Strategy Development",
-            "Multi-Channel Approach",
-            "Data-Driven Decisions",
-            "Continuous Optimization",
+            "Daily posting and scheduling across platforms",
+            "Community management: replies, comments, DMs",
+            "Profile optimization for better reach",
+            "Consistent brand presence across all channels",
         ],
     },
     {
         id: 4,
         tab_id: "settings",
         img: service_tab_img_4,
-        title: <>Benifits of Digital Marketing<br /> at present</>,
-        info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
+        title: <>Paid Ads & Performance <br /> Marketing</>,
         features: [
-            "Increased Brand Awareness",
-            "Higher Conversion Rates",
-            "Better Customer Engagement",
-            "Measurable Results",
+            "Targeted ads on Facebook, Instagram, YouTube & more",
+            "Audience segmentation for higher ROI",
+            "Conversion-focused ad creatives",
+            "Monthly performance tracking and improvement",
         ],
     },
 ]
@@ -243,7 +238,6 @@ const QualityServicesArea = () => {
                                                 </div>
                                                 <div className="services-quality-content">
                                                     <h4 className="services-quality-title">{item.title}</h4>
-                                                    <p> {item.info}   </p>
                                                     <ul>
                                                         {item.features.map((feature, index) =>
                                                             <li key={index}>{feature} </li>
