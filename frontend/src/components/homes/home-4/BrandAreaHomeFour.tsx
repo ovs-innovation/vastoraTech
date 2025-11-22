@@ -188,7 +188,7 @@ const BrandAreaHomeFour = () => {
       <div className="container">
         <div className="client-showcase__inner mb-40">
           <div className="brand-wrapper text-center">
-            <h2 className="title">Where ambitious teams keep shipping bold customer moments.</h2>
+            <h2 className="title line-clamp-2">Where ambitious teams keep shipping bold customer moments.</h2>
             <p className="subtitle">
               From seed-stage darlings to global enterprise squads, Vastora Tech fuels launches across
               every timezone and industry.
