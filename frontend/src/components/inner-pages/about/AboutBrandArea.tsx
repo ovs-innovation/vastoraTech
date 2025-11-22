@@ -1,7 +1,5 @@
 'use client'
-import { useRef } from 'react';
 import Image, { StaticImageData } from "next/image";
-import Slider from 'react-slick';
 import about_brand_img_1 from "@/assets/img/brand/brand1.png";
 import about_brand_img_2 from "@/assets/img/brand/brand2.png";
 import about_brand_img_3 from "@/assets/img/brand/brand3.png";
@@ -89,67 +87,8 @@ const about_brand_content: about_brand_content_type = {
 }
 const {scroll_btn, about_brand} = about_brand_content
 
-const setting = {
-    dots: false,
-    infinite: false,
-    speed: 1000,
-    autoplay: true,
-    arrows: false,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [
-        {
-            breakpoint: 1800,
-            settings: {
-                slidesToShow: 5,
-            }
-        },
-        {
-            breakpoint: 1700,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 1600,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-            }
-        }
-    ],
-}
 const AboutBrandArea = () => {
-    const sliderRef = useRef(null)
+    const marqueeItems = [...about_brand, ...about_brand];
     return (
         <>
             <section className="brand-area  " style={{paddingBottom: 0}}>
@@ -164,7 +103,7 @@ const AboutBrandArea = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        padding: "0",
+                        padding: "40px 0px",
                          
                     }}
                 >
@@ -190,34 +129,23 @@ const AboutBrandArea = () => {
                         </div>
                     </div>
                     <div style={{width: "100%", maxWidth: "1600px", margin: 0, padding: 0}}>
-                        <Slider 
-                            {...setting} 
-                            ref={sliderRef} 
-                            className="brand-inner-wrapper tpbrand-inner-active  "
-                        >
-                            {about_brand.map((item, i)  => 
-                                <div 
-                                    key={i} 
-                                    className="tpbrand-inner-item"
-                                    style={{
-                                        margin: 0,
-                                        padding: 0,
-                                        display: "flex",
-                                         
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        
-                                    }}
-                                >
-                                    <Image 
-                                        src={item.img} 
-                                        alt="vastora tech clients"
-                                        style={{margin: 0, padding: 0}} 
-                                        width={180}
-                                    />
-                                </div>                                
-                            )}                                
-                        </Slider>
+                        <div className="brand-marquee" aria-label="Vastora Tech clients pt-10 pb-10">
+                            <div className="brand-marquee__track">
+                                {marqueeItems.map((item, index) => (
+                                    <div
+                                        key={`${item.id}-${index}`}
+                                        className="brand-marquee__item"
+                                        aria-hidden={index >= about_brand.length}
+                                    >
+                                        <Image
+                                            src={item.img}
+                                            alt="vastora tech clients"
+                                            width={180}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

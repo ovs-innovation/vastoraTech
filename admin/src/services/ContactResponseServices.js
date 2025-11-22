@@ -21,6 +21,8 @@ const ContactResponseServices = {
       notes,
     });
   },
+
+  delete: async (id) => requests.delete(`/contact-submissions/${id}`),
 };
 
 export default ContactResponseServices;

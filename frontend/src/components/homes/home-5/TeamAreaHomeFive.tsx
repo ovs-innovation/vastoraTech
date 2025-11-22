@@ -78,7 +78,7 @@ const TeamAreaHomeFive = ({style} : any) => {
                                                 </div>
                                             </div>
                                             <div className="team-5-content">
-                                                <h4 className="team-5-title"><Link href="/team-details">{item.name}</Link></h4>
+                                                <h4 className="team-5-title"> {item.name}</h4>
                                                 <p>{item.job_title}</p>
                                             </div>
                                         </div>

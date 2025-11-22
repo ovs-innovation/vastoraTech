@@ -1,11 +1,17 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
-import social_media_1 from "@/assets/img/services/social-media/services-inner-thumb-1.png";
-import social_media_2 from "@/assets/img/services/social-media/services-inner-thumb-2.png";
-import social_media_3 from "@/assets/img/services/social-media/services-inner-thumb-3.png";
-import social_media_4 from "@/assets/img/services/promotion.png";
-import social_media_5 from "@/assets/img/services/optimization.png";
+// import social_media_1 from "@/assets/img/services/social-media/services-inner-thumb-1.png";
+// import social_media_2 from "@/assets/img/services/social-media/services-inner-thumb-2.png";
+// import social_media_3 from "@/assets/img/services/social-media/services-inner-thumb-3.png";
+// import social_media_4 from "@/assets/img/services/promotion.png";
+// import social_media_5 from "@/assets/img/services/optimization.png";
+// import social_media_6 from "@/assets/img/services/keywords.png"; 
+import social_media_1 from "@/assets/img/services/websiteAudit.png";
+import social_media_2 from "@/assets/img/services/optimization.png";
+import social_media_3 from "@/assets/img/services/internet.png";
+import social_media_4 from "@/assets/img/services/offPageSeo.png";
+import social_media_5 from "@/assets/img/services/content-marketing (1).png";
 import social_media_6 from "@/assets/img/services/keywords.png"; 
 
 // social media marketing data type
@@ -22,37 +28,37 @@ const social_media_service_data: social_media_service_data_type = [
         id: 1,
         img: social_media_1,
         title: "Platform Management",
-        sm_info: <>Manage your presence <br /> across all platforms.</>,
+      sm_info: <>Keep your brand active everywhere.</>,
     },
     {
         id: 2,
         img: social_media_2,
         title: "Content Creation",
-        sm_info: <>Create engaging content <br /> that drives engagement.</>,
+      sm_info: <>Create content that stands out.</>,
     },
     {
         id: 3,
         img: social_media_3,
         title: "Community Building",
-        sm_info: <>Build loyal communities <br /> around your brand.</>,
+      sm_info: <>Build a loyal and engaged audience.</>,
     },
     {
         id: 4,
         img: social_media_4,
         title: "Paid Advertising",
-        sm_info: <>Boost reach with <br /> targeted paid campaigns.</>,
+      sm_info: <>Reach more customers with smart ads.</>,
     },
     {
         id: 5,
         img: social_media_5,
         title: "Analytics & Insights",
-        sm_info: <>Track performance with <br /> detailed analytics.</>,
+      sm_info: <>Measure performance. Improve results.</>,
     },
     {
         id: 6,
         img: social_media_6,
         title: "Influencer Marketing",
-        sm_info: <>Partner with influencers <br /> to expand reach.</>,
+      sm_info: <>Grow faster with influencer partnerships.</>,
     },
 ]
 

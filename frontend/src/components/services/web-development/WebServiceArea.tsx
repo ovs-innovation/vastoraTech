@@ -19,7 +19,7 @@ const web_service_data: web_service_data_type = [
     {
         id: 1,
         img: web_service_1,
-        title: "E-commerce Development",
+        title: "E-Commerce Development",
         sm_info: <>Customized e-commerce,<br />WooCommerce, Shopify, etc.</>,
     },
     {
@@ -61,7 +61,7 @@ type  style_type = {
 const AuditServiceArea = ({style} : style_type) => {
     return (
       <>
-        <section className={`services-area ${style ? "pb-110" : "pt-120 pb-95"}`}>
+        <section className={`services-area ${style ? "pb-50" : "pt-30 pb-95"}`}>
           <div className="container">
             <div className="row">
               <div className="col-lg-12">

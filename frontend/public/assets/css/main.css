@@ -19669,10 +19669,11 @@ div.price-open {
   background: #2B6BB3;
   display: inline-block;
   position: relative;
+  left:-20px;
   z-index: 2;
   border-radius: 8px 0px;
   padding: 45px 66px;
-  margin-left: 40px;
+  
 }
 @media only screen and (min-width: 1600px) and (max-width: 1700px) {
   .brand-inner-content {

@@ -15,12 +15,14 @@ import {
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import dayjs from "dayjs";
+import { FiTrash2 } from "react-icons/fi";
 //internal import
 import TableLoading from "@/components/preloader/TableLoading";
 import NotFound from "@/components/table/NotFound";
 import PageTitle from "@/components/Typography/PageTitle";
 import ContactResponseServices from "@/services/ContactResponseServices";
 import AnimatedContent from "@/components/common/AnimatedContent";
+import Tooltip from "@/components/tooltip/Tooltip";
 import { notifySuccess, notifyError } from "@/utils/toast";
 
 const ContactLeads = () => {
@@ -32,6 +34,7 @@ const ContactLeads = () => {
   const [contactStatusFilter, setContactStatusFilter] = useState("");
   const [contactPage, setContactPage] = useState(1);
   const [contactUpdatingId, setContactUpdatingId] = useState(null);
+  const [contactDeletingId, setContactDeletingId] = useState(null);
   const [allContactResponses, setAllContactResponses] = useState([]);
   const contactResultsPerPage = 10;
 
@@ -154,6 +157,28 @@ const ContactLeads = () => {
       notifyError(error?.message || "Failed to update status");
     } finally {
       setContactUpdatingId(null);
+    }
+  };
+
+  const handleContactDelete = async (id) => {
+    if (!id) return;
+    const shouldDelete = window.confirm(
+      "Delete this contact submission? This cannot be undone."
+    );
+    if (!shouldDelete) return;
+
+    setContactDeletingId(id);
+    try {
+      await ContactResponseServices.delete(id);
+      setContactResponses((prev) => prev.filter((item) => item._id !== id));
+      setAllContactResponses((prev) => prev.filter((item) => item._id !== id));
+      setContactTotal((prev) => Math.max(0, prev - 1));
+      notifySuccess("Contact submission deleted successfully");
+    } catch (error) {
+      console.error(error);
+      notifyError(error?.message || "Failed to delete contact submission");
+    } finally {
+      setContactDeletingId(null);
     }
   };
 
@@ -325,17 +350,32 @@ const ContactLeads = () => {
                           {response.message}
                         </div>
                       </TableCell>
-                      <TableCell className="text-center whitespace-nowrap" style={{ minWidth: '150px', maxWidth: '200px' }}>
-                        <Select
-                          value={response.status || "new"}
-                          onChange={(e) => handleContactStatusChange(response._id, e.target.value)}
-                          disabled={contactUpdatingId === response._id}
-                          className="h-8 text-xs"
-                        >
-                          <option value="new">New</option>
-                          <option value="in-progress">In Progress</option>
-                          <option value="resolved">Resolved</option>
-                        </Select>
+                      <TableCell className="text-center whitespace-nowrap" style={{ minWidth: '180px', maxWidth: '240px' }}>
+                        <div className="flex items-center justify-center gap-2">
+                          <Select
+                            value={response.status || "new"}
+                            onChange={(e) => handleContactStatusChange(response._id, e.target.value)}
+                            disabled={contactUpdatingId === response._id}
+                            className="h-8 text-xs"
+                          >
+                            <option value="new">New</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                          </Select>
+                          <button
+                            onClick={() => handleContactDelete(response._id)}
+                            disabled={contactDeletingId === response._id}
+                            className="p-2 cursor-pointer text-gray-400 hover:text-red-600 focus:outline-none"
+                            type="button"
+                          >
+                            <Tooltip
+                              id={`delete-contact-${response._id}`}
+                              Icon={FiTrash2}
+                              title={t("Delete")}
+                              bgColor="#EF4444"
+                            />
+                          </button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}

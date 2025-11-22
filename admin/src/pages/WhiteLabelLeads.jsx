@@ -178,8 +178,7 @@ const WhiteLabelLeads = () => {
 
   const handleWhiteLabelDelete = async (id) => {
     if (!id) return;
-    const shouldDelete = window.confirm("Delete this white-label enquiry? This cannot be undone.");
-    if (!shouldDelete) return;
+  
 
     setWhiteLabelDeletingId(id);
     try {

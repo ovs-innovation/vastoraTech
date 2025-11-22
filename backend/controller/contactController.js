@@ -145,8 +145,36 @@ const updateContactStatus = async (req, res) => {
   }
 };
 
+const deleteContactSubmission = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deleted = await ContactSubmission.findByIdAndDelete(id);
+
+    if (!deleted) {
+      return res.status(404).send({
+        success: false,
+        message: "Contact submission not found.",
+      });
+    }
+
+    res.send({
+      success: true,
+      message: "Contact submission deleted successfully.",
+      data: deleted,
+    });
+  } catch (error) {
+    console.error("deleteContactSubmission error", error);
+    res.status(500).send({
+      success: false,
+      message: error.message || "Failed to delete contact submission.",
+    });
+  }
+};
+
 module.exports = {
   createContactSubmission,
   getContactSubmissions,
   updateContactStatus,
+  deleteContactSubmission,
 };

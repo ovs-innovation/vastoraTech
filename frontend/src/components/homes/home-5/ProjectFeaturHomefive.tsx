@@ -31,13 +31,13 @@ const project_feature_content: project_feature_content_type = {
 		{ id: 3, img: shape_3, cls: "three", parallax: "" },
 		{ id: 4, img: shape_4, cls: "four", parallax: "50" },
 	],
-	sub_title: "Best SEO results?",
-	title: "Optimize your website easier",
+	sub_title: "Why Marketing & Branding Matter",
+	title: "Transform your business with strategic marketing",
 	feature_lists: [
 		
-		{ id: 2, title: "Performance Marketing That Scales", sm_info: "Smart targeting, optimized ads, and data-backed decisions to drive maximum ROI across Google & Meta." },
-		{ id: 3, title: "Social Media That Builds Trust", sm_info: "Brand storytelling, creative content, and engagement strategies designed to grow your audience organically." },
-		{ id: 1, title: "Full-Funnel Growth Strategy", sm_info: "From awareness to sales— we create marketing funnels that convert at every stage." },
+		{ id: 2, title: " Marketing That Creates Demand", sm_info: "Effective marketing helps your brand reach the right audience, build interest, and convert potential buyers into real customers." },
+		{ id: 3, title: "Branding That Builds Trus", sm_info: "Branding is not just about visuals — it’s the emotion people feel when they connect with your business." },
+		{ id: 1, title: "Growth Strategies That Drive Results", sm_info: "With the right mix of content, ads, and customer targeting, we help you build a consistent growth system that improves visibility, leads, and sales." },
 	]
 }
 const { shapes_data, sub_title, title, feature_lists } = project_feature_content
@@ -70,7 +70,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 							<div className="seo-5 mb-40">
 								<div className="section-3 mb-40">
 									<span className="section-3-sub-title">{sub_title}</span>
-									<div className="section-3-title">{title}</div>
+									<div className="section-3-title" style={{fontSize:"30px"}}>{title}</div>
 								</div>
 								<ul className="seo-5-list mb-50">
 									{feature_lists.map((list, index) =>
@@ -81,7 +81,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 												</div>
 												<div className="seo-5-list-text">
 													<h4 className="title">{list.title}</h4>
-													<p className="line-clamp-4">{list.sm_info}</p>
+													<h6 className="   " style={{fontWeight:"20px"}}>{list.sm_info}</h6>
 												</div>
 											</div>
 										</li>

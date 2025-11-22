@@ -101,11 +101,11 @@ const heroSliderSettings: Settings = {
   autoplaySpeed: 3200,
   cssEase: "ease-out",
   arrows: true,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   swipeToSlide: true,
-  centerMode: true,
-  centerPadding: "60px",
+  centerMode: false,
+  centerPadding: "0px",
   nextArrow: <ArrowButton direction="next" />,
   prevArrow: <ArrowButton direction="prev" />,
   responsive: [
@@ -113,7 +113,8 @@ const heroSliderSettings: Settings = {
       breakpoint: 1440,
       settings: {
         slidesToShow: 3,
-        centerPadding: "32px",
+        centerMode: true,
+        centerPadding: "40px",
       },
     },
     {
@@ -150,13 +151,13 @@ const tickerSliderSettings: Settings = {
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 5,
       },
     },
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 4,
       },
     },
     {
@@ -185,9 +186,8 @@ const BrandAreaHomeFour = () => {
       <div className="client-showcase__glow client-showcase__glow--left" />
       <div className="client-showcase__glow client-showcase__glow--right" />
       <div className="container">
-        <div className="client-showcase__inner">
+        <div className="client-showcase__inner mb-40">
           <div className="brand-wrapper text-center">
-            
             <h2 className="title">Where ambitious teams keep shipping bold customer moments.</h2>
             <p className="subtitle">
               From seed-stage darlings to global enterprise squads, Vastora Tech fuels launches across
@@ -200,9 +200,7 @@ const BrandAreaHomeFour = () => {
             </div>
           </div>
 
-           
-
-          <div className="client-slider-shell mb-4">
+          <div className="client-slider-shell client-slider-shell--edge-to-edge">
             <div className="client-slider-shell__edge client-slider-shell__edge--left" aria-hidden="true" />
             <div className="client-slider-shell__edge client-slider-shell__edge--right" aria-hidden="true" />
             <Slider {...heroSliderSettings} className="client-slider">
@@ -213,20 +211,16 @@ const BrandAreaHomeFour = () => {
 
                 return (
                   <div key={`hero-brand-${index}`} className="brand-spotlight">
-                    
                     <div className="brand-spotlight__logo">
                       <Image src={logo} alt={`Vastora client ${index + 1}`} className="client-logo" />
                     </div>
-                    
                   </div>
                 );
               })}
             </Slider>
           </div>
- 
         </div>
       </div>
- 
     </section>
   );
 };
