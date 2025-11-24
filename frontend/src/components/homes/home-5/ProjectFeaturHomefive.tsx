@@ -29,7 +29,7 @@ const project_feature_content: project_feature_content_type = {
 		// { id: 1, img: shape_1, cls: "one", parallax: "100" },
 		{ id: 2, img: shape_2, cls: "two", parallax: "80" },
 		{ id: 3, img: shape_3, cls: "three", parallax: "" },
-		{ id: 4, img: shape_4, cls: "four", parallax: "50" },
+		// { id: 4, img: shape_4, cls: "four", parallax: "50" },
 	],
 	sub_title: "Why Marketing & Branding Matter",
 	title: "Transform your business with strategic marketing",

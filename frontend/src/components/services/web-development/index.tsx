@@ -15,7 +15,7 @@ import shape_5 from "@/assets/img/shape/web_shape_5.png";
 import shape_1_2 from "@/assets/img/shape/web_shap_1-2.png";
 
 
-import banner_service from "@/assets/img/services/web-dev-bg-img.webp";
+import banner_service from "@/assets/img/services/web-dev-bg-img.jpeg";
 
 const WebDevelopment = () => {
     return (

@@ -40,7 +40,7 @@ const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape
                         </MouseParallaxChild >
                         {shape_4 ? (
                             <MouseParallaxChild factorX={0.02} factorY={0.02} className="tpbanner-shape-five">
-                                <Image className="layer" data-depth="0.2" src={shape_4} alt="theme-pure" />
+                                {/* <Image className="layer" data-depth="0.2" src={shape_4} alt="theme-pure" /> */}
                             </MouseParallaxChild>
                         ) : null}
                         {shape_5 ? (

@@ -11,6 +11,19 @@
 
 @import "../../public/assets/scss/main.scss";
 
+.header-logo-home-five {
+  width: 150px;
+  height: 120px;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .header-logo-home-five {
+    width: 100px;
+    height: 75px;
+  }
+}
+
  
 .client-showcase {
   position: relative;
@@ -743,7 +756,7 @@
   flex: 0 0 auto;
   width: 100%;
   max-width: 260px;
-  background: linear-gradient(180deg, #94c7ff 6%, #fcfeff 55%, #f7f9fc 100%);
+   background: linear-gradient(180deg, #ffffff 0%, #f5fbff 40%, #edf5ff 100%);
   border-radius: 20px;
   padding: 22px 20px 20px;
   text-align: center;
@@ -794,7 +807,8 @@
 .milestone-card:focus-within {
   transform: translateY(-12px);
   box-shadow: 0 30px 55px rgba(12, 24, 58, 0.18);
-  background: linear-gradient(180deg, #ffffff 0%, #f5fbff 40%, #edf5ff 100%);
+ 
+    background: linear-gradient(180deg, #94c7ff 6%, #fcfeff 55%, #f7f9fc 100%);
 }
 
 .milestone-node {
@@ -809,12 +823,12 @@
   width: 68px;
   height: 68px;
   border-radius: 999px;
-  background: #fff;
+  background:  #2B6BB3;
+  color: #fff;
   border: 4px solid rgba(22, 12, 104, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2b6bb3;
   font-size: 24px;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.02), 0 10px 22px rgba(7, 9, 18, 0.08);
   transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
@@ -847,9 +861,9 @@
 
 .milestone-card:hover .milestone-circle,
 .milestone-card:focus-within .milestone-circle {
-  background:  #2B6BB3;
-  color: #fff;
   border-color: rgba(11, 22, 38, 0.05);
+  color: #2b6bb3;
+  background: #fff;
 }
 
 @media (max-width: 991px) {
