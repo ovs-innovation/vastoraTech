@@ -55,8 +55,8 @@ const OffcanvasArea = ({ openCanvas, setOpenCanvas }: any) => {
 									<Link href="/contact" className="tp-btn w-100">Getting Started</Link>
 								</div>
 								<div className="offcanvas__contact mb-40">
-									<p className="offcanvas__contact-call"><a href="tel:+964-742-44-763">+918595658592</a></p>
-									<p className="offcanvas__contact-mail"><a href="mailto:info@harry.com">info@ovsinnovation.in</a></p>
+									<p className="offcanvas__contact-call"><a href="tel:+964-742-44-763">+91 8595658592</a></p>
+									<p className="offcanvas__contact-mail"><a href="mailto:vastoratech@gmail.com">vastoratech@gmail.com</a></p>
 								</div>
 								<div className="offcanvas__social">
 									<a href="https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
