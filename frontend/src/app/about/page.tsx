@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import ScrollToTop from "@/components/common/scroll-to-top";
 
 export const metadata = {
-    title: "About - Digital Marketing & SEO Agency Next js Template", 
+    title: "Vastora Tech - Software Development & Digital Marketing Agency",
 };
 const index = () => {
     return (

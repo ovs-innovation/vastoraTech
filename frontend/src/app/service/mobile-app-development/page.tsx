@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import MobileAppDevelopment from "@/components/services/mobile-app-development";
 
 export const metadata = {
-    title: "Mobile App Development-Service", 
+    title: "Vastora Tech - Mobile App Development-Service", 
 };
 const index = () => {
     return (

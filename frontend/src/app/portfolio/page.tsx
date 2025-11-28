@@ -3,7 +3,7 @@ import PortfolioTwo from "@/components/inner-pages/portfolio-2";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-    title: "Portfolio Two - Digital Marketing & SEO Agency Next js Template", 
+    title: "Vastora Tech - Software Development & Digital Marketing Agency",
 };
 const index = () => {
     return (
