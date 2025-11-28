@@ -17,10 +17,11 @@ import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
 
 // image import 
 import banner_service from "@/assets/img/services/social-media/services-social-media-bg-6.webp";
+import HeaderFive from "@/layout/headers/HeaderFive";
 const SeoAudit = () => {
     return (
         <>
-             <HeaderSix style={false} />
+             <HeaderFive />
              <main>
                 <BreadcrumbThree sub_title="SEO Services for Your Business"  title={<>Boost visibility, traffic, and sales with smart SEO.</>}
                 img={banner_service} style={true} shape_1_2={shape_1_2}

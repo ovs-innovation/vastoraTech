@@ -1,6 +1,7 @@
-import HeaderSix from "@/layout/headers/HeaderSix";
+
 import FooterFive from "@/layout/footers/FooterFive";
 import DemoDetailsArea from "./DemoDetailsArea";
+import HeaderFive from "@/layout/headers/HeaderFive";
 
 type DemoDetailsProps = {
   slug: string;
@@ -10,7 +11,7 @@ type DemoDetailsProps = {
 const DemoDetails = ({ slug, isAdmin = false }: DemoDetailsProps) => {
     return (
         <>
-            <HeaderSix />
+            <HeaderFive />
             <main>
                 <DemoDetailsArea slug={slug} isAdmin={isAdmin} />
             </main>

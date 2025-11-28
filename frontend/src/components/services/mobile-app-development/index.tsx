@@ -16,10 +16,11 @@ import shape_1_2 from "@/assets/img/shape/androide_shape.png";
 
 
 import banner_service from "@/assets/img/services/app-dev-banner-bg.png";
+import HeaderFive from "@/layout/headers/HeaderFive";
 const MobileAppDevelopment = () => {
     return (
         <>
-            <HeaderSix style={false} />
+            <HeaderFive />
             <main>
                 <BreadcrumbThree sub_title="Mobile App Development Services" title={<>We Craft Mobile Apps That Users Love — And Businesses Rely On</>}
                     img={banner_service} style={true} shape_1_2={shape_1_2}

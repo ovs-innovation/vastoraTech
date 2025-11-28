@@ -16,11 +16,12 @@ import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
 
 // image import 
 import banner_service from "@/assets/img/services/analysis/services-analysis-bg-1.png";
+import HeaderFive from "@/layout/headers/HeaderFive";
 
 const UxUiDesignServices = () => {
     return (
         <>
-             <HeaderSix style={false} />
+             <HeaderFive />
              <main>
                 <BreadcrumbThree sub_title="UX/UI Design Services"  title={<>UX/UI Design Services <br /> for your business</>}
                 img={banner_service} style={true} shape_1_2={shape_1_2}
