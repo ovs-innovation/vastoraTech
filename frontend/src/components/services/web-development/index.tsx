@@ -16,11 +16,12 @@ import shape_1_2 from "@/assets/img/shape/web_shap_1-2.png";
 
 
 import banner_service from "@/assets/img/services/web-dev-bg-img.jpeg";
+import HeaderFive from "@/layout/headers/HeaderFive";
 
 const WebDevelopment = () => {
     return (
         <>
-             <HeaderSix style={false} />
+             <HeaderFive />
              <main>
                 <BreadcrumbThree sub_title="Web Development Services"  title={<>We Develop high<br />performance web for your business</>}
                 img={banner_service} style={true} shape_1_2={shape_1_2}

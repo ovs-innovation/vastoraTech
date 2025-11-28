@@ -17,11 +17,12 @@ import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
 
 // image import 
 import banner_service from "@/assets/img/services/digital-marketing-images.webp";
+import HeaderFive from "@/layout/headers/HeaderFive";
 
 const DigitalMarketingServices = () => {
     return (
         <>
-             <HeaderSix style={false} />
+             <HeaderFive />
              <main>
                 <BreadcrumbThree sub_title="Digital Marketing Services"  title={<>Digital Marketing Services <br /> for your business</>}
                 img={banner_service} style={true} shape_1_2={shape_1_2}

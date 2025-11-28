@@ -17,11 +17,12 @@ import shape_1_2 from "@/assets/img/shape/banner-megaphone.png";
 
 // image import 
 import banner_service from "@/assets/img/services/social-media/services-social-media-bg-5.webp";
+import HeaderFive from "@/layout/headers/HeaderFive";
 
 const SocialMediaMarketingServices = () => {
     return (
         <>
-             <HeaderSix style={false} />
+             <HeaderFive />
              <main>
                 <BreadcrumbThree sub_title="Social Media Marketing Services"  title={<>Build Your Brand, Engage Your Audience, and Drive Real Results</>}
                 img={banner_service} style={true} shape_1_2={shape_1_2}
