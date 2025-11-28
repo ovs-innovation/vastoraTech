@@ -59,11 +59,24 @@ const OffcanvasArea = ({ openCanvas, setOpenCanvas }: any) => {
 									<p className="offcanvas__contact-mail"><a href="mailto:info@harry.com">info@ovsinnovation.in</a></p>
 								</div>
 								<div className="offcanvas__social">
-									<a href="#"><i className="fab fa-facebook-f"></i></a>
-									<a href="#"><i className="fab fa-twitter"></i></a>
-									<a href="#"><i className="fab fa-youtube"></i></a>
-									<a href="#"><i className="fab fa-linkedin"></i></a>
-									<a href="#"><i className="fab fa-instagram"></i></a>
+									<a href="https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+										<i className="fab fa-linkedin-in"></i>
+									</a>
+									<a href="https://www.instagram.com/vastoratech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+										<i className="fab fa-instagram"></i>
+									</a>
+									<a href="https://www.youtube.com/@VastoraTech" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+										<i className="fab fa-youtube"></i>
+									</a>
+									<a href="https://in.pinterest.com/vastorat/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+										<i className="fab fa-pinterest-p"></i>
+									</a>
+									<a href="https://www.facebook.com/profile.php?id=61578752105209" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+										<i className="fab fa-facebook-f"></i>
+									</a>
+									<a href="https://x.com/Vastora_tech" target="_blank" rel="noopener noreferrer" aria-label="X">
+										<i className="fab fa-twitter"></i>
+									</a>
 								</div>
 							</div>
 						</div>
