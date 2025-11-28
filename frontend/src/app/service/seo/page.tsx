@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import SeoServices from "@/components/services/seo-services";
 
 export const metadata = {
-    title: "SEO Services", 
+    title: "Vastora Tech - SEO Services", 
 };
 const index = () => {
     return (

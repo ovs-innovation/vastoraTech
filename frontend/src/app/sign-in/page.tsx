@@ -3,7 +3,7 @@ import SignIn from "@/components/inner-pages/sign-in";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-    title: "Sign in - Digital Marketing & SEO Agency Next js Template", 
+    title: "Vastora Tech - Software Development & Digital Marketing Agency",
 };
 const index = () => {
     return (

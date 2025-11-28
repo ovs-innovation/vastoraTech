@@ -17,13 +17,13 @@ type contact_conent_type = {
 const contact_conent: contact_conent_type & { address: string; address_link: string; whatsapp: string; whatsapp_link: string } = {
     title: "Get in Touch",
     sm_info: <>If you need help with your account or have questions about <br /> credit sesame, please visit our Help center.!</>,
-    email: "info@ovsinnovation.in",
-    phone: "+91 9667092077",
+    email: "vastoratech@gmail.com",
+    phone: "+91 8595658592",
     btn_text: "Contact Us",
     address: "2nd Floor, JS Acade, 203, above PNB Bank, Hoshiyarpur, Sector 51, Noida, Uttar Pradesh 201301",
     address_link: "https://maps.app.goo.gl/WmdQFpw8LhnPeirb6",
-    whatsapp: "+91 9667092077",
-    whatsapp_link: "https://wa.me/919667092077",
+    whatsapp: "+91 85956 58592",
+    whatsapp_link: "https://wa.me/918595658592",
 }
 const { title, sm_info, email, phone, btn_text, address, address_link, whatsapp, whatsapp_link } = contact_conent;
 

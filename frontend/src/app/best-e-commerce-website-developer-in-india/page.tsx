@@ -1661,7 +1661,7 @@ export default function Home() {
                     style={{ borderRadius: "50px" }}
                   >
                     <i className="bi bi-telephone me-2"></i>
-                    Call +91 9667092077
+                    Call +918595658592
                   </button>
                 </div>
 

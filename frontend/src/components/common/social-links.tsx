@@ -10,24 +10,34 @@ interface social_links_type {
 
 const social_links: social_links_type[] = [
   {
-    link: "http://facebook.com",
+    link: "https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
     target: "_blank",
-    icon: "fab fa-facebook-f", 
+    icon: "fab fa-linkedin-in",
   },
   {
-    link: "http://twitter.com",
+    link: "https://www.instagram.com/vastoratech/",
+    target: "_blank",
+    icon: "fab fa-instagram",
+  },
+  {
+    link: "https://www.youtube.com/@VastoraTech",
+    target: "_blank",
+    icon: "fab fa-youtube",
+  },
+  {
+    link: "https://in.pinterest.com/vastorat/",
+    target: "_blank",
+    icon: "fab fa-pinterest-p",
+  },
+  {
+    link: "https://www.facebook.com/profile.php?id=61578752105209",
+    target: "_blank",
+    icon: "fab fa-facebook-f",
+  },
+  {
+    link: "https://x.com/Vastora_tech",
     target: "_blank",
     icon: "fab fa-twitter",
-  },
-  {
-    link: "https://www.linkedin.com",
-    target: "_blank",
-    icon: "fab fa-linkedin-in", 
-  }, 
-  {
-    link: "https://www.vimeo.com",
-    target: "_blank",
-    icon: "fab fa-vimeo-v", 
   },
 ];
 
@@ -60,24 +70,34 @@ interface social_links_type_2 {
 
 const social_links_2: social_links_type_2[] = [
   {
-    link: "http://facebook.com",
-    color: "footer-facebook",
-    icon: "fa-brands fa-facebook-f", 
+    link: "https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
+    color: "footer-linkedin",
+    icon: "fa-brands fa-linkedin-in",
   },
   {
-    link: "http://twitter.com",
+    link: "https://www.instagram.com/vastoratech/",
+    color: "footer-insta",
+    icon: "fa-brands fa-instagram",
+  },
+  {
+    link: "https://www.youtube.com/@VastoraTech",
+    color: "",
+    icon: "fa-brands fa-youtube",
+  },
+  {
+    link: "https://in.pinterest.com/vastorat/",
+    color: "",
+    icon: "fa-brands fa-pinterest-p",
+  },
+  {
+    link: "https://www.facebook.com/profile.php?id=61578752105209",
+    color: "footer-facebook",
+    icon: "fa-brands fa-facebook-f",
+  },
+  {
+    link: "https://x.com/Vastora_tech",
     color: "",
     icon: "fa-brands fa-twitter",
-  },
-  {
-    link: "https://www.linkedin.com",
-    color: "footer-linkedin",
-    icon: "fa-brands fa-linkedin-in", 
-  }, 
-  {
-    link: "https://www.instagram.com",
-    color: "footer-insta",
-    icon: "fa-brands fa-instagram", 
   },
 ];
 
@@ -109,17 +129,17 @@ interface team_social_links_type {
 const team_social_data: team_social_links_type[] = [
   {
     id: 1, 
-    link:"http://facebook.com",
+    link:"https://www.facebook.com/profile.php?id=61578752105209",
     icon: "fa-brands fa-facebook-f",
   },
   {
     id: 2, 
-    link:"http://twitter.com",
+    link:"https://x.com/Vastora_tech",
     icon: "fa-brands fa-twitter",
   },
   {
     id: 3, 
-    link:"http://linkedin.com",
+    link:"https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
     icon: "fa-brands fa-linkedin-in",
   },
 ]

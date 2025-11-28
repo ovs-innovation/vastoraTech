@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import DigitalMarketingServices from "@/components/services/digital-marketing-services";
 
 export const metadata = {
-    title: "Digital Marketing Services", 
+    title: "Vastora Tech - Digital Marketing Services", 
 };
 const index = () => {
     return (

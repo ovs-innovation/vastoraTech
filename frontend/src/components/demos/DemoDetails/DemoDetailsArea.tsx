@@ -49,15 +49,19 @@ const buttonBase: React.CSSProperties = {
 
 const modalInputStyle: React.CSSProperties = {
   border: "1px solid #d7dce5",
-  borderRadius: 12,
-  padding: "10px 14px",
+  borderRadius: 18,
+  padding: "13px 18px",
+  minHeight: 54,
   background: "#f9fafb",
-  fontSize: 14,
+  fontSize: 15,
+  lineHeight: 1.2,
   transition: "border 0.2s ease, box-shadow 0.2s ease",
 };
 
 const modalTextAreaStyle: React.CSSProperties = {
   ...modalInputStyle,
+  minHeight: 130,
+  padding: "13px 18px",
   resize: "none",
 };
 
@@ -313,13 +317,16 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
         >
           <div
             style={{
-              maxWidth: 560,
+              maxWidth: 720,
               width: "100%",
               background: "#ffffff",
               borderRadius: 20,
               border: "1px solid #e2e8f0",
               boxShadow: "0 22px 60px rgba(15,23,42,0.30)",
               padding: "26px 24px 24px 24px",
+              maxHeight: "94vh",
+              overflowY: "auto",
+              overscrollBehavior: "contain",
             }}
           >
             <div className="d-flex justify-content-between align-items-start mb-2">
@@ -337,7 +344,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                   background: "black",
                   color: "white",
                   cursor: "pointer",
-                  padding:"4px 8px",
+                  padding:"6px 14px",
                   borderRadius: 6,
                 }}
               >
@@ -438,7 +445,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                   <textarea
                     required
                     className="form-control"
-                    rows={4}
+                    rows={3}
                     style={modalTextAreaStyle}
                     value={wlForm.message}
                     onChange={(e) => setWlForm({ ...wlForm, message: e.target.value })}

@@ -1,7 +1,7 @@
 "use client";
 
-const whatsappNumber = "9555521611";
-const phoneNumber = "+919555521611";
+const whatsappNumber = "+918595658592";
+const phoneNumber = "+918595658592";
 const presetMessage =
   "Hi Vastora Tech team! I just visited your website and would love to discuss a project.";
 

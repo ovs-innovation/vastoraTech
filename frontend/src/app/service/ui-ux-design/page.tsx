@@ -3,7 +3,7 @@ import Wrapper from "@/layout/Wrapper";
 import UxUiDesignServices from "@/components/services/ux-ui-design-services/index";
 
 export const metadata = {
-    title: "UI/UX Design Services", 
+    title: "Vastora Tech - UI/UX Design Services", 
 };
 const index = () => {
     return (

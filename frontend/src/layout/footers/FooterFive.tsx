@@ -33,7 +33,7 @@ interface footer_five_content_type {
 // footer five content 
 const footer_five_content: footer_five_content_type = {
 	sm_des: "Improve efficiency, provide a better Customer experience with modern Technology services available.",
-	phone_number: "+91 9667092077",
+	phone_number: "+91 8595658592",
 	btn_text: "Enquire Now",
 	work_title: "Information",
 	work_times: [
@@ -113,12 +113,15 @@ const FooterFive = ({ style, style_audit, style_2 }: any) => {
 											<p className="footer-widget-text mb-20">{sm_des}</p>
 											<div className="footer-widget-btn">
 												<div className="phone-call">
-													<a href="tel:0123456789">
+													<a href="tel:+918595658592">
 														<i><Image src={PhoneIcon} alt="theme-pure" /></i><span>{phone_number}</span>
 													</a>
 												</div>
 												<div className="submit-call">
-													<button className="light-blue-btn">{btn_text}</button>
+													<a href="tel:+918595658592">
+														<button className="light-blue-btn">{btn_text}</button> 
+													</a>
+													
 												</div>
 											</div>
 										</div>

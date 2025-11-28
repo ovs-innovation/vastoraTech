@@ -60,7 +60,7 @@ const GoogleMapArea = () => {
                                         >
                                             <div className="location-content">
                                             <h4 className="location-title mb-1">{item.country}</h4>
-                                            <p style={{margin:0}}>{item.address}</p>
+                                            <p style={{margin:0}} className="col-12  col-md-8">{item.address}</p>
                                         </div>
                                         </a>
                                     </div>
