@@ -30,8 +30,8 @@ const contact_content: contact_content_type ={
     sub_title: "Get in touch",
     title: <>Lets work <br />Together</>,
     sm_des: "Just tell us your requirements and we will help you!",
-    phone: "+91 9667092077",
-    email: "info@ovsinnovation.in",
+    phone: "+91 8595658592",
+    email: "vastoratech@gmail.com",
     cotact_shape: [
         // {id: 1, img: contact_shape_1, cls: ""},
         {id: 2, img: contact_shape_2, cls: ""},

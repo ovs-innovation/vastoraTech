@@ -68,7 +68,7 @@ const ThankYouPage = () => {
                   <a href="tel:+919667092077" 
                      className="fw-semibold text-decoration-none"
                      style={{ color: '#2B6BB3' }}>
-                    +91 9667092077
+                    +918595658592
                   </a>
                 </p>
               </div>

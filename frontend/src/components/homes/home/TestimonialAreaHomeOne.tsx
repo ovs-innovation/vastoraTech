@@ -199,7 +199,7 @@ const TestimonialAreaHomeOne = () => {
               gap: "30px",
               marginTop: "40px",
               position: "relative",
-              zIndex: 10
+              zIndex: 2
             }}>
               {/* Previous Button */}
               <button
@@ -222,11 +222,13 @@ const TestimonialAreaHomeOne = () => {
                   e.currentTarget.style.background = "#1a3a5c";
                   e.currentTarget.style.transform = "scale(1.1)";
                   e.currentTarget.style.boxShadow = "0 6px 20px rgba(26, 58, 92, 0.3)";
+                  e.currentTarget.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "#ffffff";
                   e.currentTarget.style.transform = "scale(1)";
                   e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.color = "#1a3a5c";
                 }}
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -273,11 +275,13 @@ const TestimonialAreaHomeOne = () => {
                   e.currentTarget.style.background = "#1a3a5c";
                   e.currentTarget.style.transform = "scale(1.1)";
                   e.currentTarget.style.boxShadow = "0 6px 20px rgba(26, 58, 92, 0.3)";
+                  e.currentTarget.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "#ffffff";
                   e.currentTarget.style.transform = "scale(1)";
                   e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.color = "#1a3a5c";
                 }}
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
