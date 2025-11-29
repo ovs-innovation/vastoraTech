@@ -44,7 +44,7 @@ const OffcanvasArea = ({ openCanvas, setOpenCanvas }: any) => {
 								<div className="offcanvas__top mb-50 d-flex justify-content-between align-items-center">
 									<div className="offcanvas__logo logo">
 										<Link href="/">
-											<img src="assets/img/logo/logo2.png" width={80} height={80} alt="logo" />
+											<img src="/assets/img/logo/logo2.png" width={80} height={80} alt="logo" />
 										</Link>
 									</div>
 								</div>
