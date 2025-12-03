@@ -119,7 +119,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
       <div className="row mb-3">
         <div className="col-12">
           <p className="text-uppercase text-muted fw-semibold mb-1" style={{letterSpacing: 1}}>
-            {demo.category ? `${demo.category} white label Solution` : "Demo Template"}
+            {demo.category ? `${demo.category} E-commerce Solution` : "Demo Template"}
           </p>
           <h1 className="display-6 mb-0" style={{fontWeight: 700}}>{demo.title}</h1>
         </div>
@@ -232,7 +232,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 border: "none",
               }}
             >
-              Request White Label Solution
+              Request Your E-commerce Solution
             </button>
                 <h4 className="mb-3">Quick Info</h4>
                 <ul style={{padding:0, margin:0, listStyle:"none"}}>
@@ -331,7 +331,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
           >
             <div className="d-flex justify-content-between align-items-start mb-2">
               <div>
-                <h3 style={{ fontSize: 22, marginBottom: 4 ,}}>White Label Enquiry – {demo.title}</h3>
+                <h3 style={{ fontSize: 22, marginBottom: 4 ,}}>E-commerce Solution Enquiry – {demo.title}</h3>
                 <p className="mb-0" style={{ fontSize: 13, color: "#6b7280" }}>
                   Share your requirements and we’ll reach out with a tailored proposal.
                 </p>
@@ -460,7 +460,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
               )}
               {wlSuccess && (
                 <p className="mt-3 mb-0" style={{ color: "#16a34a", fontSize: 13 }}>
-                  Thank you. Your white label enquiry has been submitted.
+                  Thank you. Your e-commerce solution enquiry has been submitted.
                 </p>
               )}
 

@@ -56,9 +56,9 @@ const service_content: service_content_type = {
             id: 3, 
             shape: service_shape_5,
             icon: <WebIcon />,
-            title: "White Label Solutions",
+            title: "E-commerce Solutions",
             sm_des: "Our white-label solutions help you save time, reduce costs, and grow your business instantly.",
-            link: "/product/demos",
+            link: "/product/e-commerce-solutions",
         },
         // {
         //     id: 4, 

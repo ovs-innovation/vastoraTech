@@ -176,11 +176,11 @@ const DemosListingArea = () => {
                 style={{ borderRadius: 8, cursor: "pointer" }}
                 role="button"
                 tabIndex={0}
-                onClick={() => router.push(`/product/demos/${demo.slug}`)}
+                onClick={() => router.push(`/product/e-commerce-solutions/${demo.slug}`)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    router.push(`/product/demos/${demo.slug}`);
+                    router.push(`/product/e-commerce-solutions/${demo.slug}`);
                   }
                 }}
               >
@@ -209,7 +209,7 @@ const DemosListingArea = () => {
                   </p>
                   <div className="d-flex gap-2 mt-2">
                     <Link
-                      href={`/product/demos/${demo.slug}`}
+                      href={`/product/e-commerce-solutions/${demo.slug}`}
                       style={buttonBlue}
                       className="text-decoration-none"
                       onClick={(e) => e.stopPropagation()}

@@ -4,9 +4,9 @@ import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
    title: "Vastora Tech - Software Development & Digital Marketing Agency",
-//    alternates: {
-//        canonical: "https://vastoratech.com/services/white-label-solutions",
-//    },
+   alternates: {
+       canonical: "https://vastoratech.com/product/e-commerce-solutions",
+   },
 };
 
 const index = () => {

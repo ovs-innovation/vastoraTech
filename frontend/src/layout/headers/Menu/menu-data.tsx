@@ -66,7 +66,7 @@ const menu_data: menu_data_type[] = [
 
       // { link: "/service/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
       { link: "/service/seo",         title: "SEO Services",        demo_img: service_demo_5,  },
-      { link: "/product/demos", title: "White Label Solutions", demo_img: service_demo_7,  },
+      { link: "/product/e-commerce-solutions", title: "E-commerce Solutions", demo_img: service_demo_7,  },
       // { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
    
     ],
@@ -77,8 +77,8 @@ const menu_data: menu_data_type[] = [
   },
   {
     id: 4,
-    title: "White Label",    
-    link: "/product/demos",
+    title: "E-commerce Solutions",    
+    link: "/product/e-commerce-solutions",
     has_dropdown: false, 
   },
   {
