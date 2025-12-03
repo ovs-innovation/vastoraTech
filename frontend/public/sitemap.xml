@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://vastoratech.com/</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://vastoratech.com/about-us</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vastoratech.com/services</loc>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Service Pages -->
+  <url>
+    <loc>https://vastoratech.com/services/web-development</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vastoratech.com/services/mobile-app-development</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- <url>
+    <loc>https://vastoratech.com/services/white-label-solutions</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url> -->
+  <url>
+    <loc>https://vastoratech.com/services/social-media-marketing</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vastoratech.com/services/seo-services</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Portfolio -->
+  <url>
+    <loc>https://vastoratech.com/projects</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://vastoratech.com/blog</loc>
+    <priority>0.70</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://vastoratech.com/contact</loc>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Team -->
+  <url>
+    <loc>https://vastoratech.com/team</loc>
+    <priority>0.60</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://vastoratech.com/privacy-policy</loc>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://vastoratech.com/terms-and-conditions</loc>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+</urlset>
+

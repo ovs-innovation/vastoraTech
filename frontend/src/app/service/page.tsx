@@ -3,7 +3,10 @@ import Wrapper from '@/layout/Wrapper';
 import Service from '@/components/inner-pages/service';
 
 export const metadata = {
-    title: "Vastora Tech - Software Development & Digital Marketing Agency", 
+    title: "Vastora Tech - Software Development & Digital Marketing Agency",
+    alternates: {
+        canonical: "https://vastoratech.com/service/web-development",
+    },
 };
 const index = () => {
     return (

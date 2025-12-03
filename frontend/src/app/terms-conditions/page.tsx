@@ -2,7 +2,12 @@ import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
 import styles from "./terms.module.css";
 
-export const metadata = { title: "Terms & Conditions | Vastora Tech" };
+export const metadata = {
+  title: "Terms & Conditions | Vastora Tech",
+  alternates: {
+    canonical: "https://vastoratech.com/terms-and-conditions",
+  },
+};
 
 const lastUpdated = "November 18, 2025";
 

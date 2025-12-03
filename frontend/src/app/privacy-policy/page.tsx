@@ -2,7 +2,12 @@ import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
 import styles from "./privacy.module.css";
 
-export const metadata = { title: "Privacy Policy | Vastora Tech" };
+export const metadata = {
+    title: "Privacy Policy | Vastora Tech",
+    alternates: {
+        canonical: "https://vastoratech.com/privacy-policy",
+    },
+};
 
 const lastUpdated = "November 18, 2025";
 

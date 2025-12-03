@@ -4,6 +4,9 @@ import ScrollToTop from "@/components/common/scroll-to-top";
 
 export const metadata = {
     title: "Vastora Tech - Software Development & Digital Marketing Agency",
+    alternates: {
+        canonical: "https://vastoratech.com/about-us",
+    },
 };
 const index = () => {
     return (

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /admin/
+Disallow: /test/
+
+Sitemap: https://vastoratech.com/sitemap.xml
+
