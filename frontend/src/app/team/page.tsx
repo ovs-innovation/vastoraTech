@@ -3,7 +3,8 @@ import Team from "@/components/inner-pages/team";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
- title: "Vastora Tech - Software Development & Digital Marketing Agency",
+ title: "Our Team – Experts Behind Vastora Tech's Digital Solutions",
+ description: "Meet the professional team at Vastora Tech building websites, E-Commerce solutions and digital marketing strategies for business success.",
  alternates: {
      canonical: "https://vastoratech.com/team",
  },

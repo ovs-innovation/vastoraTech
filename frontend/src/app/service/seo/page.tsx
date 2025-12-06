@@ -3,7 +3,8 @@ import Wrapper from "@/layout/Wrapper";
 import SeoServices from "@/components/services/seo-services";
 
 export const metadata = {
-    title: "Vastora Tech - SEO Services",
+    title: "SEO Services – Improve Rankings & Get Organic Traffic | Vastora Tech",
+    description: "Boost your website's visibility with on-page SEO, technical improvements and keyword strategy from Vastora Tech to gain consistent organic growth.",
     alternates: {
         canonical: "https://vastoratech.com/services/seo-services",
     },

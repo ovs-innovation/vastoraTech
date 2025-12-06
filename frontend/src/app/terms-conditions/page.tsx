@@ -3,7 +3,8 @@ import FooterFive from "@/layout/footers/FooterFive";
 import styles from "./terms.module.css";
 
 export const metadata = {
-  title: "Terms & Conditions | Vastora Tech",
+  title: "Terms & Conditions – Vastora Tech",
+  description: "Read the terms and conditions for using Vastora Tech's website and digital services.",
   alternates: {
     canonical: "https://vastoratech.com/terms-and-conditions",
   },

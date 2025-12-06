@@ -3,7 +3,8 @@ import FooterFive from "@/layout/footers/FooterFive";
 import styles from "./privacy.module.css";
 
 export const metadata = {
-    title: "Privacy Policy | Vastora Tech",
+    title: "Privacy Policy – Vastora Tech",
+    description: "Learn how Vastora Tech collects, stores and protects user information across our website and services.",
     alternates: {
         canonical: "https://vastoratech.com/privacy-policy",
     },

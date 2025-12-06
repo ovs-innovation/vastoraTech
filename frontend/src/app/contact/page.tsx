@@ -3,7 +3,8 @@ import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-    title: "Vastora Tech - Software Development & Digital Marketing Agency",
+    title: "Contact Vastora Tech – Book a Call for Website or E-Commerce Solutions",
+    description: "Contact Vastora Tech for website development, E-Commerce solutions, SEO, social media or digital marketing services. Let's grow your business together.",
     alternates: {
         canonical: "https://vastoratech.com/contact",
     },
