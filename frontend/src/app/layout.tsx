@@ -1,4 +1,5 @@
 import "../styles/index.scss";
+import Script from "next/script";
 import WhatsappButton from "@/components/common/WhatsappButton";
 import TawkMessenger from "@/components/common/TawkMessenger";
 
@@ -27,6 +28,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FLNPVZCVKR"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-FLNPVZCVKR');
+            `,
+          }}
+        />
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
