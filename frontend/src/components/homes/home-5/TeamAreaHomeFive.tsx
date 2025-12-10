@@ -40,7 +40,7 @@ const TeamAreaHomeFive = ({style} : any) => {
                         </div>
                     </div>
                     <div className="row pb-30">
-                        <div className="col-12" style={{ position: "relative" }}>
+                        <div className="col-12 team-swiper-wrapper">
                             <Swiper
                                 spaceBetween={30}
                                 slidesPerView={4}
@@ -109,67 +109,6 @@ const TeamAreaHomeFive = ({style} : any) => {
                     }
                 </div>
             </section>
-            <style dangerouslySetInnerHTML={{__html: `
-                .team-swiper-button-prev,
-                .team-swiper-button-next {
-                    position: absolute;
-                    bottom: 10%;
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    background: #ffffff;
-                    border: 2px solid #1a3a5c;
-                    color: #1a3a5c;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                }
-                .team-swiper-button-prev {
-                    left: -25px;
-                }
-                .team-swiper-button-next {
-                    right: -25px;
-                }
-                .team-swiper-button-prev:hover,
-                .team-swiper-button-next:hover {
-                    background: #1a3a5c;
-                    color: #ffffff;
-                    
-                    box-shadow: 0 6px 20px rgba(26, 58, 92, 0.3);
-                }
-                
-                .team-swiper-button-prev.swiper-button-disabled,
-                .team-swiper-button-next.swiper-button-disabled {
-                    opacity: 0.35;
-                    cursor: auto;
-                    pointer-events: none;
-                }
-                @media (max-width: 1200px) {
-                    .team-swiper-button-prev {
-                        left: -15px;
-                    }
-                    .team-swiper-button-next {
-                        right: -15px;
-                    }
-                }
-                @media (max-width: 768px) {
-                    .team-swiper-button-prev,
-                    .team-swiper-button-next {
-                        width: 40px;
-                        height: 40px;
-                    }
-                    .team-swiper-button-prev {
-                        left: -10px;
-                    }
-                    .team-swiper-button-next {
-                        right: -10px;
-                    }
-                }
-            `}} />
         </>
     );
 };

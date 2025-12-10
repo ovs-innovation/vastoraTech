@@ -11,41 +11,6 @@ export type DemoDetailsAreaProps = {
   isAdmin?: boolean; // pass from parent/page if admin
 };
 
-const sidebarCard: React.CSSProperties = {
-  background: "#fff",
-  borderRadius: 16,
-  border: "1px solid #e5e7eb",
-  boxShadow: "0 12px 30px rgba(19,33,68,0.08)",
-  padding: "24px 24px 32px 24px",
-};
-
-const heroImageBox: React.CSSProperties = {
-  width: "100%",
-  minHeight: 440,
-  aspectRatio: "16/9",
-  background: "#f8f9fb",
-  position: "relative",
-};
-
-const specRow: React.CSSProperties = {
-  borderBottom: "1px solid #edf0f5",
-  padding: "14px 0",
-  display: "flex",
-  justifyContent: "space-between",
-  gap: 12,
-};
-
-const buttonBase: React.CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: 8,
-  borderRadius: 999,
-  padding: "12px 18px",
-  fontWeight: 600,
-  fontFamily: "var(--tp-ff-jakarta)",
-  fontSize: 14,
-  textDecoration: "none",
-};
 
 const modalInputStyle: React.CSSProperties = {
   border: "1px solid #d7dce5",
@@ -118,18 +83,18 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
       {/* Title */}
       <div className="row mb-3">
         <div className="col-12">
-          <p className="text-uppercase text-muted fw-semibold mb-1" style={{letterSpacing: 1}}>
+          <p className="text-uppercase text-muted fw-semibold mb-1 demo-letter-spacing">
             {demo.category ? `${demo.category} E-commerce Solution` : "Demo Template"}
           </p>
-          <h1 className="display-6 mb-0" style={{fontWeight: 700}}>{demo.title}</h1>
+          <h1 className="display-6 mb-0 demo-title-bold">{demo.title}</h1>
         </div>
       </div>
 
       {/* Hero section */}
       <div className="row g-4 align-items-start justify-content-center">
         <div className="col-12 col-xl-8">
-          <div style={{borderRadius: 18, border: "1px solid #e5e7eb", overflow: "hidden", background: "#fff", boxShadow: "0 18px 40px rgba(18,60,105,0.12)"}}>
-            <div className="position-relative" style={{...heroImageBox, minHeight: "min(70vw, 440px)"}}>
+          <div className="demo-hero-container">
+            <div className="position-relative demo-hero-image-box demo-hero-image-wrapper">
               <Image
                 src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
                 alt={demo.title}
@@ -137,22 +102,18 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 fill
                 priority={true}
                 sizes="(max-width: 1400px) 100vw, 900px"
-                style={{ objectFit: "fill" as const }}
+                className="demo-hero-image"
               />
               {(demo.demoUrl || demo.adminDemoUrl) && (
-                <div
-                  className="d-flex flex-row flex-sm-row gap-2 w-100 justify-content-center flex-wrap"
-                  style={{position:"absolute", left:0, right:0, bottom:0, padding:"14px 10px", background:"linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 90%)"}}
-                >
+                <div className="d-flex flex-row flex-sm-row gap-2 w-100 justify-content-center flex-wrap demo-hero-gradient">
                   {demo.demoUrl && (
                     <a
                       href={demo.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-auto"
-                      style={{...buttonBase, background:"#1473e6", color:"#fff", padding:"8px 14px", fontSize:13}}
+                      className="w-auto demo-button-base demo-button-blue-hero"
                     >
-                      <span style={{display:"inline-flex", width:14, height:14}}>
+                      <span className="demo-button-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M3 5h18M3 12h18M3 19h18" strokeLinecap="round"/><circle cx="7" cy="12" r="2.2"/></svg>
                       </span>
                       Live Preview
@@ -163,10 +124,9 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                       href={demo.adminDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-auto"
-                      style={{...buttonBase, background:"#ffffff", color:"#0f172a", padding:"8px 14px", fontSize:13}}
+                      className="w-auto demo-button-base demo-button-white"
                     >
-                      <span style={{display:"inline-flex", width:14, height:14}}>
+                      <span className="demo-button-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M4 7h16v10H4z"/><path d="M2 17h20v2H2z"/><path d="M9 12h6" strokeLinecap="round"/></svg>
                       </span>
                       Admin Preview
@@ -213,7 +173,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
         </div>
         <div className="col-12 col-xl-4">
           
-          <aside style={sidebarCard}>
+          <aside className="demo-sidebar-card">
             {hasQuickInfo && (
               <div className="mb-4">
                 <button
@@ -223,41 +183,33 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 setWlError(null);
                 setWlSuccess(false);
               }}
-              className="w-100  mb-4"
-              style={{
-                ...buttonBase,
-                justifyContent: "center",
-                width: "100%",
-                background: "#111827",
-                color: "#ffffff",
-                border: "none",
-              }}
+              className="w-100 mb-4 demo-button-base demo-button-dark"
             >
               Request Your E-commerce Solution
             </button>
                 <h4 className="mb-3">Quick Info</h4>
-                <ul style={{padding:0, margin:0, listStyle:"none"}}>
+                <ul className="demo-quick-info-list">
                   {demo.category && (
-                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
-                      <span style={{fontWeight:600}}>Category</span>
+                    <li className="demo-spec-item-row">
+                      <span className="demo-spec-label">Category</span>
                       <span>{demo.category}</span>
                     </li>
                   )}
                   {demo.status && (
-                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
-                      <span style={{fontWeight:600}}>Status</span>
+                    <li className="demo-spec-item-row">
+                      <span className="demo-spec-label">Status</span>
                       <span>{demo.status}</span>
                     </li>
                   )}
                   {demo.createdAt && (
-                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:8, color:"#4b5563"}}>
-                      <span style={{fontWeight:600}}>Created</span>
+                    <li className="demo-spec-item-row">
+                      <span className="demo-spec-label">Created</span>
                       <span>{formatDate(demo.createdAt)}</span>
                     </li>
                   )}
                   {demo.updatedAt && (
-                    <li style={{display:"flex", justifyContent:"space-between", marginBottom:0, color:"#4b5563"}}>
-                      <span style={{fontWeight:600}}>Last Update</span>
+                    <li className="demo-spec-item-row" style={{marginBottom: 0}}>
+                      <span className="demo-spec-label">Last Update</span>
                       <span>{formatDate(demo.updatedAt)}</span>
                     </li>
                   )}
@@ -273,12 +225,12 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 </div>
                 <div className="d-flex flex-wrap gap-3 align-items-center">
                   {demo.technologies.map((techImg: string, i: number) => (
-                    <div key={i} className="d-flex align-items-center justify-content-center px-3 py-2 bg-light rounded" style={{border: '1px solid #e9ecef', minWidth: 78, minHeight: 78}}>
+                    <div key={i} className="d-flex align-items-center justify-content-center px-3 py-2 bg-light rounded demo-tech-badge">
                       <img
                         src={techImg}
                         alt={`Technology ${i + 1}`}
                         title={`Technology ${i + 1}`}
-                        style={{width: 'auto', height: 48, maxWidth: 70, objectFit: 'contain'}}
+                        className="demo-tech-img"
                         onError={(e: any) => {
                           e.target.style.display = "none";
                         }}
@@ -294,8 +246,8 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                 <h5 className="mb-3">Specification</h5>
                 <div>
                   {Object.entries(demo.specifications).map(([key, value], i) => (
-                    <div key={i} style={{...specRow, borderBottom: i === Object.keys(demo.specifications).length - 1 ? "none" : specRow.borderBottom}}>
-                      <span style={{fontWeight: 600, color: '#111928', minWidth: 120}}>{key}</span>
+                    <div key={i} className={`demo-spec-row ${i === Object.keys(demo.specifications).length - 1 ? 'demo-spec-row-last' : ''}`}>
+                      <span className="demo-spec-label">{key}</span>
                       <span style={{color: '#4b5563', textAlign: 'right'}}>{String(value)}</span>
                     </div>
                   ))}

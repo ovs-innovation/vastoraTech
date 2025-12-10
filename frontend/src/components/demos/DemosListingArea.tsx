@@ -16,50 +16,6 @@ const DemosListingArea = () => {
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
 
-  const imgWrapStyle: React.CSSProperties = {
-    position: "relative",
-    width: "100%",
-    height: 220,
-    overflow: "hidden",
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    backgroundColor: "#f6f6f6",
-  };
-
-  const titleClampStyle: React.CSSProperties = {
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-    maxWidth: "100%",
-  };
-
-  const descClampStyle: React.CSSProperties = {
-    display: "-webkit-box",
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: "vertical" as any,
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    minHeight: "2.9em",
-  };
-
-  const buttonBlue: React.CSSProperties = {
-    background: "#2B6BB3",
-    color: "#fff",
-    borderRadius: 4,
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 6,
-    fontFamily: "var(--tp-ff-jakarta)",
-    fontWeight: 600,
-    fontSize: 15,
-    lineHeight: 1,
-    padding: "12px 20px",
-    border: "none",
-    width: "100%",
-    textAlign: "center",
-    boxShadow: "0 8px 16px rgba(43, 107, 179, 0.2)",
-  };
 
   const iconProps = {
     width: 16,
@@ -164,7 +120,7 @@ const DemosListingArea = () => {
             </select>
           </div>
           <div className="col-4 col-md-2 d-grid">
-            <button type="submit" style={buttonBlue}>
+            <button type="submit" className="demo-button-blue">
               Filter
             </button>
           </div>
@@ -173,8 +129,7 @@ const DemosListingArea = () => {
           {demos.map((demo: any) => (
             <div className="col-md-6 col-lg-4" key={demo.slug}>
               <div
-                className="card h-100 border-0 shadow-sm"
-                style={{ borderRadius: 8, cursor: "pointer" }}
+                className="card h-100 border-0 shadow-sm demo-card"
                 role="button"
                 tabIndex={0}
                 onClick={() => router.push(`/product/e-commerce-solutions/${demo.slug}`)}
@@ -185,35 +140,34 @@ const DemosListingArea = () => {
                   }
                 }}
               >
-                <div style={imgWrapStyle}>
+                <div className="demo-img-wrap">
                   <Image
                     src={demo.images?.[0] || demo.image || "/no-image.png"}
                     alt={demo.title}
                     title={demo.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: "fill" as const }}
+                    className="demo-hero-image"
                     priority={false}
                   />
                 </div>
                 <div className="card-body d-flex flex-column">
                   <div className="d-flex justify-content-between align-items-start mb-2">
-                    <h3 className="h5 mb-0" style={titleClampStyle}>{demo.title}</h3>
+                    <h3 className="h5 mb-0 demo-title-clamp">{demo.title}</h3>
                     {demo.category ? (
                       <span className="badge bg-light text-dark border">{demo.category}</span>
                     ) : null}
                   </div>
                   {demo.subtitle ? (
-                    <div className="text-muted small mb-2" style={titleClampStyle}>{demo.subtitle}</div>
+                    <div className="text-muted small mb-2 demo-title-clamp">{demo.subtitle}</div>
                   ) : null}
-                  <p className="text-muted small flex-grow-1 mb-2" style={descClampStyle}>
+                  <p className="text-muted small flex-grow-1 mb-2 demo-desc-clamp">
                     {demo.description}
                   </p>
                   <div className="d-flex gap-2 mt-2">
                     <Link
                       href={`/product/e-commerce-solutions/${demo.slug}`}
-                      style={buttonBlue}
-                      className="text-decoration-none"
+                      className="text-decoration-none demo-button-blue"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <InfoIcon />
@@ -224,8 +178,7 @@ const DemosListingArea = () => {
                         href={demo.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={buttonBlue}
-                        className="text-decoration-none"
+                        className="text-decoration-none demo-button-blue"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalIcon />
