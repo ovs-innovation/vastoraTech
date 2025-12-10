@@ -1,6 +1,13 @@
-import HomeFive from "@/components/homes/home-5";
+import dynamicImport from "next/dynamic";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
+
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
+const HomeFive = dynamicImport(() => import("@/components/homes/home-5"), {
+  ssr: false,
+});
 
 export const metadata = {
   title: "Vastora Tech – Web Development & E-Commerce Solutions",

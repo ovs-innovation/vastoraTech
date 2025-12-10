@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import MobileMenus from "@/layout/headers/Menu/mobile-menus";
 import { useEffect, useState } from "react";
 
@@ -44,7 +45,7 @@ const OffcanvasArea = ({ openCanvas, setOpenCanvas }: any) => {
 								<div className="offcanvas__top mb-50 d-flex justify-content-between align-items-center">
 									<div className="offcanvas__logo logo">
 										<Link href="/">
-											<img src="/assets/img/logo/logo2.png" width={80} height={80} alt="logo" />
+											<Image src="/assets/img/logo/logo2.png" width={80} height={80} alt="logo" priority />
 										</Link>
 									</div>
 								</div>
@@ -59,7 +60,7 @@ const OffcanvasArea = ({ openCanvas, setOpenCanvas }: any) => {
 									<p className="offcanvas__contact-mail"><a href="mailto:vastoratech@gmail.com">vastoratech@gmail.com</a></p>
 								</div>
 								<div className="offcanvas__social">
-									<a href="https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+									<a href="https://www.linkedin.com/in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 										<i className="fab fa-linkedin-in"></i>
 									</a>
 									<a href="https://www.instagram.com/vastoratech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

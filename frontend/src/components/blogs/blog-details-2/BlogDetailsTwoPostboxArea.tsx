@@ -175,7 +175,7 @@ const BlogDetailsTwoPostboxArea = () => {
 									<p>Eget lorem dolor sed viverra ipsum nunc aliqueted bibendum felis donec et odio pellentesque
 										diames volutpat commodo.</p>
 									<div className="postbox-author-social">
-										<a href="https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
+										<a href="https://www.linkedin.com/in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
 										<a href="https://www.instagram.com/vastoratech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
 										<a href="https://www.youtube.com/@VastoraTech" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fa-brands fa-youtube"></i></a>
 										<a href="https://in.pinterest.com/vastorat/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i className="fa-brands fa-pinterest-p"></i></a>

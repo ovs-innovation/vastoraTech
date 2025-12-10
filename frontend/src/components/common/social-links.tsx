@@ -10,7 +10,7 @@ interface social_links_type {
 
 const social_links: social_links_type[] = [
   {
-    link: "https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
+    link: "https://www.linkedin.com/in",
     target: "_blank",
     icon: "fab fa-linkedin-in",
   },
@@ -70,7 +70,7 @@ interface social_links_type_2 {
 
 const social_links_2: social_links_type_2[] = [
   {
-    link: "https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
+    link: "https://www.linkedin.com/in",
     color: "footer-linkedin",
     icon: "fa-brands fa-linkedin-in",
   },
@@ -139,7 +139,7 @@ const team_social_data: team_social_links_type[] = [
   },
   {
     id: 3, 
-    link:"https://www.linkedin.com/in/vastora-tech-pvt-ltd-97bab2392",
+    link:"https://www.linkedin.com/in",
     icon: "fa-brands fa-linkedin-in",
   },
 ]
