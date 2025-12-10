@@ -71,7 +71,7 @@ const TeamAreaHomeFive = ({style} : any) => {
                                     <SwiperSlide key={i}>
                                         <div className={`team-5-item ${item.cls} text-center mb-40`}>
                                             <div className="team-5-thumb mb-25">
-                                                <Image src={item.avatar} alt="theme-pure" />
+                                                <Image src={item.avatar} alt={item.name} title={item.name} />
                                                 <div className="team-5-social">
                                                     <span className="icon"></span>
                                                     <TeamSocialLinks />

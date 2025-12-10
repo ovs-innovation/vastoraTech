@@ -175,7 +175,7 @@ const PortfolioAreaHomeFour = () => {
 		<>
 			<section className="portfolio-area portfolio-4-bg pb-140 mb-115 fix p-relative">
 				<div className="portfolio-4-main-bg-shape">
-					<Image src={portfolio_shape} alt="theme-pure" />
+					<Image src={portfolio_shape} alt="Portfolio Background Shape" title="Portfolio Background Shape" />
 				</div>
 				<div className="container">
 					<div className="row">
@@ -231,7 +231,7 @@ const PortfolioAreaHomeFour = () => {
 													<div key={index} className="portfolio-4-item-single">
 														<div className="portfolio-4-item p-relative">
 															<div className="portfolio-4-thumb">
-																<Image src={p_item.img} alt="theme-pure" />
+																<Image src={p_item.img} alt={p_item.title} title={p_item.title} />
 															</div>
 															<div className="portfolio-4-content">
 																<div className="portfolio-4-content-top">

@@ -46,7 +46,7 @@ const AboutAreaHomeFive = () => {
 							<div className="about-5">
 								<div className="section-wrapper mb-70">
 									<span className="sub-title">{sub_title}</span>
-									<h4 className="title">{title}</h4>
+									<h2 className="title">{title}</h2>
 									<p>{sm_des}</p>
 								</div>
 								<div className="about-5-content">
@@ -56,7 +56,7 @@ const AboutAreaHomeFive = () => {
 												<div className={item.cls}>
 													<div className="about-5-item-title mb-20">
 														<span>
-															<Image src={item.img} alt="theme-pure" />
+															<Image src={item.img} alt="About Section Icon" title="About Section Icon" />
 														</span>
 													</div>
 													<div className="about-5-item-text">
@@ -71,17 +71,17 @@ const AboutAreaHomeFive = () => {
 						</div>
 						<div className="col-lg-5">
 							<div className="about-5-thumb p-relative">
-								<Image className="tpchoose-border-anim" src={about_bg_img} alt="theme-pure" />
+								<Image className="tpchoose-border-anim" src={about_bg_img} alt="About Vastora Tech" title="About Vastora Tech" />
 								{/* <a
 									onClick={() => setIsVideoOpen(true)}
 									style={{ cursor: "pointer" }}
 									className="popup-video">
 									<div className="about-5-shape">
 										<div className="about-5-shape-one">
-											<Image src={video_shape_1} alt="theme-pure" />
+											<Image src={video_shape_1} alt="Video Play Button" title="Video Play Button" />
 										</div>
 										<div className="about-5-shape-two">
-											<Image src={video_shape_2} alt="theme-pure" />
+											<Image src={video_shape_2} alt="Video Play Button Background" title="Video Play Button Background" />
 										</div>
 										<div className="about-5-video-icon">
 											<i className="fa-solid fa-play"></i>

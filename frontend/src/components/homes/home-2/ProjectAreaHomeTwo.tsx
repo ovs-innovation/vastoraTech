@@ -171,12 +171,12 @@ const ProjectAreaHomeTwo = ({style}: any ) => {
     const renderPanelBody = (item: PortfolioItem, isMobile = false) => (
       <>
         <div className="tp-panel-thumb">
-          <Image src={isMobile ? item.mobileImg : item.img} alt={item.title} />
+          <Image src={isMobile ? item.mobileImg : item.img} alt={item.title} title={item.title} />
         </div>
         <div className="tp-panel-content">
           <div className="tp-panel-icon mb-15">
             <span>
-              <Image src={panel_icon} alt="theme-pure" />
+              <Image src={panel_icon} alt="theme-pure" title="Project Icon" />
             </span>
           </div>
           <div className="tp-panel-text">

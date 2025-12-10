@@ -55,12 +55,12 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 						<div className="col-lg-7">
 							<div className="seo-5-thumb p-relative mb-40">
 								<div className="seo-5-main-bg">
-									<Image src={project_shape} alt="theme-pure" width={380}   />
+									<Image src={project_shape} alt="Marketing and Branding Feature" title="Marketing and Branding Feature" width={380}   />
 								</div>
 								<div className="seo-5-shape d-none d-md-block">
 									{shapes_data.map((item, i) =>
 										<div key={i} className={`seo-5-shape-${item.cls}`} data-parallax={`{"x": -${item.parallax}, "smoothness": 20}`}>
-											<Image src={item.img} alt="theme-pure" />
+											<Image src={item.img} alt="Decorative Shape" title="Decorative Shape" />
 										</div>
 									)}
 								</div>

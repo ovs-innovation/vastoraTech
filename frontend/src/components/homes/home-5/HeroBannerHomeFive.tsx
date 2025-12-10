@@ -157,7 +157,7 @@ const HeroBannerHomeFive = () => {
           <div className="banner-5-content-shape">
             <div className="banner-5-content-shape-one">
               <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                <Image src={ArrowPlane} alt="theme-pure" />
+                <Image src={ArrowPlane} alt="Arrow Plane Decoration" title="Arrow Plane Decoration" />
               </MouseParallaxChild>
             </div>
             
@@ -172,13 +172,13 @@ const HeroBannerHomeFive = () => {
           <div className="container custom-container">
             <div className="banner-5-shape">
               <div className="banner-5-shape-one">
-                <Image src={LeftBG} alt="theme-pure" />
+                <Image src={LeftBG} alt="Banner Background Shape" title="Banner Background Shape" />
               </div>
             </div>
             <div className="row">
               <div className="col-xl-7 col-lg-6 order-2 order-lg-1">
                 <div className="banner-5-content p-relative pt-80">
-                  <h4 className="banner-5-title">{title}</h4>
+                  <h1 className="banner-5-title">{title}</h1>
                   <p>{sm_info}</p>
                   <div className="banner-5-btn d-flex gap-3">
                     <Link
@@ -196,7 +196,8 @@ const HeroBannerHomeFive = () => {
                   {currentSlide === 0 && (
                     <Image
                       src={banner_img1}
-                      alt="theme-pure"
+                      alt="Vastora Tech E-commerce Solution"
+                      title="Vastora Tech E-commerce Solution"
                       height={700}
                       width={700}
                       style={{ display: "block", margin: "0 auto" }}
@@ -205,7 +206,8 @@ const HeroBannerHomeFive = () => {
                   {currentSlide === 1 && (
                     <Image
                       src={banner_img2}
-                      alt="theme-pure"
+                      alt="Vastora Tech Digital Store"
+                      title="Vastora Tech Digital Store"
                       height={700}
                       width={700}
                       style={{ display: "block", margin: "0 auto" }}
@@ -218,7 +220,7 @@ const HeroBannerHomeFive = () => {
                         className={`banner-5-thumb-shape-${item.cls}`}
                       >
                         <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                          <Image src={item.img} alt="theme-pure" />
+                          <Image src={item.img} alt="Banner Decorative Shape" title="Banner Decorative Shape" />
                         </MouseParallaxChild>
                       </div>
                     ))}

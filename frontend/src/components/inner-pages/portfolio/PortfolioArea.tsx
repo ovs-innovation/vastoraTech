@@ -65,7 +65,7 @@ const PortfolioArea = () => {
 								<Link href="/portfolio-details" className="portfolio-card-link" aria-label={`View project ${item.title}`}>
 									<div className="portfolio-inner-item mb-60">
 										<div className="portfolio-inner-thumb">
-											<Image src={item.img} alt="theme-pure" />
+											<Image src={item.img} alt={item.title} title={item.title} />
 										</div>
 										<div className="portfolio-inner-content">
 											<span>{item.category}</span>

@@ -101,7 +101,7 @@ const PortfolioDetailsArea = () => {
                                     )} 
                                 </ul>
                                 <div className="portfolio-details-thumb">
-                                    <Image src={portfolio_details_1} alt="theme-pure" />
+                                    <Image src={portfolio_details_1} alt="Portfolio Project Details" title="Portfolio Project Details" />
                                 </div>
                                 <div className="portfolio-details-content pt-65 pl-100 pr-100">
                                     <div className="portfolio-details-challenge mb-50">
@@ -181,7 +181,7 @@ const PortfolioDetailsArea = () => {
                             <div key={index} className="col-lg-4 col-md-6">
                                 <div className="portfolio-inner-item-2 mb-40">
                                     <div className="portfolio-inner-thumb-2">
-                                        <Image src={portfolio_item.img} alt="theme-pure" />
+                                        <Image src={portfolio_item.img} alt={portfolio_item.title} title={portfolio_item.title} />
                                     </div>
                                     <div className="portfolio-inner-content-2">
                                         <div className="portfolio-inner-title-2"><Link href="/portfolio-details">{portfolio_item.title}</Link></div>

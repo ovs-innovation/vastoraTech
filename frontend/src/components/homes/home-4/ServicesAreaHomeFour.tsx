@@ -107,7 +107,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                     <div className="col-lg-12"> 
                         <div className={`${style ? "optimize-subtitle mb-50" : "section-wrapper mb-60"} text-center`}>
                             <span>{style ? sub_title_2 : sub_title }</span>
-                            <h5 className={`section-title-4 ${style ? "fs-54" : ""}`}>{ style ? "" : title}</h5>
+                            <h2 className={`section-title-4 ${style ? "fs-54" : ""}`}>{ style ? "" : title}</h2>
                         </div>
                     </div>
                     </div>
@@ -116,7 +116,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                             <div key={i} className="col-lg-4 col-md-6">
                                 <div className="services-item-4 text-center mb-55">
                                     <div className="services-icon-4 mb-30">
-                                        <Image src={item.shape} alt="theme-pure" />
+                                        <Image src={item.shape} alt={item.title} title={item.title} />
                                         <i> {item.icon} </i>
                                     </div>
                                     <div className="services-content-4">
@@ -138,7 +138,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                             <div className="col-xl-6 col-lg-8 col-md-10">
                                 <div className="services-bottom text-center">
                                     <div className="servics-details-4 d-flex align-items-center justify-content-center">
-                                        <Image src={header_rocket} alt="theme-pure" />
+                                        <Image src={header_rocket} alt="Rocket Icon" title="Rocket Icon" />
                                         <p>{sm_info}</p>
                                     </div>
                                 </div>

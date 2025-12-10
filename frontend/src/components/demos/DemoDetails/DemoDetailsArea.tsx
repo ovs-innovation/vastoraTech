@@ -133,6 +133,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
               <Image
                 src={Array.isArray(demo.images) && demo.images.length > 0 ? demo.images[0] : demo.image || "/no-image.png"}
                 alt={demo.title}
+                title={demo.title}
                 fill
                 priority={true}
                 sizes="(max-width: 1400px) 100vw, 900px"
@@ -276,6 +277,7 @@ const DemoDetailsArea = ({ slug, isAdmin }: DemoDetailsAreaProps) => {
                       <img
                         src={techImg}
                         alt={`Technology ${i + 1}`}
+                        title={`Technology ${i + 1}`}
                         style={{width: 'auto', height: 48, maxWidth: 70, objectFit: 'contain'}}
                         onError={(e: any) => {
                           e.target.style.display = "none";

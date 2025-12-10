@@ -139,7 +139,8 @@ const AboutBrandArea = () => {
                                     >
                                         <Image
                                             src={item.img}
-                                            alt="vastora tech clients"
+                                            alt="Vastora Tech Client"
+                                            title="Vastora Tech Client"
                                             width={180}
                                         />
                                     </div>

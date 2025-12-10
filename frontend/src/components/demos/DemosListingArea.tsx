@@ -137,6 +137,7 @@ const DemosListingArea = () => {
             Explore our pre-built, high-converting website demos. Click any card to view details.
           </p>
         </div>
+        
 
         <form onSubmit={handleSubmit} className="row g-2 align-items-center mb-3">
           <div className="col-12 col-md-6">
@@ -188,6 +189,7 @@ const DemosListingArea = () => {
                   <Image
                     src={demo.images?.[0] || demo.image || "/no-image.png"}
                     alt={demo.title}
+                    title={demo.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     style={{ objectFit: "fill" as const }}

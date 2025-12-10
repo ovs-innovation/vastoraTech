@@ -73,7 +73,7 @@ const PortfolioAreaTwo = () => {
 								>
 									<div className="portfolio-inner-item-2 mb-40">
 										<div className="portfolio-inner-thumb-2">
-											<Image src={item.img} alt="theme-pure"  />
+											<Image src={item.img} alt={item.title} title={item.title} />
 										</div>
 										<div className="portfolio-inner-content-2">
 											<div className="portfolio-inner-title-2">{item.title}</div>
