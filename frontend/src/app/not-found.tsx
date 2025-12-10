@@ -1,10 +1,11 @@
+export const dynamic = "force-dynamic";
 
 import React from 'react';
 import Error from '@/components/error';
 import Wrapper from '@/layout/Wrapper';
 import ScrollLineIcon from '@/svg/scroll_line_icon';
 
-const index = () => {
+const NotFound = () => {
     return (
         <Wrapper>
             <Error />
@@ -13,4 +14,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default NotFound;
