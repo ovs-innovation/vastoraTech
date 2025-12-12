@@ -1414,6 +1414,23 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 12px;
 }
 
+/* Blog editor: keep toolbar sticky while scrolling drawer */
+.blog-editor-wrapper {
+  position: relative;
+}
+
+.blog-editor-toolbar {
+  position: sticky;
+  top: -20px;
+  z-index: 40;
+  background: #ffffff;
+  border-radius: 6px 6px 0 0;
+}
+
+.theme-dark .blog-editor-toolbar {
+  background: #1f2937;
+}
+
 /* Responsive table on small screens */
 @media (max-width: 767px) {
   .table-responsive {

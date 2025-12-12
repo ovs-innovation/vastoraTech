@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import {
-  Button,
   Input,
   Textarea,
   Select,
-  Label,
   Badge,
 } from "@windmill/react-ui";
 import { useTranslation } from "react-i18next";
 import { FiX, FiTrash2 } from "react-icons/fi";
-import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw, ContentState, Modifier, SelectionState } from "draft-js";
-import { stateFromHTML } from "draft-js-import-html";
+import { EditorState, convertToRaw, ContentState, } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import htmlToDraft from "html-to-draftjs";
 
-// Custom Image Component for rendering images in editor
 const ImageComponent = (props) => {
   const { block, contentState, blockProps } = props;
   try {
@@ -73,46 +68,7 @@ const ImageComponent = (props) => {
   }
 };
 
-const renderImage = (entityData) => {
-  if (!entityData || !entityData.src) {
-    return null;
-  }
-  
-  const { src, alt = "", width = "auto", height = "auto" } = entityData;
-  
-  return (
-    <div style={{ textAlign: "center", margin: "15px 0" }}>
-      <img
-        src={src}
-        alt={alt}
-        style={{
-          maxWidth: "100%",
-          height: height,
-          width: width,
-          display: "block",
-          margin: "0 auto",
-        }}
-      />
-    </div>
-  );
-};
 
-const blockRendererFn = (contentBlock) => {
-  const type = contentBlock.getType();
-  
-  // Render atomic blocks (images)
-  if (type === "atomic") {
-    return {
-      component: ImageComponent,
-      editable: false,
-      props: {
-        block: contentBlock,
-      },
-    };
-  }
-  
-  return null;
-};
 
 //internal import
 import Title from "@/components/form/others/Title";
@@ -307,8 +263,9 @@ const BlogDrawer = ({ id }) => {
                 <Editor
                   editorState={editorState}
                   onEditorStateChange={handleEditorChange}
-                  wrapperClassName="demo-wrapper"
-                  editorClassName="demo-editor"
+                  wrapperClassName="demo-wrapper blog-editor-wrapper"
+                  editorClassName="demo-editor blog-editor"
+                  toolbarClassName="blog-editor-toolbar"
                   blockRendererFn={blockRendererFn}
                   toolbar={{
                     options: ["inline", "blockType", "fontSize", "list", "textAlign", "colorPicker", "link", "image", "history"],
