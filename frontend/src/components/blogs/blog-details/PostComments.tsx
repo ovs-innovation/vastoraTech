@@ -45,7 +45,7 @@ const PostComments: React.FC<Props> = ({ blogId }) => {
           <div className="postbox-comment-box p-relative">
             <div className="postbox-comment-info d-flex align-items-center mb-10">
               <div className="postbox-comment-avater">
-                <Image src="/assets/img/blog/comments/default-avatar.png" alt="User" width={40} height={40} />
+                <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(comm.name || 'User')}&background=random`} alt={comm.name || 'User'} width={40} height={40} />
               </div>
               <div className="postbox-comment-name d-flex align-items-center">
                 <h5>{comm.name}</h5>

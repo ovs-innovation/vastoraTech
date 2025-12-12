@@ -61,7 +61,7 @@ const BreadcrumbTen = ({ blog }: BreadcrumbTenProps) => {
                 <div className="blog-details-meta">
                   <span className="blog-details-meta-author">
                     <a href="#">
-                      <img src="/assets/img/blog/comments/blog-details-avatar-1.png" alt="theme-pure" />
+                      <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(post_writer || 'Author')}&background=random`} alt={post_writer || 'Author'} width={40} height={40} />
                       {post_writer}
                     </a>
                   </span>

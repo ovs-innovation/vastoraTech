@@ -9,7 +9,6 @@ import SocialLinks from '@/components/common/social-links';
 import CommentForm from '@/components/forms/CommentForm';
 import BlogSidebar from '@/components/inner-pages/blog-sidebar';
 
-const fallbackImg = '/default-thumb.jpg'; // adjust as needed
 
 const BlogDetailsPostboxArea = ({ blog }: { blog: any }) => {
   if (!blog) return null;
@@ -28,7 +27,10 @@ const BlogDetailsPostboxArea = ({ blog }: { blog: any }) => {
               {/* Author & Comments sections can also be replaced with API data if available */}
               <div className="postbox-author d-flex mb-95">
                 <div className="postbox-author-thumb">
-                  <img src="/assets/img/blog/comments/postbox-author-1.png" alt="theme-pure" />
+                  <img
+                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(blog.author || 'Author')}&background=random`}
+                    alt={blog.author || 'Author'}
+                  />
                 </div>
                 <div className="postbox-author-content">
                   <span>About Author</span>
