@@ -25,19 +25,19 @@ const breadcrumb_content: breadcrumb_content_type = {
         <>
             <p>
                 Vastora Tech is your digital partner for modern{" "}
-                <Link href="/services/web-development">Website Development</Link> and scalable{" "}
-                <Link href="/services/ecommerce-solutions">E-Commerce Solutions</Link>. We combine
+                <Link href="/service/web-development">Website Development</Link> and scalable{" "}
+                <Link href="/product/e-commerce-solutions">E-Commerce Solutions</Link>. We combine
                 strategy, design, and technology to build high-performing websites and online stores
                 tailored to your business goals.
             </p>
             <p>
                 Our team also helps you get discovered online with result-driven{" "}
-                <Link href="/services/seo-services">SEO Services</Link> and engaging social media
+                <Link href="/service/seo">SEO Services</Link> and engaging social media
                 marketing, so your brand can reach and convert the right audience.
             </p>
             <p>
                 Explore some of the work we’ve done on our{" "}
-                <Link href="/projects">Projects Page</Link>, or let’s discuss how we can support
+                <Link href="/portfolio">Projects Page</Link>, or let’s discuss how we can support
                 your next idea.
             </p>
             <div className="about-inner-cta">
