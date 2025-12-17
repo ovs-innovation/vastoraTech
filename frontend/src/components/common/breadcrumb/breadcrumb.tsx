@@ -17,11 +17,36 @@ type breadcrumb_content_type = {
 
 }
 const breadcrumb_content: breadcrumb_content_type = {
-    top_title: "About Us",
-    title: "About Us",
-    sub_title: "Who We are",
-    inner_title: "Empowering Brand Growth Together",
-    inner_info: <>We are a team of experienced professionals who are dedicated to helping businesses grow and succeed.</>,
+    top_title: "About Vastora Tech",
+    title: "About Vastora Tech",
+    sub_title: "Who We Are",
+    inner_title: "About Vastora Tech – Your Partner for Websites & E-Commerce Solutions",
+    inner_info: (
+        <>
+            <p>
+                Vastora Tech is your digital partner for modern{" "}
+                <Link href="/services/web-development">Website Development</Link> and scalable{" "}
+                <Link href="/services/ecommerce-solutions">E-Commerce Solutions</Link>. We combine
+                strategy, design, and technology to build high-performing websites and online stores
+                tailored to your business goals.
+            </p>
+            <p>
+                Our team also helps you get discovered online with result-driven{" "}
+                <Link href="/services/seo-services">SEO Services</Link> and engaging social media
+                marketing, so your brand can reach and convert the right audience.
+            </p>
+            <p>
+                Explore some of the work we’ve done on our{" "}
+                <Link href="/projects">Projects Page</Link>, or let’s discuss how we can support
+                your next idea.
+            </p>
+            <div className="about-inner-cta">
+                <Link href="/contact" className="tp-btn">
+                    Contact Us
+                </Link>
+            </div>
+        </>
+    ),
 }
 const {top_title, title, sub_title, inner_title, inner_info}  = breadcrumb_content
 
@@ -74,9 +99,10 @@ const Breadcrumb = () => {
                             </div>
                             <div className="col-lg-6">
                                 <div className="about-inner-content">
-                                    <span>{sub_title}</span>
-                                    <h4 className="about-inner-title">{inner_title}</h4>
-                                    <p>{inner_info}</p>
+                                    <span className="sub-title">{sub_title}</span>
+                                    <div className="about-inner-text">
+                                        {inner_info}
+                                    </div>
                                 </div>
                             </div>
                         </div>
