@@ -16,7 +16,7 @@ const HeaderSix = ({ style }: any) => {
 			<header>
 
 				<div id="header-sticky" className={`tptransparent__header ${sticky && "header-sticky"} ${style ? "tp-white-menu" : ""} header-spaces`}>
-					<div className="container">
+					<div className="container-fluid">
 						<div className="tp-mega-menu-wrapper">
 							<div className="row align-items-center">
 								<div className="col-xl-2 col-lg-6 col-sm-4 col-6">
