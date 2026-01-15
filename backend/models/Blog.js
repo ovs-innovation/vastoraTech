@@ -88,6 +88,18 @@ const blogSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    faqs: [
+      {
+        question: {
+          type: String,
+          required: false,
+        },
+        answer: {
+          type: String,
+          required: false,
+        },
+      },
+    ],
     publishedAt: {
       type: Date,
       required: false,

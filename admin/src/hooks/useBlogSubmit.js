@@ -10,6 +10,7 @@ const useBlogSubmit = (id) => {
   const [imageUrl, setImageUrl] = useState("");
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([]);
+  const [faqs, setFaqs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentBlog, setCurrentBlog] = useState(null);
   const { closeDrawer, setIsUpdate } = useContext(SidebarContext);
@@ -47,6 +48,7 @@ const useBlogSubmit = (id) => {
         author: data.author,
         authorAvatar: data.authorAvatar || "",
         tags: tags || [],
+        faqs: faqs || [],
         status: data.status || "draft",
         featured: data.featured === true || data.featured === "true",
       };
@@ -76,6 +78,7 @@ const useBlogSubmit = (id) => {
           setImageUrl("");
           setImages([]);
           setTags([]);
+          setFaqs([]);
         } else {
           notifyError(res.message || "Failed to create blog");
         }
@@ -125,6 +128,7 @@ const useBlogSubmit = (id) => {
             setImageUrl(blog.image || "");
             setImages(blog.images || []);
             setTags(blog.tags || []);
+            setFaqs(blog.faqs || []);
           }
         } catch (err) {
           notifyError("Failed to load blog data");
@@ -147,6 +151,7 @@ const useBlogSubmit = (id) => {
       setImageUrl("");
       setImages([]);
       setTags([]);
+      setFaqs([]);
     }
   }, [id, setValue]);
 
@@ -192,6 +197,8 @@ const useBlogSubmit = (id) => {
     setImages,
     tags,
     setTags,
+    faqs,
+    setFaqs,
     categories,
     currentBlog,
     handleSlugChange,

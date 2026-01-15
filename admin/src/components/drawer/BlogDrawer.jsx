@@ -4,6 +4,7 @@ import {
   Textarea,
   Select,
   Badge,
+  Button,
 } from "@windmill/react-ui";
 import { useTranslation } from "react-i18next";
 import { FiX, FiTrash2 } from "react-icons/fi";
@@ -101,6 +102,8 @@ const BlogDrawer = ({ id }) => {
     setImageUrl,
     tags,
     setTags,
+    faqs,
+    setFaqs,
     categories,
     currentBlog,
     handleSlugChange,
@@ -351,6 +354,79 @@ const BlogDrawer = ({ id }) => {
                   This blog contains a video
                 </span>
               </label>
+            </div>
+
+            <div className="col-span-6 md:col-span-12">
+              <div className="flex items-center justify-between mb-1">
+                <LabelArea label="FAQs (Optional)" />
+                <Button
+                  type="button"
+                  onClick={() => setFaqs([...(faqs || []), { question: "", answer: "" }])}
+                  className="h-8 px-3 text-xs dark:bg-gray-700 dark:text-gray-200"
+                >
+                  + Add FAQ
+                </Button>
+              </div>
+              <p className="text-xs text-gray-500 mb-2 dark:text-gray-400">
+                Add frequently asked questions related to this blog. These will appear on the blog details page.
+              </p>
+              <div className="space-y-4">
+                {faqs && faqs.length > 0 ? (
+                  faqs.map((faq, index) => (
+                    <div
+                      key={index}
+                      className="border border-gray-200 rounded p-3 dark:border-gray-700 dark:bg-gray-900"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-semibold dark:text-gray-200">
+                          FAQ #{index + 1}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = faqs.filter((_, i) => i !== index);
+                            setFaqs(next);
+                          }}
+                          className="text-xs text-red-500 hover:text-red-600 flex items-center gap-1"
+                        >
+                          <FiTrash2 className="w-3 h-3" />
+                          Remove
+                        </button>
+                      </div>
+                      <Input
+                        type="text"
+                        placeholder="Question"
+                        className="mb-2"
+                        value={faq?.question || ""}
+                        onChange={(e) => {
+                          const next = [...faqs];
+                          next[index] = {
+                            ...next[index],
+                            question: e.target.value,
+                          };
+                          setFaqs(next);
+                        }}
+                      />
+                      <Textarea
+                        rows="2"
+                        placeholder="Answer"
+                        className="mb-0"
+                        value={faq?.answer || ""}
+                        onChange={(e) => {
+                          const next = [...faqs];
+                          next[index] = {
+                            ...next[index],
+                            answer: e.target.value,
+                          };
+                          setFaqs(next);
+                        }}
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-xs text-gray-400">No FAQs added yet.</p>
+                )}
+              </div>
             </div>
 
             <div className="col-span-6 md:col-span-12">

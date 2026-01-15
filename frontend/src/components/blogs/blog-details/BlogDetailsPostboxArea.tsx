@@ -1,9 +1,6 @@
+'use client';
 
-import React from 'react'; 
-import Link from 'next/link';
-import PrevDetailsIcon from '@/svg/blogs_icon/PrevDetailsIcon';
-import NextDetailsIcon from '@/svg/blogs_icon/NextDetailsIcon';
-import Image from 'next/image';
+import React, { useState } from 'react'; 
 import PostComments from './PostComments'; 
 import SocialLinks from '@/components/common/social-links';
 import CommentForm from '@/components/forms/CommentForm';
@@ -12,6 +9,7 @@ import BlogSidebar from '@/components/inner-pages/blog-sidebar';
 
 const BlogDetailsPostboxArea = ({ blog }: { blog: any }) => {
   if (!blog) return null;
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
   return (
     <section className="postbox-area mt-90 pb-120">
       <div className="container">
@@ -24,6 +22,72 @@ const BlogDetailsPostboxArea = ({ blog }: { blog: any }) => {
                   <div dangerouslySetInnerHTML={{ __html: blog.content || blog.description || '' }} />
                 </article>
               </div>
+
+              {/* FAQ Section */}
+              {Array.isArray(blog.faqs) && blog.faqs.length > 0 && (
+                <div className="blog-faq-area mt-60 mb-60">
+                  <h3 className="mb-30">Frequently Asked Questions</h3>
+                  <div className="accordion" id="blogFaqAccordion">
+                    {blog.faqs.map((faq: any, index: number) => {
+                      const itemId = `blog-faq-${index}`;
+                      if (!faq?.question && !faq?.answer) return null;
+                      return (
+                        <div key={itemId} className="accordion-item blog-faq-item">
+                          <h2 className="accordion-header" id={`heading-${itemId}`}>
+                            <button
+                              className={`accordion-button blog-faq-toggle ${activeIndex === index ? "is-open" : "collapsed"}`}
+                              type="button"
+                              onClick={() =>
+                                setActiveIndex(prev => (prev === index ? null : index))
+                              }
+                              aria-expanded={activeIndex === index}
+                              aria-controls={`collapse-${itemId}`}
+                              style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', textAlign: 'left' }}
+                            >
+                              <span className="blog-faq-question-text">
+                                {faq.question || `Question ${index + 1}`}
+                              </span>
+                              <svg
+                                width="12"
+                                height="8"
+                                viewBox="0 0 12 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                style={{
+                                  position: 'absolute',
+                                  right: 20,
+                                  top: '50%',
+                                  transform: `translateY(-50%) rotate(${activeIndex === index ? 180 : 0}deg)`,
+                                  transition: 'transform 0.3s ease',
+                                  flexShrink: 0
+                                }}
+                              >
+                                <path
+                                  d="M1 1L6 6L11 1"
+                                  stroke={activeIndex === index ? "#111827" : "#9CA3AF"}
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </button>
+                          </h2>
+                          <div
+                            id={`collapse-${itemId}`}
+                            className={`accordion-collapse collapse ${activeIndex === index ? "show" : ""}`}
+                            aria-labelledby={`heading-${itemId}`}
+                          >
+                            <div className="accordion-body">
+                              {faq.answer || ""}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               {/* Author & Comments sections can also be replaced with API data if available */}
               <div className="postbox-author d-flex mb-95">
                 <div className="postbox-author-thumb">

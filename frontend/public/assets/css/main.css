@@ -7255,6 +7255,47 @@ blockquote cite::before {
 .blog-details-meta span i {
   margin-right: 5px;
 }
+
+/* Blog FAQ accordion – custom styling */
+.blog-faq-area .accordion-item.blog-faq-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 12px;
+  background-color: #ffffff;
+}
+
+.blog-faq-area .accordion-button.blog-faq-toggle {
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #111827;
+  box-shadow: none;
+}
+
+.blog-faq-area .accordion-button.blog-faq-toggle.collapsed {
+  background-color: #ffffff;
+}
+
+.blog-faq-area .accordion-button.blog-faq-toggle.is-open {
+  background-color: #f3f4ff;
+}
+
+.blog-faq-area .accordion-button.blog-faq-toggle::after {
+  display: none !important; /* hide default arrow */
+}
+
+.blog-faq-area .accordion-body {
+  padding: 16px 20px 20px;
+  font-size: 15px;
+  color: #4b5563;
+  background-color: #ffffff;
+}
+
+.blog-faq-area .blog-faq-question-text {
+  margin-right: 12px;
+}
 .blog-details-meta-author a {
   color: rgba(255, 255, 255, 0.9);
 }
