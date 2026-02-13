@@ -34,7 +34,7 @@ const project_feature_content: project_feature_content_type = {
 	sub_title: "Why Marketing & Branding Matter",
 	title: "Transform your business with strategic marketing",
 	feature_lists: [
-		
+
 		{ id: 2, title: " Marketing That Creates Demand", sm_info: "Effective marketing helps your brand reach the right audience, build interest, and convert potential buyers into real customers." },
 		{ id: 3, title: "Branding That Builds Trus", sm_info: "Branding is not just about visuals — it’s the emotion people feel when they connect with your business." },
 		{ id: 1, title: "Growth Strategies That Drive Results", sm_info: "With the right mix of content, ads, and customer targeting, we help you build a consistent growth system that improves visibility, leads, and sales." },
@@ -55,7 +55,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 						<div className="col-lg-7">
 							<div className="seo-5-thumb p-relative mb-40">
 								<div className="seo-5-main-bg">
-									<Image src={project_shape} alt="Marketing and Branding Feature" title="Marketing and Branding Feature" width={380}   />
+									<Image src={project_shape} alt="Marketing and Branding Feature" title="Marketing and Branding Feature" width={380} />
 								</div>
 								<div className="seo-5-shape d-none d-md-block">
 									{shapes_data.map((item, i) =>
@@ -70,7 +70,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 							<div className="seo-5 mb-40">
 								<div className="section-3 mb-40">
 									<span className="section-3-sub-title">{sub_title}</span>
-									<div className="section-3-title" style={{fontSize:"30px"}}>{title}</div>
+									<div className="section-3-title" style={{ fontSize: "30px" }}>{title}</div>
 								</div>
 								<ul className="seo-5-list mb-50">
 									{feature_lists.map((list, index) =>
@@ -81,7 +81,7 @@ const ProjectFeaturHomefive = ({ style }: style_type) => {
 												</div>
 												<div className="seo-5-list-text">
 													<h4 className="title">{list.title}</h4>
-													<h6 className="   " style={{fontWeight:"20px"}}>{list.sm_info}</h6>
+													<h6 className="   " style={{ fontWeight: "20px" }}>{list.sm_info}</h6>
 												</div>
 											</div>
 										</li>

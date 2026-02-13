@@ -836,9 +836,9 @@
 --------------------------------- */
 .floating-contact-stack {
   position: fixed;
-  left: 40px;
-  right: auto;
-  bottom: 50px;
+  left: auto;
+  right: 40px;
+  bottom: 110px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -858,8 +858,8 @@
 
 .contact-float__label {
   position: absolute;
-  left: 100%;
-  margin-left: 12px;
+  right: 100%;
+  margin-right: 12px;
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(8, 12, 30, 0.92);
@@ -868,7 +868,7 @@
   font-weight: 600;
   text-transform: uppercase;
   opacity: 0;
-  transform: translateX(-8px);
+  transform: translateX(8px);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -913,8 +913,9 @@
 
 @media (max-width: 576px) {
   .floating-contact-stack {
-    left: 20px;
-    bottom: 20px;
+    left: auto;
+    right: 20px;
+    bottom: 80px;
     gap: 12px;
   }
 
