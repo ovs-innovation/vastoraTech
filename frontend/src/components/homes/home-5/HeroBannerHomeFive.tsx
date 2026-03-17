@@ -116,7 +116,7 @@ type hero_content_type = {
 const hero_content_home_5: hero_content_type = {
   title: (
     <>
-      Launch Your Digital Store in Just 5 Days!{" "}
+      Launch Your Digital Store in Just 5 Days{" "}
       <span className="cd-words-wrapper">
         <TypeAnimation
           sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
@@ -130,7 +130,8 @@ const hero_content_home_5: hero_content_type = {
   ),
   sm_info: (
     <>
-    Get your custom E-commerce Website with Admin Panel & Dashboard
+    Get your custom E-commerce website with admin panel and dashboard from a trusted website development company in India and a leading digital marketing agency in Noida helping businesses grow online.
+
     </>
   ),
   brand_title: "Trusted by the big ones, loved by everyone",

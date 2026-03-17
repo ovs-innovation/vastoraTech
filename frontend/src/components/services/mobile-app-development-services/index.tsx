@@ -11,25 +11,27 @@ import shape_1 from "@/assets/img/shape/banner-plus.png";
 import shape_2 from "@/assets/img/shape/banner-dots.png";
 import shape_3 from "@/assets/img/shape/banner-archer.png";
 import shape_4 from "@/assets/img/shape/banner-pose.png";
-import shape_5 from "@/assets/img/shape/ios_shape.png";
 import shape_1_2 from "@/assets/img/shape/androide_shape.png";
 
 
 import banner_service from "@/assets/img/services/app-dev-banner-bg.png";
 import HeaderFive from "@/layout/headers/HeaderFive";
+import MobileAppDevFaqArea from "./MobileAppDevFaqArea";
+
 const MobileAppDevelopment = () => {
     return (
         <>
             <HeaderFive />
             <main>
-                <BreadcrumbThree sub_title="Mobile App Development Services" title={<>We Craft Mobile Apps That Users Love — And Businesses Rely On</>}
+                <BreadcrumbThree sub_title="Mobile App Development Services" title={<>Mobile App Development Company in Noida Crafting Apps Users Love</>}
                     img={banner_service} style={true} shape_1_2={shape_1_2}
-                    shape_1={shape_1} shape_2={shape_2} shape_3={shape_3} shape_4={shape_4} shape_5={shape_5} />
+                    shape_1={shape_1} shape_2={shape_2} shape_3={shape_3} shape_4={shape_4} />
                 <MobileServiceArea />
                 <QualityServicesArea />
                 <ServiceMilestoneTimeline serviceKey="mobile-app-development" />
                 <MobileFeatureArea />
                 <MobileFeatureTwo />
+                <MobileAppDevFaqArea />
             </main>
             <FooterFive style={true} />
         </>

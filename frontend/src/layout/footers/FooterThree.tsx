@@ -44,7 +44,7 @@ const FooterThree = () => {
             <div className="fw-left-shape-3 d-none d-lg-block">
               {shape_data.map((item, i) => (
                 <div key={i} className={`fw-shape-${item.cls}`}>
-                  <Image src={item.img} alt="theme-pure" />
+                  <Image src={item.img} alt="Vastora Tech Shape" title="Vastora Tech" />
                 </div>
               ))}
             </div>

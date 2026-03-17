@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import EcommerceInfoArea from "./EcommerceInfoArea";
 
 // Dynamic fetch instead of static dummy data
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
@@ -87,13 +88,22 @@ const DemosListingArea = () => {
   return (
     <>
       <div className="container py-5 mt-100">
-        <div className="text-center mb-4">
-          <h1 className="h2 mb-2">Ready Website Demos</h1>
+        <div className="text-center mb-60">
+          <h1 className="h2 mb-2">Professional E-Commerce Website Development Services</h1>
+          <p className="text-muted mx-auto" style={{ maxWidth: '800px' }}>
+            We are a trusted ecommerce website development agency offering scalable and secure ecommerce website development services for businesses looking to grow online.
+          </p>
+        </div>
+
+        <EcommerceInfoArea />
+
+        <div className="text-center mb-40 mt-60">
+          <h2 className="h3 mb-2" style={{ fontWeight: 700 }}>Ready Website Demos</h2>
           <p className="text-muted">
             Explore our pre-built, high-converting website demos. Click any card to view details.
           </p>
         </div>
-        
+
 
         <form onSubmit={handleSubmit} className="row g-2 align-items-center mb-3">
           <div className="col-12 col-md-6">
@@ -185,7 +195,7 @@ const DemosListingArea = () => {
                         Live Preview
                       </a>
                     ) : null}
-                    
+
                   </div>
                 </div>
               </div>

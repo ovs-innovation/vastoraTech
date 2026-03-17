@@ -28,8 +28,8 @@ interface contact_content_type {
 // contact content 
 const contact_content: contact_content_type ={
     sub_title: "Get in touch",
-    title: <>Lets work <br />Together</>,
-    sm_des: "Just tell us your requirements and we will help you!",
+    title: <>Work Together</>,
+    sm_des: "Tell us your requirements and our team will help with website development, eCommerce, SEO, and digital marketing.",
     phone: "+91 8595658592",
     email: "vastoratech@gmail.com",
     cotact_shape: [

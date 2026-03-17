@@ -13,7 +13,7 @@ import about_shape_2 from "@/assets/img/shape/about-5-shape-2.svg";
 const about_content = {
 	sub_title: "About Us",
 	title: "Building eCommerce Success, Together",
-	sm_des: "At Vastora Tech, we empower businesses to launch, scale, and grow their online stores with smart, high-performance eCommerce solutions.",
+	sm_des: "At Vastora Tech, we empower businesses to launch, scale, and grow their online stores with smart, high-performance eCommerce website development and professional web design and development solutions..",
 	about_data: [
 		{
 			id: 1,

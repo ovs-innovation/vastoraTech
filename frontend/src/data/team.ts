@@ -3,13 +3,13 @@
 import { StaticImageData } from "next/image";
 import team_img_1 from "@/assets/img/team/team1.jpeg";
 import team_img_2 from "@/assets/img/team/team2.jpeg";
-import team_img_3 from "@/assets/img/team/team4.jpg";
-import team_img_4 from "@/assets/img/team/team3.jpg";
-import team_img_5 from "@/assets/img/team/team-5.jpg";
+import team_img_3 from "@/assets/img/team/team3.jpg";
+import team_img_4 from "@/assets/img/team/team4.jpeg";
+import team_img_5 from "@/assets/img/team/team-5.jpeg";
 import team_img_6 from "@/assets/img/team/team-6.jpg";
-import team_img_7 from "@/assets/img/team/team-7.jpg";
+import team_img_7 from "@/assets/img/team/team-7.jpeg";
 import team_img_8 from "@/assets/img/team/team-8.jpg";
-import team_img_9 from "@/assets/img/team/team-9.jpg"
+// import team_img_9 from "@/assets/img/team/team-9.jpg"
 
 
 // team data type
@@ -36,25 +36,25 @@ const team_data: team_data_type[] = [
         name: "Angad Kumar",
         job_title: "Full Stack Developer",
     },
-    {
-        id: 3,
-        avatar: team_img_3,
-        cls: "team-5-item-3",
-        name: "Shushmita Roy",
-        job_title: "Frontend Developer",
-    },
     // {
-    //     id: 4,
-    //     avatar: team_img_4,
-    //     cls: "team-5-item-4",
-    //     name: "Jyoti Agrawal",
-    //     job_title: "UI/UX Designer",
+    //     id: 3,
+    //     avatar: team_img_3,
+    //     cls: "team-5-item-3",
+    //     name: "Shushmita Roy",
+    //     job_title: "Frontend Developer",
     // },
+    {
+        id: 4,
+        avatar: team_img_4,
+        cls: "team-5-item-4",
+        name: "Neetu Gandhi",
+        job_title: "SEO Executive",
+    },
     {
         id: 5,
         avatar: team_img_5,
         cls: "team-5-item-5",
-        name: "Rahul Roy",
+        name: "Rahul Singh",
         job_title: "Full Stack Developer",
     },
     {
@@ -68,8 +68,8 @@ const team_data: team_data_type[] = [
         id: 7,
         avatar: team_img_7,
         cls: "team-5-item-7",
-        name: "Arti Kumari",
-        job_title: "Frontend Developer",
+        name: "Pooja Tiwari",
+        job_title: "Application Developer",
     },
     {
         id: 8,

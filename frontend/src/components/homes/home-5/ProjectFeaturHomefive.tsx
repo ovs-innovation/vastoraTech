@@ -32,12 +32,12 @@ const project_feature_content: project_feature_content_type = {
 		// { id: 4, img: shape_4, cls: "four", parallax: "50" },
 	],
 	sub_title: "Why Marketing & Branding Matter",
-	title: "Transform your business with strategic marketing",
+	title: "Transform Your Business with Strategic Digital Marketing",
 	feature_lists: [
 
-		{ id: 2, title: " Marketing That Creates Demand", sm_info: "Effective marketing helps your brand reach the right audience, build interest, and convert potential buyers into real customers." },
-		{ id: 3, title: "Branding That Builds Trus", sm_info: "Branding is not just about visuals — it’s the emotion people feel when they connect with your business." },
-		{ id: 1, title: "Growth Strategies That Drive Results", sm_info: "With the right mix of content, ads, and customer targeting, we help you build a consistent growth system that improves visibility, leads, and sales." },
+		{ id: 2, title: " Marketing That Creates Demand", sm_info: "Our digital marketing services help your brand reach the right audience, build interest, and convert potential visitors into real customers through data-driven campaigns." },
+		{ id: 3, title: "Branding That Builds Trust", sm_info: "Strong branding and consistent communication help businesses connect with their audience and build long-term trust in the digital marketplace." },
+		{ id: 1, title: "Growth Strategies That Drive Results", sm_info: "As a trusted digital marketing agency in Noida and experienced SEO services company, we use SEO, social media marketing, and targeted campaigns to increase visibility, leads, and sales." },
 	]
 }
 const { shapes_data, sub_title, title, feature_lists } = project_feature_content

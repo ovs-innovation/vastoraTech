@@ -586,8 +586,33 @@ export default function Home() {
     ],
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "E-Commerce Website Development Services India - Vastora Tech",
+    "url": "https://vastoratech.com/best-e-commerce-website-developer-in-india",
+    "description": "Premium e-commerce website development services in India. We specialize in custom e-commerce solutions, app development, and online store management for 10x business growth.",
+    "keywords": [
+      "ecommerce web development india",
+      "ecommerce website developer",
+      "ecommerce website development agency",
+      "ecommerce website development services",
+      "ecommerce app development company",
+      "best ecommerce developer india",
+      "custom ecommerce solutions",
+      "online store development",
+      "ecommerce platform development",
+      "b2b ecommerce development",
+      "b2c ecommerce development"
+    ]
+  };
+
   return (
     <div className="min-vh-100 bg-light">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
 
@@ -626,9 +651,9 @@ export default function Home() {
         <div className="container">
           <div className="row align-items-center">
             {/* Left Content */}
-            <div className="col-lg-8 mb-5 mb-lg-0">
+            <div className="col-lg-8 mb-5 mb-lg-0 ">
               <div className="mb-4">
-                <h1 className="display-8 fw-bold mb-3">
+                <h1 className="display-8 fw-bold mb-3 ">
                   Custom E-Commerce Development Solutions for 10x Business
                   Growth Online
                 </h1>

@@ -18,10 +18,10 @@ const BreadcrumbNine = ({title, top_title}: breadcrumb_9_content_type) => {
                     <div className="row">
                         <div className="col-xxl-12">
                             <div className="breadcrumb__content breadcrumb__content-2 text-center p-relative z-index-1">
-                                <h3 className="breadcrumb__title">{top_title}</h3>
+                                <h1 className="breadcrumb__title">{top_title}</h1>
                                 <div className="breadcrumb__list">
                                     <span><Link href="/">Home</Link></span>
-                                    <span className="dvdr"></span>
+                                    <h2 className="dvdr"></h2>
                                     <span>{title}</span>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@ const BreadcrumbNine = ({title, top_title}: breadcrumb_9_content_type) => {
                     </div>
                 </div>
                 <div className="inner-shape-dots">
-                    <Image src={shape} alt="theme-pure" />
+                    <Image src={shape} alt="theme-pure" title="Vastora Tech Shape" />
                 </div>
             </section>
         </>

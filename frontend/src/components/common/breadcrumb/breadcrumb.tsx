@@ -25,14 +25,14 @@ const breadcrumb_content: breadcrumb_content_type = {
         <>
             <p>
                 Vastora Tech is your digital partner for modern{" "}
-                <Link href="/service/web-development">Website Development</Link> and scalable{" "}
+                <Link href="/services/web-development-services">Website Development</Link> and scalable{" "}
                 <Link href="/product/e-commerce-solutions">E-Commerce Solutions</Link>. We combine
                 strategy, design, and technology to build high-performing websites and online stores
                 tailored to your business goals.
             </p>
             <p>
                 Our team also helps you get discovered online with result-driven{" "}
-                <Link href="/service/seo">SEO Services</Link> and engaging social media
+                <Link href="/services/seo-services">SEO Services</Link> and engaging social media
                 marketing, so your brand can reach and convert the right audience.
             </p>
             <p>
@@ -74,7 +74,7 @@ const Breadcrumb = () => {
                     <div className="row">
                         <div className="col-xxl-12">
                             <div className="breadcrumb__content p-relative z-index-1">
-                                <h3 className="breadcrumb__title">{top_title}</h3>
+                                <h1 className="breadcrumb__title">{top_title}</h1>
                                 <div className="breadcrumb__list">
                                 <span><Link href="/">Home</Link></span>
                                 <span className="dvdr"></span>

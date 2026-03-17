@@ -114,7 +114,7 @@ const FooterFive = ({ style, style_audit, style_2 }: any) => {
 											<div className="footer-widget-btn">
 												<div className="phone-call">
 													<a href="tel:+918595658592">
-														<i><Image src={PhoneIcon} alt="theme-pure" /></i><span>{phone_number}</span>
+														<i><Image src={PhoneIcon} alt="Phone Icon" title="Contact Vastora Tech" /></i><span>{phone_number}</span>
 													</a>
 												</div>
 												<div className="submit-call">

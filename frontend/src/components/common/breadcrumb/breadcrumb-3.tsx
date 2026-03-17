@@ -6,7 +6,8 @@ import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse
 type props_type = {
     sub_title: string,
     title: JSX.Element,
-    img: StaticImageData,
+    description?: string | JSX.Element,
+    img?: StaticImageData,
     style: boolean,
     shape_1_2: StaticImageData,
     shape_1: StaticImageData,
@@ -15,16 +16,17 @@ type props_type = {
     shape_4?: StaticImageData,
     shape_5?: StaticImageData,
 }
-const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4,shape_5 }: props_type) => {
+const BreadcrumbThree = ({ sub_title, title, description, img, style, shape_1_2,shape_1,shape_2,shape_3,shape_4,shape_5 }: props_type) => {
     return (
         <> <MouseParallaxContainer>
-            <section className="markiting-area markiting-wrap" style={{ background: '#E4ECF8' }}>
+            <section className="markiting-area markiting-wrap" style={{ background: '#E4ECF8', paddingBottom: '80px' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-10">
                             <div className="markiting-content">
                                 <span style={{ color: '#2B6BB3' }}>{sub_title}</span>
                                 <h4 className="markiting-title" style={{ color: 'black' }}>{title}</h4>
+                                {description && <p style={{ fontSize: '18px', color: '#555', marginTop: '15px' }}>{description}</p>}
                             </div>
                         </div>
                     </div>
@@ -62,17 +64,19 @@ const BreadcrumbThree = ({ sub_title, title, img, style, shape_1_2,shape_1,shape
 
 
             {/* <!-- markiting-area-start --> */}
-            <div className={`${style ? "pb-105" : ""}`}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="markiting-bg">
-                                <Image src={img} className="img-fluid markiting-bg-img" alt="" style={{ width: '100%', height: 'auto', maxHeight: '600px' }} />
+            {img ? (
+                <div className={`${style ? "pb-60" : ""}`}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="markiting-bg text-center" style={{ marginTop: '40px' }}>
+                                    <Image src={img} className="img-fluid markiting-bg-img" alt="" style={{ width: '85%', height: '400px', objectFit: 'cover', margin: '0 auto', borderRadius: '16px' }} />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            ) : <></>}
             {/* <!-- markiting-area-end --> */}
         </MouseParallaxContainer>
         </>

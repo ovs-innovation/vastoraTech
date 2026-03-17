@@ -17,10 +17,7 @@ import TeamAreaHomeFive from "./TeamAreaHomeFive";
 import TestimonialAreaHomeOne from "@/components/homes/home/TestimonialAreaHomeOne";
 import ToolestAeaHomeFive from "./ToolestAeaHomeFive";
 import BrandAreaHomeFour from "../home-4/BrandAreaHomeFour";
-
-
-
-
+import FaqAreaHomeFive from "./FaqAreaHomeFive";
 
 const HomeFive = () => {
     return (
@@ -42,6 +39,7 @@ const HomeFive = () => {
                 {/* <ReviewAreaHomeFour style={true} /> */}
                 <ContactAreaHomeFour />
                 <BlogAreaHomeFour />
+                <FaqAreaHomeFive />
             </main>
             <FooterFive style={true} />
         </>

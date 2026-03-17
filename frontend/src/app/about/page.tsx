@@ -4,13 +4,25 @@ import ScrollToTop from "@/components/common/scroll-to-top";
 import Script from "next/script";
 
 export const metadata = {
-  title: "About Vastora Tech – Website Development & E-Commerce Solutions Company",
+  title: "About Vastora Tech – Web & eCommerce Experts",
   description:
-    "Learn about Vastora Tech, a company offering website development, e-commerce solutions, SEO and social media services to help businesses grow online.",
+    "Learn about Vastora Tech, a leading web and eCommerce development company. We help businesses grow with modern websites and digital solutions.",
   alternates: {
     canonical: "https://vastoratech.com/about",
   },
+  authors: [{ name: "Vastora Tech" }],
+  keywords: [
+     "about Vastora Tech",
+     "digital marketing agency",
+     "eCommerce development company",
+     "web development company"
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 const aboutPageSchema = {
   "@context": "https://schema.org",
@@ -28,12 +40,36 @@ const aboutPageSchema = {
 };
 
 const AboutPage = () => {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vastoratech.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://vastoratech.com/about"
+      }
+    ]
+  };
+
   return (
     <Wrapper>
       <Script
         id="about-page-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <About />
       <ScrollToTop />
