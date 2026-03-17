@@ -41,8 +41,8 @@ const PortfolioAreaTwo = () => {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="portfolio-inner-2 text-center mb-50">
-								<h4 className="portfolio-inner-2-head">Our Case Studies</h4>
-								<p>We have an experienced team of production and inspection <br /> personnel  to ensure quality.</p>
+								<h1 className="portfolio-inner-2-head">Our Case Studies</h1>
+								<h2>We have an experienced team of production and inspection <br /> personnel  to ensure quality.</h2>
 							</div>
 						</div>
 					</div>

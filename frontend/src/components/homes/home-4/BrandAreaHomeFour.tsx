@@ -188,10 +188,11 @@ const BrandAreaHomeFour = () => {
       <div className="container">
         <div className="client-showcase__inner mb-40">
           <div className="brand-wrapper text-center">
-            <h2 className="title">Where ambitious teams keep shipping bold customer moments.</h2>
+            <h2 className="title">Where ambitious teams partner with a trusted web development company.
+</h2>
             <p className="subtitle">
-              From seed-stage darlings to global enterprise squads, Vastora Tech fuels launches across
-              every timezone and industry.
+            From startups to global enterprises, Vastora Tech helps businesses launch and grow with modern websites, eCommerce platforms, and digital solutions.
+
             </p>
             <div className="brand-wrapper__tags mb-4">
               {actionTags.map((tag) => (

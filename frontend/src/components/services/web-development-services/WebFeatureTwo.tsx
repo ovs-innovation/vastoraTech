@@ -12,8 +12,8 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "We Build Websites That Drive Results",
-    sm_info: <>Our web solutions are crafted to engage your audience, accelerate growth, and adapt seamlessly as your business evolves.</>,
+    title: "We Build Websites That Drive Business Growth",
+    sm_info: <>As a leading website development company in Noida, we create fast, scalable, and modern websites that help businesses grow online.</>,
  }
  const {title, sm_info} = audit_2_content
 
@@ -38,7 +38,7 @@ const AuditFeatureTwo = () => {
                                 <h4 className="feature-inner-title-2">{title}</h4>
                                 <p>{sm_info}</p>
                                 <div className="feature-inner-btn">
-                                    <Link href="/contact">Try it now <span><RightArrowAdit /> </span> </Link>
+                                    <Link href="/contact">Start Your Project → <span><RightArrowAdit /> </span> </Link>
                                 </div>
                             </div>
                         </div>

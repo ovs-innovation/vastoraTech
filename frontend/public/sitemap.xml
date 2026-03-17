@@ -19,12 +19,12 @@
 
   <!-- Service Pages -->
   <url>
-    <loc>https://vastoratech.com/services/web-development</loc>
+    <loc>https://vastoratech.com/services/web-development-services</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vastoratech.com/services/mobile-app-development</loc>
+    <loc>https://vastoratech.com/services/mobile-app-development-services</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -34,7 +34,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vastoratech.com/services/social-media-marketing</loc>
+    <loc>https://vastoratech.com/services/social-media-marketing-services</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>

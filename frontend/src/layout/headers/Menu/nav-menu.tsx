@@ -20,7 +20,7 @@ const NavMenu = () => {
                         {item.sub_menus?.map((service_item, s_index) => (
                           <li key={s_index}>
                             <Link href={service_item.link}>
-                              <span> <Image src={service_item.demo_img} alt="theme-pure" /> </span>
+                              <span> <Image src={service_item.demo_img} alt={service_item.title || "VastoraTech"} title={service_item.title || "VastoraTech"} /> </span>
                               {service_item.title}
                             </Link>
                           </li>
@@ -42,7 +42,7 @@ const NavMenu = () => {
                       </div>
                       {item.m_banner && (
                         <div className="tp-menu-banner-thumb">
-                          <Image src={item.m_banner} alt="theme-pure" />
+                          <Image src={item.m_banner} alt="Vastora Tech Banner" title="Vastora Tech" />
                         </div>
                       )}
                     </div>

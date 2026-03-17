@@ -18,13 +18,15 @@ const quality_data: quality_data_type[] = [
         id: 1,
         tab_id: "home",
         img: service_tab_img_1,
-        title: <>What is Covered in the <br /> SEO Audit</>,
+        title: <>Guest Posting & Outreach SEO
+Benefits
+</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Links from trusted, high-domain authority websites",
-            "Improves your website’s credibility",
-            "Boosts organic search rankings",
-            "100% white-hat, safe, long-term results",  
+            "Backlinks from trusted websites",
+            "Higher domain authority",
+            "Improved Google ranking",
+            "Long-term SEO growth",  
 
         ],
     },
@@ -32,13 +34,15 @@ const quality_data: quality_data_type[] = [
         id: 2,
         tab_id: "profile",
         img: service_tab_img_2,
-        title: <>How is Covered in the <br /> SEO Audit</>,
+        title: <>Niche Based Link Building
+Benefits
+</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Manual outreach to relevant blogs & publishers",
-            "High-quality guest posts with engaging content",
-            "Natural, contextual backlinks inside articles",
-            "Stronger visibility & targeted traffic",
+            "Stronger relevance for targeted keywords",
+            "Better search engine trust",
+            "Faster ranking improvements",
+            "Higher organic traffic",
 
         ],
     },
@@ -46,13 +50,15 @@ const quality_data: quality_data_type[] = [
         id: 3,
         tab_id: "messages",
         img: service_tab_img_3,
-        title: <>Why need Covered in the <br /> SEO Audit</>,
+        title: <>Brand Mentions & Digital PR
+Benefits
+</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Backlinks from industry-specific websites",
-            "Increases search relevance for your niche",
-            "Helps rank faster for targeted keywords",
-            "Builds authority within your market"
+            "Improved brand credibility",
+            "High-authority backlinks",
+            "Increased brand awareness",
+            "Better search engine rankings"
 
 
         ],
@@ -61,13 +67,14 @@ const quality_data: quality_data_type[] = [
         id: 4,
         tab_id: "settings",
         img: service_tab_img_4,
-        title: <>Benifits of SEO audit<br /> at present</>,
+        title: <>Keywords Naturally Added</>,
         info: <>Broken links are links that point to a website <br /> or page that no longer exists.</>,
         features: [
-            "Features on reputable media & PR platforms",
-            "Builds brand trust and credibility",
-            "Drives high-authority backlinks",
-            "Improves brand visibility & awareness"
+            "seo services",
+            " seo agency in noida",
+            "search engine optimization",
+            "best seo services in noida",
+            "seo services near me"
         ],
     },
 ]
@@ -75,13 +82,14 @@ const quality_data: quality_data_type[] = [
 const QualityServicesArea = () => {
     return (
         <>
-            <section className="quality-services-area quality-services-bg pb-125 pt-95 mb-120">
+            <section className="quality-services-area quality-services-bg pb-60 pt-60 mb-60">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="optimize-subtitle mb-60">
-                                <span>Value Proposition</span>
-                                <h5 className="section-title-4 fs-54">Build Trust & Authority  With <br /> Quality Backlinks</h5>
+                                {/* <span>Value Proposition</span> */}
+                                <h5 className="section-title-4 fs-54">Build Authority with Powerful Off-Page SEO Strategies</h5>
+                                <p>At Vastora Tech, we provide advanced SEO services that focus on building strong website authority through high-quality backlinks. As a trusted SEO agency in Noida, we use safe and effective off-page SEO techniques to improve search rankings and online credibility</p>
                             </div>
                         </div>
                     </div>
@@ -127,7 +135,7 @@ const QualityServicesArea = () => {
                                                             strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Outreach & Guest Posting
+                                                Niche-Relevant Backlinks
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
@@ -158,7 +166,7 @@ const QualityServicesArea = () => {
                                                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Niche-Relevant Backlinks
+                                                Brand Mentions & PR Links
 
                                             </span>
                                         </button>
@@ -229,7 +237,7 @@ const QualityServicesArea = () => {
                                                             strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                               Brand Mentions & PR Links
+                                               Keywords Naturally Added
                                             </span>
                                         </button>
                                     </div>

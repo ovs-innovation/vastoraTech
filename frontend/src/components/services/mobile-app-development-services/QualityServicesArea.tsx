@@ -18,58 +18,57 @@ const quality_data: quality_data_type[] = [
         id: 1,
         tab_id: "home",
         img: service_tab_img_1,
-        title: <>How We Develop for Your Success</>,
-        info: <>We use the latest technologies and proven design principles to craft websites that are responsive, fast, and user-focused.</>,
+        title: <>Purpose-Built Mobile Apps That Drive Results</>,
+        info: <>Our apps are designed to deliver business impact — fast, responsive, and feature-packed for real-world performance.</>,
         features: [
-            "Tech Stack: React.js, Next.js, Node.js, MongoDB or WordPress",
-            "Mobile-responsive & SEO-ready layout",
-            "Admin dashboard: Easy-to-use",
-            "API integration (Payment, CRM, Analytics)",
-            "Speed, security & performance optimization",
+            "Developed using React Native for cross-platform efficiency",
+            "Native-like performance with fast load times",
+            "Optimized for both iOS & Android ecosystems",
+            "Real-time features like chat, notifications & syncing",
+            "Integrated analytics to track user behavior and growth",
         ],
     },
     {
         id: 2,
         tab_id: "profile",
         img: service_tab_img_2,
-        title: <>Smart, Scalable, & Secure Architecture</>,
-        info: <>We build websites that are future-proof and ready to grow with your business.</>,
+        title: <>Secure, Scalable & Smart Engineering</>,
+        info: <>We build high-performance applications using modern development standards. As a best app development agency and trusted website app development agency, our team delivers secure and scalable solutions for growing businesses.</>,
         features: [
-            "Modular & scalable codebase",
-            "Clean structure for easy updates",
-            "Integrated security practices",
-            "Database design optimized for performance",
-            "Continuous code reviews & testing",
+            "Secure logins via OTP, biometrics & OAuth",
+            "Cloud-powered backend (Firebase / Node.js)",
+            "Encrypted API communication with token validation",
+            "Seamless integrations like Maps, Payments & CRM",
+            "Built by expert mobile app developers near me",
+            "Optimized for mobile commerce app development",
         ],
     },
     {
         id: 3,
         tab_id: "messages",
         img: service_tab_img_3,
-        title: <>Designed for User Experience</>,
-        info: <>Your website should not just work—it should engage and convert.</>,
+        title: <>UI That Feels Effortless — UX That Feeds Retention</>,
+        info: <>Great apps aren’t just functional — they feel good to use. We prioritize clean design, fast feedback, and delightful UX.</>,
         features: [
-            "Research-based UI design",
-            "Smooth animations & microinteractions",
-            "Conversion-focused CTAs",
-            "Accessibility & mobile-first approach",
-            "Clean, modern visual identity",
-            "Responsive design for all devices",
+            "Custom UI components tailored to your brand",
+            "Responsive layouts for various screen sizes",
+            "Gesture-based navigation for fluid control",
+            "Support for dark mode & accessibility",
+            "Built-in animations and transitions for smooth UX",
         ],
     },
     {
         id: 4,
         tab_id: "settings",
         img: service_tab_img_4,
-        title: <>Ongoing Maintenance & Support</>,
-        info: <>We don’t just build websites — we keep them secure, updated, and running at peak performance.</>,
+        title: <>Easy to Maintain, Ready to Evolve</>,
+        info: <>Our modular approach ensures your app is not only easy to manage but ready for feature expansion whenever you need.</>,
         features: [
-            "Security updates & patches",
-            "Performance monitoring & optimization",
-            "Regular backups & disaster recovery",
-            "Technical support & troubleshooting",
-            "Custom feature development",
-            "Ongoing website updates",
+            "Clean, maintainable code with clear documentation",
+            "Easily extendable for new features or platforms",
+            "Code updates via OTA (Over-The-Air) using Expo / CodePush",
+            "Continuous delivery pipeline via GitHub Actions or Bitrise",
+            "Dedicated support for bug fixes & OS compatibility",
         ],
     },
 ]
@@ -83,7 +82,7 @@ const QualityServicesArea = () => {
                         <div className="col-lg-12">
                             <div className="optimize-subtitle mb-60">
                                 <span>Value Proposition</span>
-                                <h5 className="section-title-4 fs-54">We Don’t Just Build Websites — We Build Growth</h5>
+                                <h1 className="section-title-4 fs-54">Our Mobile & Web Development Services</h1>
                             </div>
                         </div>
                     </div>
@@ -109,7 +108,7 @@ const QualityServicesArea = () => {
                                                             strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                How We Develop for<br /> Your Success <br />
+                                                Purpose-Built Mobile Apps That Drive Results<br />
                                             </span>
                                         </button>
                                         <button className="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
@@ -129,7 +128,7 @@ const QualityServicesArea = () => {
                                                             strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Smart, Scalable, & <br /> Secure Architecture
+                                                Secure, Scalable & Smart Engineering
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
@@ -160,7 +159,7 @@ const QualityServicesArea = () => {
                                                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Designed for User<br /> Experience
+                                                UI That Feels Effortless — UX That Feeds Retention
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
@@ -230,7 +229,7 @@ const QualityServicesArea = () => {
                                                             strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Ongoing Maintenance & Support
+                                                Easy to Maintain, Ready to Evolve
                                                 </span>
                                         </button>
                                     </div>
@@ -245,7 +244,7 @@ const QualityServicesArea = () => {
                                             aria-labelledby={`v-pills-${item.tab_id}-tab`} >
                                             <div className="services-quality-wrapper">
                                                 <div className="services-quality-thumb">
-                                                    <Image src={item.img} alt="theme-pure" />
+                                                    <Image src={item.img} alt="Vastora Tech Mobile App Development Service" title="Vastora Tech" />
                                                 </div>
                                                 <div className="services-quality-content">
                                                     <h4 className="services-quality-title">{item.title}</h4>

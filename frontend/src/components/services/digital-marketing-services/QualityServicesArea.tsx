@@ -19,10 +19,10 @@ const quality_data: quality_data_type[] = [
         img: service_tab_img_1,
         title: <>Social Media Strategy <br /> & Planning</>,
         features: [
-            "Tailored strategies based on your goals and audience",
+            "Tailored social media marketing strategy based on your business goals",
             "Competitor and industry trend analysis",
-            "Monthly content and campaign roadmap",
-            "Growth-focused planning for consistent results",
+            ".Monthly content and campaign planning",
+            "Data-driven strategy for long-term growth",
         ],
     },
     {
@@ -31,10 +31,10 @@ const quality_data: quality_data_type[] = [
         img: service_tab_img_2,
         title: <>Content Creation <br /> & Branding</>,
         features: [
-            "High-quality posts, reels, and stories",
-            "Brand-aligned visuals and messaging",
-            "Engaging captions that drive interaction",
-            "Creative concepts that boost visibility",
+            "High-quality posts, reels, and story content",
+            "Brand-focused visual design and messaging",
+            "Engaging captions optimized for social media marketing",
+            "Creative campaigns that improve brand visibility",
         ],
     },
     {
@@ -44,9 +44,9 @@ const quality_data: quality_data_type[] = [
         title: <>Social Media <br /> Management</>,
         features: [
             "Daily posting and scheduling across platforms",
-            "Community management: replies, comments, DMs",
+            "Comment, message, and community management",
             "Profile optimization for better reach",
-            "Consistent brand presence across all channels",
+            "Consistent brand presence managed by our social media marketing agency",
         ],
     },
     {
@@ -55,10 +55,10 @@ const quality_data: quality_data_type[] = [
         img: service_tab_img_4,
         title: <>Paid Ads & Performance <br /> Marketing</>,
         features: [
-            "Targeted ads on Facebook, Instagram, YouTube & more",
-            "Audience segmentation for higher ROI",
+            "Targeted advertising on Facebook, Instagram, LinkedIn, and YouTube",
+            "Advanced audience segmentation for higher ROI",
             "Conversion-focused ad creatives",
-            "Monthly performance tracking and improvement",
+            "Performance tracking by our expert SMM company in Noida",
         ],
     },
 ]
@@ -66,13 +66,14 @@ const quality_data: quality_data_type[] = [
 const QualityServicesArea = () => {
     return (
         <>
-            <section className="quality-services-area quality-services-bg pb-125 pt-95 mb-120">
+            <section className="quality-services-area quality-services-bg pb-60 pt-60 mb-60">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="optimize-subtitle mb-60">
-                                <span>Value Proposition</span>
-                                <h5 className="section-title-4 fs-54">High-quality <br /> Digital Marketing services</h5>
+                                {/* <span>Value Proposition</span> */}
+                                <h5 className="section-title-4 fs-54">High-quality <br />Social Media Marketing Services</h5>
+                                At Vastora Tech, we provide result-driven social media marketing services that help brands build strong online communities, increase engagement, and generate high-quality leads through strategic digital marketing."
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,7 @@ const QualityServicesArea = () => {
                                                             strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                One-way <br /> Digital Marketing
+                                                Social Media Strategy & Planning
                                             </span>
                                         </button>
                                         <button className="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
@@ -118,7 +119,7 @@ const QualityServicesArea = () => {
                                                             strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Find powerful <br /> Digital Marketing
+                                                Content Creation & Branding
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
@@ -149,7 +150,7 @@ const QualityServicesArea = () => {
                                                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Resource <br /> Digital Marketing
+                                                Social Media Management
                                             </span>
                                         </button>
                                         <button className="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
@@ -219,7 +220,7 @@ const QualityServicesArea = () => {
                                                             strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </i>
-                                                Citation <br /> Digital Marketing
+                                                Paid Ads & Performance Marketing
                                             </span>
                                         </button>
                                     </div>
@@ -234,7 +235,7 @@ const QualityServicesArea = () => {
                                             aria-labelledby={`v-pills-${item.tab_id}-tab`} >
                                             <div className="services-quality-wrapper">
                                                 <div className="services-quality-thumb">
-                                                    <Image src={item.img} alt="theme-pure" />
+                                                    <Image src={item.img} alt="Vastora Tech Digital Marketing Service" title="Vastora Tech" />
                                                 </div>
                                                 <div className="services-quality-content">
                                                     <h4 className="services-quality-title">{item.title}</h4>

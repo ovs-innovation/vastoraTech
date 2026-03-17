@@ -22,7 +22,7 @@ const HeaderFour = () => {
 							<div className="row align-items-center">
 								<div className="col-lg-6 col-sm-8">
 									<div className="header-offer d-flex align-items-center">
-										<Image src={header_rocket} alt="theme-pure" />
+										<Image src={header_rocket} alt="Vastora Tech Rocket" title="Vastora Tech Offer" />
 										<p>End of Year Sale:<span>Save up to 35%</span> on Tasks</p>
 									</div>
 								</div>

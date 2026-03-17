@@ -183,7 +183,7 @@ const PortfolioAreaHomeFour = () => {
 							<div className="portfolio-4-wrapper">
 								<div className="portfolio-4 mt-20">
 									<div className="section-wrapper mb-20">
-										<span>Our Case Studies</span>
+										<h1>Our Case Studies</h1>
 										<h5 className="section-title-4 section-title-4-2">Creative <br /> Works we done</h5>
 									</div>
 								</div>

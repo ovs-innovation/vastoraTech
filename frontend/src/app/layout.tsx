@@ -2,6 +2,15 @@ import "../styles/index.scss";
 import Script from "next/script";
 import WhatsappButton from "@/components/common/WhatsappButton";
 import TawkMessenger from "@/components/common/TawkMessenger";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  authors: [{ name: "Vastora Tech"}],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,

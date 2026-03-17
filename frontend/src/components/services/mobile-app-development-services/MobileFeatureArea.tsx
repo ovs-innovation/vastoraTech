@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import RightArrowAdit from "@/svg/arrow_btn/RightArrowAdit";
 
-import audit_shpae_1 from "@/assets/img/feature/inner/feature-inner-thumb-2.webp";
-import audit_shpae_2 from "@/assets/img/feature/inner/feature-inner-shape-1.png";
+import audit_shpae_1 from "@/assets/img/feature/inner/app_feature_01.webp";
+// import audit_shpae_2 from "@/assets/img/feature/inner/feature-inner-shape-1.png";
 
 // data type
 type web_content_type = {
@@ -11,12 +11,12 @@ type web_content_type = {
     sm_info: JSX.Element,
 }
 const web_content: web_content_type = {
-    title: <>High-Performance Websites<br /> Built to Grow Your Business</>,
-    sm_info: <>From landing pages to full-scale web apps — we craft fast, responsive, and modern websites that deliver real results.</>,
+    title: <>High-Impact Mobile & Web Apps That Move Your Business Forward</>,
+    sm_info: <>Best web development agency in India offering reliable web and app development services for modern businesses..</>,
 }
-const {title, sm_info}  = web_content
- 
-const WebFeatureArea = () => {
+const {title, sm_info} = web_content
+
+const MobileFeatureArea = () => {
     return (
         <>
             <section className="feature-area pb-50">
@@ -27,7 +27,7 @@ const WebFeatureArea = () => {
                                 <h4 className="feature-inner-title-2">{title}</h4>
                                 <p>{sm_info}</p>
                                 <div className="feature-inner-btn">
-                                    <Link href="/contact">Try it now <span> <RightArrowAdit /> </span> </Link>
+                                    <Link href="/contact">Start Your Project <span> <RightArrowAdit /> </span> </Link>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@ const WebFeatureArea = () => {
                                 <Image src={audit_shpae_1} alt="theme-pure" />
                                 <div className="feature-inner-wrap-shape">
                                     <div className="feature-inner-wrap-shape-1">
-                                        <Image src={audit_shpae_2} alt="theme-pure"/>
+                                        {/* <Image src={audit_shpae_2} alt="theme-pure"/> */}
                                     </div>
                                 </div>
                             </div>
@@ -48,4 +48,4 @@ const WebFeatureArea = () => {
     );
 };
 
-export default WebFeatureArea;
+export default MobileFeatureArea;

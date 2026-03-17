@@ -12,9 +12,8 @@ type audit_2_content_type = {
 }
 
  const audit_2_content: audit_2_content_type = {
-    title: "Mobile Solutions Designed for Growth, Built for Impact",
-    sm_info: <>Every tap, swipe, and screen is engineered to deliver results. Our mobile apps are built not just to launch — but to convert, scale, and evolve with your business goals.
-
+    title: "Mobile & Web Solutions Built for Growth",
+    sm_info: <>Every tap, swipe, and screen is designed to drive results. Our team provides powerful web app development service and mobile app solutions that help businesses convert, scale, and grow in the digital world.
     </>,
  }
  const {title, sm_info} = audit_2_content

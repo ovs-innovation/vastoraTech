@@ -8,11 +8,39 @@ export const metadata = {
     alternates: {
         canonical: "https://vastoratech.com/contact",
     },
+    authors: [{ name: "Vastora Tech" }],
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 const index = () => {
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vastoratech.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://vastoratech.com/contact"
+            }
+        ]
+    };
+
     return (
         <Wrapper>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <Contact />
             <ScrollToTop />
         </Wrapper>
