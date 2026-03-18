@@ -10,7 +10,7 @@ import ServiceAboutArea from "./ServiceAboutArea";
 import Serviceabout from "./Serviceabout";
 
 
-const Service = () => {
+const Services = () => {
     return (
         <>
             <HeaderSix style={true} />
@@ -29,4 +29,4 @@ const Service = () => {
     );
 };
 
-export default Service
+export default Services

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const EcommerceInfoArea = () => {
     return (
-        <div className="ecommerce-info-wrapper pb-100">
+        <div className="ecommerce-info-wrapper pb-20">
             <div className="container">
                 {/* 1. Our E-Commerce Development Services */}
                 <div className="section-title-wrap mb-60">
@@ -14,10 +14,10 @@ const EcommerceInfoArea = () => {
                                 title: "Custom E-Commerce Website Development",
                                 desc: "Our ecommerce website development services include building fully customized online stores tailored to your brand and business requirements."
                             },
-                            {
-                                title: "Shopify & WooCommerce Development",
-                                desc: "We develop scalable eCommerce websites using platforms like Shopify and WooCommerce to make product management and sales easier."
-                            },
+                            // {
+                            //     title: "Shopify & WooCommerce Development",
+                            //     desc: "We develop scalable eCommerce websites using platforms like Shopify and WooCommerce to make product management and sales easier."
+                            // },
                             {
                                 title: "Payment Gateway Integration",
                                 desc: "Our developers integrate secure payment gateways to ensure smooth and safe transactions for your customers."
@@ -31,7 +31,7 @@ const EcommerceInfoArea = () => {
                                 desc: "As a trusted ecommerce app development company, we build mobile applications that allow businesses to reach customers and manage their online store from anywhere."
                             }
                         ].map((service, index) => (
-                            <div key={index} className="col-lg-4 col-md-6">
+                            <div key={index} className="col-lg-3 col-md-6">
                                 <div className="card h-100 border-0 shadow-sm p-4 text-center">
                                     <h4 className="h5 mb-3 font-bold">{service.title}</h4>
                                     <p className="text-muted small">{service.desc}</p>
@@ -41,33 +41,10 @@ const EcommerceInfoArea = () => {
                     </div>
                 </div>
 
-                {/* 2. Why Choose Our E-Commerce Development Agency */}
-                <div className="why-choose-ecommerce mb-80 bg-light p-5 rounded-4">
-                    <h3 className="h4 mb-4 text-center font-bold">Why Choose Our E-Commerce Development Agency</h3>
-                    <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                            <ul className="list-unstyled row g-3">
-                                {[
-                                    "Experienced ecommerce website developers",
-                                    "Complete ecommerce website development services",
-                                    "Scalable solutions for growing businesses",
-                                    "Secure payment and checkout systems",
-                                    "SEO-friendly eCommerce store development"
-                                ].map((item, index) => (
-                                    <div key={index} className="col-md-6 d-flex align-items-center mb-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B6BB3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="me-2 flex-shrink-0">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                        <span className="small">{item}</span>
-                                    </div>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
 
                 {/* 3. Our E-Commerce Development Process */}
-                <div className="process-ecommerce mb-80">
+                {/* <div className="process-ecommerce mb-80">
                     <h3 className="h4 mb-5 text-center font-bold">Our E-Commerce Development Process</h3>
                     <div className="row g-4 text-center">
                         {[
@@ -87,7 +64,7 @@ const EcommerceInfoArea = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 {/* 4. Features of a Successful E-Commerce Website */}
                 <div className="features-ecommerce mb-80">
@@ -125,17 +102,41 @@ const EcommerceInfoArea = () => {
                         ))}
                     </div>
                 </div>
+                {/* 2. Why Choose Our E-Commerce Development Agency */}
+                <div className="why-choose-ecommerce mb-80 bg-light p-5 rounded-4">
+                    <h3 className="h4 mb-4 text-center font-bold">Why Choose Our E-Commerce Development Agency</h3>
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <ul className="list-unstyled row g-3">
+                                {[
+                                    "Experienced ecommerce website developers",
+                                    "Complete ecommerce website development ",
+                                    "Scalable solutions for growing businesses",
+                                    "Secure payment and checkout systems",
+                                    "SEO-friendly eCommerce store development"
+                                ].map((item, index) => (
+                                    <div key={index} className="col-md-6 d-flex align-items-center mb-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B6BB3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="me-2 flex-shrink-0">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span className="small">{item}</span>
+                                    </div>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
                 {/* 5. Start Your Project Today */}
                 <div className="cta-ecommerce text-center bg-primary text-white p-5 rounded-4 shadow-lg">
-                    <h3 className="h4 font-bold mb-3">Start Your E-Commerce Business Today</h3>
+                    <h3 className="h4 font-bold text-white mb-3">Start Your E-Commerce Business Today</h3>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <p className="mb-4 text-light pb-2">
                                 Looking for a reliable ecommerce website development agency or ecommerce web development company in India?
                                 Our expert team is ready to help you build a high-performance online store that increases sales and improves customer experience.
                             </p>
-                            <Link href="/contact" className="btn btn-light btn-lg px-5 font-bold">
+                            <Link href="/contact" className="btn btn-light btn-lg px-3 py-1 font-bold">
                                 Start Your Project →
                             </Link>
                         </div>

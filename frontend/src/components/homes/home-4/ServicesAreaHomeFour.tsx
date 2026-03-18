@@ -93,7 +93,7 @@ const service_content: service_content_type = {
             link: "/services/social-media-marketing-services",
         }
     ],
-    sm_info: <><h3>You can also find our <Link href="/service"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</h3></>,
+    sm_info: <><h3>You can also find our <Link href="/services"> Services <i className="d-none d-md-block"> <SmollRound /> </i> </Link> to contact for the consulting.</h3></>,
 }
 const {sub_title, sub_title_2, title, service_data, sm_info}  = service_content
 

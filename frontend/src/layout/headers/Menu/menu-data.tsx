@@ -60,12 +60,12 @@ const menu_data: menu_data_type[] = [
     inner_title: "Services Overview",
     sub_menus: [
       { link: "/services/web-development-services",           title: "Web Development",         demo_img: service_demo_1,  },
-      { link: "/service/mobile-app-development-services",    title: "Mobile App Development",   demo_img: service_demo_2,  },
-      { link: "/service/social-media-marketing-services",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
+      { link: "/services/mobile-app-development-services",    title: "Mobile App Development",   demo_img: service_demo_2,  },
+      { link: "/services/social-media-marketing-services",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
 
 
       // { link: "/service/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
-      { link: "/service/seo-services",         title: "SEO Services",        demo_img: service_demo_5,  },
+      { link: "/services/seo-services",         title: "SEO Services",        demo_img: service_demo_5,  },
       { link: "/product/e-commerce-solutions", title: "E-commerce Solutions", demo_img: service_demo_7,  },
       // { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
    
