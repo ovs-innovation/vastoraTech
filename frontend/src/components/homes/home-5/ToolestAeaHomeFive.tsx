@@ -189,7 +189,7 @@ const ToolestAeaHomeFive = () => {
 
                                         </div>
                                         <div className="toolest-one-shape-five">
-                                            <img src="assets/img/tool/tool-1-overlay-1.png" alt="theme-pure" />
+                                            <img src="/assets/img/tool/tool-1-overlay-1.png" alt="theme-pure" />
                                         </div>
                                     </div>
                                 </div>

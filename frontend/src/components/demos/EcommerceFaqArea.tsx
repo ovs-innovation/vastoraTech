@@ -52,13 +52,13 @@ const EcommerceFaqArea = () => {
   };
 
   return (
-    <section className="faq-area pb-120 pt-100 bg-gray-light">
+    <section className="faq-area pb-120 pt-50  bg-gray-light">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-10">
             <div className="section-title-wrapper text-center mb-60">
               <span className="section-subtitle">FAQ</span>
-              <h2 className="section-title">eCommerce Development FAQs</h2>
+              <h2 className="section-title">E-Commerce Development FAQs</h2>
             </div>
           </div>
         </div>

@@ -51,7 +51,7 @@ const footer_five_content: footer_five_content_type = {
 				// { id: 2, title: "Pricing", link: "/pricing" },
 				{ id: 3, title: "About us", link: "/about" },
 				// { id: 4, title: "SEO Blog", link: "/blog-grid" },
-				// { id: 5, title: "Services", link: "/service" },
+				// { id: 5, title: "Services", link: "/services" },
 				{ id: 6, title: "Contact", link: "/contact" },
 				// { id: 7, title: "Why SEO?", link: "/seo-audit" },
 				// { id: 8, title: "", link: "" },
@@ -67,7 +67,7 @@ const footer_five_content: footer_five_content_type = {
 				{ id: 1, title: "Privacy Policy", link: "/privacy-policy" },
 				{ id: 2, title: "Terms & Conditions", link: "/terms-conditions" },
 				// { id: 3, title: "Site Map", link: "/site-map" },
-				{ id: 4, title: "Services", link: "/service" },
+				{ id: 4, title: "Services", link: "/services" },
 				
 			]
 		},

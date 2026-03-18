@@ -1,6 +1,6 @@
 import ScrollToTop from '@/components/common/scroll-to-top';
 import Wrapper from '@/layout/Wrapper';
-import Service from '@/components/inner-pages/service';
+import Service from '@/components/inner-pages/services';
 
 export const metadata = {
     title: "Our Services – Website Development, E-Commerce, Social Media & SEO | Vastora Tech",

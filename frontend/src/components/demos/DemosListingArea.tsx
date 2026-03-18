@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import EcommerceInfoArea from "./EcommerceInfoArea";
+import ecommerceNoidaImg from "@/assets/img/services/ecommerce-noida.png";
 
 // Dynamic fetch instead of static dummy data
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
@@ -88,19 +89,12 @@ const DemosListingArea = () => {
   return (
     <>
       <div className="container py-5 mt-100">
-        <div className="text-center mb-60">
-          <h1 className="h2 mb-2">Professional E-Commerce Website Development Services</h1>
-          <p className="text-muted mx-auto" style={{ maxWidth: '800px' }}>
-            We are a trusted ecommerce website development agency offering scalable and secure ecommerce website development services for businesses looking to grow online.
-          </p>
-        </div>
+        
 
-        <EcommerceInfoArea />
-
-        <div className="text-center mb-40 mt-60">
-          <h2 className="h3 mb-2" style={{ fontWeight: 700 }}>Ready Website Demos</h2>
+        <div className="text-center mb-40 mt-10">
+          <h2 className="h1 mb-2 mt-10" style={{ fontWeight: 700 }}>E-commerce Website Demo Templates for Every Business</h2>
           <p className="text-muted">
-            Explore our pre-built, high-converting website demos. Click any card to view details.
+           Discover pre-built eCommerce website solutions for fashion, beauty, jewellery & more. Start selling online with our ready-to-use designs.
           </p>
         </div>
 
@@ -202,6 +196,49 @@ const DemosListingArea = () => {
             </div>
           ))}
         </div>
+        <div className="text-center mb-60 mt-20">
+          <h2 className="h2 mb-2">Ecommerce Website Development Services in Noida, India</h2>
+          <p className="text-muted mx-auto" style={{ maxWidth: '800px' }}>
+           We are a leading ecommerce website development agency in India offering scalable, secure, and high-converting ecommerce solutions. Our expert ecommerce website developers build custom websites and apps tailored to your business needs.
+          </p>
+        </div>
+
+        <section className="ecommerce-about-area pb-40">
+          <div className="container p-0">
+            <div className="row align-items-center">
+              <div className="col-lg-6 col-md-12 order-2 order-lg-1">
+                <div className="about-content pe-lg-4">
+                  {/* <h5 className="mb-20" style={{ fontSize: "28px", fontWeight: 700, color: "#000" }}>
+                    Reliable eCommerce Web Development Company in Noida
+                  </h5> */}
+                  <p style={{ fontSize: "15px", lineHeight: "1.6", color: "#555", textAlign: "justify" }}>
+                    Looking for a reliable ecommerce web development company in Noida? We provide end-to-end ecommerce website
+                    development services, including design, development, and ecommerce app solutions to help you grow your online
+                    business.
+                  </p>
+                  {/* <div className="mt-25">
+                    <Link href="/contact" className="demo-button-blue" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                      Get a Free Consultation
+                    </Link>
+                  </div> */}
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-12 order-1 order-lg-2">
+                <div className="about-img mb-30 mb-lg-0">
+                  <Image
+                    src={ecommerceNoidaImg}
+                    alt="Ecommerce website development in Noida"
+                    className="img-fluid rounded-4 shadow-sm"
+                    style={{ width: "100%", height: "300px", borderRadius: "16px" }}
+                    priority={false}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <EcommerceInfoArea />
       </div>
     </>
   );
