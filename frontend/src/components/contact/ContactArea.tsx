@@ -14,6 +14,7 @@ type contact_conent_type = {
     btn_text: string;
 }
 
+
 const contact_conent: contact_conent_type & { address: string; address_link: string; whatsapp: string; whatsapp_link: string } = {
     title: "Get in Touch",
     sm_info: <>If you need help with your account or have questions about <br /> credit sesame, please visit our Help center.!</>,
