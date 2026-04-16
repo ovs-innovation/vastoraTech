@@ -54,10 +54,9 @@ const HeaderFive = () => {
               <div className="row align-items-center">
                 <div className="col-xl-2 col-lg-6 col-sm-4 col-6">
                   <div className="tplogo__area">
-                    <Link href="/">
+                    <Link href="/" aria-label="Vastora Tech Home">
                       <span>
-                        {" "}
-                        <HeaderLogoHomeFive />{" "}
+                        <HeaderLogoHomeFive />
                       </span>
                     </Link>
                   </div>
@@ -125,8 +124,9 @@ const HeaderFive = () => {
                         <button
                           className="offcanvas-open-btn"
                           onClick={() => setOpenCanvas(true)}
+                          aria-label="Open mobile menu"
                         >
-                          <i className="fa-solid fa-bars"></i>
+                          <i className="fa-solid fa-bars" aria-hidden="true"></i>
                         </button>
                       </div>
                     </div>

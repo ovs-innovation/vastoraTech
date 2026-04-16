@@ -2,9 +2,21 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import toast, { Toaster } from "react-hot-toast";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+
+// Dynamic Imports for Performance
+const EnrollmentPortfolio = dynamic(() => import("@/components/enrollment/EnrollmentPortfolio"), {
+  loading: () => <div className="py-5 text-center text-muted">Loading portfolio...</div>,
+  ssr: true,
+});
+const EnrollmentTestimonials = dynamic(() => import("@/components/enrollment/EnrollmentTestimonials"), {
+  loading: () => <div className="py-5 text-center text-muted">Loading testimonials...</div>,
+  ssr: true,
+});
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,63 +25,9 @@ import "swiper/css/navigation";
 // Import Bootstrap Icons CSS for production
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-// Define interfaces for our data structures
-interface EnrollFormState {
-  name: string;
-  emailId: string;
-  phoneNumber: string;
-  location: string;
-  service: string;
-  customService: string;
-  businessName: string;
-}
-
-interface TrainingHighlight {
-  icon: string;
-  title: string;
-  desc: string;
-}
-
-interface EnrollmentStep {
-  icon: string;
-  title: string;
-  desc: string;
-}
-
-interface Module {
-  title: string;
-  items: string[];
-}
-
-interface PortfolioItem {
-  id: number;
-  img: string;
-  category: string;
-  title: string;
-  sm_des: string;
-  link: string;
-  tags: string[];
-}
-
-interface Testimonial {
-  name: string;
-  city: string;
-  testimonial: string;
-}
-
-interface Content {
-  hero: {
-    title: string;
-    subtitle: string;
-    description: string;
-    highlights: string[];
-  };
-  trainingHighlights: TrainingHighlight[];
-  enrollmentSteps: EnrollmentStep[];
-  modules: Module[];
-  portfolio: PortfolioItem[];
-  testimonials: Testimonial[];
-}
+// Import Data
+import { enrollmentContent as content } from "@/data/enrollment-data";
+import type { EnrollFormState } from "@/data/enrollment-data";
 
 export default function Home() {
   const router = useRouter();
@@ -369,223 +327,6 @@ export default function Home() {
     window.open("tel:+919667092077", "_self");
   };
 
-  // Sample data - you can replace with your actual data
-  const content: Content = {
-    hero: {
-      title: "Become a Sales Consultant",
-      subtitle: "Learn from Industry Experts",
-      description:
-        "Transform your career with our comprehensive sales consultant program. Get hands-on training from industry leaders and secure your dream job.",
-      highlights: [
-        "Online Classes",
-        "Job Placement",
-        "Expert Mentors",
-        "Case Studies",
-      ],
-    },
-    trainingHighlights: [
-      {
-        icon: "seo",
-        title: "SEO Services",
-        desc: "On-page, Off-page, local & technical SEO strategies to boost organic visibility and drive traffic.",
-      },
-      {
-        icon: "social",
-        title: "Social Media Marketing",
-        desc: "Campaigns on Instagram, Facebook, LinkedIn & Twitter—content, community management & paid ads.",
-      },
-      {
-        icon: "email",
-        title: "Email Marketing",
-        desc: "Strategic newsletters and drip campaigns to nurture leads and retain customers.",
-      },
-      {
-        icon: "content",
-        title: "Content Marketing",
-        desc: "Blog posts, captions, infographics, video scripts—designed to engage and convert.",
-      },
-    ],
-    enrollmentSteps: [
-      {
-        icon: "ecommerce",
-        title: "End-to-End E-Commerce Solutions",
-        desc: "From design to launch, we handle everything your store needs — website, payments, inventory, and marketing readiness.",
-      },
-      {
-        icon: "cms",
-        title: "CMS-Based Online Store Management",
-        desc: "Easy-to-use content management system that lets you update products, manage inventory, and control your store without technical knowledge.",
-      },
-      {
-        icon: "custom",
-        title: "Custom-Built for Your Business",
-        desc: "Every store we create is tailored to your brand, your products, and your audience. No one-size-fits-all templates.",
-      },
-      {
-        icon: "support",
-        title: "Ongoing Support & Maintenance",
-        desc: "We don't disappear after launch. Our team stays connected to ensure your store runs smoothly.",
-      },
-      {
-        icon: "seo",
-        title: "Growth-Ready & SEO-Optimized",
-        desc: "Your store is built to rank higher, load faster, and convert better — right from day one.",
-      },
-    ],
-    modules: [
-      {
-        title: "Sales Fundamentals",
-        items: [
-          "Sales Psychology",
-          "Customer Behavior",
-          "Communication Skills",
-          "Negotiation Techniques",
-        ],
-      },
-      {
-        title: "Advanced Sales Techniques",
-        items: [
-          "Consultative Selling",
-          "Solution Selling",
-          "Relationship Building",
-          "Closing Strategies",
-        ],
-      },
-      {
-        title: "Industry Knowledge",
-        items: [
-          "Market Analysis",
-          "Competitive Intelligence",
-          "Product Knowledge",
-          "Industry Trends",
-        ],
-      },
-    ],
-    portfolio: [
-      {
-        id: 1,
-        img: "/portfolio/project-portfolio-1.png",
-        category: "E-commerce",
-        title: "TossMart",
-        sm_des:
-          "Tossmart offers eCommerce services with smart gadgets, electronics, and a smooth online shopping experience.",
-        link: "https://tossmart.com/",
-        tags: ["E-commerce", "Online Shopping"],
-      },
-      {
-        id: 7,
-        img: "/portfolio/project-portfolio-7.png",
-        category: "E-commerce",
-        title: "Botso",
-        sm_des:
-          "Botso.in is an e-commerce site offering electronic products, mainly cameras and accessories, with easy online shopping.",
-        link: "https://botso.in/",
-        tags: ["E-commerce", "Electronic Products"],
-      },
-      {
-        id: 3,
-        img: "/portfolio/project-portfolio-3.png",
-        category: "E-learning",
-        title: "The Learn Skills",
-        sm_des:
-          "The website offers various educational resources, courses, and training to help individuals gain new skills.",
-        link: "https://thelearnskills.com/",
-        tags: ["E-learning", "Online Courses"],
-      },
-      {
-        id: 4,
-        img: "/portfolio/project-portfolio-4.png",
-        category: "Hotel Booking",
-        title: "Hotel Sweet Dreams",
-        sm_des:
-          "Hotel Sweet Dreams offers hotel and banquet booking services with personalized experiences and customer satisfaction focus.",
-        link: "https://hotelsweetdreams.ovsinnovation.com/",
-        tags: ["Hotel Booking", "Banquet Booking"],
-      },
-
-      {
-        id: 5,
-        img: "/portfolio/project-portfolio-5.png",
-        category: "Travel",
-        title: "Arana Taj Tour",
-        sm_des:
-          "Arana Taj Tour offers curated travel packages focused on Indian destinations like Agra, Delhi, Jaipur, and Varanasi.",
-        link: "https://aranatajtour.com/",
-        tags: ["Travel", "Tour Packages"],
-      },
-      {
-        id: 2,
-        img: "/portfolio/project-portfolio-2.png",
-        category: "Beauty",
-        title: "CandyFloss",
-        sm_des:
-          "The website offers personalized salon services tailored to each client's needs and features testimonials from satisfied customers.",
-        link: "https://candyflossbeautypalace.com/",
-        tags: ["Beauty", "Personalized Services"],
-      },
-      {
-        id: 6,
-        img: "/portfolio/project-portfolio-6.png",
-        category: "Real Estate",
-        title: "Prosperra Infra Estate",
-        sm_des:
-          "Prosperra Infra Estate offers real estate solutions, specializing in commercial and residential properties across India.",
-        link: "https://prosperrainfra.com/",
-        tags: ["Real Estate", "Commercial Properties"],
-      },
-      {
-        id: 8,
-        img: "/portfolio/project-portfolio-8.png",
-        category: "Engineering",
-        title: "Divizz Group",
-        sm_des:
-          "Divizz Group offers services across civil engineering, design, property valuation, and business consulting through its website.",
-        link: "https://divizz.com/",
-        tags: ["Civil Engineering", "Design"],
-      },
-      {
-        id: 9,
-        img: "/portfolio/project-portfolio-9.png",
-        category: "Engineering",
-        title: "PowerQ",
-        sm_des:
-          "PowerQ offers Test and Tag services in Melbourne, ensuring business electrical safety with reliable testing and certification.",
-        link: "https://powerq.com.au/",
-        tags: ["Test and Tag", "Electrical Safety"],
-      },
-      {
-        id: 10,
-        img: "/portfolio/project-portfolio-10.png",
-        category: "Health",
-        title: "Health&Herbs",
-        sm_des:
-          "Health&Herbs offers health consulting, herbal wellness, natural remedies, and holistic lifestyle solutions through its website.",
-        link: "https://healthnherbs.in/",
-        tags: ["Health Consulting", "Herbal Wellness"],
-      },
-    ],
-    testimonials: [
-      {
-        name: "Himanshu Singh",
-        city: "Mumbai",
-        testimonial:
-          "Working at Vastora Tech is a great experience. The company values its employees, encourages new ideas, and provides opportunities to grow. The team is supportive, the work environment is positive, and there's a good balance between work and personal life. It's a great place to build your career.",
-      },
-      {
-        name: "Vishakha Agarwal",
-        city: "Delhi",
-        testimonial:
-          "Working at Vastora Tech has been an incredible experience! The team is supportive, innovative, and passionate about digital marketing. I've had the opportunity to learn and grow professionally while contributing to impactful projects.😊",
-      },
-      {
-        name: "Sandhya Singh",
-        city: "Bangalore",
-        testimonial:
-          "Vastora Tech is a fantastic digital marketing agency! Their team is incredibly knowledgeable and creative, delivering outstanding results for our business. They took the time to understand our goals and tailored a comprehensive strategy that boosted our online presence significantly. Their communication and professionalism are top-notch.",
-      },
-    ],
-  };
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -616,12 +357,7 @@ export default function Home() {
       {/* Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
 
-      {/* Bootstrap Icons CDN Fallback */}
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        crossOrigin="anonymous"
-      />
+
 
       {/* Sticky Header */}
       <header className="sticky-top bg-white shadow-sm border-bottom">
@@ -629,17 +365,19 @@ export default function Home() {
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
               <div>
-                                 <img
-                   src="/assets/img/logo/Vastora-Logo.jpg"
-                   alt="Vastora Tech"
-                   className="img-fluid"
-                   style={{
-                     height: "80px",
-                     width: "auto",
-                     maxWidth: "200px",
-                     objectFit: "contain",
-                   }}
-                 />
+                  <Image
+                    src="/assets/img/logo/Vastora-Logo.jpg"
+                    alt="Vastora Tech"
+                    width={200}
+                    height={80}
+                    className="img-fluid"
+                    style={{
+                      height: "80px",
+                      width: "auto",
+                      objectFit: "contain",
+                    }}
+                    priority
+                  />
               </div>
             </div>
           </div>
@@ -745,9 +483,11 @@ export default function Home() {
                           bottom: "4px",
                         }}
                       >
-                        <img
+                        <Image
                           src="/portfolio/laptop-banner.png"
                           alt="Dashboard Interface"
+                          width={320}
+                          height={224}
                           className="w-100 h-100"
                           style={{
                             objectFit: "cover",
@@ -846,9 +586,11 @@ export default function Home() {
                           bottom: "4px",
                         }}
                       >
-                        <img
+                        <Image
                           src="/portfolio/mobile-banner.png"
                           alt="Mobile App"
+                          width={112}
+                          height={176}
                           className="w-100 h-100"
                           style={{
                             objectFit: "cover",
@@ -1467,118 +1209,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work Portfolio Section */}
-      <section className="bg-light py-5 py-lg-5">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="h2 mb-3">Our Work Portfolio</h2>
-            <p className="lead text-muted">
-              See how we've transformed businesses with our digital marketing
-              expertise
-            </p>
-          </div>
-          {/* Portfolio Swiper Slider */}
-          <div className="position-relative">
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              spaceBetween={32}
-              slidesPerView={1}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 24,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 32,
-                },
-              }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              navigation={true}
-              loop={true}
-              grabCursor={true}
-              touchRatio={1}
-              touchAngle={45}
-              resistance={true}
-              resistanceRatio={0.85}
-              speed={600}
-              effect="slide"
-              watchSlidesProgress={true}
-              watchOverflow={true}
-              className="portfolio-swiper"
-            >
-              {content.portfolio.map((item) => (
-                <SwiperSlide key={item.id}>
-                  <div className="card border-0 shadow-lg h-100 overflow-hidden hover-shadow transition-all">
-                    {/* Portfolio Image */}
-                    <div className="position-relative overflow-hidden">
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        className="card-img-top"
-                        style={{ height: "200px", objectFit: "cover" }}
-                      />
-                      <div className="position-absolute top-0 end-0 m-3">
-                                              <span className="badge px-3 py-2 rounded-pill fw-semibold" style={{ backgroundColor: "#296CB3" }}>
-                        {item.category}
-                      </span>
-                      </div>
-                    </div>
+      <EnrollmentPortfolio />
 
-                    {/* Portfolio Content */}
-                    <div className="card-body p-4">
-                      <h3 className="h5 fw-bold text-dark mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted small mb-4 lh-base">
-                        {item.sm_des}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="d-flex flex-wrap gap-2 mb-4">
-                        {item.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="badge bg-light text-dark px-3 py-2 rounded-pill small"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Visit Link Button */}
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-sm w-100 d-inline-flex align-items-center justify-content-center"
-                        style={{ backgroundColor: "#296CB3", borderColor: "#296CB3", color: "white" }}
-                      >
-                        <i className="bi bi-box-arrow-up-right me-2"></i>
-                        Visit Website
-                      </a>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Mobile Swipe Hint */}
-            <div
-              className="position-absolute top-0 end-0 m-3 bg-white bg-opacity-90 px-3 py-2 rounded-pill small text-muted fw-medium opacity-0 d-lg-none"
-              style={{ backdropFilter: "blur(10px)" }}
-            >
-              ← Swipe to navigate →
-            </div>
-          </div>
 
           {/* Portfolio CTA - Transparent Pricing Style */}
-          <div className="text-center mt-5">
-            <div className="bg-white rounded-4 shadow-lg p-4 p-lg-5 border-0 w-100 position-relative">
+          <section className="text-center mt-5 mb-5 pb-5">
+            <div className="container">
+              <div className="bg-white rounded-4 shadow-lg p-4 p-lg-5 border-0 w-100 position-relative">
               {/* Decorative Background Elements */}
               <div
                 className="position-absolute top-0 end-0 opacity-10"
@@ -1698,9 +1335,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
+     
       {/* About Us Section */}
       <section className="bg-light py-5 py-lg-5">
         <div className="container">
@@ -1827,7 +1463,14 @@ export default function Home() {
                         className="bg-success rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4"
                         style={{ width: "64px", height: "64px" }}
                       >
-                        <img src="/assets/img/logo/Vastora-Logo.jpg" alt="Team Member" className="img-fluid rounded-circle" style={{ width: "64px", height: "64px", objectFit: "cover" }} />
+                        <Image 
+                          src="/assets/img/logo/Vastora-Logo.jpg" 
+                          alt="Team Member" 
+                          width={64} 
+                          height={64} 
+                          className="img-fluid rounded-circle" 
+                          style={{ objectFit: "cover" }} 
+                        />
                       </div>
                     </div>
                     <p className="text-muted small mb-0">
@@ -1840,208 +1483,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Professional Testimonials */}
-      <section
-        className="bg-gradient-to-bottom py-5 py-lg-5"
-        style={{
-          background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
-        }}
-      >
-        <div className="container">
-          <div className="text-center mb-5">
-            <div className="position-relative d-inline-block">
-              <h2 className="h1 fw-bold mb-3 position-relative">
-                What Our Clients Say
-                <div className="position-absolute bottom-0 start-50 translate-middle-x w-25 h-1 rounded-pill" style={{ backgroundColor: "#296CB3" }}></div>
-              </h2>
-            </div>
-            <p className="lead text-muted fs-5">
-              Real feedback from businesses we've helped grow online
-            </p>
-            <div className="d-flex justify-content-center align-items-center gap-3 mt-3">
-              <div className="d-flex align-items-center">
-                <i className="bi bi-star-fill text-warning fs-5 me-1"></i>
-                <span className="fw-semibold text-dark">4.9</span>
-              </div>
-              <span className="text-muted">•</span>
-              <span className="text-muted">500+ Happy Clients</span>
-              <span className="text-muted">•</span>
-              <span className="text-muted">8+ Years Experience</span>
-            </div>
-          </div>
-
-          <div className="row g-4">
-            {content.testimonials.map((testimonial, index) => (
-              <div key={index} className="col-lg-4 col-md-6">
-                <div
-                  className="card h-100 border-0 shadow-lg hover-shadow transition-all position-relative overflow-hidden testimonial-card"
-                  style={{
-                    borderRadius: "20px",
-                    transition:
-                      "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                    transform: "translateY(0)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-10px) scale(1.02)";
-                    e.currentTarget.style.boxShadow =
-                      "0 25px 50px rgba(0,0,0,0.15)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0) scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 30px rgba(0,0,0,0.1)";
-                  }}
-                >
-                  {/* Quote Icon */}
-                  <div
-                    className="position-absolute top-0 start-0 m-4 opacity-20 quote-icon"
-                    style={{ zIndex: 0 }}
-                  >
-                    <i
-                      className="bi bi-quote"
-                      style={{ fontSize: "3rem", color: "#296CB3" }}
-                    ></i>
-                  </div>
-
-                  <div
-                    className="card-body p-4 p-lg-5 position-relative"
-                    style={{ zIndex: 1 }}
-                  >
-                    {/* Rating Stars */}
-                    <div className="d-flex justify-content-center mb-4 rating-stars">
-                      {[...Array(5)].map((_, i) => (
-                        <i
-                          key={i}
-                          className="bi bi-star-fill text-warning fs-5 me-1"
-                          style={{
-                            filter:
-                              "drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3))",
-                            animation: `fadeInUp 0.6s ease-out ${
-                              i * 0.1
-                            }s both`,
-                          }}
-                        ></i>
-                      ))}
-                    </div>
-
-                    {/* Testimonial Text */}
-                    <div className="text-center mb-4">
-                      <p
-                        className="text-dark fst-italic fs-6 lh-base mb-0 position-relative"
-                        style={{
-                          fontFamily: "Georgia, serif",
-                          lineHeight: "1.8",
-                        }}
-                      >
-                        <span className="position-relative">
-                          "{testimonial.testimonial}"
-                          <span
-                            className="position-absolute bottom-0 start-0 w-100 h-1 bg-gradient-to-right rounded-pill opacity-25"
-                            style={{
-                              background:
-                                "linear-gradient(90deg, #296CB3, #4a7cbd)",
-                            }}
-                          ></span>
-                        </span>
-                      </p>
-                    </div>
-
-                    {/* Client Info */}
-                    <div className="text-center">
-                      <div className="d-flex justify-content-center align-items-center mb-3">
-                        <div
-                          className="bg-gradient-to-br rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-4 me-3 shadow-lg position-relative client-avatar"
-                          style={{
-                            width: "70px",
-                            height: "70px",
-                            background:
-                              "linear-gradient(135deg, #296CB3 0%, #4a7cbd 100%)",
-                            border: "4px solid white",
-                                                          boxShadow: "0 8px 25px rgba(41, 108, 179, 0.3)",
-                          }}
-                        >
-                          <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center">
-                            {/* Main Avatar Circle */}
-                            <div className="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center fw-bold fs-3">
-                              {testimonial.name.charAt(0).toUpperCase()}
-                            </div>
-
-                            {/* Inner Glow Effect */}
-                            <div
-                              className="position-absolute top-50 start-50 translate-middle w-75 h-75 rounded-circle opacity-25"
-                              style={{
-                                background:
-                                  "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)",
-                                transform: "translate(-50%, -50%)",
-                              }}
-                            ></div>
-
-                            {/* Outer Ring */}
-                            <div
-                              className="position-absolute top-0 start-0 w-100 h-100 rounded-circle border-3 border-white opacity-30"
-                              style={{
-                                border: "3px solid rgba(255,255,255,0.4)",
-                              }}
-                            ></div>
-
-                            {/* Decorative Dots */}
-                            <div
-                              className="position-absolute top-0 end-0 translate-middle-x bg-white rounded-circle opacity-60 decorative-dot"
-                              style={{
-                                width: "8px",
-                                height: "8px",
-                                transform: "translateX(50%)",
-                              }}
-                            ></div>
-                            <div
-                              className="position-absolute bottom-0 start-0 translate-middle-x bg-white rounded-circle opacity-60 decorative-dot"
-                              style={{
-                                width: "6px",
-                                height: "6px",
-                                transform: "translateX(-50%)",
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                        <div className="text-start">
-                          <h5 className="mb-1 fw-bold text-dark">
-                            {testimonial.name}
-                          </h5>
-                          <div className="d-flex align-items-center">
-                            <i className="bi bi-geo-alt-fill me-2" style={{ color: "#296CB3" }}></i>
-                            <span className="text-muted fw-medium">
-                              {testimonial.city}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Verification Badge */}
-                      <div className="d-inline-flex align-items-center bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill small fw-semibold verification-badge">
-                        <i className="bi bi-patch-check-fill me-2"></i>
-                        Verified Client
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Accent */}
-                  <div
-                    className="position-absolute bottom-0 start-0 w-100 h-3 bg-gradient-to-right rounded-bottom"
-                    style={{
-                      background: "linear-gradient(90deg, #296CB3, #4a7cbd)",
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <EnrollmentTestimonials />
       {/* Toast Notifications */}
       <Toaster />
     </div>
   );
-}
+};

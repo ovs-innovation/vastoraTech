@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const revalidate = 3600;
 
 const HomeFive = dynamicImport(() => import("@/components/homes/home-5"), {
-  ssr: false,
+  ssr: true,
 });
 
 export const metadata = {
@@ -15,14 +15,12 @@ export const metadata = {
   keywords: [
     "web development company",
     "eCommerce website development",
-    "digital marketing services",
-    "digital marketing agency in delhi",
-    "digital marketing agency near me",
+    "ecommerce website development company near me",
+    "ecommerce website development company in noida",
+    "e commerce platform in india",
+    "ecommerce website development cost in india",
     "website design and development",
     "website development company in India",
-    "SEO services company",
-    "digital marketing services near me",
-    "digital marketing agency in noida",
     "web design and development"
 
   ],
@@ -79,14 +77,15 @@ const index = () => {
       "ecommerce website development agency",
       "ecommerce website development services",
       "ecommerce app development company",
-      "digital marketing services",
-      "digital marketing agency in Delhi",
-      "digital marketing agency in Noida",
-      "digital marketing services near me",
-      "social media marketing",
-      "social media marketing agency",
-      "social media management agencies",
-      "social marketing agency",
+      "web development company",
+      "eCommerce website development",
+      "ecommerce website development company near me",
+      "ecommerce website development company in noida",
+      "e commerce platform in india",
+      "ecommerce website development cost in india",
+      "website design and development",
+      "website development company in India",
+      "web design and development",
       "best social media agency",
       "SMM Company in Noida",
       "Best Social Media Marketing Agency",

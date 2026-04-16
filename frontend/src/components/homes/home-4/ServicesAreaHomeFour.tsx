@@ -139,7 +139,7 @@ const ServicesAreaHomeFour = ({style}: any) => {
                                 <div className="services-bottom text-center">
                                     <div className="servics-details-4 d-flex align-items-center justify-content-center">
                                         <Image src={header_rocket} alt="Rocket Icon" title="Rocket Icon" />
-                                        <p>{sm_info}</p>
+                                        <div>{sm_info}</div>
                                     </div>
                                 </div>
                             </div>

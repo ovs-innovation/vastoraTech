@@ -7,7 +7,7 @@ const EcommerceInfoArea = () => {
             <div className="container">
                 {/* 1. Our E-Commerce Development Services */}
                 <div className="section-title-wrap mb-60">
-                    <h2 className="tp-section-title text-center mb-40">Our E-Commerce Development Services</h2>
+                    <h1 className="tp-section-title text-center mb-40">Our E-Commerce Development Services</h1>
                     <div className="row g-4 justify-content-center">
                         {[
                             {

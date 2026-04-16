@@ -9,6 +9,8 @@ import ArrowPlane from "@/assets/img/shape/banner-5-shape-10.png";
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
+import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css"; // Only if needed
 
 import banner_img1 from "@/assets/img/banner/banner_mobile.png";
 import banner_img2 from "@/assets/img/banner/banner_home.png";
@@ -158,7 +160,7 @@ const HeroBannerHomeFive = () => {
           <div className="banner-5-content-shape">
             <div className="banner-5-content-shape-one">
               <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                <Image src={ArrowPlane} alt="Arrow Plane Decoration" title="Arrow Plane Decoration" />
+                <Image src={ArrowPlane} alt="Vastora Tech banner shape" priority />
               </MouseParallaxChild>
             </div>
             
@@ -173,7 +175,7 @@ const HeroBannerHomeFive = () => {
           <div className="container custom-container">
             <div className="banner-5-shape">
               <div className="banner-5-shape-one">
-                <Image src={LeftBG} alt="Banner Background Shape" title="Banner Background Shape" />
+                <Image src={LeftBG} alt="Vastora Tech background shape" priority />
               </div>
             </div>
             <div className="row">
@@ -198,20 +200,20 @@ const HeroBannerHomeFive = () => {
                     <Image
                       src={banner_img1}
                       alt="Vastora Tech E-commerce Solution"
-                      title="Vastora Tech E-commerce Solution"
                       height={700}
                       width={700}
                       style={{ display: "block", margin: "0 auto" }}
+                      priority
                     />
                   )}
                   {currentSlide === 1 && (
                     <Image
                       src={banner_img2}
                       alt="Vastora Tech Digital Store"
-                      title="Vastora Tech Digital Store"
                       height={700}
                       width={700}
                       style={{ display: "block", margin: "0 auto" }}
+                      priority
                     />
                   )}
                   <div className="banner-5-thumb-shape d-none d-md-block">

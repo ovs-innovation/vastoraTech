@@ -3,8 +3,7 @@
 @import "../../public/assets/css/spacing.css";
 
 @import "react-modal-video/css/modal-video.css";
-@import "swiper/css/bundle";
-@import "slick-carousel/slick/slick.css";
+// swiper and slick imports removed from here, moved to component level
 @import "~bootstrap/scss/bootstrap";
 
 @import "../../public/assets/scss/main.scss";
