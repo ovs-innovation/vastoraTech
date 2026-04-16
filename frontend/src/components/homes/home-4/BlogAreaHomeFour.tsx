@@ -140,7 +140,17 @@ const BlogAreaHomeFour = () => {
                                     {blogs.slice(0, 6).map((blog, i) => (
                                         <SwiperSlide key={blog._id || i}>
                                             <div style={cardStyles} className="blog-card-home4">
-                                                <div style={{...imgStyles, background: `url(${blog.image})`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
+                                                <div style={{...imgStyles, position: 'relative', overflow: 'hidden'}}>
+                                                    <Image 
+                                                        src={blog.image?.includes('cloudinary.com') 
+                                                            ? blog.image.replace('/upload/', '/upload/q_auto,f_auto,w_400/') 
+                                                            : blog.image} 
+                                                        alt={blog.title}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, 170px"
+                                                        style={{ objectFit: 'cover' }}
+                                                    />
+                                                </div>
                                                 <div style={contentStyles}>
                                                     <h5 className="tpblog-4-content-sub-tilte" style={{ marginBottom: 6, color: '#A5A5A9' }}>{blog.category || 'Blog'}</h5>
                                                     <h4 className="tpblog-4-content-title" style={{ fontWeight: 700, fontSize: 22, marginBottom: 13 }}>

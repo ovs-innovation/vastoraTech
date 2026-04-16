@@ -2,7 +2,30 @@ import "../styles/index.scss";
 import Script from "next/script";
 import WhatsappButton from "@/components/common/WhatsappButton";
 import TawkMessenger from "@/components/common/TawkMessenger";
+import DelayedTracking from "@/components/common/DelayedTracking";
 import { Metadata } from 'next';
+import { DM_Sans, Plus_Jakarta_Sans, Urbanist } from 'next/font/google';
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--tp-ff-dm',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--tp-ff-jakarta',
+});
+
+const urbanist = Urbanist({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--tp-ff-urbanist',
+});
 
 export const metadata: Metadata = {
   authors: [{ name: "Vastora Tech"}],
@@ -18,67 +41,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head> 
+    <html lang="en" className={`${dmSans.variable} ${jakarta.variable} ${urbanist.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+
+        {/* Font Preloads */}
+        <link rel="preload" href="/assets/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
         <meta name="google-site-verification" content="V4aLrltshefXGf6Lb7IC9S88YVb7JpLbTpbxIDPc1xg" />
-        <link rel="icon" href="favicon.ico" sizes="any" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800&display=swap"
-        />
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PX89884L');`,
-          }}
-        />
-        {/* End Google Tag Manager */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-FLNPVZCVKR"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FLNPVZCVKR');
-            `,
-          }}
-        />
-        {/* Meta Pixel Code */}
-        <Script
-          id="facebook-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '767820493070214');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-        {/* End Meta Pixel Code */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+
+        {/* Preconnect to tracking domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
       </head>
-      <body>
+      <body className={`${dmSans.variable} ${jakarta.variable} ${urbanist.variable}`}>
+        {/* Tracking Scripts (Delayed for Performance) */}
+        <DelayedTracking />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PX89884L"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W9ZGLBV2"
             height="0" 
             width="0" 
             style={{display:'none',visibility:'hidden'}}
@@ -92,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width="1" 
             style={{display:'none'}}
             src="https://www.facebook.com/tr?id=767820493070214&ev=PageView&noscript=1"
-            alt="facebook-pixel"
+            alt=""
           />
         </noscript>
         {/* End Meta Pixel Code (noscript) */}

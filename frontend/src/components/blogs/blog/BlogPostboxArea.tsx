@@ -166,13 +166,15 @@ const BlogPostboxArea = () => {
 													overflow: "hidden"
 												}}
 											>
-												<img
-													src={blog.image}
+												<Image
+													src={blog.image?.includes('cloudinary.com') 
+														? blog.image.replace('/upload/', '/upload/q_auto,f_auto,w_800/') 
+														: blog.image}
 													alt={blog.title}
+													fill
+													sizes="(max-width: 991px) 100vw, 800px"
 													style={{
-														width: "100%",
-														height: "100%",
-														objectPosition: "center",
+														objectFit: "cover",
 														borderRadius: "10px"
 													}}
 												/>

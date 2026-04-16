@@ -1,7 +1,8 @@
 "use client"
 import Image from "next/image";
 import { useState } from 'react';
-import VideoPopup from "@/componentsmodals/video-popup";
+import dynamic from "next/dynamic";
+const VideoPopup = dynamic(() => import("@/componentsmodals/video-popup"), { ssr: false });
 import about_bg_img from "@/assets/img/bg/about-5-bg-21.jpg";
 
 import video_shape_1 from "@/assets/img/shape/video-blue.png";
