@@ -11,11 +11,9 @@ const SocialMediaMarketingAbout = () => {
                     <div className="col-lg-6 col-md-12 order-2 order-lg-1">
                         <div className="about-content pr-20">
                             <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#555', textAlign: 'justify' }}>
-                                At Vastora Tech, we are a trusted social media marketing agency in Noida helping businesses create powerful digital identities. Our team specializes in content strategy, social media management, paid advertising, and audience engagement to deliver measurable growth.
-                            </p>
+                               At Vastora Tech, we offer leading social media marketing services in Noida, helping businesses build a strong and result-driven digital presence. Our team combines creative content, data-driven strategies, and targeted advertising to increase brand visibility, engagement, and leads.                            </p>
                             <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#555', textAlign: 'justify', marginTop: '15px' }}>
-                                Whether you are searching for a best social media agency, a reliable SMM company in Noida, or professional social media management agencies, we provide customized strategies that drive real business results.
-                            </p>
+                               We provide professional social media marketing services tailored to your business goals. From strategy to execution, our approach focuses on delivering consistent growth and measurable results.                            </p>
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-12 order-1 order-lg-2">

@@ -3,8 +3,8 @@ import Wrapper from "@/layout/Wrapper";
 import SeoServices from "@/components/services/seo-services";
 
 export const metadata = {
-    title: "Best SEO Service in Noida | SEO Services Near Me",
-    description: "Vastora Tech provides reliable SEO services near me and expert SEO service in Noida to help businesses improve search rankings, traffic, and online visibility.",
+    title: "Best SEO Company in Noida | Top SEO Services | Vastora Tech",
+    description: "Boost your rankings with the best SEO company in Noida. Vastora Tech, the best SEO company from India, delivers expert SEO services to drive real business growth.",
     keywords: [
       "SEO services company",
       "seo services",
@@ -24,8 +24,8 @@ export const metadata = {
         canonical: "https://vastoratech.com/services/seo-services",
     },
     openGraph: {
-        title: "Best SEO Service in Noida | SEO Services Near Me",
-        description: "Vastora Tech provides reliable SEO services near me and expert SEO service in Noida to help businesses improve search rankings, traffic, and online visibility.",
+        title: "Best SEO Company in Noida | Top SEO Services | Vastora Tech",
+        description: "Boost your rankings with the best SEO company in Noida. Vastora Tech, the best SEO company from India, delivers expert SEO services to drive real business growth.",
         type: "website",
         url: "https://vastoratech.com/services/seo-services",
         images: [
@@ -39,8 +39,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Best SEO Service in Noida | SEO Services Near Me",
-        description: "Vastora Tech provides reliable SEO services near me and expert SEO service in Noida to help businesses improve search rankings, traffic, and online visibility.",
+        title: "Best SEO Company in Noida | Top SEO Services | Vastora Tech",
+        description: "Boost your rankings with the best SEO company in Noida. Vastora Tech, the best SEO company from India, delivers expert SEO services to drive real business growth.",
         images: ["https://vastoratech.com/images/seo-services.jpg"],
     },
     authors: [{ name: "Vastora Tech"}],

@@ -3,8 +3,8 @@ import Wrapper from "@/layout/Wrapper";
 import WebDevelopment from "@/components/services/web-development-services";
 
 export const metadata = {
-    title: "Web Design and Web Development Services | Company",
-    description: "Professional website development company offering website development services, web design and web development services, and custom website solutions for businesses looking to grow online.",
+    title: "Top Web Development Company in Noida | Vastora Tech",
+    description: "Looking for a professional website designing company in Noida? Vastora Tech offers expert web development services tailored for small businesses and startups. Get a fast, secure, and SEO-friendly website.",
     keywords: [
       "web development company",
       "web app development service",
@@ -22,8 +22,8 @@ export const metadata = {
         canonical: "https://vastoratech.com/services/web-development-services",
     },
     openGraph: {
-        title: "Website Development Company | Top Web Development Agencies",
-        description: "Vastora Tech is a professional website development company among the top web development agencies offering custom websites, ecommerce solutions, and modern web design services.",
+        title: "Top Web Development Company in Noida | Vastora Tech",
+        description: "Looking for a professional website designing company in Noida? Vastora Tech offers expert web development services tailored for small businesses and startups. Get a fast, secure, and SEO-friendly website.",
         type: "website",
         url: "https://vastoratech.com/services/web-development-services",
         images: [
@@ -37,8 +37,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Website Development Company | Top Web Development Agencies",
-        description: "Vastora Tech is a professional website development company among the top web development agencies offering custom websites, ecommerce solutions, and modern web design services.",
+        title: "Top Web Development Company in Noida | Vastora Tech",
+        description: "Looking for a professional website designing company in Noida? Vastora Tech offers expert web development services tailored for small businesses and startups. Get a fast, secure, and SEO-friendly website.",
         images: ["https://vastoratech.com/images/web-development.jpg"],
     },
     authors: [{ name: "Vastora Tech"}],

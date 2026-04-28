@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "E-Commerce Website Development Services India - Vastora Tech",
-    description: "Premium e-commerce website development services in India. We specialize in custom e-commerce solutions, app development, and online store management for 10x business growth.",
+    title: "Best Ecommerce Website Development Company in Noida | Vastora Tech",
+    description: "Looking for an ecommerce website development company in Noida? Vastora Tech offers expert ecommerce design, development, and mobile app solutions to grow your online business",
     keywords: [
       "ecommerce web development india",
       "ecommerce website developer",

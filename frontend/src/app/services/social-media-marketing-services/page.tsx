@@ -3,8 +3,8 @@ import Wrapper from "@/layout/Wrapper";
 import SocialMediaMarketingServices from "@/components/services/social-media-marketing-services";
 
 export const metadata = {
-    title: "Social Media Marketing Agency | SMM Company in Noida",
-    description: "Vastora Tech is a leading social media marketing agency and SMM company in Noida helping businesses grow with Facebook, Instagram, and targeted social media campaigns.",
+    title: "Social Media Marketing Services in Noida | Vastora Tech",
+    description: "Looking for expert social media marketing services in Noida? Vastora Tech helps businesses grow with targeted strategies, creative content, and result-driven campaigns. Boost your brand today.",
     keywords: [
      "social media marketing agency",
      "social media management agencies",
@@ -19,8 +19,8 @@ export const metadata = {
         canonical: "https://vastoratech.com/services/social-media-marketing-services",
     },
     openGraph: {
-        title: "Social Media Marketing Agency | SMM Company in Noida",
-        description: "Vastora Tech is a leading social media marketing agency and SMM company in Noida helping businesses grow with Facebook, Instagram, and targeted social media campaigns.",
+        title: "Social Media Marketing Services in Noida | Vastora Tech",
+        description: "Looking for expert social media marketing services in Noida? Vastora Tech helps businesses grow with targeted strategies, creative content, and result-driven campaigns. Boost your brand today.",
         type: "website",
         url: "https://vastoratech.com/services/social-media-marketing-services",
         images: [
@@ -34,8 +34,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Social Media Marketing Agency | SMM Company in Noida",
-        description: "Vastora Tech is a leading social media marketing agency and SMM company in Noida helping businesses grow with Facebook, Instagram, and targeted social media campaigns.",
+        title: "Social Media Marketing Services in Noida | Vastora Tech",
+        description: "Looking for expert social media marketing services in Noida? Vastora Tech helps businesses grow with targeted strategies, creative content, and result-driven campaigns. Boost your brand today.",
         images: ["https://vastoratech.com/images/social-media-marketing.jpg"],
     },
     authors: [{ name: "Vastora Tech"}],

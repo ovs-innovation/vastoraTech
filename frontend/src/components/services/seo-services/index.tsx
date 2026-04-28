@@ -26,7 +26,8 @@ const SeoAudit = () => {
         <>
              <HeaderFive />
              <main>
-                <BreadcrumbThree sub_title="SEO Services" title={<>Best SEO Services in Noida to Grow Your Business Online</>} description="Vastora Tech is a trusted SEO agency in Noida helping businesses improve search rankings, drive organic traffic, and generate real leads through result-driven search engine optimization services"
+                <BreadcrumbThree sub_title="SEO Services" title={<>Top Search Engine Optimization Company in Noida</>} 
+                description="Drive organic traffic and improve search rankings with our expert SEO services in Noida. We offer customized on-page, off-page, and technical SEO strategies to support long-term website growth."
                  style={false} shape_1_2={shape_1_2}
                 shape_1={shape_1} shape_2={shape_2} shape_3={shape_3} shape_4={shape_4}   />
                  <SeoAbout />

@@ -4,43 +4,43 @@ import { useState } from "react";
 const faq_data = [
   {
     id: "seo-faq-1",
-    question: "What are SEO services?",
-    answer: "SEO services are strategies used to improve a website’s ranking on search engines like Google. These services include keyword optimization, content improvements, and technical updates."
+    question: "Which is the best SEO company in Noida?",
+    answer: "A good SEO company focuses on data-driven strategies, transparent reporting, and long-term growth. At Vastora Tech, we help businesses improve rankings, traffic, and conversions with proven SEO techniques."
   },
   {
     id: "seo-faq-2",
-    question: "Why is SEO important for businesses?",
-    answer: "SEO helps businesses appear in search results when people look for products or services online. This increases website traffic and potential customers."
+    question: "What do SEO services in Noida include?",
+    answer: "SEO services include keyword research, on-page optimization, technical SEO, content optimization, and link building to improve your website’s visibility on search engines like Google Search."
   },
   {
     id: "seo-faq-3",
-    question: "What is SEO in eCommerce?",
-    answer: "SEO in eCommerce focuses on optimizing online stores so product pages and categories appear in search results and attract buyers."
+    question: "How long does search engine optimization take to show results?",
+    answer: "SEO is a long-term process. Initial improvements can be seen within 3–6 months, depending on your competition, website condition, and strategy."
   },
   {
     id: "seo-faq-4",
-    question: "Do you provide SEO service in Noida?",
-    answer: "Yes, we provide SEO service in Noida for businesses that want to improve their website rankings and reach more customers online."
+    question: "Do you provide search engine optimization for websites?",
+    answer: "Yes, we offer complete SEO services for websites, ensuring better rankings, increased traffic, and improved user experience."
   },
   {
     id: "seo-faq-5",
-    question: "Can I find SEO services near me through your company?",
-    answer: "Yes, we offer SEO services near me for businesses looking for reliable search engine optimization support."
+    question: " What is an off-page SEO strategy?",
+    answer: "Off-page SEO focuses on building high-quality backlinks, brand mentions, and online authority to improve your website’s domain strength and rankings."
   },
   {
     id: "seo-faq-6",
-    question: "What does an SEO agency near me do?",
-    answer: "An SEO agency near me helps businesses improve their search engine rankings through website optimization, keyword research, and content strategies."
+    question: "Why should I hire an SEO agency in Noida?",
+    answer: "A local SEO agency understands the market, competition, and audience behavior, helping you achieve better results with targeted strategies."
   },
   {
     id: "seo-faq-7",
-    question: "How do I choose the best SEO services in Noida?",
-    answer: "To choose the best SEO services in Noida, check the agency’s experience, past results, and SEO strategy before making a decision."
+    question: "How much do SEO services cost in Noida?",
+    answer: "SEO pricing depends on your goals and competition. Basic plans may start from ₹8,000–₹20,000 per month, while advanced SEO strategies cost more."
   },
   {
     id: "seo-faq-8",
-    question: "What do search engine optimization agencies focus on?",
-    answer: "Search engine optimization agencies focus on improving website visibility, increasing organic traffic, and helping businesses rank higher in search engines."
+    question: "Do you provide monthly SEO reports?",
+    answer: "Yes, we provide detailed monthly reports with keyword rankings, traffic insights, and performance tracking to measure progress."
   }
 ];
 

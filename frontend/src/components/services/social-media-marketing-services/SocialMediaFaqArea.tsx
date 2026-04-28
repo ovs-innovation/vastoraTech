@@ -4,43 +4,43 @@ import { useState } from "react";
 const faq_data = [
   {
     id: "smm-faq-1",
-    question: "What does a social media marketing agency do?",
-    answer: "A social media marketing agency helps businesses promote their brand on platforms like Facebook, Instagram, and LinkedIn through content, ads, and account management."
+    question: "What are social media marketing services in Noida?",
+    answer: "Social media marketing services in Noida include content creation, account management, paid advertising, and audience targeting to help businesses grow on platforms like Instagram, Facebook, and LinkedIn."
   },
   {
     id: "smm-faq-2",
-    question: "Why is social media important in marketing?",
-    answer: "Social media in marketing helps businesses reach their audience, build brand awareness, and connect with potential customers online."
+    question: "How do I choose the best social media marketing agency?",
+    answer: "Choose an agency that offers clear strategies, proven results, transparent reporting, and customized campaigns aligned with your business goals."
   },
   {
     id: "smm-faq-3",
-    question: "What services do social media management agencies provide?",
-    answer: "Social media management agencies provide content creation, post scheduling, account management, and social media advertising."
+    question: "Is social media marketing useful for small businesses?",
+    answer: "Yes, social media marketing is highly effective for small businesses. It helps increase brand awareness, generate leads, and connect directly with your target audience at a lower cost."
   },
   {
     id: "smm-faq-4",
-    question: "How do I choose the best social media agency?",
-    answer: "To choose the best social media agency, check their experience, past work, and ability to create effective social media strategies."
+    question: "What is social media marketing?",
+    answer: "Social media marketing is the process of promoting your business using platforms like Facebook, Instagram, and LinkedIn through content creation, paid ads, and engagement strategies."
   },
   {
     id: "smm-faq-5",
-    question: "Do you work as an SMM company in Noida?",
-    answer: "Yes, we provide professional social media marketing services as an SMM company in Noida for businesses looking to grow online."
+    question: "What is included in social media marketing services?",
+    answer: "Services typically include content planning, post design, caption writing, ad campaign management, audience targeting, and performance tracking."
   },
   {
     id: "smm-faq-6",
-    question: "Do you provide services for businesses searching for an SMM company near me?",
-    answer: "Yes, we help businesses looking for an SMM company near me with complete social media marketing and management services."
+    question: "Do you provide social media marketing services in Noida for all industries?",
+    answer: "Yes, our services are suitable for startups, small businesses, and established brands across various industries."
   },
   {
     id: "smm-faq-7",
-    question: "What platforms do social marketing agencies manage?",
-    answer: "A social marketing agency usually manages platforms like Facebook, Instagram, LinkedIn, and Twitter."
+    question: "What makes a good social media agency in Noida?",
+    answer: "A good agency focuses on strategy, creativity, consistency, and data-driven results rather than just posting content."
   },
   {
     id: "smm-faq-8",
-    question: "How can the best social media marketing agency help my business?",
-    answer: "The best social media marketing agency helps increase brand visibility, engagement, and customer reach through strategic campaigns."
+    question: "How long does it take to see results from social media marketing?",
+    answer: "Initial engagement can be seen within a few weeks, but consistent growth and lead generation usually take 2–3 months with the right strategy."
   }
 ];
 

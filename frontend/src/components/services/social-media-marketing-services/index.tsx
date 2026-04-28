@@ -31,8 +31,8 @@ const SocialMediaMarketingServices = () => {
             <main>
                 <BreadcrumbThree 
                     sub_title="Social Media Marketing Services" 
-                    title={<>Build Your Brand with the Best Social Media Marketing Agency</>}
-                    description="Grow your business with result-driven social media marketing services designed to increase engagement, attract new customers, and strengthen your brand presence across all major platforms."
+                    title={<>Best Social Media Marketing Services in Noida for Business Growth</>}
+                    description="We help brands build a strong online presence with result-driven strategies. Our focus is on increasing visibility, engagement, and leads through consistent and targeted social media efforts."
                    // img={banner_service} 
                     style={false} 
                     shape_1_2={shape_1_2}

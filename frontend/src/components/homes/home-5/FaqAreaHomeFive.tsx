@@ -4,49 +4,49 @@ import { useState } from "react";
 const faq_home_5 = [
   {
     id: "faq-1",
-    question: "What does a web development company do?",
-    answer: "A web development company helps businesses create and manage their online presence. This includes website design and development, building responsive websites, improving performance, and making sure the website works smoothly on all devices."
+    question: "What is the cost of ecommerce website development in India?",
+    answer: "The cost depends on your requirements, features, and platform. A basic ecommerce website can start from ₹10,000, while advanced or custom-built solutions may cost ₹50,000 or more. We provide flexible pricing based on your business needs."
   },
   {
     id: "faq-2",
-    question: "Do you offer website design and development services?",
-    answer: "Yes, we provide complete website design and development solutions for businesses. Our team focuses on creating modern, user-friendly websites that look professional and perform well on both desktop and mobile devices."
+    question: "How long does it take to develop an ecommerce website?",
+    answer: "A standard ecommerce website usually takes 2–4 weeks. Custom or feature-rich websites may take 4–8 weeks depending on complexity, integrations, and design requirements."
   },
   {
     id: "faq-3",
-    question: "Do you provide eCommerce website development?",
-    answer: "Yes, we specialize in eCommerce website development for businesses that want to sell products or services online. Our team builds secure and scalable online stores with easy product management, payment gateway integration, and a smooth shopping experience."
+    question: "Which platform is best for ecommerce website development?",
+    answer: "Popular platforms include Shopify, WooCommerce, and Magento. The right platform depends on your budget, scalability needs, and business goals."
   },
   {
     id: "faq-4",
-    question: "Are you a website development company in India?",
-    answer: "Yes, we work as a website development company in India and provide professional web design and development services to businesses looking for reliable and scalable website solutions."
+    question: "Do you offer custom ecommerce website development?",
+    answer: "Yes, we specialize in fully custom ecommerce solutions tailored to your business. From design to functionality, everything is built according to your specific requirements."
   },
   {
     id: "faq-5",
-    question: "What digital marketing services do you offer?",
-    answer: "Our digital marketing services help businesses increase their online visibility and attract more customers. We provide services such as search engine optimization, content marketing, social media marketing, and performance marketing strategies."
+    question: " Will my ecommerce website be mobile-friendly and SEO optimized?",
+    answer: "Yes, all our websites are fully responsive and optimized for search engines. This ensures better user experience, higher rankings, and improved visibility on Google."
   },
   {
     id: "faq-6",
-    question: "Do you provide SEO services for websites?",
-    answer: "Yes, we are an experienced SEO services company that helps businesses improve their rankings on search engines. Our SEO strategies focus on increasing organic traffic and improving website visibility."
+    question: "Do you integrate payment gateways?",
+    answer: "Yes, we integrate secure payment gateways such as Razorpay, PayU, and Stripe for smooth and secure transactions."
   },
   {
     id: "faq-7",
-    question: "Are you a digital marketing agency in Noida?",
-    answer: "Yes, we operate as a digital marketing agency in Noida and help businesses grow through effective digital marketing strategies, including SEO, social media marketing, and online advertising."
+    question: "Can I manage my ecommerce website after development?",
+    answer: "Absolutely. We provide an easy-to-use admin panel so you can manage products, orders, and customers without any technical knowledge."
   },
   {
     id: "faq-8",
-    question: "Do you provide digital marketing services near me?",
-    answer: "Yes, our team provides digital marketing services near me for businesses looking to improve their online presence. We work with companies from different industries to help them reach their target audience and grow their business."
+    question: "Do you provide support and maintenance?",
+    answer: "Yes, we offer ongoing support and maintenance to keep your website secure, updated, and running smoothly."
   },
-  {
-    id: "faq-9",
-    question: "Can a digital marketing agency help grow my business?",
-    answer: "Working with a professional digital marketing agency can help your business reach more potential customers online. Through SEO, advertising, and content marketing, digital marketing services can increase website traffic, leads, and sales."
-  }
+  // {
+  //   id: "faq-9",
+  //   question: "Can a digital marketing agency help grow my business?",
+  //   answer: "Working with a professional digital marketing agency can help your business reach more potential customers online. Through SEO, advertising, and content marketing, digital marketing services can increase website traffic, leads, and sales."
+  // }
 ];
 
 const FaqAreaHomeFive = () => {

@@ -10,8 +10,8 @@ const HomeFive = dynamicImport(() => import("@/components/homes/home-5"), {
 });
 
 export const metadata = {
-  title: "Vastora Tech – Web Development & Digital Marketing in Noida",
-  description: "Looking for a web development company or digital marketing agency in Noida? Vastora Tech offers custom websites, ecommerce development, SEO, and online marketing solutions.",
+  title: "Ecommerce & Website Development Company in India | Vastora Tech",
+  description: "Get professional ecommerce website development services in India. We create fast, secure, and scalable online stores to help grow your business. Contact Vastora Tech today.",
   keywords: [
     "web development company",
     "eCommerce website development",
@@ -28,8 +28,8 @@ export const metadata = {
     canonical: "https://vastoratech.com/",
   },
   openGraph: {
-    title: "Web Development Company & Digital Marketing Agency in Noida",
-    description: "Looking for a web development company or digital marketing agency in Noida? Vastora Tech offers custom websites, ecommerce development, SEO, and online marketing solutions.",
+    title: "Ecommerce & Website Development Company in India | Vastora Tech",
+    description: "Get professional ecommerce website development services in India. We create fast, secure, and scalable online stores to help grow your business. Contact Vastora Tech today.",
     type: "website",
     url: "https://vastoratech.com/",
     images: [
@@ -44,8 +44,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Company & Digital Marketing Agency in Noida",
-    description: "Looking for a web development company or digital marketing agency in Noida? Vastora Tech offers custom websites, ecommerce development, SEO, and online marketing solutions.",
+    title: "Ecommerce & Website Development Company in India | Vastora Tech",
+    description: "Get professional ecommerce website development services in India. We create fast, secure, and scalable online stores to help grow your business. Contact Vastora Tech today.",
     images: ["https://vastoratech.com/images/homepage.jpg"],
   },
   authors: [{ name: "Vastora Tech"}],

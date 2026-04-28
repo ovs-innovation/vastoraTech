@@ -4,43 +4,43 @@ import { useState } from "react";
 const faq_data = [
   {
     id: "eco-faq-1",
-    question: "What are eCommerce website development services?",
-    answer: "eCommerce website development services involve building online stores where businesses can sell products or services through a website."
+    question: "Which is the best ecommerce website development company in Noida?",
+    answer: "A reliable ecommerce development company should offer scalable solutions, secure integrations, and user-friendly design. At Vastora Tech, we build high-performance ecommerce websites tailored to your business goals."
   },
   {
     id: "eco-faq-2",
-    question: "Why should I hire an eCommerce website developer?",
-    answer: "An ecommerce website developer helps create a professional online store with secure payments, product management, and smooth navigation."
+    question: "Do you provide ecommerce website design services?",
+    answer: "Yes, we offer professional ecommerce website design focused on user experience, mobile responsiveness, and conversion optimization."
   },
   {
     id: "eco-faq-3",
-    question: "What does an eCommerce website development agency do?",
-    answer: "An ecommerce website development agency designs, develops, and manages online stores for businesses."
+    question: "Do you develop ecommerce mobile apps?",
+    answer: "Yes, we build feature-rich ecommerce apps for Android and iOS to help you expand your online business."
   },
   {
     id: "eco-faq-4",
-    question: "Is eCommerce web development in India reliable?",
-    answer: "Yes, ecommerce web development India services are widely used by businesses because of strong technical expertise and cost-effective solutions."
+    question: "What is included in ecommerce development services?",
+    answer: "Our services include website design, product setup, payment gateway integration, security implementation, and performance optimization."
   },
   {
     id: "eco-faq-5",
-    question: "Do you provide custom eCommerce website development services?",
-    answer: "Yes, we provide custom ecommerce website development services based on your business needs and goals."
+    question: "How much does ecommerce website development cost in Noida?",
+    answer: "The cost depends on features, design, and platform. Basic ecommerce websites typically start from ₹20,000–₹50,000, while advanced or custom solutions cost more."
   },
   {
     id: "eco-faq-6",
-    question: "What platforms are used for eCommerce website development?",
-    answer: "Popular platforms include Shopify, WooCommerce, Magento, and custom-built solutions."
+    question: "How long does it take to develop an ecommerce website?",
+    answer: "A standard ecommerce website usually takes 3–5 weeks. More complex or custom platforms may take longer based on features and integrations."
   },
   {
     id: "eco-faq-7",
-    question: "Do you build mobile apps for eCommerce businesses?",
-    answer: "Yes, as an ecommerce app development company we create mobile shopping apps for businesses."
+    question: "Will my ecommerce website be SEO-friendly and mobile responsive?",
+    answer: "Yes, all our ecommerce websites are SEO-friendly, fast-loading, and fully responsive across mobile, tablet, and desktop devices."
   },
   {
     id: "eco-faq-8",
-    question: "How long does it take to develop an eCommerce website?",
-    answer: "The development time depends on the features and design requirements, but most projects take a few weeks to complete."
+    question: "Do you provide support after website development?",
+    answer: "Yes, we offer ongoing support and maintenance to ensure your ecommerce website runs smoothly and stays updated."
   }
 ];
 

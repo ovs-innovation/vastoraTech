@@ -3,8 +3,8 @@ import Wrapper from "@/layout/Wrapper";
 import MobileAppDevelopment from "@/components/services/mobile-app-development-services";
 
 export const metadata = {
-    title: "Mobile App Development Company | Mobile App Development Services",
-    description: "Professional mobile app development company offering mobile app development services, web app development service, and mobile commerce app development for businesses looking to grow online.",
+    title: "Mobile App Development Company in Noida | Vastora Tech",
+    description: "Looking for a reliable mobile app development company in Noida? Vastora Tech builds high-performance Android and iOS apps tailored for startups and businesses. Get scalable and affordable solutions today.",
     keywords: [
       "mobile app development",
       "mobile app development services",
@@ -25,8 +25,8 @@ export const metadata = {
         canonical: "https://vastoratech.com/services/mobile-app-development-services",
     },
     openGraph: {
-        title: "Mobile App Development Services | App Company in Noida",
-        description: "Looking for mobile app development services? Vastora Tech is a mobile app development company in Noida building secure, scalable Android and iOS applications for businesses.",
+        title: "Mobile App Development Company in Noida | Vastora Tech",
+        description: "Looking for a reliable mobile app development company in Noida? Vastora Tech builds high-performance Android and iOS apps tailored for startups and businesses. Get scalable and affordable solutions today.",
         type: "website",
         url: "https://vastoratech.com/services/mobile-app-development",
         images: [
@@ -40,8 +40,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mobile App Development Services | App Company in Noida",
-        description: "Looking for mobile app development services? Vastora Tech is a mobile app development company in Noida building secure, scalable Android and iOS applications for businesses.",
+        title: "Mobile App Development Company in Noida | Vastora Tech",
+        description: "Looking for a reliable mobile app development company in Noida? Vastora Tech builds high-performance Android and iOS apps tailored for startups and businesses. Get scalable and affordable solutions today.",
         images: ["https://vastoratech.com/images/mobile-app-development.jpg"],
     },
     authors: [{ name: "Vastora Tech"}],

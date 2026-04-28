@@ -4,43 +4,43 @@ import { useState } from "react";
 const faq_data = [
   {
     id: "mobile-faq-1",
-    question: "What does a mobile app development company do?",
-    answer: "A mobile app development company designs and builds mobile applications for businesses and startups."
+    question: "Which is the best mobile app development company in Noida?",
+    answer: "Vastora Tech is a reliable mobile app development company in Noida, known for building scalable, user-friendly, and high-performance applications tailored to business needs."
   },
   {
     id: "mobile-faq-2",
-    question: "What services are included in mobile app development services?",
-    answer: "Mobile app development services include app design, development, testing, and launch."
+    question: "Do you offer web and app development services?",
+    answer: "Yes, we are a full-service development agency offering both web and mobile app solutions to help businesses build a strong digital presence."
   },
   {
     id: "mobile-faq-3",
-    question: "Do you offer mobile app development company in Noida services?",
-    answer: "Yes, we work as a mobile app development company in Noida and build apps for businesses across different industries."
+    question: "Do you provide iOS app development services?",
+    answer: "Yes, we develop secure and high-performance apps for iPhone and iPad, ensuring a smooth user experience across devices."
   },
   {
     id: "mobile-faq-4",
-    question: "What is a web app development service?",
-    answer: "A web app development service focuses on building web-based applications that work through a browser."
+    question: "What makes you a reliable app development agency?",
+    answer: "We focus on user experience, modern technologies, and customized solutions to deliver apps that are both functional and scalable."
   },
   {
     id: "mobile-faq-5",
-    question: "How do I choose the best app development agency?",
-    answer: "Look for experience, a strong portfolio, and developers who understand your business goals."
+    question: "Do you have experience with different industries?",
+    answer: "Yes, we have experience building apps for industries like ecommerce, healthcare, education, and startups."
   },
   {
     id: "mobile-faq-6",
-    question: "Do you work as a website app development agency?",
-    answer: "Yes, our team works as a website app development agency creating both websites and mobile applications."
+    question: "What are web app development services?",
+    answer: "Web app development involves creating interactive, browser-based applications that work like mobile apps without requiring installation."
   },
   {
     id: "mobile-faq-7",
-    question: "Can I hire mobile app developers near me?",
-    answer: "Yes, businesses looking for mobile app developers near me can work with our experienced development team."
+    question: "CHow much does mobile app development cost in Noida?",
+    answer: "The cost depends on features, platform, and complexity. Basic apps may start from ₹50,000, while advanced or custom apps may cost significantly more."
   },
   {
     id: "mobile-faq-8",
-    question: "What is mobile commerce app development?",
-    answer: "Mobile commerce app development focuses on creating mobile apps for online shopping and digital payments."
+    question: "How long does it take to develop a mobile app?",
+    answer: "A standard mobile app typically takes 4–8 weeks. More complex applications may take 8–12 weeks depending on features and integrations."
   }
 ];
 

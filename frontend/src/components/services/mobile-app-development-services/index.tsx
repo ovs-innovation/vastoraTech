@@ -23,7 +23,8 @@ const MobileAppDevelopment = () => {
         <>
             <HeaderFive />
             <main>
-                <BreadcrumbThree sub_title="Mobile App Development Services" title={<>Mobile App Development Company in Noida Crafting Apps Users Love</>}
+                <BreadcrumbThree sub_title="Mobile App Development Services" title={<> Top Mobile App Development Company in Noida</>}
+                description="Vastora Tech is a trusted mobile app development company in Noida, delivering high-performance Android and iOS applications. We provide affordable and scalable solutions tailored for startups and small businesses."
                     img={banner_service} style={true} shape_1_2={shape_1_2}
                     shape_1={shape_1} shape_2={shape_2} shape_3={shape_3} shape_4={shape_4} />
                 <MobileServiceArea />
