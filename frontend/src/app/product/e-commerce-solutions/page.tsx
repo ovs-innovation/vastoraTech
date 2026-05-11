@@ -3,23 +3,22 @@ import ScrollToTop from "@/components/common/scroll-to-top";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-   title: "Top eCommerce Website Development Services Online",
-   description: "Professional eCommerce website development services in India. Trusted eCommerce website development agency building secure, scalable online stores and mobile commerce applications for businesses.",
+   title: "Best Ecommerce Website Development Company in Noida | Vastora Tech",
+   description: "Looking for an ecommerce website development company in Noida? Vastora Tech offers expert ecommerce design, development, and mobile app solutions to grow your online business",
    keywords: [
-    "ecommerce web development india",
-    "ecommerce website developer",
-    "ecommerce website development agency",
-    "ecommerce website development services",
+    "ecommerce website development company in noida",
+    "ecommerce Website Design Company",
     "ecommerce app development company",
+    "best ecommerce solutions"
    ],
    alternates: {
        canonical: "https://vastoratech.com/product/e-commerce-solutions",
    },
    openGraph: {
-       title: "Ecommerce Web Development India | Ecommerce Website Services",
-       description: "Looking for ecommerce website development services? Vastora Tech provides ecommerce web development in India with custom online stores, secure payment integration, and scalable solutions.",
+       title: "Best Ecommerce Website Development Company in Noida | Vastora Tech",
+       description: "Looking for an ecommerce website development company in Noida? Vastora Tech offers expert ecommerce design, development, and mobile app solutions to grow your online business",
        type: "website",
-       url: "https://vastoratech.com/services/ecommerce-development",
+       url: "https://vastoratech.com/product/e-commerce-solutions",
        images: [
            {
                url: "https://vastoratech.com/images/ecommerce-development-services.jpg",
@@ -31,8 +30,8 @@ export const metadata = {
    },
    twitter: {
        card: "summary_large_image",
-       title: "Ecommerce Web Development India | Ecommerce Website Services",
-       description: "Looking for ecommerce website development services? Vastora Tech provides ecommerce web development in India with custom online stores, secure payment integration, and scalable solutions.",
+       title: "Best Ecommerce Website Development Company in Noida | Vastora Tech",
+       description: "Looking for an ecommerce website development company in Noida? Vastora Tech offers expert ecommerce design, development, and mobile app solutions to grow your online business",
        images: ["https://vastoratech.com/images/ecommerce-development-services.jpg"],
    },
    authors: [{ name: "Vastora Tech"}],
@@ -43,19 +42,20 @@ export const metadata = {
 };
 
 const index = () => {
-     const jsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Vastora Tech",
-    "url": "https://vastoratech.com",
-    "description": "Vastora Tech offers professional web development, eCommerce solutions, digital marketing, SEO, social media marketing, and mobile app development services in India. We deliver end-to-end solutions for businesses of all sizes.",
-    "keywords": [
-     "ecommerce web development india",
-     "ecommerce website developer",
-     "ecommerce website development agency",
-     "ecommerce website development services",
-     "ecommerce app development company",
-    ]
+    "@type": "WebPage",
+    "name": "Best Ecommerce Website Development Company in Noida | Vastora Tech",
+    "url": "https://vastoratech.com/product/e-commerce-solutions",
+    "description": "Looking for an ecommerce website development company in Noida? Vastora Tech offers expert ecommerce design, development, and mobile app solutions to grow your online business",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vastora Tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vastoratech.com/images/logo.png"
+      }
+    }
   };
     const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -71,7 +71,7 @@ const index = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "eCommerce Development",
-        "item": "https://vastoratech.com/ecommerce-development-services"
+        "item": "https://vastoratech.com/product/e-commerce-solutions"
       }
     ]
   };

@@ -4,33 +4,43 @@ import { useState } from "react";
 const faq_data = [
   {
     id: "webdev-faq-1",
-    question: "What services does a website development company provide?",
-    answer: "A website development company provides website development services such as building business websites, creating responsive designs, developing custom features, and maintaining websites to ensure they perform well."
+    question: "Which is the top web development company in Noida?",
+    answer: "Vastora Tech is a trusted web development company in Noida, known for delivering high-quality, SEO-friendly, and performance-driven websites tailored to different business needs."
   },
   {
     id: "webdev-faq-2",
-    question: "What is the difference between web design and web development?",
-    answer: "Web design focuses on the visual layout and user experience of a website, while web development involves building the technical structure and functionality. Together, web design and web development services create a complete website solution."
+    question: "Do you offer business website development services?",
+    answer: "Yes, we provide complete website development services, including design, development, and optimization to help you build a strong online presence."
   },
   {
     id: "webdev-faq-3",
-    question: "How do I choose the best website development company?",
-    answer: "When choosing the best website development company in Noida or any other location, look for experience, portfolio quality, client reviews, and the ability to deliver custom solutions that match your business goals."
+    question: "Are you a website designing company in Noida?",
+    answer: "Yes, we offer modern, user-friendly, and responsive website design services that improve user experience and engagement."
   },
   {
     id: "webdev-faq-4",
-    question: "Do you offer website development company near me services?",
-    answer: "Yes, our team works with businesses looking for a website development company near me. We provide professional development services and support for companies that want reliable website solutions."
+    question: "Do you provide website development for small businesses?",
+    answer: "Yes, we specialize in building affordable and scalable websites for small businesses and startups, tailored to your goals and budget."
   },
   {
     id: "webdev-faq-5",
-    question: "What does a web development agency do?",
-    answer: "A web development agency helps businesses create, design, and manage websites. This includes planning the website structure, developing features, optimizing performance, and ensuring the website works smoothly."
+    question: "What makes you the best web design company?",
+    answer: "We focus on clean design, fast performance, SEO optimization, and user experience to create websites that not only look good but also deliver results."
   },
   {
     id: "webdev-faq-6",
-    question: "Why are professional web developers important for a business website?",
-    answer: "Professional web developers ensure your website is secure, fast, and optimized for users. Working with experienced developers helps businesses create websites that perform well and provide a better experience for visitors."
+    question: "How much does website development cost?",
+    answer: "The cost depends on your requirements, features, and design. Basic websites typically start from ₹10,000–₹30,000, while advanced or custom websites may cost more."
+  },
+  {
+    id: "webdev-faq-7",
+    question: "How long does it take to develop a website?",
+    answer: "A standard business website usually takes 1–3 weeks. More complex or custom projects may take longer depending on features and requirements."
+  },
+  {
+    id: "webdev-faq-8",
+    question: "Will my website be SEO-friendly and mobile responsive?",
+    answer: "Yes, all our websites are SEO-friendly, fast-loading, and fully responsive across mobile, tablet, and desktop devices."
   }
 ];
 

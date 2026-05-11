@@ -6,17 +6,11 @@ export const metadata = {
     title: "Top Web Development Company in Noida | Vastora Tech",
     description: "Looking for a professional website designing company in Noida? Vastora Tech offers expert web development services tailored for small businesses and startups. Get a fast, secure, and SEO-friendly website.",
     keywords: [
-      "web development company",
-      "web app development service",
-      "best app development agency",
-      "website app development agency",
-      "mobile app developers near me",
-      "mobile commerce app development",
-      "web design company site",
-      "design in web development",
-      "best website development company Noida",
-      "web design and web development services",
-      "website development company near me"
+        "Top Web Development Company in Noida",
+        "business website development services",
+        "website designing company in noida",
+        "website development company in noida",
+        "best web design company websites"
     ],
     alternates: {
         canonical: "https://vastoratech.com/services/web-development-services",
@@ -49,25 +43,20 @@ export const metadata = {
 };
 
 const index = () => {
-    const jsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Vastora Tech",
-    "url": "https://vastoratech.com",
-    "description": "Vastora Tech offers professional web development, eCommerce solutions, digital marketing, SEO, social media marketing, and mobile app development services in India. We deliver end-to-end solutions for businesses of all sizes.",
-    "keywords": [
-      "web development company",
-      "web app development service",
-      "best app development agency",
-      "website app development agency",
-      "mobile app developers near me",
-      "mobile commerce app development",
-      "web design company site",
-      "design in web development",
-      "best website development company Noida",
-      "web design and web development services",
-      "website development company near me"
-    ]
+    "@type": "WebPage",
+    "name": "Top Web Development Company in Noida | Vastora Tech",
+    "url": "https://vastoratech.com/services/web-development-services",
+    "description": "Looking for a professional website designing company in Noida? Vastora Tech offers expert web development services tailored for small businesses and startups. Get a fast, secure, and SEO-friendly website.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vastora Tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vastoratech.com/images/logo.png"
+      }
+    }
   };
 
     const breadcrumbJsonLd = {
@@ -84,7 +73,7 @@ const index = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "Web Development",
-        "item": "https://vastoratech.com/web-development-services"
+        "item": "https://vastoratech.com/services/web-development-services"
       }
     ]
   };
@@ -95,50 +84,66 @@ const index = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What services does a website development company provide?",
+        "name": "Which is the top web development company in Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A website development company provides website development services such as building business websites, creating responsive designs, developing custom features, and maintaining websites to ensure they perform well."
+          "text": "Vastora Tech is a trusted web development company in Noida, known for delivering high-quality, SEO-friendly, and performance-driven websites tailored to different business needs."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the difference between web design and web development?",
+        "name": "Do you offer business website development services?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Web design focuses on the visual layout and user experience of a website, while web development involves building the technical structure and functionality. Together, web design and web development services create a complete website solution."
+          "text": "Yes, we provide complete website development services, including design, development, and optimization to help you build a strong online presence."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I choose the best website development company?",
+        "name": "Are you a website designing company in Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "When choosing the best website development company in Noida or any other location, look for experience, portfolio quality, client reviews, and the ability to deliver custom solutions that match your business goals."
+          "text": "Yes, we offer modern, user-friendly, and responsive website design services that improve user experience and engagement."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer website development company near me services?",
+        "name": "Do you provide website development for small businesses?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, our team works with businesses looking for a website development company near me. We provide professional development services and support for companies that want reliable website solutions."
+          "text": "Yes, we specialize in building affordable and scalable websites for small businesses and startups, tailored to your goals and budget."
         }
       },
       {
         "@type": "Question",
-        "name": "What does a web development agency do?",
+        "name": "What makes you the best web design company?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A web development agency helps businesses create, design, and manage websites. This includes planning the website structure, developing features, optimizing performance, and ensuring the website works smoothly."
+          "text": "We focus on clean design, fast performance, SEO optimization, and user experience to create websites that not only look good but also deliver results."
         }
       },
       {
         "@type": "Question",
-        "name": "Why are professional web developers important for a business website?",
+        "name": "How much does website development cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Professional web developers ensure your website is secure, fast, and optimized for users. Working with experienced developers helps businesses create websites that perform well and provide a better experience for visitors."
+          "text": "The cost depends on your requirements, features, and design. Basic websites typically start from ₹10,000–₹30,000, while advanced or custom websites may cost more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to develop a website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard business website usually takes 1–3 weeks. More complex or custom projects may take longer depending on features and requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my website be SEO-friendly and mobile responsive?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all our websites are SEO-friendly, fast-loading, and fully responsive across mobile, tablet, and desktop devices."
         }
       }
     ]

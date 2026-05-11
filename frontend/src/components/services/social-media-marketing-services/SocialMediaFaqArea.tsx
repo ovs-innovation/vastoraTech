@@ -19,8 +19,8 @@ const faq_data = [
   },
   {
     id: "smm-faq-4",
-    question: "What is social media marketing?",
-    answer: "Social media marketing is the process of promoting your business using platforms like Facebook, Instagram, and LinkedIn through content creation, paid ads, and engagement strategies."
+    question: "What is social media in marketing?",
+    answer: "Social media marketing is the process of promoting products, services, or brands through platforms like Facebook, Instagram, LinkedIn, and X to increase brand awareness, engage customers, and drive sales. "
   },
   {
     id: "smm-faq-5",

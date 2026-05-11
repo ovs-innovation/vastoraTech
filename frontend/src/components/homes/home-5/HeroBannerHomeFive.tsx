@@ -132,7 +132,7 @@ const hero_content_home_5: hero_content_type = {
   ),
   sm_info: (
     <>
-    Get your custom E-commerce website with admin panel and dashboard from a trusted website development company in India and a leading digital marketing agency in Noida helping businesses grow online.
+   Get your custom e-commerce website with a smart admin panel and dashboard from the best ecommerce website development company india. Build a secure and scalable ecommerce platform in India designed to grow your online business and improve customer experience.   
 
     </>
   ),

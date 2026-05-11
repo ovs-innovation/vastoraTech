@@ -13,16 +13,12 @@ export const metadata = {
   title: "Ecommerce & Website Development Company in India | Vastora Tech",
   description: "Get professional ecommerce website development services in India. We create fast, secure, and scalable online stores to help grow your business. Contact Vastora Tech today.",
   keywords: [
-    "web development company",
-    "eCommerce website development",
-    "ecommerce website development company near me",
-    "ecommerce website development company in noida",
-    "e commerce platform in india",
+    "ecommerce website development company in india",
+    "best website development company in india",
     "ecommerce website development cost in india",
-    "website design and development",
-    "website development company in India",
-    "web design and development"
-
+    "ecommerce platform in india",
+    "best ecommerce website development company india",
+    "best ecommerce solutions services in india"
   ],
   alternates: {
     canonical: "https://vastoratech.com/",

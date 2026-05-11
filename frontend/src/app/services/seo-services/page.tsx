@@ -6,19 +6,12 @@ export const metadata = {
     title: "Best SEO Company in Noida | Top SEO Services | Vastora Tech",
     description: "Boost your rankings with the best SEO company in Noida. Vastora Tech, the best SEO company from India, delivers expert SEO services to drive real business growth.",
     keywords: [
-      "SEO services company",
-      "seo services",
-      "seo company near me",
-      "Seo service in Noida",
-      "Seo services near me",
-      "Seo services for ecommerce",
-      "seo agency near me",
-      "best seo services in Noida",
-      "search engine optimization agencies",
-      "seo for agencies",
-      "best Indian seo company",
-      "seo in e commerce",
-      "best company for seo in India"
+        "seo services in noida",
+        "best seo company in noida",
+        "search engine optimization company in noida",
+        "search engine optimization for website",
+        "best seo company from india",
+        "SEO agency in Noida"
     ],
     alternates: {
         canonical: "https://vastoratech.com/services/seo-services",
@@ -50,28 +43,20 @@ export const metadata = {
     },
 };
 const index = () => {
-    const jsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Vastora Tech",
-    "url": "https://vastoratech.com",
-    "description": "Vastora Tech offers professional web development, eCommerce solutions, digital marketing, SEO, social media marketing, and mobile app development services in India. We deliver end-to-end solutions for businesses of all sizes.",
-    "keywords": [
-      
-      "SEO services company",
-      "seo services",
-      "seo company near me",
-      "Seo service in Noida",
-      "Seo services near me",
-      "Seo services for ecommerce",
-      "seo agency near me",
-      "best seo services in Noida",
-      "search engine optimization agencies",
-      "seo for agencies",
-      "best Indian seo company",
-      "seo in e commerce",
-      "best company for seo in India"
-    ]
+    "@type": "WebPage",
+    "name": "Best SEO Company in Noida | Top SEO Services | Vastora Tech",
+    "url": "https://vastoratech.com/services/seo-services",
+    "description": "Boost your rankings with the best SEO company in Noida. Vastora Tech, the best SEO company from India, delivers expert SEO services to drive real business growth.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vastora Tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vastoratech.com/images/logo.png"
+      }
+    }
   };
     const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -87,7 +72,7 @@ const index = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "SEO Services",
-        "item": "https://vastoratech.com/seo-services"
+        "item": "https://vastoratech.com/services/seo-services"
       }
     ]
   };

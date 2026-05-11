@@ -6,14 +6,13 @@ export const metadata = {
     title: "Social Media Marketing Services in Noida | Vastora Tech",
     description: "Looking for expert social media marketing services in Noida? Vastora Tech helps businesses grow with targeted strategies, creative content, and result-driven campaigns. Boost your brand today.",
     keywords: [
-     "social media marketing agency",
-     "social media management agencies",
-     "social marketing agency",
-     "best social media agency",
-     "SMM Company in noida",
-     "Best Social Media Marketing Agency",
-     "SMM Company near me",
-     "social media in marketing"
+        "Social Media Marketing Services in Noida",
+        "Best Social Media Marketing Agency",
+        "social media marketing in small business",
+        "what is social media in marketing",
+        "social media agency in noida",
+        "SMM Company in noida",
+        "Smm Company near me"
     ],
     alternates: {
         canonical: "https://vastoratech.com/services/social-media-marketing-services",
@@ -45,22 +44,20 @@ export const metadata = {
     },
 };
 const index = () => {
-    const jsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Vastora Tech",
-    "url": "https://vastoratech.com",
-    "description": "Vastora Tech offers professional web development, eCommerce solutions, digital marketing, SEO, social media marketing, and mobile app development services in India. We deliver end-to-end solutions for businesses of all sizes.",
-    "keywords": [
-     "social media marketing agency",
-     "social media management agencies",
-     "social marketing agency",
-     "best social media agency",
-     "SMM Company in noida",
-     "Best Social Media Marketing Agency",
-     "SMM Company near me",
-     "social media in marketing"
-    ]
+    "@type": "WebPage",
+    "name": "Social Media Marketing Services in Noida | Vastora Tech",
+    "url": "https://vastoratech.com/services/social-media-marketing-services",
+    "description": "Looking for expert social media marketing services in Noida? Vastora Tech helps businesses grow with targeted strategies, creative content, and result-driven campaigns. Boost your brand today.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vastora Tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vastoratech.com/images/logo.png"
+      }
+    }
   };
     const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -76,7 +73,7 @@ const index = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "Social Media Marketing",
-        "item": "https://vastoratech.com/social-media-marketing-services"
+        "item": "https://vastoratech.com/services/social-media-marketing-services"
       }
     ]
   };
@@ -86,66 +83,66 @@ const index = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What does a social media marketing agency do?",
+        "name": "What are social media marketing services in Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A social media marketing agency helps businesses promote their brand on platforms like Facebook, Instagram, and LinkedIn through content, ads, and account management."
+          "text": "Social media marketing services in Noida include content creation, account management, paid advertising, and audience targeting to help businesses grow on platforms like Instagram, Facebook, and LinkedIn."
         }
       },
       {
         "@type": "Question",
-        "name": "Why is social media important in marketing?",
+        "name": "How do I choose the best social media marketing agency?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Social media in marketing helps businesses reach their audience, build brand awareness, and connect with potential customers online."
+          "text": "Choose an agency that offers clear strategies, proven results, transparent reporting, and customized campaigns aligned with your business goals."
         }
       },
       {
         "@type": "Question",
-        "name": "What services do social media management agencies provide?",
+        "name": "Is social media marketing useful for small businesses?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Social media management agencies provide content creation, post scheduling, account management, and social media advertising."
+          "text": "Yes, social media marketing is highly effective for small businesses. It helps increase brand awareness, generate leads, and connect directly with your target audience at a lower cost."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I choose the best social media agency?",
+        "name": "What is social media in marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To choose the best social media agency, check their experience, past work, and ability to create effective social media strategies."
+          "text": "Social media marketing is the process of promoting products, services, or brands through platforms like Facebook, Instagram, LinkedIn, and X to increase brand awareness, engage customers, and drive sales."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you work as an SMM company in Noida?",
+        "name": "What is included in social media marketing services?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we provide professional social media marketing services as an SMM company in Noida for businesses looking to grow online."
+          "text": "Services typically include content planning, post design, caption writing, ad campaign management, audience targeting, and performance tracking."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you provide services for businesses searching for an SMM company near me?",
+        "name": "Do you provide social media marketing services in Noida for all industries?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we help businesses looking for an SMM company near me with complete social media marketing and management services."
+          "text": "Yes, our services are suitable for startups, small businesses, and established brands across various industries."
         }
       },
       {
         "@type": "Question",
-        "name": "What platforms do social marketing agencies manage?",
+        "name": "What makes a good social media agency in Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A social marketing agency usually manages platforms like Facebook, Instagram, LinkedIn, and Twitter."
+          "text": "A good agency focuses on strategy, creativity, consistency, and data-driven results rather than just posting content."
         }
       },
       {
         "@type": "Question",
-        "name": "How can the best social media marketing agency help my business?",
+        "name": "How long does it take to see results from social media marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best social media marketing agency helps increase brand visibility, engagement, and customer reach through strategic campaigns."
+          "text": "Initial engagement can be seen within a few weeks, but consistent growth and lead generation usually take 2–3 months with the right strategy."
         }
       }
     ]
