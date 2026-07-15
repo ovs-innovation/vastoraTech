@@ -118,7 +118,7 @@ type hero_content_type = {
 const hero_content_home_5: hero_content_type = {
   title: (
     <>
-      Launch Your Ecommerce Store in Just 5 Days{" "}
+      Launch Your Ecommerce Store in Just 6 Days{" "}
       <span className="cd-words-wrapper">
         <TypeAnimation
           sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
