@@ -1,14 +1,13 @@
-import HeaderSix from "@/layout/headers/HeaderSix";
+import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
 import DemosListingArea from "./DemosListingArea";
-
 import EcommerceFaqArea from "./EcommerceFaqArea";
 
 const Demos = () => {
     return (
         <>
-            <HeaderSix />
-            <main>
+            <HeaderFive />
+            <main className="vt-ecom-page-wrapper">
                 <DemosListingArea />
                 <EcommerceFaqArea />
             </main>
@@ -18,4 +17,3 @@ const Demos = () => {
 };
 
 export default Demos;
-

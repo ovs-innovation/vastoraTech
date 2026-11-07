@@ -1,104 +1,161 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-import project_shape from "@/assets/img/team/team-61.jpg";
+import executive_photo from "@/assets/img/team/team-61.jpg";
 
-import shape_1 from "@/assets/img/shape/seo-5-shape-1.png";
-import shape_2 from "@/assets/img/shape/seo-5-shape-2.png";
-import shape_3 from "@/assets/img/shape/seo-5-shape-3.png";
-import shape_4 from "@/assets/img/shape/seo-5-shape-4.png";
-// project data type
-interface project_feature_content_type {
-	shapes_data: {
-		id: number;
-		img: StaticImageData;
-		cls: string;
-		parallax: string;
-	}[];
-	sub_title: string;
-	title: string;
-	feature_lists: {
-		id: number;
-		title: string;
-		sm_info: string;
-	}[];
-}
-// project data 
-const project_feature_content: project_feature_content_type = {
-	shapes_data: [
-		// { id: 1, img: shape_1, cls: "one", parallax: "100" },
-		{ id: 2, img: shape_2, cls: "two", parallax: "80" },
-		{ id: 3, img: shape_3, cls: "three", parallax: "" },
-		// { id: 4, img: shape_4, cls: "four", parallax: "50" },
-	],
-	sub_title: "Why Marketing & Branding Matter",
-	title: "Transform Your Business with Strategic Digital Marketing",
-	feature_lists: [
-
-		{ id: 2, title: " Marketing That Creates Demand", sm_info: " Reach the right audience with effective ecommerce solutions in India. We help convert visitors into loyal customers." },
-		{ id: 3, title: "Branding That Builds Trust", sm_info: " As a professional ecommerce website development company, we create designs that build credibility and trust" },
-		{ id: 1, title: "Growth Strategies That Drive Results", sm_info: " We are a results-driven SEO services company and digital marketing agency focused on increasing your leads and sales." },
-
-	]
-}
-const { shapes_data, sub_title, title, feature_lists } = project_feature_content
-
-type style_type = {
-	style?: any
+interface ProjectFeatureContent {
+  sub_title: string;
+  title: string;
+  feature_lists: {
+    id: number;
+    title: string;
+    sm_info: string;
+    tag: string;
+    iconClass: string;
+    icon: string;
+  }[];
 }
 
-const ProjectFeaturHomefive = ({ style }: style_type) => {
-	return (
-		<>
-			<div className={`${style ? "project-area project-inner-height pb-120 pt-140" : "feature-5 pb-100"}`}>
-				<div className="container">
-					<div className="row">
-						<div className="col-lg-7">
-							<div className="seo-5-thumb p-relative mb-40">
-								<div className="seo-5-main-bg">
-									<Image src={project_shape} alt="Marketing and Branding Feature" title="Marketing and Branding Feature" width={380} />
-								</div>
-								<div className="seo-5-shape d-none d-md-block">
-									{shapes_data.map((item, i) =>
-										<div key={i} className={`seo-5-shape-${item.cls}`} data-parallax={`{"x": -${item.parallax}, "smoothness": 20}`}>
-											<Image src={item.img} alt="Decorative Shape" title="Decorative Shape" />
-										</div>
-									)}
-								</div>
-							</div>
-						</div>
-						<div className="col-lg-5">
-							<div className="seo-5 mb-40">
-								<div className="section-3 mb-40">
-									<span className="section-3-sub-title">{sub_title}</span>
-									<div className="section-3-title" style={{ fontSize: "30px" }}>{title}</div>
-								</div>
-								<ul className="seo-5-list mb-50">
-									{feature_lists.map((list, index) =>
-										<li key={index}>
-											<div className="seo-5-list-item d-flex">
-												<div className="seo-5-list-icon">
-													<i className="fa-sharp fa-solid fa-circle-check"></i>
-												</div>
-												<div className="seo-5-list-text">
-													<h4 className="title">{list.title}</h4>
-													<h6 className="   " style={{ fontWeight: "20px" }}>{list.sm_info}</h6>
-												</div>
-											</div>
-										</li>
-									)}
+const project_feature_content: ProjectFeatureContent = {
+  sub_title: "Why Marketing & Branding Matter",
+  title: "Transform Your Business with Strategic Digital Marketing",
+  feature_lists: [
+    {
+      id: 1,
+      title: "Marketing That Creates Demand",
+      sm_info:
+        "Reach the right audience with effective ecommerce solutions in India. We help convert visitors into loyal customers.",
+      tag: "#DemandGeneration",
+      iconClass: "pod-emerald",
+      icon: "fa-solid fa-bullhorn",
+    },
+    {
+      id: 2,
+      title: "Branding That Builds Trust",
+      sm_info:
+        "As a professional ecommerce website development company, we create designs that build credibility and trust.",
+      tag: "#BrandAuthority",
+      iconClass: "pod-blue",
+      icon: "fa-solid fa-shield-halved",
+    },
+    {
+      id: 3,
+      title: "Growth Strategies That Drive Results",
+      sm_info:
+        "We are a results-driven SEO services company and digital marketing agency focused on increasing your leads and sales.",
+      tag: "#RevenueGrowth",
+      iconClass: "pod-violet",
+      icon: "fa-solid fa-chart-line-up",
+    },
+  ],
+};
 
-								</ul>
-								<div className="seo-5-btn light-blue-border">
-									<Link href="/about" className="light-blue-btn">Learn More</Link>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+const { sub_title, title, feature_lists } = project_feature_content;
+
+interface ProjectFeaturHomefiveProps {
+  style?: boolean;
+}
+
+const ProjectFeaturHomefive: React.FC<ProjectFeaturHomefiveProps> = ({ style }) => {
+  return (
+    <section className="strategic-marketing-section" id="marketing-feature">
+      <div className="marketing-ambient-aura"></div>
+
+      <div className="container">
+        <div className="marketing-bento-grid">
+          {/* Left Column: Framed Executive Visual with Floating Glass Pods */}
+          <div className="marketing-visual-stage">
+            <div className="portrait-frame-card">
+              <div className="portrait-img-wrap">
+                <Image
+                  src={executive_photo}
+                  alt="Marketing & Strategic Branding"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Floating Glass Pod 1: ROI Growth */}
+            <div className="floating-pod-roi">
+              <div className="roi-icon-pod">
+                <i className="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <div className="roi-text-group">
+                <div className="roi-stat-num">+284% ROI</div>
+                <div className="roi-stat-label">Verified Campaign Lift</div>
+              </div>
+            </div>
+
+            {/* Floating Glass Pod 2: Rating & Satisfaction */}
+            <div className="floating-pod-rating">
+              <div className="rating-stars-pod">
+                <i className="fa-solid fa-star"></i>
+              </div>
+              <div className="rating-text-group">
+                <div className="rating-score">4.9 / 5 Rating</div>
+                <div className="rating-desc">99% Client Retention</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: High-End Bento Features */}
+          <div className="marketing-content-stage">
+            <div className="marketing-badge">
+              <span className="badge-dot"></span>
+              <span className="badge-text">{sub_title}</span>
+            </div>
+
+            <h2 className="marketing-main-title">
+              {title.split("with")[0]}with{" "}
+              <span className="gradient-highlight">
+                {title.split("with")[1] || "Strategic Digital Marketing"}
+              </span>
+            </h2>
+
+            <p className="marketing-lead-desc">
+              We engineer full-funnel digital marketing strategies, conversion-focused
+              creative branding, and search dominance that turn first-time clicks into
+              long-term enterprise brand loyalty.
+            </p>
+
+            {/* 3 Bento Feature Cards */}
+            <div className="marketing-features-list">
+              {feature_lists.map((item) => (
+                <div key={item.id} className="feature-bento-pod">
+                  <div className={`feature-icon-pod ${item.iconClass}`}>
+                    <i className={item.icon}></i>
+                  </div>
+                  <div className="feature-text-block">
+                    <div className="feature-title-row">
+                      <h3 className="feature-title">{item.title}</h3>
+                      <span className="feature-tag-chip">{item.tag}</span>
+                    </div>
+                    <p className="feature-desc">{item.sm_info}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="marketing-action-row">
+              <Link href="/about" className="marketing-cta-btn">
+                <span>Learn More About Us</span>
+                <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+
+              <div className="marketing-guarantee-pill">
+                <i className="fa-solid fa-circle-check"></i>
+                <span>Data-Driven ROI • Certified Growth Specialists</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ProjectFeaturHomefive;

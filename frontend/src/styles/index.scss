@@ -8,16 +8,49 @@
 
 @import "../../public/assets/scss/main.scss";
 
+@import "./navbar-enhanced.scss";
+@import "./hero-enhanced.scss";
+@import "./brand-cyber-showcase.scss";
+@import "./about-enhanced.scss";
+@import "./about-redesign.scss";
+@import "./services-enhanced.scss";
+@import "./ecommerce-solution-enhanced.scss";
+@import "./ecommerce-page-redesign.scss";
+@import "./projects-showcase-enhanced.scss";
+@import "./portfolio-redesign.scss";
+@import "./blog-page-redesign.scss";
+@import "./contact-page-redesign.scss";
+@import "./web-dev-service-redesign.scss";
+@import "./mobile-app-service-redesign.scss";
+@import "./social-media-service-redesign.scss";
+@import "./seo-service-redesign.scss";
+@import "./ui-ux-service-redesign.scss";
+@import "./home5-remaining-enhanced.scss";
+@import "./footer-enhanced.scss";
+
 .header-logo-home-five {
-  width: 150px;
-  height: 120px;
-  display: block;
+  height: 64px !important;
+  max-height: 64px !important;
+  width: auto !important;
+  max-width: 255px !important;
+  display: block !important;
+  object-fit: contain !important;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .header-logo-home-five {
+    height: 50px !important;
+    max-height: 50px !important;
+    max-width: 210px !important;
+  }
 }
 
 @media (max-width: 576px) {
   .header-logo-home-five {
-    width: 100px;
-    height: 75px;
+    height: 42px !important;
+    max-height: 42px !important;
+    max-width: 175px !important;
   }
 }
 

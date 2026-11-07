@@ -1,16 +1,16 @@
-import BreadcrumbNine from "@/components/common/breadcrumb/breadcrumb-9";
+import React, { Suspense } from "react";
+import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
-import HeaderSix from "@/layout/headers/HeaderSix";
 import BlogPostboxArea from "./BlogPostboxArea";
-
 
 const Blog = () => {
     return (
         <>
-            <HeaderSix style={true} />
+            <HeaderFive />
             <main>
-                <BreadcrumbNine top_title="Vastora Tech Blogs" title="Vastora Tech Blogs" />
-                <BlogPostboxArea />
+                <Suspense fallback={<div className="container py-5 text-center">Loading Vastora Tech Insights...</div>}>
+                    <BlogPostboxArea />
+                </Suspense>
             </main>
             <FooterFive style={true} />
         </>

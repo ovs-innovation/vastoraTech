@@ -33,6 +33,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.png?v=2", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+    ],
+    shortcut: "/favicon.png?v=2",
+    apple: "/favicon.png?v=2",
+  },
 };
 
 export default function RootLayout({
@@ -54,7 +62,9 @@ export default function RootLayout({
         <link rel="preload" href="/assets/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
         <meta name="google-site-verification" content="V4aLrltshefXGf6Lb7IC9S88YVb7JpLbTpbxIDPc1xg" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/favicon.png?v=2" />
+        <link rel="shortcut icon" href="/favicon.png?v=2" />
+        <link rel="apple-touch-icon" href="/favicon.png?v=2" />
 
         {/* Preconnect to tracking domains */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

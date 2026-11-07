@@ -1,0 +1,1530 @@
+/* ========================================================
+   VASTORA TECH - HERO VISUAL ECOSYSTEM (3D ORB & GLASS CARDS)
+   Exact match to Target Reference Design:
+   1. Central 3D Glowing Chrome Vastora "V" Orb
+   2. Floating Product Card (Wireless Headphones $189)
+   3. Total Sales Card ($24,780 +42%)
+   4. Vertical Device & Category Stack (Laptop, Mobile, Fashion, Tech)
+   5. Floating 3D Spheres (Shopify, Instagram, Facebook, YouTube, WP)
+   6. PageSpeed Score (98 Excellent)
+   7. Real-Time Order Toast (Stripe Verified $210)
+   8. WhatsApp Chat Pill & Live Website Indicator
+   ======================================================== */
+
+/* Left Side Enhancements */
+.hero-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  background: rgba(0, 98, 245, 0.08);
+  border: 1px solid rgba(0, 98, 245, 0.16);
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0062f5;
+    box-shadow: 0 0 8px rgba(0, 98, 245, 0.6);
+  }
+
+  .badge-text {
+    font-size: 11px;
+    font-weight: 800;
+    color: #0062f5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+.banner-5-title {
+  .hero-cursor-icon-wrap {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    filter: drop-shadow(0 2px 6px rgba(0, 98, 245, 0.3));
+    animation: cursorSparkle 3s ease-in-out infinite alternate;
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+.hero-cta-features-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin-bottom: 22px;
+
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .banner-5-btn {
+    margin-bottom: 0 !important;
+    flex-shrink: 0;
+  }
+
+  .hero-cta-divider {
+    width: 1px;
+    height: 32px;
+    background: #e2e8f0;
+    flex-shrink: 0;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  .hero-value-badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .value-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+
+      .badge-ico {
+        color: #0062f5;
+        stroke-width: 2.2;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .badge-title {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #334155;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+
+.hero-social-proof-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 4px;
+
+  .proof-avatars-group {
+    display: flex;
+    align-items: center;
+
+    .avatar-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      margin-left: -8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .avatar-count-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      background: #0062f5;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      border: 2px solid #ffffff;
+      margin-left: -8px;
+      box-shadow: 0 2px 6px rgba(0, 98, 245, 0.25);
+    }
+  }
+
+  .proof-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .proof-heading {
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .proof-rating-stars {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .stars-icons {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+      }
+
+      .rating-score {
+        font-size: 12.5px;
+        font-weight: 800;
+        color: #0f172a;
+      }
+
+      .reviews-label {
+        font-size: 11.5px;
+        color: #64748b;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* ========================================================
+   RIGHT SIDE: 3D FLOATING ORBITAL ECOSYSTEM
+   ======================================================== */
+.hero-3d-ecosystem-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  min-height: 520px;
+  margin: 0 auto;
+  perspective: 1200px;
+  user-select: none;
+
+  @media (max-width: 1399px) {
+    max-width: 590px;
+    min-height: 490px;
+  }
+
+  @media (max-width: 1199px) {
+    max-width: 540px;
+    transform: scale(0.92);
+    transform-origin: center right;
+  }
+
+  @media (max-width: 991px) {
+    max-width: 540px;
+    margin: 40px auto 0;
+    transform: scale(0.88);
+    transform-origin: center center;
+  }
+
+  @media (max-width: 575px) {
+    max-width: 100%;
+    transform: scale(0.68);
+    transform-origin: center top;
+    margin-bottom: -150px;
+  }
+
+  @media (max-width: 420px) {
+    transform: scale(0.6);
+    margin-bottom: -190px;
+  }
+}
+
+/* Background Ambient Glow & Light Rays */
+.hero-3d-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  .ambient-radial-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(0, 98, 245, 0.28) 0%,
+        rgba(56, 189, 248, 0.18) 45%,
+        rgba(0, 98, 245, 0) 70%);
+    filter: blur(50px);
+    animation: orbPulse 6s ease-in-out infinite alternate;
+  }
+
+  .ambient-light-sweep {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 380px;
+    height: 280px;
+    background: radial-gradient(ellipse,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(0, 98, 245, 0.08) 60%,
+        transparent 80%);
+    transform: rotate(-15deg);
+    filter: blur(40px);
+  }
+}
+
+/* 3D Dynamic Tilt Stage */
+.hero-3d-stage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+/* ========================================================
+   CENTER CORE: PURE 3D BLUE VASTORA LOGO (CLEAN & SIMPLE)
+   ======================================================== */
+.hero-center-orb-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    animation-play-state: paused !important;
+    transform: translate(-50%, -50%) scale(1.05);
+
+    .orb-glow-halo {
+      background: radial-gradient(circle, rgba(0, 98, 245, 0.55) 0%, rgba(56, 189, 248, 0.2) 45%, transparent 70%);
+      filter: blur(35px);
+    }
+
+    .hero-center-orb-img {
+      filter: drop-shadow(0 25px 45px rgba(0, 98, 245, 0.4));
+    }
+  }
+
+  .orb-glow-halo {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 98, 245, 0.32) 0%, transparent 70%);
+    filter: blur(28px);
+    animation: orbPulse 4s infinite alternate;
+    transition: all 0.35s ease;
+  }
+
+  .hero-center-orb-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 98, 245, 0.22));
+    animation: orbFloat 5s ease-in-out infinite alternate;
+    transition: filter 0.35s ease, transform 0.35s ease;
+  }
+}
+
+/* ========================================================
+   COMMON FLOATING CARD STYLES (REACTIVE DEPTH)
+   ======================================================== */
+.hero-floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow:
+    0 18px 45px -10px rgba(15, 23, 42, 0.14),
+    0 0 0 1px rgba(0, 98, 245, 0.06);
+  z-index: 5;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    animation-play-state: paused !important;
+    box-shadow:
+      0 26px 60px -10px rgba(0, 98, 245, 0.26),
+      0 0 0 1.5px rgba(0, 98, 245, 0.2);
+    border-color: rgba(255, 255, 255, 1);
+    z-index: 30;
+  }
+}
+
+/* ========================================================
+   CARD 1: TOP-LEFT SOCIAL GROWTH & REACH CARD (DEDICATED VIP FEATURE)
+   ======================================================== */
+.card-social-growth {
+  top: 18px;
+  left: 15px;
+  padding: 12px 16px;
+  min-width: 225px;
+  text-decoration: none !important;
+  cursor: pointer;
+  display: block;
+
+  .social-growth-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+
+    .social-title-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      .social-pulse-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ec4899;
+        box-shadow: 0 0 8px #ec4899;
+        animation: pulseSmmDot 2s infinite;
+      }
+
+      .social-card-tag {
+        font-size: 9.5px;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    .social-arrow-icon {
+      color: #94a3b8;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &:hover .social-arrow-icon {
+    color: #ec4899;
+    transform: translate(2px, -2px);
+  }
+
+  .social-headline-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+
+    .social-reach-val {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .social-reach-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #ec4899;
+      background: #fdf2f8;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+  }
+
+  .social-channels-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .channel-icon-pill {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+
+      &.insta-pill {
+        background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+        box-shadow: 0 2px 6px rgba(221, 42, 123, 0.35);
+      }
+
+      &.yt-pill {
+        background: #ff0000;
+        box-shadow: 0 2px 6px rgba(255, 0, 0, 0.35);
+      }
+
+      &.fb-pill {
+        background: #1877f2;
+        box-shadow: 0 2px 6px rgba(24, 119, 242, 0.35);
+      }
+
+      &.li-pill {
+        background: #0a66c2;
+        box-shadow: 0 2px 6px rgba(10, 102, 194, 0.35);
+      }
+    }
+
+    .social-community-tag {
+      font-size: 9px;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 2px 6px;
+      border-radius: 999px;
+      margin-left: 2px;
+      white-space: nowrap;
+    }
+  }
+}
+
+@keyframes cartPop {
+  0% {
+    transform: scale(0.85);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toastSlideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ========================================================
+   CARD 2: TOP-RIGHT TOTAL SALES ANALYTICS CARD (INTERACTIVE BARS)
+   ======================================================== */
+.card-sales {
+  top: 12px;
+  right: 18px;
+  padding: 12px 16px;
+  min-width: 175px;
+
+  .sales-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+
+    .sales-label {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sales-more-dots {
+      color: #0062f5;
+    }
+  }
+
+  .sales-metric-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    .sales-metric-val {
+      font-size: 19px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+
+    .sales-growth-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #10b981;
+      transition: all 0.3s ease;
+
+      .growth-arr {
+        stroke-width: 2.8;
+      }
+    }
+  }
+
+  /* 6-Bar Rising Chart with Interactive Hover Tooltips */
+  .sales-bars-graph {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 34px;
+    padding-top: 2px;
+
+    .graph-bar {
+      position: relative;
+      flex: 1;
+      min-width: 8px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, #60a5fa 0%, #0062f5 100%);
+      transition:
+        height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.2s ease,
+        transform 0.2s ease;
+      cursor: pointer;
+
+      &:hover,
+      &.hovered {
+        background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+        transform: scaleY(1.05);
+
+        .bar-tooltip {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(180deg, #38bdf8 0%, #0062f5 100%);
+        box-shadow: 0 0 8px rgba(0, 98, 245, 0.4);
+      }
+
+      .bar-tooltip {
+        position: absolute;
+        bottom: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(15, 23, 42, 0.92);
+        color: #ffffff;
+        font-size: 8px;
+        font-weight: 800;
+        padding: 2px 5px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        z-index: 30;
+      }
+    }
+  }
+}
+
+/* ========================================================
+   RIGHT STACK: VERTICAL DEVICE & CATEGORY SELECTOR (INTERACTIVE TABS)
+   ======================================================== */
+.hero-vertical-switcher {
+  position: absolute;
+  top: 135px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  z-index: 10;
+
+  .switcher-pill-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7.5px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    transition:
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+      background 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.2s ease;
+
+    .pill-ico {
+      color: #64748b;
+      transition: color 0.2s ease;
+    }
+
+    &:hover {
+      background: #f8fafc;
+      color: #0062f5;
+      box-shadow: 0 6px 18px rgba(0, 98, 245, 0.18);
+
+      .pill-ico {
+        color: #0062f5;
+      }
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #0062f5 0%, #0284c7 100%);
+      color: #ffffff;
+      border-color: #0062f5;
+      box-shadow: 0 6px 20px rgba(0, 98, 245, 0.42);
+
+      .pill-ico {
+        color: #ffffff;
+      }
+
+      .active-glow-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 6px #ffffff;
+        margin-left: 2px;
+      }
+    }
+  }
+}
+
+/* ========================================================
+   FLOATING 3D SPHERES (APPLE DOCK MAGNIFICATION PHYSICS)
+   ======================================================== */
+.floating-sphere-icon {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
+  /* Smooth scale in place without position jump */
+  &:hover {
+    animation-play-state: paused !important;
+    transform: scale(1.18);
+    z-index: 100 !important;
+
+    .sphere-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  /* Frosted Glass Tooltip Label */
+  .sphere-tooltip {
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(15, 23, 42, 0.94);
+    color: #ffffff;
+    padding: 3.5px 8.5px;
+    border-radius: 7px;
+    font-size: 9.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 4px 4px 0 4px;
+      border-style: solid;
+      border-color: rgba(15, 23, 42, 0.94) transparent transparent transparent;
+    }
+  }
+
+  &.icon-shopify {
+    top: 0px;
+    left: 49%;
+    transform: translateX(-50%);
+
+    &:hover {
+      transform: translateX(-50%) scale(1.18);
+      filter: drop-shadow(0 12px 24px rgba(94, 142, 62, 0.5));
+    }
+  }
+
+  &.icon-instagram {
+    top: 180px;
+    left: 15px;
+    box-shadow: 0 8px 20px rgba(214, 41, 118, 0.3);
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(214, 41, 118, 0.55);
+    }
+  }
+
+  &.icon-facebook {
+    top: 265px;
+    left: 45px;
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35);
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(29, 78, 216, 0.6);
+    }
+  }
+
+  &.icon-youtube {
+    bottom: 136px;
+    right: 70px;
+    box-shadow: 0 10px 24px rgba(220, 38, 38, 0.35);
+
+    &:hover {
+      box-shadow: 0 16px 34px rgba(220, 38, 38, 0.65);
+    }
+  }
+}
+
+/* ========================================================
+   CARD 3: BOTTOM-LEFT PAGESPEED SCORE CARD (INTERACTIVE SCAN)
+   ======================================================== */
+.card-pagespeed {
+  bottom: 45px;
+  left: 10px;
+  padding: 10px 14px;
+  min-width: 165px;
+  cursor: pointer;
+
+  .pagespeed-top-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+
+    .pagespeed-icon-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      background: rgba(0, 98, 245, 0.1);
+      color: #0062f5;
+
+      .speed-arr-ico {
+        stroke-width: 2.5;
+      }
+    }
+
+    .pagespeed-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    .pagespeed-badge-green {
+      font-size: 8px;
+      font-weight: 800;
+      color: #059669;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+  }
+
+  .pagespeed-score-big {
+    font-size: 24px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .scanning-pill {
+      font-size: 9px;
+      font-weight: 700;
+      color: #0062f5;
+      background: rgba(0, 98, 245, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      animation: pulseBeacon 1s infinite;
+    }
+  }
+
+  .pagespeed-progress-track {
+    width: 100%;
+    height: 4.5px;
+    border-radius: 4px;
+    background: #e2e8f0;
+    overflow: hidden;
+
+    .pagespeed-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+      border-radius: 4px;
+      transition: width 0.6s ease;
+
+      &.is-scanning {
+        animation: progressScan 1.2s ease-in-out infinite;
+      }
+    }
+  }
+
+  .pagespeed-sub-text {
+    font-size: 8.5px;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+}
+
+@keyframes progressScan {
+  0% {
+    width: 30%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 98%;
+  }
+}
+
+/* ========================================================
+   CARD 4: BOTTOM-CENTER NEW ORDER TOAST (DYNAMICALLY UPDATES)
+   ======================================================== */
+.card-neworder {
+  bottom: 45px;
+  right: 20px;
+  left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 15px;
+
+  .order-cart-icon-sq {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: #0062f5;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 98, 245, 0.35);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .order-cart-icon-sq {
+    transform: scale(1.1);
+  }
+
+  .order-details-col {
+    display: flex;
+    flex-direction: column;
+
+    .order-head-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .order-id {
+        font-size: 11px;
+        font-weight: 800;
+        color: #0f172a;
+      }
+
+      .order-time-tag {
+        font-size: 9px;
+        color: #94a3b8;
+      }
+    }
+
+    .order-amount-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .order-price-val {
+        font-size: 11px;
+        font-weight: 800;
+        color: #0062f5;
+      }
+
+      .order-verified-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 9.5px;
+        color: #059669;
+        font-weight: 700;
+
+        .v-check {
+          color: #10b981;
+        }
+      }
+    }
+  }
+}
+
+/* ========================================================
+   CARD 5: WHATSAPP CHAT PILL (CLICKABLE & REACTIVE)
+   ======================================================== */
+.card-whatsapp {
+  bottom: 60px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  text-decoration: none !important;
+  cursor: pointer;
+
+  .wa-icon-bubble {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(37, 211, 102, 0.35);
+    transition: transform 0.25s ease;
+  }
+
+  &:hover .wa-icon-bubble {
+    transform: scale(1.12);
+  }
+
+  .wa-text-wrap {
+    display: flex;
+    flex-direction: column;
+
+    .wa-sub {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .wa-main {
+      font-size: 9px;
+      color: #64748b;
+    }
+  }
+
+  .wa-arrow {
+    color: #0062f5;
+    margin-left: 2px;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover .wa-arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* ========================================================
+   CARD 6: LIVE WEBSITE PILL (INTERACTIVE)
+   ======================================================== */
+.card-live-website {
+  bottom: 8px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  cursor: pointer;
+
+  .globe-ico {
+    color: #0062f5;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .globe-ico {
+    transform: rotate(30deg);
+  }
+
+  .live-dot-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulseBeacon 2s infinite;
+  }
+
+  .live-web-text {
+    font-size: 10px;
+    font-weight: 800;
+    color: #059669;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ========================================================
+   KEYFRAME ANIMATIONS
+   ======================================================== */
+@keyframes orbPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.55;
+  }
+}
+
+@keyframes orbFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes cursorSparkle {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  100% {
+    transform: scale(1.15) translate(2px, -3px);
+  }
+}
+
+@keyframes floatAnim1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes floatAnim2 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatAnim3 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatAnim4 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-11px);
+  }
+}
+
+.float-anim-1 {
+  animation: floatAnim1 5s ease-in-out infinite alternate;
+}
+
+.float-anim-2 {
+  animation: floatAnim2 6s ease-in-out infinite alternate 0.5s;
+}
+
+.float-anim-3 {
+  animation: floatAnim3 5.5s ease-in-out infinite alternate 1s;
+}
+
+.float-anim-4 {
+  animation: floatAnim4 6.5s ease-in-out infinite alternate 1.5s;
+}
+
+/* ========================================================
+   OPTION 1: SLEEK 42PX MAGNETIC READING LENS (LEFT SIDE HERO)
+   ======================================================== */
+.hero-left-story-stage {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  cursor: default;
+
+  /* Crisp 100% Solid Typography (Natural, Zero Ghosting) */
+  .clean-hero-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+
+    .heading-line-wrap {
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Word Cluster Grouping & Letter-by-Letter Liquid Magnification */
+    .word-cluster {
+      display: inline-block;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+
+    .liquid-letter {
+      display: inline-block;
+      vertical-align: baseline;
+      will-change: transform;
+      transition:
+        transform 0.1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.12s ease;
+      transform-origin: center bottom;
+      cursor: default;
+
+      /* Natural colors preserved: Black stays black, blue stays blue */
+      &.water-zoomed {
+        filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.14));
+      }
+    }
+
+    .hero-days-highlight {
+      position: relative;
+      display: inline-block;
+      color: #0062f5 !important;
+      font-weight: 800 !important;
+
+      .days-text {
+        position: relative;
+        z-index: 2;
+        color: #0062f5 !important;
+      }
+
+      .hero-brush-stroke {
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 104%;
+        height: 18px;
+        z-index: 1;
+        pointer-events: none;
+        overflow: visible;
+        transition: transform 0.25s ease, filter 0.25s ease;
+      }
+    }
+
+    .typewriter-dynamic-word {
+      display: inline-block;
+    }
+  }
+
+  /* Description Paragraph with Word-by-Word Magnification */
+  .banner-5-desc {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 22px;
+    line-height: 1.65;
+
+    .para-liquid-word {
+      display: inline-block;
+      vertical-align: baseline;
+      will-change: transform, color;
+      transition:
+        transform 0.14s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.16s ease,
+        text-shadow 0.16s ease;
+      transform-origin: center bottom;
+      cursor: default;
+
+      &.water-zoomed {
+        filter: drop-shadow(0 1px 4px rgba(15, 23, 42, 0.1));
+      }
+    }
+
+    .para-interactive-word {
+      font-weight: 600;
+      color: #1e293b;
+    }
+  }
+
+  /* Translucent White Liquid Water Droplet Follower */
+  .hero-water-droplet {
+    position: absolute;
+    left: var(--lens-x, -100px);
+    top: var(--lens-y, -100px);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    will-change: left, top, transform, opacity;
+    transition:
+      opacity 0.2s ease,
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &.is-active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Crystal-Clear Realistic Optical Glass Body (100% visible, sharp text underneath) */
+    .droplet-surface {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.08) 50%,
+          rgba(0, 98, 245, 0.05) 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        inset 0 1.5px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -1.5px 3px rgba(0, 98, 245, 0.15);
+    }
+
+    /* Specular Glass Glint */
+    .droplet-specular {
+      position: absolute;
+      top: 4px;
+      left: 6px;
+      width: 8px;
+      height: 4px;
+      border-radius: 50%;
+      background: #ffffff;
+      transform: rotate(-35deg);
+      filter: blur(0.2px);
+      box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Secondary Subtle Optical Reflection */
+    .droplet-specular-secondary {
+      position: absolute;
+      bottom: 5px;
+      right: 6px;
+      width: 5px;
+      height: 2.5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.65);
+      transform: rotate(40deg);
+    }
+  }
+}
+
+/* ========================================================
+   CELESTIAL FALLING / SHOOTING STARS ANIMATION
+   ======================================================== */
+.hero-falling-stars-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+
+  .shooting-star {
+    position: absolute;
+    width: 90px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), #38bdf8, #ffffff);
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9));
+    opacity: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px #38bdf8, 0 0 18px #0062f5;
+    }
+
+    &.star-1 {
+      top: 12%;
+      right: 32%;
+      animation: shootStreak 5.5s ease-in-out infinite;
+      animation-delay: 0s;
+    }
+
+    &.star-2 {
+      top: 25%;
+      right: 15%;
+      width: 110px;
+      animation: shootStreak 6.5s ease-in-out infinite;
+      animation-delay: 2.2s;
+    }
+
+    &.star-3 {
+      top: 8%;
+      left: 28%;
+      width: 80px;
+      animation: shootStreak 7s ease-in-out infinite;
+      animation-delay: 4.8s;
+    }
+
+    &.star-4 {
+      top: 35%;
+      left: 12%;
+      width: 95px;
+      animation: shootStreak 8s ease-in-out infinite;
+      animation-delay: 7s;
+    }
+
+    &.star-5 {
+      top: 18%;
+      right: 48%;
+      width: 85px;
+      animation: shootStreak 6s ease-in-out infinite;
+      animation-delay: 9.5s;
+    }
+  }
+
+  .twinkle-sparkle {
+    position: absolute;
+    color: #38bdf8;
+    font-size: 13px;
+    line-height: 1;
+    opacity: 0;
+    filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.8));
+    animation: twinkleGlow 4s ease-in-out infinite alternate;
+
+    &.ts-1 {
+      top: 15%;
+      left: 18%;
+      font-size: 14px;
+      color: #60a5fa;
+      animation-delay: 0.4s;
+    }
+
+    &.ts-2 {
+      top: 28%;
+      left: 42%;
+      font-size: 11px;
+      color: #f59e0b;
+      animation-delay: 1.2s;
+    }
+
+    &.ts-3 {
+      top: 12%;
+      right: 28%;
+      font-size: 16px;
+      color: #38bdf8;
+      animation-delay: 2s;
+    }
+
+    &.ts-4 {
+      top: 45%;
+      right: 12%;
+      font-size: 12px;
+      color: #93c5fd;
+      animation-delay: 2.8s;
+    }
+
+    &.ts-5 {
+      bottom: 25%;
+      left: 35%;
+      font-size: 15px;
+      color: #38bdf8;
+      animation-delay: 1.6s;
+    }
+
+    &.ts-6 {
+      bottom: 18%;
+      right: 38%;
+      font-size: 11px;
+      color: #f59e0b;
+      animation-delay: 3.4s;
+    }
+  }
+}
+
+@keyframes shootStreak {
+  0% {
+    transform: translate(140px, -100px) rotate(-35deg) scale(0.3);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+    transform: translate(60px, -35px) rotate(-35deg) scale(1);
+  }
+
+  45% {
+    opacity: 0.9;
+  }
+
+  70%,
+  100% {
+    transform: translate(-320px, 280px) rotate(-35deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkleGlow {
+  0% {
+    opacity: 0.15;
+    transform: scale(0.7) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.2) rotate(15deg);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8) rotate(30deg);
+  }
+}

@@ -1,179 +1,187 @@
-"use client"
+"use client";
+
+import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import HeaderSixLogo from "@/svg/logo/header_6";
-import FooterFiveLogo from "@/svg/logo/FooterFiveLogo";
 import HeaderLogoHomeFive from "@/svg/logo/header_logo_home_5";
-import PhoneIcon from "@/assets/img/icon/phone-icon.png";
-import { CopyRight, SocialLinksTwo } from "@/components/common/social-links";
-import AuditFooterLogo from "@/svg/logo/AuditFooterLogo";
 
-// footer five data type
-interface footer_five_content_type {
-	sm_des: string;
-	phone_number: string;
-	btn_text: string;
-	work_title: string;
-	work_times: {
-		id: number;
-		day: string;
-		time: string;
-	}[];
-	footer_link_data: {
-		id: number;
-		cls: string;
-		title: string;
-		links: {
-			id: number,
-			title: string,
-			link: string,
-		}[];
-	}[];
+interface FooterFiveProps {
+  style?: boolean;
+  style_audit?: boolean;
+  style_2?: boolean;
 }
-// footer five content 
-const footer_five_content: footer_five_content_type = {
-	sm_des: "Improve efficiency, provide a better Customer experience with modern Technology services available.",
-	phone_number: "+91 8595658592",
-	btn_text: "Enquire Now",
-	work_title: "Information",
-	work_times: [
-		{ id: 1, day: "Working days:", time: "10AM - 6:30PM" },
-		{ id: 2, day: "Saturday:", time: "10AM - 6:30PM" },
-		{ id: 3, day: "Sunday:", time: "Closed" },
-	],
-	footer_link_data: [
-		{
-			id: 1,
-			cls: "footer-5-col-1",
-			title: "About",
-			links: [
-				{ id: 1, title: "Home", link: "/" },
-				// { id: 2, title: "Pricing", link: "/pricing" },
-				{ id: 3, title: "About us", link: "/about" },
-				// { id: 4, title: "SEO Blog", link: "/blog-grid" },
-				// { id: 5, title: "Services", link: "/services" },
-				{ id: 6, title: "Contact", link: "/contact" },
-				// { id: 7, title: "Why SEO?", link: "/seo-audit" },
-				// { id: 8, title: "", link: "" },
-				{ id: 9, title: "Team", link: "/team" },
-			]
-		},
 
-		{
-			id: 2,
-			cls: "footer-5-col-1",
-			title: " Legal",
-			links: [
-				{ id: 1, title: "Privacy Policy", link: "/privacy-policy" },
-				{ id: 2, title: "Terms & Conditions", link: "/terms-conditions" },
-				// { id: 3, title: "Site Map", link: "/site-map" },
-				{ id: 4, title: "Services", link: "/services" },
-				
-			]
-		},
-		// {
-		// 	id: 2,
-		// 	cls: "footer-5-col-3",
-		// 	title: "Expertise",
-		// 	links: [
-		// 		{ id: 1, title: "On Page SEO", link: "/seo-audit" },
-		// 		{ id: 2, title: "Keyword Research", link: "/keyword-search" },
-		// 		{ id: 3, title: "SEO Consulting", link: "/marketing-analysis" },
-		// 		{ id: 4, title: "Off Page SEO", link: "/keyword-search" },
-		// 		{ id: 5, title: "SEO Audit", link: "/seo-audit" },
-		// 	]
-		// },
-	]
+const navLinks = [
+  { title: "Home", link: "/" },
+  { title: "About us", link: "/about" },
+  { title: "Projects", link: "/portfolio" },
+  { title: "Services", link: "/services" },
+  { title: "Team", link: "/team" },
+  { title: "Contact", link: "/contact" },
+];
 
-}
-const { sm_des, phone_number, btn_text, work_title, work_times, footer_link_data } = footer_five_content
+const legalLinks = [
+  { title: "Privacy Policy", link: "/privacy-policy" },
+  { title: "Terms & Conditions", link: "/terms-conditions" },
+  { title: "Security Standards", link: "/terms-conditions" },
+  { title: "Services SLA", link: "/services" },
+];
 
-const FooterFive = ({ style, style_audit, style_2 }: any) => {
-	return (
-		<>
-			<footer>
-				<div className={`footer-area ${style ? "footer-inner" : ""} ${style_audit ? "footer-inner seo-audit-f" : ""} ${style_2 ? "fw-blog-details" : "footer-5"}  pt-100`}>
-					<div className="container">
-						<div className="footer-top">
-							<div className="row">
-								<div className="col-lg-3 col-md-6 col-sm-6">
-									<div className="footer-widget footer-5-col-1 mb-40">
-										<div className="footer-widget-logo mb-20">
-											<Link href="/">
-												<span>
-													{style_audit ? <HeaderLogoHomeFive />
-														:
-														<>{style ? <HeaderLogoHomeFive /> : <HeaderLogoHomeFive />}</>
-													}
-												</span>
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    icon: "fa-brands fa-linkedin-in",
+    url: "https://www.linkedin.com/in",
+  },
+  {
+    name: "Instagram",
+    icon: "fa-brands fa-instagram",
+    url: "https://www.instagram.com/vastoratech/",
+  },
+  {
+    name: "YouTube",
+    icon: "fa-brands fa-youtube",
+    url: "https://www.youtube.com/@VastoraTech",
+  },
+  {
+    name: "Pinterest",
+    icon: "fa-brands fa-pinterest-p",
+    url: "https://in.pinterest.com/vastorat/",
+  },
+  {
+    name: "Facebook",
+    icon: "fa-brands fa-facebook-f",
+    url: "https://www.facebook.com/profile.php?id=61578752105209",
+  },
+  {
+    name: "Twitter",
+    icon: "fa-brands fa-x-twitter",
+    url: "https://x.com/Vastora_tech",
+  },
+];
 
-											</Link>
-										</div>
-										<div className="footer-widget-content">
-											<p className="footer-widget-text mb-20">{sm_des}</p>
-											<div className="footer-widget-btn">
-												<div className="phone-call">
-													<a href="tel:+918595658592">
-														<i><Image src={PhoneIcon} alt="Phone Icon" title="Contact Vastora Tech" /></i><span>{phone_number}</span>
-													</a>
-												</div>
-												<div className="submit-call">
-													<a href="tel:+918595658592">
-														<button className="light-blue-btn">{btn_text}</button> 
-													</a>
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								{footer_link_data.map((item, i) =>
-									<div key={i} className="col-lg-3 col-md-6 col-sm-6">
-										<div className={`footer-widget tpfooter-hover ${item.cls} mb-40`}>
-											<h4 className="footer-widget-title mb-15">{item.title}</h4>
-											<div className="footer-widget-link">
-												<ul>
-													{item.links?.map((link, index) =>
-														<li key={index}><Link href={link.link}>{link.title}</Link></li>
-													)}
-												</ul>
-											</div>
-										</div>
-									</div>
-								)}
-								<div className="col-lg-3 col-md-6 col-sm-6">
-									<div className="footer-widget footer-5-col-4 mb-40">
-										<h4 className="footer-widget-title mb-20">{work_title}</h4>
-										<div className="footer-widget-link">
-											<ul>
-												{work_times.map((w_day, w_index) =>
-													<li key={w_index}><span>{w_day.day}</span>{w_day.time}</li>
-												)}
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className="footer-bottom-5">
-							<div className="row align-items-center">
-								<div className="col-lg-6 col-md-8">
-									<div className="footer-widget-copyright">
-										<span><CopyRight /> </span>
-									</div>
-								</div>
-								<div className="col-lg-6 col-md-4">
-									<div className="footer-widget-social text-end">
-										<SocialLinksTwo />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</>
-	);
+const FooterFive: React.FC<FooterFiveProps> = ({ style, style_audit, style_2 }) => {
+  return (
+    <footer className="footer-enhanced-wrap">
+      <div className="footer-ambient-aura"></div>
+
+      <div className="container">
+        {/* Main 4-Column Grid */}
+        <div className="footer-main-grid">
+          {/* Column 1: Brand & Contact Hub */}
+          <div className="footer-brand-col">
+            <Link href="/" className="footer-logo-link">
+              <HeaderLogoHomeFive />
+            </Link>
+
+            <p className="footer-brand-desc">
+              Improve efficiency, provide a better customer experience, and scale
+              effortlessly with modern enterprise technology services available.
+            </p>
+
+            <div className="footer-contact-actions">
+              <a href="tel:+918595658592" className="footer-phone-pill">
+                <div className="phone-icon-pod">
+                  <i className="fa-solid fa-phone-volume"></i>
+                </div>
+                <div className="phone-info">
+                  <span className="phone-label">Active Line</span>
+                  <span className="phone-number">+91 8595658592</span>
+                </div>
+              </a>
+
+              <Link href="/contact" className="footer-enquire-btn">
+                <span>Enquire Now</span>
+                <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
+
+          {/* Column 2: Navigation Links */}
+          <div className="footer-links-col">
+            <div className="footer-col-header">
+              <span className="header-dot"></span>
+              <h4 className="header-title">About</h4>
+            </div>
+
+            <ul className="footer-links-list">
+              {navLinks.map((item, idx) => (
+                <li key={idx}>
+                  <Link href={item.link}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Legal & Trust */}
+          <div className="footer-links-col">
+            <div className="footer-col-header">
+              <span className="header-dot"></span>
+              <h4 className="header-title">Legal</h4>
+            </div>
+
+            <ul className="footer-links-list">
+              {legalLinks.map((item, idx) => (
+                <li key={idx}>
+                  <Link href={item.link}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Information & Operating Hours */}
+          <div className="footer-hours-col">
+            <div className="footer-col-header">
+              <span className="header-dot"></span>
+              <h4 className="header-title">Information</h4>
+            </div>
+
+            <div className="footer-hours-card">
+              <div className="hours-row">
+                <span className="hours-day">Working days:</span>
+                <span className="hours-time">10:00 AM – 6:30 PM</span>
+              </div>
+              <div className="hours-row">
+                <span className="hours-day">Saturday:</span>
+                <span className="hours-time">10:00 AM – 6:30 PM</span>
+              </div>
+              <div className="hours-row">
+                <span className="hours-day">Sunday:</span>
+                <span className="hours-time closed">Closed</span>
+              </div>
+
+              <div className="support-badge-row">
+                <i className="fa-solid fa-envelope"></i>
+                <span>vastoratech@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Copyright & Socials */}
+        <div className="footer-bottom-bar">
+          <p className="footer-copy-text">
+            &copy; 2026 Copyrights by <strong>Vastora Tech</strong>. All Rights Reserved.
+            Designed by <strong>Vastora Tech</strong>.
+          </p>
+
+          <div className="footer-social-row">
+            {socialLinks.map((s, idx) => (
+              <a
+                key={idx}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link-box"
+                aria-label={s.name}
+              >
+                <i className={s.icon}></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default FooterFive;

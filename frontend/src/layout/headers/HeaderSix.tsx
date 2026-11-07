@@ -41,12 +41,27 @@ const HeaderSix = ({ style }: any) => {
 								</div>
 								<div className="col-xl-3 col-lg-6 col-sm-8 col-6">
 									<div className={`tpheader__right ${style ? "tpheader__right-white" : ""} d-flex align-items-center justify-content-end`}>
-										<div className="d-flex align-items-center">
-											<div className="tpheader__btn ml-25 d-none d-md-block">
-												<Link href="/contact" className="tp-header-btn">Get a Quote</Link>
+										<div className="vastora-navbar-actions d-flex align-items-center">
+											<div className="header-quote-wrapper d-none d-md-block">
+												<Link href="/contact" className="enhanced-quote-button" aria-label="Get a Quote">
+													<span className="btn-content">
+														<span className="btn-label">Get a Quote</span>
+														<span className="btn-arrow-icon" aria-hidden="true">
+															<svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M3.33334 8H12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+																<path d="M8 3.33334L12.6667 8.00001L8 12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+															</svg>
+														</span>
+													</span>
+													<span className="btn-glow-layer" aria-hidden="true" />
+												</Link>
 											</div>
-											<div className="offcanvas-btn d-xl-none ml-20">
-												<button className="offcanvas-open-btn" onClick={() => setOpenCanvas(true)}><i className="fa-solid fa-bars"></i></button>
+											<div className="offcanvas-toggle-wrapper d-xl-none">
+												<button type="button" className="modern-hamburger-btn" onClick={() => setOpenCanvas(true)} aria-label="Open mobile menu">
+													<span className="hamburger-line line-1" />
+													<span className="hamburger-line line-2" />
+													<span className="hamburger-line line-3" />
+												</button>
 											</div>
 										</div>
 									</div>

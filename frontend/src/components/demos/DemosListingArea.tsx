@@ -1,49 +1,24 @@
 "use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Search, Filter, ExternalLink, Info, ShoppingBag, Sparkles, CheckCircle2 } from "lucide-react";
 import EcommerceInfoArea from "./EcommerceInfoArea";
 import ecommerceNoidaImg from "@/assets/img/services/ecommerce-noida.png";
 
-// Dynamic fetch instead of static dummy data
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
 
-const DemosListingArea = () => {
+const DemosListingArea: React.FC = () => {
   const router = useRouter();
-  const [demos, setDemos] = useState([]);
+  const [demos, setDemos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
-
-
-  const iconProps = {
-    width: 16,
-    height: 16,
-    stroke: "currentColor",
-    strokeWidth: 2,
-    fill: "none",
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-  };
-
-  const InfoIcon = () => (
-    <svg {...iconProps} viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" />
-      <line x1="12" y1="16" x2="12" y2="12" />
-      <line x1="12" y1="8" x2="12" y2="8" />
-    </svg>
-  );
-
-  const ExternalIcon = () => (
-    <svg {...iconProps} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M14 3h7v7" />
-      <path d="M10 14 21 3" />
-      <path d="M21 14v7H3V3h7" />
-    </svg>
-  );
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   const fetchDemos = (opts?: { search?: string; category?: string }) => {
     const params = new URLSearchParams();
@@ -52,13 +27,13 @@ const DemosListingArea = () => {
     const url = params.toString()
       ? `${API_URL}/demos?${params.toString()}`
       : `${API_URL}/demos`;
+
     setLoading(true);
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         const items = data.demos || data.data || [];
         setDemos(items);
-        // build category list from latest dataset if not filtered
         if (!opts?.category && !opts?.search) {
           const unique = Array.from(
             new Set(
@@ -83,166 +58,257 @@ const DemosListingArea = () => {
     fetchDemos({ search, category });
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  const handleCategorySelect = (selectedCat: string) => {
+    setCategory(selectedCat);
+    fetchDemos({ search, category: selectedCat });
+  };
 
   return (
     <>
-      <div className="container py-5 mt-100">
-        
+      {/* 1. Hero & Explorer Section */}
+      <section className="vt-ecom-hero-section" aria-label="E-commerce Solutions Hero">
+        <div className="vt-ecom-mesh-glow" aria-hidden="true" />
+        <div className="vt-hero-grid-bg" aria-hidden="true" />
 
-        <div className="text-center mb-40 mt-10">
-          <h2 className="h1 mb-2 mt-10" style={{ fontWeight: 700 }}>Best Ecommerce Website Development Company in Noida</h2>
-          <p className="text-muted">
-           Discover pre-built eCommerce website solutions for fashion, beauty, jewellery & more. Start selling online with our ready-to-use designs.
-          </p>
-        </div>
+        <div className="container">
+          <div className="vt-ecom-header-content">
+            <div className="vt-section-badge">
+              <span className="vt-badge-dot" />
+              <span>Enterprise E-Commerce Ecosystem</span>
+            </div>
 
+            <h1 className="vt-ecom-main-title">
+              Best Ecommerce Website Development <span className="highlight-blue">Company in Noida</span>
+            </h1>
 
-        <form onSubmit={handleSubmit} className="row g-2 align-items-center mb-3">
-          <div className="col-12 col-md-6">
-            <input
-              type="search"
-              className="form-control"
-              placeholder="Search by title..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            <p className="vt-ecom-sub-desc">
+              Discover pre-built eCommerce website solutions for fashion, beauty, jewellery & more. Start selling online with our ready-to-use designs.
+            </p>
           </div>
-          <div className="col-8 col-md-4">
-            <select
-              className="form-select"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="">All Categories</option>
-              {categories.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-4 col-md-2 d-grid">
-            <button type="submit" className="demo-button-blue">
-              Filter
-            </button>
-          </div>
-        </form>
-        <div className="row g-4">
-          {demos.map((demo: any) => (
-            <div className="col-md-6 col-lg-4" key={demo.slug}>
-              <div
-                className="card h-100 border-0 shadow-sm demo-card"
-                role="button"
-                tabIndex={0}
-                onClick={() => router.push(`/product/e-commerce-solutions/${demo.slug}`)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    router.push(`/product/e-commerce-solutions/${demo.slug}`);
-                  }
-                }}
-              >
-                <div className="demo-img-wrap">
-                  <Image
-                    src={demo.images?.[0] || demo.image || "/no-image.png"}
-                    alt={demo.title}
-                    title={demo.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="demo-hero-image"
-                    priority={false}
-                  />
-                </div>
-                <div className="card-body d-flex flex-column">
-                  <div className="d-flex justify-content-between align-items-start mb-2">
-                    <h3 className="h5 mb-0 demo-title-clamp">{demo.title}</h3>
-                    {demo.category ? (
-                      <span className="badge bg-light text-dark border">{demo.category}</span>
-                    ) : null}
+
+          {/* Search & Filter Bar */}
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-xl-9">
+              <form onSubmit={handleSubmit} className="vt-filter-bar-card">
+                <div className="row g-3 align-items-center">
+                  <div className="col-12 col-md-5">
+                    <div className="search-input-group">
+                      <Search size={18} className="search-icon" />
+                      <input
+                        type="search"
+                        className="vt-search-input"
+                        placeholder="Search by title..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                      />
+                    </div>
                   </div>
-                  {demo.subtitle ? (
-                    <div className="text-muted small mb-2 demo-title-clamp">{demo.subtitle}</div>
-                  ) : null}
-                  <p className="text-muted small flex-grow-1 mb-2 demo-desc-clamp">
-                    {demo.description}
-                  </p>
-                  <div className="d-flex gap-2 mt-2">
-                    <Link
-                      href={`/product/e-commerce-solutions/${demo.slug}`}
-                      className="text-decoration-none demo-button-blue"
-                      onClick={(e) => e.stopPropagation()}
+
+                  <div className="col-7 col-md-4">
+                    <select
+                      className="vt-category-select"
+                      value={category}
+                      onChange={(e) => handleCategorySelect(e.target.value)}
                     >
-                      <InfoIcon />
-                      Know More
-                    </Link>
-                    {demo.demoUrl ? (
-                      <a
-                        href={demo.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-decoration-none demo-button-blue"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalIcon />
-                        Live Preview
-                      </a>
-                    ) : null}
+                      <option value="">All Categories</option>
+                      {categories.map((c) => (
+                        <option key={c} value={c}>
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
+                  <div className="col-5 col-md-3">
+                    <button type="submit" className="vt-filter-btn">
+                      <Filter size={16} />
+                      <span>Filter</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              {/* Quick Category Chips */}
+              <div className="vt-category-chips-row">
+                <button
+                  type="button"
+                  className={`chip-btn ${category === "" ? "is-active" : ""}`}
+                  onClick={() => handleCategorySelect("")}
+                >
+                  All Categories
+                </button>
+                {categories.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={`chip-btn ${category === c ? "is-active" : ""}`}
+                    onClick={() => handleCategorySelect(c)}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Demos Showcase Grid */}
+          <div className="vt-demos-grid-wrap">
+            {loading ? (
+              <div className="text-center py-5">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <p className="mt-3 text-muted">Loading high-performance eCommerce demos...</p>
+              </div>
+            ) : error ? (
+              <div className="alert alert-warning text-center" role="alert">
+                {error}
+              </div>
+            ) : demos.length === 0 ? (
+              <div className="text-center py-5 bg-light rounded-4">
+                <ShoppingBag size={40} className="text-muted mb-2" />
+                <h4 className="text-dark">No eCommerce demos found</h4>
+                <p className="text-muted">Try adjusting your search criteria or category filter.</p>
+              </div>
+            ) : (
+              <div className="row g-4">
+                {demos.map((demo: any) => {
+                  const imageSrc = demo.images?.[0] || demo.image;
+                  const isImageFailed = !imageSrc || imageErrors[demo.slug];
+
+                  return (
+                    <div className="col-md-6 col-lg-4" key={demo.slug}>
+                      <div
+                        className="vt-demo-card"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => router.push(`/product/e-commerce-solutions/${demo.slug}`)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            router.push(`/product/e-commerce-solutions/${demo.slug}`);
+                          }
+                        }}
+                      >
+                        {/* Thumbnail Wrap */}
+                        <div className="card-img-container">
+                          {isImageFailed ? (
+                            <div className="demo-img-fallback">
+                              <div className="fallback-icon">
+                                <ShoppingBag size={24} />
+                              </div>
+                              <h4 className="fallback-title">{demo.title}</h4>
+                            </div>
+                          ) : (
+                            <Image
+                              src={imageSrc}
+                              alt={demo.title}
+                              title={demo.title}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="demo-main-img"
+                              onError={() =>
+                                setImageErrors((prev) => ({ ...prev, [demo.slug]: true }))
+                              }
+                            />
+                          )}
+
+                          {demo.category && (
+                            <span className="demo-category-badge">{demo.category}</span>
+                          )}
+                        </div>
+
+                        {/* Card Body */}
+                        <div className="card-body-content">
+                          <h3 className="demo-card-title">{demo.title}</h3>
+
+                          {demo.subtitle && (
+                            <div className="demo-card-subtitle">{demo.subtitle}</div>
+                          )}
+
+                          <p className="demo-card-desc">{demo.description}</p>
+
+                          {/* Action Buttons */}
+                          <div className="demo-actions-row">
+                            <Link
+                              href={`/product/e-commerce-solutions/${demo.slug}`}
+                              className="btn-know-more"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Info size={15} />
+                              <span>Know More</span>
+                            </Link>
+
+                            {demo.demoUrl && (
+                              <a
+                                href={demo.demoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-live-preview"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <span>Live Preview</span>
+                                <ExternalLink size={14} />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* 2. Noida Agency Story & Architecture Section */}
+          <div className="vt-noida-agency-section">
+            <div className="agency-story-card">
+              <div className="row align-items-center">
+                <div className="col-lg-6 col-md-12 order-2 order-lg-1">
+                  <div className="pe-lg-4">
+                    <div className="vt-section-badge mb-3">
+                      <span className="vt-badge-dot" />
+                      <span>Regional Leadership</span>
+                    </div>
+
+                    <h2 className="agency-title">
+                      Ecommerce Website Development Services in Noida, India
+                    </h2>
+
+                    <p className="agency-p">
+                      We are a leading ecommerce website development agency in India offering scalable, secure, and high-converting ecommerce solutions. Our expert ecommerce website developers build custom websites and apps tailored to your business needs.
+                    </p>
+
+                    <p className="agency-p">
+                      Looking for a reliable ecommerce web development company in Noida? We provide end-to-end ecommerce website development services, including design, development, and ecommerce app solutions to help you grow your online business.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="col-lg-6 col-md-12 order-1 order-lg-2 mb-4 mb-lg-0">
+                  <div className="agency-photo-frame">
+                    <Image
+                      src={ecommerceNoidaImg}
+                      alt="Ecommerce website development in Noida"
+                      priority={false}
+                    />
+                    <div className="agency-floating-stat">
+                      <span className="stat-dot" />
+                      <span>Enterprise Ready · 99.9% Uptime</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="text-center mb-60 mt-20">
-          <h2 className="h2 mb-2">Ecommerce Website Development Services in Noida, India</h2>
-          <p className="text-muted mx-auto" style={{ maxWidth: '800px' }}>
-           We are a leading ecommerce website development agency in India offering scalable, secure, and high-converting ecommerce solutions. Our expert ecommerce website developers build custom websites and apps tailored to your business needs.
-          </p>
-        </div>
-
-        <section className="ecommerce-about-area pb-40">
-          <div className="container p-0">
-            <div className="row align-items-center">
-              <div className="col-lg-6 col-md-12 order-2 order-lg-1">
-                <div className="about-content pe-lg-4">
-                  {/* <h5 className="mb-20" style={{ fontSize: "28px", fontWeight: 700, color: "#000" }}>
-                    Reliable eCommerce Web Development Company in Noida
-                  </h5> */}
-                  <p style={{ fontSize: "15px", lineHeight: "1.6", color: "#555", textAlign: "justify" }}>
-                    Looking for a reliable ecommerce web development company in Noida? We provide end-to-end ecommerce website
-                    development services, including design, development, and ecommerce app solutions to help you grow your online
-                    business.
-                  </p>
-                  {/* <div className="mt-25">
-                    <Link href="/contact" className="demo-button-blue" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                      Get a Free Consultation
-                    </Link>
-                  </div> */}
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-12 order-1 order-lg-2">
-                <div className="about-img mb-30 mb-lg-0">
-                  <Image
-                    src={ecommerceNoidaImg}
-                    alt="Ecommerce website development in Noida"
-                    className="img-fluid rounded-4 shadow-sm"
-                    style={{ width: "100%", height: "300px", borderRadius: "16px" }}
-                    priority={false}
-                  />
-                </div>
-              </div>
-            </div>
           </div>
-        </section>
 
-        <EcommerceInfoArea />
-      </div>
+          {/* 3. Info & Services Area */}
+          <EcommerceInfoArea />
+        </div>
+      </section>
     </>
   );
 };
 
 export default DemosListingArea;
-

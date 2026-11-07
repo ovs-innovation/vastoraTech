@@ -1,156 +1,174 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
 
-const EcommerceInfoArea = () => {
-    return (
-        <div className="ecommerce-info-wrapper pb-20">
-            <div className="container">
-                {/* 1. Our E-Commerce Development Services */}
-                <div className="section-title-wrap mb-60">
-                    <h1 className="tp-section-title text-center mb-40">Our E-Commerce Development Services</h1>
-                    <div className="row g-4 justify-content-center">
-                        {[
-                            {
-                                title: "Custom E-Commerce Website Development",
-                                desc: "Our ecommerce website development services include building fully customized online stores tailored to your brand and business requirements."
-                            },
-                            // {
-                            //     title: "Shopify & WooCommerce Development",
-                            //     desc: "We develop scalable eCommerce websites using platforms like Shopify and WooCommerce to make product management and sales easier."
-                            // },
-                            {
-                                title: "Payment Gateway Integration",
-                                desc: "Our developers integrate secure payment gateways to ensure smooth and safe transactions for your customers."
-                            },
-                            {
-                                title: "Mobile-Friendly E-Commerce Websites",
-                                desc: "We create responsive online stores optimized for mobile devices to improve user experience and increase conversions."
-                            },
-                            {
-                                title: "E-Commerce App Development",
-                                desc: "As a trusted ecommerce app development company, we build mobile applications that allow businesses to reach customers and manage their online store from anywhere."
-                            }
-                        ].map((service, index) => (
-                            <div key={index} className="col-lg-3 col-md-6">
-                                <div className="card h-100 border-0 shadow-sm p-4 text-center">
-                                    <h4 className="h5 mb-3 font-bold">{service.title}</h4>
-                                    <p className="text-muted small">{service.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+import React from "react";
+import Link from "next/link";
+import {
+  Code2,
+  CreditCard,
+  Smartphone,
+  ShoppingBag,
+  ShieldCheck,
+  Zap,
+  Package,
+  LineChart,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
 
-                
+const services = [
+  {
+    icon: <Code2 size={24} />,
+    title: "Custom E-Commerce Website Development",
+    desc: "Our ecommerce website development services include building fully customized online stores tailored to your brand and business requirements.",
+  },
+  {
+    icon: <CreditCard size={24} />,
+    title: "Payment Gateway Integration",
+    desc: "Our developers integrate secure payment gateways to ensure smooth and safe transactions for your customers.",
+  },
+  {
+    icon: <Smartphone size={24} />,
+    title: "Mobile-Friendly E-Commerce Websites",
+    desc: "We create responsive online stores optimized for mobile devices to improve user experience and increase conversions.",
+  },
+  {
+    icon: <ShoppingBag size={24} />,
+    title: "E-Commerce App Development",
+    desc: "As a trusted ecommerce app development company, we build mobile applications that allow businesses to reach customers and manage their online store from anywhere.",
+  },
+];
 
-                {/* 3. Our E-Commerce Development Process */}
-                {/* <div className="process-ecommerce mb-80">
-                    <h3 className="h4 mb-5 text-center font-bold">Our E-Commerce Development Process</h3>
-                    <div className="row g-4 text-center">
-                        {[
-                            { title: "Planning", desc: "Business requirements and store planning" },
-                            { title: "Design", desc: "UI/UX design and theme selection" },
-                            { title: "Development", desc: "Development and feature integration" },
-                            { title: "Configuration", desc: "Payment and shipping configuration" },
-                            { title: "Testing", desc: "Testing and quality assurance" },
-                            { title: "Launch", desc: "Website launch and ongoing support" }
-                        ].map((step, index) => (
-                            <div key={index} className="col-lg-2 col-md-4 col-sm-6">
-                                <div className="step-item">
-                                    <div className="step-number h5 text-primary mb-2">0{index + 1}</div>
-                                    <h5 className="h6 font-bold mb-1">{step.title}</h5>
-                                    <p className="small text-muted mb-0 lh-base" style={{ fontSize: '12px' }}>{step.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div> */}
+const features = [
+  {
+    icon: <ShieldCheck size={22} />,
+    title: "Secure Payment Integration",
+    desc: "We integrate secure payment gateways to ensure safe transactions for customers.",
+  },
+  {
+    icon: <Smartphone size={22} />,
+    title: "Mobile-Friendly Design",
+    desc: "Our eCommerce websites are fully responsive and optimized for all devices including smartphones and tablets.",
+  },
+  {
+    icon: <Zap size={22} />,
+    title: "Fast Loading Speed",
+    desc: "Speed-optimized websites that improve user experience and help reduce bounce rate.",
+  },
+  {
+    icon: <Package size={22} />,
+    title: "Easy Product Management",
+    desc: "Manage products, categories, inventory, and orders easily from a powerful admin dashboard.",
+  },
+  {
+    icon: <LineChart size={22} />,
+    title: "SEO-Friendly Store Structure",
+    desc: "We develop search engine optimized eCommerce websites that help businesses rank higher on Google.",
+  },
+];
 
-                {/* 4. Features of a Successful E-Commerce Website */}
-                <div className="features-ecommerce mb-80">
-                    <h3 className="h4 text-center font-bold mb-2">Features of a Successful E-Commerce Website</h3>
-                    <p className="text-center text-muted mb-5">A successful online store needs the right features to deliver a smooth shopping experience and increase sales.</p>
-                    <div className="row g-4">
-                        {[
-                            {
-                                title: "Secure Payment Integration",
-                                desc: "We integrate secure payment gateways to ensure safe transactions for customers."
-                            },
-                            {
-                                title: "Mobile-Friendly Design",
-                                desc: "Our eCommerce websites are fully responsive and optimized for all devices including smartphones and tablets."
-                            },
-                            {
-                                title: "Fast Loading Speed",
-                                desc: "Speed-optimized websites that improve user experience and help reduce bounce rate."
-                            },
-                            {
-                                title: "Easy Product Management",
-                                desc: "Manage products, categories, inventory, and orders easily from a powerful admin dashboard."
-                            },
-                            {
-                                title: "SEO-Friendly Store Structure",
-                                desc: "We develop search engine optimized eCommerce websites that help businesses rank higher on Google."
-                            }
-                        ].map((feature, index) => (
-                            <div key={index} className="col-md-4">
-                                <div className="feature-card h-100 p-4 border rounded-3 hover-shadow transition">
-                                    <h5 className="h6 font-bold mb-3">{feature.title}</h5>
-                                    <p className="text-muted small mb-0">{feature.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                {/* 2. Why Choose Our E-Commerce Development Agency */}
-                <div className="why-choose-ecommerce mb-80 bg-light p-5 rounded-4">
-                    <h3 className="h4 mb-4 text-center font-bold">Why Choose Our E-Commerce Development Agency</h3>
-                    <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                            <ul className="list-unstyled row g-3">
-                                {[
-                                    "Experienced ecommerce website developers",
-                                    "Complete ecommerce website development ",
-                                    "Scalable solutions for growing businesses",
-                                    "Secure payment and checkout systems",
-                                    "SEO-friendly eCommerce store development"
-                                ].map((item, index) => (
-                                    <div key={index} className="col-md-6 d-flex align-items-center mb-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B6BB3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="me-2 flex-shrink-0">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                        <span className="small">{item}</span>
-                                    </div>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+const whyChoosePoints = [
+  "Experienced ecommerce website developers",
+  "Complete ecommerce website development",
+  "Scalable solutions for growing businesses",
+  "Secure payment and checkout systems",
+  "SEO-friendly eCommerce store development",
+];
 
-                {/* 5. Start Your Project Today */}
-                <div className="cta-ecommerce text-center bg-primary text-white p-5 rounded-4 shadow-lg">
-                    <h3 className="h4 font-bold text-white mb-3">Start Your E-Commerce Business Today</h3>
-                    <div className="row justify-content-center">
-                        <div className="col-lg-10">
-                            <p className="mb-4 text-light pb-2">
-                                Looking for a reliable ecommerce website development agency or ecommerce web development company in India?
-                                Our expert team is ready to help you build a high-performance online store that increases sales and improves customer experience.
-                            </p>
-                            <Link href="/contact" className="btn btn-light btn-lg px-3 py-1 font-bold">
-                                Start Your Project →
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <style jsx>{`
-                .font-bold { font-weight: 700; }
-                .hover-shadow:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-                .transition { transition: all 0.3s ease; }
-            `}</style>
+const EcommerceInfoArea: React.FC = () => {
+  return (
+    <div className="ecommerce-info-wrapper">
+      {/* 1. Our E-Commerce Development Services */}
+      <section className="vt-ecom-services-section" aria-label="Our Services">
+        <div className="services-section-header">
+          <div className="vt-section-badge mb-3">
+            <span className="vt-badge-dot" />
+            <span>Core Capabilities</span>
+          </div>
+          <h2 className="vt-section-title">
+            Our E-Commerce Development Services
+          </h2>
         </div>
-    );
+
+        <div className="row g-4 justify-content-center">
+          {services.map((item, idx) => (
+            <div key={idx} className="col-lg-3 col-md-6">
+              <div className="service-bento-card">
+                <div className="service-icon-box">{item.icon}</div>
+                <h3 className="service-card-title">{item.title}</h3>
+                <p className="service-card-desc">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 2. Features of a Successful E-Commerce Website */}
+      <section className="vt-ecom-features-section" aria-label="Essential Features">
+        <div className="features-section-header">
+          <div className="vt-section-badge mb-3">
+            <span className="vt-badge-dot" />
+            <span>High-Converting Architecture</span>
+          </div>
+          <h2 className="vt-section-title">
+            Features of a Successful E-Commerce Website
+          </h2>
+          <p className="text-muted">
+            A successful online store needs the right features to deliver a smooth shopping experience and increase sales.
+          </p>
+        </div>
+
+        <div className="row g-4 justify-content-center">
+          {features.map((feature, idx) => (
+            <div key={idx} className="col-lg-4 col-md-6">
+              <div className="feature-clean-card">
+                <div className="feature-icon-circle">{feature.icon}</div>
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-desc">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Why Choose Our Agency */}
+      <section className="vt-why-choose-section" aria-label="Why Choose Us">
+        <div className="why-choose-panel">
+          <h2 className="why-title">
+            Why Choose Our E-Commerce Development Agency
+          </h2>
+
+          <div className="why-checklist-grid">
+            {whyChoosePoints.map((point, idx) => (
+              <div key={idx} className="why-check-item">
+                <div className="check-icon-badge">
+                  <CheckCircle2 size={16} />
+                </div>
+                <span className="check-text">{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Start Your E-Commerce Business Today CTA */}
+      <section className="vt-ecom-cta-section" aria-label="Call to Action">
+        <div className="cta-radiant-card">
+          <div className="cta-ambient-glow" aria-hidden="true" />
+          <h2 className="cta-title">
+            Start Your E-Commerce Business Today
+          </h2>
+          <p className="cta-desc">
+            Looking for a reliable ecommerce website development agency or ecommerce web development company in India? Our expert team is ready to help you build a high-performance online store that increases sales and improves customer experience.
+          </p>
+          <Link href="/contact" className="cta-action-btn">
+            <span>Start Your Project</span>
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default EcommerceInfoArea;

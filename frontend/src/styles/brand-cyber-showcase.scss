@@ -1,0 +1,351 @@
+/* ========================================================
+   COMPACT CLIENT SHOWCASE (VASTORA TECH LIGHT BRAND THEME)
+   ======================================================== */
+
+.client-showcase.cyber-showcase-section {
+  position: relative;
+  /* Matches Vastora Tech clean brand aesthetic (Light slate / subtle sky tint) */
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 60%, #ffffff 100%);
+  overflow: hidden;
+  padding: 46px 0 52px; /* Decreased height drastically */
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+
+  /* Subtle ambient pattern */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(0, 98, 245, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Very subtle ambient radial glow behind header */
+  &::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 98, 245, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cyber-ambient-orb {
+    display: none; /* Remove dark heavy orbs */
+  }
+
+  .client-showcase__inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Compact Eyebrow Status Badge */
+  .cyber-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 98, 245, 0.22);
+    box-shadow: 0 2px 8px rgba(0, 98, 245, 0.06);
+    margin-bottom: 12px;
+
+    .radar-pulse-dot {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0062f5;
+      box-shadow: 0 0 6px rgba(0, 98, 245, 0.6);
+
+      .pulse-ring {
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 1.5px solid #0062f5;
+        animation: radarPulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+      }
+    }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0062f5;
+    }
+  }
+
+  /* Compact Heading with #0f172a and #0062f5 accent */
+  .cyber-showcase-title {
+    color: #0f172a;
+    font-size: clamp(24px, 2.5vw, 34px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    max-width: 820px;
+    margin: 0 auto 10px;
+    text-wrap: balance;
+
+    .cyber-gradient-highlight {
+      display: inline;
+      color: #0062f5;
+      background: linear-gradient(135deg, #0062f5 0%, #2563eb 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+    }
+  }
+
+  /* Compact Subtitle */
+  .cyber-showcase-subtitle {
+    color: #64748b;
+    font-size: 14.5px;
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+
+  /* Compact Interactive Filter Tags */
+  .cyber-tags-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 26px; /* Tight vertical gap */
+
+    .cyber-tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      cursor: pointer;
+      transition: all 0.22s ease;
+
+      .chip-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #94a3b8;
+        transition: all 0.2s ease;
+      }
+
+      &:hover {
+        color: #0062f5;
+        border-color: #93c5fd;
+        background: #f0f7ff;
+        transform: translateY(-1px);
+
+        .chip-dot {
+          background: #0062f5;
+        }
+      }
+
+      &.is-active {
+        color: #ffffff;
+        background: #0062f5;
+        border-color: #0062f5;
+        box-shadow: 0 4px 12px rgba(0, 98, 245, 0.25);
+
+        .chip-dot {
+          background: #ffffff;
+          box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+  }
+
+  /* Dual-Row Infinite Marquee Shell */
+  .cyber-marquee-shell {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    padding: 8px 0;
+
+    /* Seamless edge fade into light background */
+    mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+
+    .cyber-marquee-row {
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      padding: 8px 0;
+
+      &:hover .cyber-marquee-track {
+        animation-play-state: paused;
+      }
+    }
+
+    .cyber-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 22px; /* Generous gap for prominent cards */
+      flex-shrink: 0;
+      will-change: transform;
+
+      &.track-left {
+        animation: marqueeScrollLeft 42s linear infinite;
+      }
+
+      &.track-right {
+        animation: marqueeScrollRight 46s linear infinite;
+      }
+    }
+  }
+
+  /* Partner Brand Card - Extra Large, Bold & Highly Visible */
+  .cyber-glass-card {
+    position: relative;
+    height: 122px; /* Substantially larger: 122px height */
+    width: 270px; /* Expansive 270px width */
+    padding: 16px 28px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    cursor: pointer;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .card-logo-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .brand-img {
+        max-width: 210px; /* Big, clear, bold logo */
+        max-height: 76px; /* Generous vertical clearance */
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        /* Crisp, clear, high-contrast logos */
+        opacity: 0.95;
+        filter: none;
+        transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    /* Hover: Lifts gracefully with blue border highlight */
+    &:hover {
+      transform: translateY(-5px);
+      border-color: #0062f5;
+      background: #ffffff;
+      box-shadow: 0 14px 32px rgba(0, 98, 245, 0.16);
+
+      .card-logo-wrap .brand-img {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+  }
+}
+
+/* Radar pulse animation */
+@keyframes radarPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .client-showcase.cyber-showcase-section {
+    padding: 42px 0 48px;
+
+    .cyber-glass-card {
+      width: 230px;
+      height: 105px;
+      padding: 12px 20px;
+
+      .card-logo-wrap .brand-img {
+        max-width: 175px;
+        max-height: 64px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .client-showcase.cyber-showcase-section {
+    padding: 36px 0 42px;
+
+    .cyber-showcase-title {
+      font-size: 22px;
+    }
+
+    .cyber-tags-row {
+      gap: 6px;
+      margin-bottom: 20px;
+
+      .cyber-tag-chip {
+        padding: 5px 12px;
+        font-size: 11px;
+      }
+    }
+
+    .cyber-glass-card {
+      width: 190px;
+      height: 88px;
+      padding: 10px 16px;
+
+      .card-logo-wrap .brand-img {
+        max-width: 140px;
+        max-height: 52px;
+      }
+    }
+  }
+}

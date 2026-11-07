@@ -1,89 +1,72 @@
- 
- import Image from "next/image";
-import count_img_1 from "@/assets/img/icon/counter-5-icon-1.svg";
- import count_img_2 from "@/assets/img/icon/counter-5-icon-2.svg";
- import count_img_3 from "@/assets/img/icon/counter-5-icon-3.svg";
-import CountTwo from "@/components/common/CountTwo"; 
+"use client";
 
+import React from "react";
+import { Clock, Award, Sparkles, Users } from "lucide-react";
+import CountTwo from "@/components/common/CountTwo";
 
- const count_data_5  = [
-    {
-        id: 1, 
-        icon: count_img_1,
-        cls: "",
-        count_number: 10,
-        text: "Years of Experience",
-        width_prograsss: "60%",
-        aria_valuenow: 70,      
-    },
-    {
-        id: 2, 
-        icon: count_img_2,
-        cls: "counter-5-2",
-        count_number: 2000,
-        text: "Successful Projects",
-        width_prograsss: "77%",
-        aria_valuenow: 75,      
-    },
-    {
-        id: 3, 
-        icon: count_img_3,
-        cls: "counter-5-3",
-        count_number: 1900,
-        text: "Happy Customers",
-        width_prograsss: "60%",
-        aria_valuenow: 25,       
-    },
-    {
-        id: 4, 
-        icon: count_img_1,
-        cls: "counter-5-4",
-        count_number: 50,
-        text: "Team Members",
-        width_prograsss: "65%",
-        aria_valuenow: 25,      
-    },
- ]
+const impactStats = [
+  {
+    id: 1,
+    icon: <Clock size={24} strokeWidth={2.2} />,
+    cls: "",
+    countNumber: 10,
+    label: "Years of Experience",
+    microBadge: "Industry Leadership",
+  },
+  {
+    id: 2,
+    icon: <Award size={24} strokeWidth={2.2} />,
+    cls: "pod-cyan",
+    iconCls: "icon-cyan",
+    countNumber: 2000,
+    label: "Successful Projects",
+    microBadge: "High-Scale Stores",
+  },
+  {
+    id: 3,
+    icon: <Sparkles size={24} strokeWidth={2.2} />,
+    cls: "pod-emerald",
+    iconCls: "icon-emerald",
+    countNumber: 1900,
+    label: "Happy Customers",
+    microBadge: "98.6% Retention Rate",
+  },
+  {
+    id: 4,
+    icon: <Users size={24} strokeWidth={2.2} />,
+    cls: "pod-indigo",
+    iconCls: "icon-indigo",
+    countNumber: 50,
+    label: "Team Members",
+    microBadge: "In-House Specialists",
+  },
+];
 
 const CounterAreaHomeFive = () => {
-    return (
-        <>
-            <div className="counter-area pb-90">
-                <div className="container">
-                    <div className="row">
-                        {count_data_5.map((item, i)  => 
-                            <div key={i} className="col-lg-3 col-sm-6">
-                                <div className={`counter-5 ${item.cls} d-flex mb-30`}>
-                                    <div className="counter-5-icon">
-                                        <i>
-                                        <Image src={item.icon} alt="theme-pure" />
-                                        </i>
-                                    </div>
-                                    <div className="counter-5-content">
-                                        <b className="counter-5-count mb-10">
-                                        <span data-purecounter-duration="1" data-purecounter-end="35" className="purecounter">
-                                            <CountTwo number={item.count_number} /> 
-                                        </span>
-                                        {/* <i className="fa-regular fa-plus"></i> */}
-                                        </b>
-                                        <p>{item.text}</p>
-                                        <div className="counter-5-bar">
-                                        <div className="progress">
-                                            <div className="progress-bar" role="progressbar" aria-label="Example with label"
-                                            style={{width: `${item.width_prograsss}`}} 
-                                            aria-valuenow={item.aria_valuenow} 
-                                            aria-valuemin={0} aria-valuemax={100}></div> 
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>     
-                        )} 
-                    </div>
+  return (
+    <section className="counter-area-enhanced">
+      <div className="container">
+        <div className="impact-stats-grid">
+          {impactStats.map((item) => (
+            <div key={item.id} className={`impact-stat-pod ${item.cls}`}>
+              <div className={`stat-icon-wrapper ${item.iconCls || ""}`}>
+                {item.icon}
+              </div>
+              <div className="stat-content">
+                <div className="stat-number-row">
+                  <span className="stat-value">
+                    <CountTwo number={item.countNumber} />
+                  </span>
                 </div>
+                <div className="stat-label">{item.label}</div>
+                <div className="stat-micro-badge">{item.microBadge}</div>
+              </div>
             </div>
-        </>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default CounterAreaHomeFive;

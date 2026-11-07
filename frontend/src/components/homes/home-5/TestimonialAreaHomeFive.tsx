@@ -1,164 +1,97 @@
-'use client'
-import Image from "next/image";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+"use client";
 
-import testi_shape_1 from "@/assets/img/shape/testimonial-5-bg-1.png";
-import testi_shape_2 from "@/assets/img/shape/testimonial-5-bg-2.png";
-import testi_shape_3 from "@/assets/img/shape/testimonial-5-shape-2.png";
-import testi_shape_4 from "@/assets/img/shape/testimonial-5-shape-3.png";
-import testi_shape_5 from "@/assets/img/shape/testimonial-5-shape-4.png";
+import React, { useState } from "react";
+import testimonial_data from "@/data/tptestimonial-data";
 
-
-type testimonial_data_5_type = {
-    id: number;
-    sm_info: JSX.Element;
-    author: string;
-    job_title: string;
+interface TestimonialAreaHomeFiveProps {
+  style?: boolean;
 }
 
-const testimonial_data_5: testimonial_data_5_type[] = [
-        {
-            id: 1, 
-            sm_info: <>"SEOMY really simplified our sales process. <br /> It's so easy for us to find talent, track our reps' time and progress, and pay them all from <br /> one platform."</>,
-            author: "John Smith",
-            job_title: "CEO of Advisor Fuel",
-        },
-        {
-            id: 2, 
-            sm_info: <>"SEOMY really simplified our sales process. <br /> It's so easy for us to find talent, track our reps' time and progress, and pay them all from <br /> one platform."</>,
-            author: "Smith John",
-            job_title: "CEO of Advisor Fuel",
-        },
-        {
-            id: 3, 
-            sm_info: <>"SEOMY really simplified our sales process. <br /> It's so easy for us to find talent, track our reps' time and progress, and pay them all from <br /> one platform."</>,
-            author: "Jamil rayhan",
-            job_title: "CEO of Advisor Fuel",
-        },
-        {
-            id: 4, 
-            sm_info: <>"SEOMY really simplified our sales process. <br /> It's so easy for us to find talent, track our reps' time and progress, and pay them all from <br /> one platform."</>,
-            author: "Mahdi Hasa",
-            job_title: "CEO of Advisor Fuel",
-        },
+const TestimonialAreaHomeFive: React.FC<TestimonialAreaHomeFiveProps> = ({ style }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    ]
- 
-// slider setting 
-const setting = {
-    autoplay: true,
-    dots: true,
-    fade: false,
-    arrows: false,
-    slidesToShow: 1,
-    responsive: [
-        {
-            breakpoint: 1600,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                arrows: false,
-            }
-        }
-    ],
-}
+  const currentItem = testimonial_data[currentIndex];
 
-const TestimonialAreaHomeFive = ({style} : any) => {
-    return (
-        <> 
-            <section className={`testimonial-area p-relative ${style ? "mt-120 pb-90" : "pb-100"}`}>
-                <div className="container">
-                    <div className="testimonial-5-bg">
-                        <div className="testimonial-5-bg-shape">
-                            <Image src={testi_shape_1} alt="theme-pure" />
-                        </div>
-                    <div className="testimonial-5-bg-shape-two wow bounceIn" data-wow-duration=".6s" data-wow-delay=".6s">
-                        <Image src={testi_shape_2} alt="theme-pure" />
-                    </div>
-                    </div>
-                    <div className="row">
-                    <div className="col-lg-12">
-                        <div className="testimonial-5-head text-center mb-60">
-                            <h4 className="testimnial-5-title">Our partners know best</h4>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="testimonial-5 p-relative" style={{backgroundImage: `url(/assets/img/shape/testimonial-5shape-1.png)`}}>
-                                <div className="row">
-                                    <div className="col-lg-5 col-md-5 order-2 order-md-1">
-                                    <div className="testimonial-5-shape">
-                                        <div className="testimonial-5-shape-one">
-                                            <Image src={testi_shape_3} alt="theme-pure" />
-                                        </div>
-                                        <div className="testimonial-5-shape-two d-none d-md-block">
-                                            <Image src={testi_shape_4} alt="theme-pure" />
-                                        </div>
-                                        <div className="testimonial-5-shape-three d-none d-md-block">
-                                            <Image src={testi_shape_5} alt="theme-pure" />
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div className="col-lg-7 col-md-7 order-1 order-md-2">
-                                        <Slider {...setting} className="testimonial-5-content testi-5-active">
-                                            {testimonial_data_5.map((item, i)  => 
-                                                <div key={i} className="testimonial-5-content-wrap">
-                                                    <div className="tptestimonial-star mb-15">
-                                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>{" "}
-                                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>{" "}
-                                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>{" "}
-                                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>{" "}
-                                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>{" "}
-                                                    </div>
-                                                    <p>{item.sm_info}</p>
-                                                    <div className="author-info-5">
-                                                        <h5 className="author-title-5">{item.author}</h5>
-                                                        <span>{item.job_title}</span>
-                                                    </div>
-                                                </div>                                            
-                                            )} 
-                                        </Slider>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonial_data.length - 1 : prev - 1
     );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev === testimonial_data.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  return (
+    <section className="testimonials-enhanced-section" id="client-testimonials">
+      <div className="container">
+        {/* Header */}
+        <div className="testi-header-wrap">
+          <div className="testi-badge">
+            <span className="badge-dot"></span>
+            <span className="badge-text">Client Success Stories</span>
+          </div>
+          <h2 className="testi-title">
+            Clients Love Us,{" "}
+            <span className="gradient-highlight">& We Love Empowering Them.</span>
+          </h2>
+          <p className="testi-desc">
+            Trusted by over 1,900 companies worldwide to build high-converting
+            e-commerce storefronts and dependable enterprise web systems.
+          </p>
+        </div>
+
+        {/* Master Testimonial Card */}
+        <div className="testi-stage-container">
+          <div className="testi-master-card">
+            <div className="testi-quote-mark">
+              <i className="fa-solid fa-quote-left"></i>
+            </div>
+
+            <div className="testi-stars-row">
+              {[...Array(5)].map((_, i) => (
+                <i key={i} className="fa-solid fa-star"></i>
+              ))}
+            </div>
+
+            <p className="testi-quote-text">"{currentItem.info}"</p>
+
+            <div className="testi-author-block">
+              <div className="author-name">{currentItem.avatar_name}</div>
+              <div className="author-role">{currentItem.job_title}</div>
+            </div>
+          </div>
+
+          {/* Controls Bar */}
+          <div className="testi-controls-bar">
+            <button
+              type="button"
+              className="testi-arrow-btn"
+              onClick={handlePrev}
+              aria-label="Previous testimonial"
+            >
+              <i className="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div className="testi-counter-pill">
+              0{currentIndex + 1} / 0{testimonial_data.length}
+            </div>
+
+            <button
+              type="button"
+              className="testi-arrow-btn"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+            >
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default TestimonialAreaHomeFive;

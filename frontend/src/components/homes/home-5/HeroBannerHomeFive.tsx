@@ -110,128 +110,153 @@ const setting = {
     },
   ],
 };
+import HeroVisualEcosystem from "./HeroVisualEcosystem";
+import InteractiveHeroHeading from "./InteractiveHeroHeading";
+import HeroFallingStars from "./HeroFallingStars";
+import { ShieldCheck, Zap, Headphones, Star } from "lucide-react";
+import avatar1 from "@/assets/img/team/team1.jpeg";
+import avatar2 from "@/assets/img/team/team2.jpeg";
+import avatar3 from "@/assets/img/team/team-5.jpeg";
+import avatar4 from "@/assets/img/team/team-6.jpg";
+
 type hero_content_type = {
-  title: JSX.Element;
   sm_info: JSX.Element;
   brand_title: string;
 };
 const hero_content_home_5: hero_content_type = {
-  title: (
-    <>
-      Launch Your Ecommerce Store in Just 5 Days{" "}
-      <span className="cd-words-wrapper">
-        <TypeAnimation
-          sequence={["simple", 1000, "flexible", 1000, "optimized", 1000]}
-          speed={5}
-          style={{ display: "inline-block", color: "#2B6BB3" }}
-          repeat={Infinity}
-        />
-      </span>
-      .
-    </>
-  ),
   sm_info: (
     <>
-   Get your custom e-commerce website with a smart admin panel and dashboard from the best ecommerce website development company india. Build a secure and scalable ecommerce platform in India designed to grow your online business and improve customer experience.   
-
+      Get your{" "}
+      <span className="para-interactive-word">custom e-commerce website</span> with a{" "}
+      <span className="para-interactive-word">smart admin panel &amp; dashboard</span> from the{" "}
+      <span className="para-interactive-word">best ecommerce website development company in India</span>. Build a{" "}
+      <span className="para-interactive-word">secure and scalable platform</span> to grow your online business and improve customer experience.
     </>
   ),
   brand_title: "Trusted by the big ones, loved by everyone",
 };
-const { title, sm_info, brand_title } = hero_content_home_5;
+const { sm_info } = hero_content_home_5;
 
 const HeroBannerHomeFive = () => {
-  const sliderRef = useRef<Slider | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [banner_img1, banner_img2];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
   return (
     <>
-    <MouseParallaxContainer>
-      <section className="banner-area banner-brand fix">
-        <div className="banner-5 p-relative">
-          <div className="banner-5-content-shape">
-            <div className="banner-5-content-shape-one">
-              <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                <Image src={ArrowPlane} alt="Vastora Tech banner shape" priority />
-              </MouseParallaxChild>
-            </div>
-            
-            <div className="banner-5-content-shape-two">
-              <i>
-                <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                  <HeroLangIcon />
+      <MouseParallaxContainer>
+        <section className="banner-area banner-brand fix">
+          {/* Subtle Falling / Shooting Stars Animation */}
+          <HeroFallingStars />
+
+          <div className="banner-5 p-relative">
+            <div className="banner-5-content-shape">
+              <div className="banner-5-content-shape-one">
+                <MouseParallaxChild factorX={0.02} factorY={0.02}>
+                  <Image src={ArrowPlane} alt="Vastora Tech banner shape" priority />
                 </MouseParallaxChild>
-              </i>
-            </div>
-          </div>
-          <div className="container custom-container">
-            <div className="banner-5-shape">
-              <div className="banner-5-shape-one">
-                <Image src={LeftBG} alt="Vastora Tech background shape" priority />
+              </div>
+
+              <div className="banner-5-content-shape-two">
+                <i>
+                  <MouseParallaxChild factorX={0.02} factorY={0.02}>
+                    <HeroLangIcon />
+                  </MouseParallaxChild>
+                </i>
               </div>
             </div>
-            <div className="row">
-              <div className="col-xl-7 col-lg-6 order-2 order-lg-1">
-                <div className="banner-5-content p-relative pt-80">
-                  <h1 className="banner-5-title">{title}</h1>
-                  <p>{sm_info}</p>
-                  <div className="banner-5-btn d-flex gap-3">
-                    <Link
-                      className="light-blue-btn"
-                      href="/product/e-commerce-solutions"
-                    >
-                      Get Started
-                    </Link>
-                 
-                  </div>
+            <div className="container custom-container">
+              <div className="banner-5-shape">
+                <div className="banner-5-shape-one">
+                  <Image src={LeftBG} alt="Vastora Tech background shape" priority />
                 </div>
               </div>
-              <div className="col-xl-5 col-lg-6 order-1 order-lg-2">
-                <div className="banner-5-thumb p-relative">
-                  {currentSlide === 0 && (
-                    <Image
-                      src={banner_img1}
-                      alt="Vastora Tech E-commerce Solution"
-                      height={700}
-                      width={700}
-                      style={{ display: "block", margin: "0 auto" }}
-                      priority
-                    />
-                  )}
-                  {currentSlide === 1 && (
-                    <Image
-                      src={banner_img2}
-                      alt="Vastora Tech Digital Store"
-                      height={700}
-                      width={700}
-                      style={{ display: "block", margin: "0 auto" }}
-                      priority
-                    />
-                  )}
-                  <div className="banner-5-thumb-shape d-none d-md-block">
-                    {banner_shapes.map((item, i) => (
-                      <div
-                        key={i}
-                        className={`banner-5-thumb-shape-${item.cls}`}
-                      >
-                        <MouseParallaxChild factorX={0.02} factorY={0.02} >
-                          <Image src={item.img} alt="Banner Decorative Shape" title="Banner Decorative Shape" />
-                        </MouseParallaxChild>
+              <div className="row align-items-center">
+                <div className="col-xl-6 col-lg-6 order-1 order-lg-1">
+                  <div className="banner-5-content p-relative">
+                    {/* Top Pill Badge */}
+                    <div className="hero-top-badge">
+                      <span className="badge-dot" />
+                      <span className="badge-text">E-COMMERCE EXPERTS</span>
+                    </div>
+
+                    {/* Hero Heading with Typewriter and Brush Stroke + Integrated Story Description */}
+                    <InteractiveHeroHeading smInfo={sm_info} />
+
+
+                    {/* CTA Button + 3 Feature Badges */}
+                    <div className="hero-cta-features-wrap">
+                      <div className="banner-5-btn">
+                        <Link
+                          className="enhanced-hero-cta-btn light-blue-btn"
+                          href="/product/e-commerce-solutions"
+                          aria-label="Get Started with Vastora Tech E-commerce Solutions"
+                        >
+                          <span className="btn-label-text">Get Started</span>
+                          <span className="btn-divider" aria-hidden="true" />
+                          <span className="btn-icon-box" aria-hidden="true">
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <line x1="5" y1="12" x2="19" y2="12" />
+                              <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                          </span>
+                        </Link>
                       </div>
-                    ))}
+
+                      <div className="hero-cta-divider" aria-hidden="true" />
+
+                      <div className="hero-value-badges">
+                        <div className="value-badge-item">
+                          <ShieldCheck size={18} className="badge-ico" />
+                          <span className="badge-title">Secure &amp; Scalable</span>
+                        </div>
+                        <div className="value-badge-item">
+                          <Zap size={18} className="badge-ico" />
+                          <span className="badge-title">Fast Delivery</span>
+                        </div>
+                        <div className="value-badge-item">
+                          <Headphones size={18} className="badge-ico" />
+                          <span className="badge-title">Ongoing Support</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Social Proof & Rating Bar */}
+                    <div className="hero-social-proof-strip">
+                      <div className="proof-avatars-group">
+                        <Image src={avatar1} alt="Client" width={34} height={34} className="avatar-img" />
+                        <Image src={avatar2} alt="Client" width={34} height={34} className="avatar-img" />
+                        <Image src={avatar3} alt="Client" width={34} height={34} className="avatar-img" />
+                        <Image src={avatar4} alt="Client" width={34} height={34} className="avatar-img" />
+                        <span className="avatar-count-pill">500+</span>
+                      </div>
+                      <div className="proof-text-wrap">
+                        <span className="proof-heading">Trusted by 500+ businesses</span>
+                        <div className="proof-rating-stars">
+                          <div className="stars-icons">
+                            <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                            <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                            <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                            <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                            <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                          </div>
+                          <span className="rating-score">4.9</span>
+                          <span className="reviews-label">(1.8k reviews)</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 order-2 order-lg-2">
+                  <HeroVisualEcosystem />
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </section>
       </MouseParallaxContainer>
@@ -240,3 +265,5 @@ const HeroBannerHomeFive = () => {
 };
 
 export default HeroBannerHomeFive;
+
+

@@ -64,11 +64,9 @@ const menu_data: menu_data_type[] = [
       { link: "/services/social-media-marketing-services",    title: "Social Media Marketing",   demo_img: service_demo_4,  },
 
 
-      // { link: "/service/digital-marketing",         title: "Digital Marketing",        demo_img: service_demo_3,  },
-      { link: "/services/seo-services",         title: "SEO Services",        demo_img: service_demo_5,  },
-      { link: "/product/e-commerce-solutions", title: "E-commerce Solutions", demo_img: service_demo_7,  },
-      // { link: "/service/ui-ux-design", title: "UI/UX Design",        demo_img: service_demo_6,  },
-   
+      { link: "/services/seo-services", title: "SEO Services", demo_img: service_demo_5 },
+      { link: "/product/e-commerce-solutions", title: "E-commerce Solutions", demo_img: service_demo_7 },
+      { link: "/services/ui-ux-design", title: "UI/UX Design", demo_img: service_demo_6 },
     ],
     banner_sub_title: "Software Development & Digital Marketing Agency",
     banner_title: <>The #1 Software <br/> Development and Digital Marketing Agency <br /> for fast growing  companies.</>,

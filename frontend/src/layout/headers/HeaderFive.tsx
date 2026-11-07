@@ -1,10 +1,8 @@
 "use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import NavMenu from "./Menu/nav-menu";
-import WorldIcon from "@/svg/world_icon";
-import DownArrwo from "@/svg/down_arrwo";
 import OffcanvasArea from "@/components/common/OffcanvasArea";
-import React, { useEffect, useRef, useState } from "react";
 import HeaderLogoHomeFive from "@/svg/logo/header_logo_home_5";
 import useSticky from "@/hooks/use-sticky";
 
@@ -12,126 +10,82 @@ const HeaderFive = () => {
   const { sticky } = useSticky();
   const [openCanvas, setOpenCanvas] = useState(false);
 
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const langToggleRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        langToggleRef.current &&
-        !langToggleRef.current.contains(event.target as Node)
-      ) {
-        setIsLangMenuOpen(false);
-      }
-    };
-
-    if (langToggleRef.current) {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      if (langToggleRef.current) {
-        document.removeEventListener("click", handleClickOutside);
-      }
-    };
-  }, []);
-
-  const toggleLangMenu = () => {
-    setIsLangMenuOpen((prevIsLangMenuOpen) => !prevIsLangMenuOpen);
-  };
-
   return (
     <>
-      <header>
+      <header className="vastora-header-wrapper">
         <div
           id="header-sticky"
-          className={`tptransparent__header ${
-            sticky && "header-sticky"
-          } header-five pl-185 pr-185`}
+          className={`vastora-navbar ${
+            sticky ? "header-sticky is-sticky" : ""
+          }`}
         >
-          <div className="container-fluid">
-            <div className="tp-mega-menu-wrapper">
-              <div className="row align-items-center">
-                <div className="col-xl-2 col-lg-6 col-sm-4 col-6">
-                  <div className="tplogo__area">
-                    <Link href="/" aria-label="Vastora Tech Home">
-                      <span>
-                        <HeaderLogoHomeFive />
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-xl-7 col-lg-5  d-none d-xl-block">
-                  <div className="tpmenu__area tpmenu-5 main-mega-menu">
-                    <nav className="tp-main-menu-content">
-                      <NavMenu />
-                    </nav>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-6 col-sm-8 col-6">
-                  <div className="tpheader__right  d-flex align-items-center justify-content-end">
-                    <div className="header-bottom__lang d-none d-lg-block d-flex align-items-center justify-content-end">
-                      <ul>
-                        <li>
-                          {/* <button
-                            id="header-bottom__lang-toggle"
-                            onClick={toggleLangMenu}
-                          >
-                            <span>
-                              <WorldIcon /> English <DownArrwo />
-                            </span>
-                          </button> */}
-                          {/* {isLangMenuOpen && (
-                            <ul
-                              className={`header-bottom__lang-submenu ${
-                                isLangMenuOpen ? "open" : ""
-                              }`}
-                            >
-                              <li>
-                                <a href="#">Arabic</a>
-                              </li>
-                              <li>
-                                <a href="#">Spanish</a>
-                              </li>
-                              <li>
-                                <a href="#">Mandarin</a>
-                              </li>
-                            </ul>
-                          )} */}
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <div className="tpheader-btn-5  d-none d-md-block ml-25">
-                        <Link
-                          href="/contact"
-                          style={{
-                            background: "#2B6BB3",
-                            color: "#fff",
-                            borderRadius: 4,
-                            display: "inline-block",
-                            fontFamily: "var(--tp-ff-jakarta)",
-                            fontWeight: 600,
-                            fontSize: 16,
-                            lineHeight: 1,
-                            padding: "14px 23.5px",
-                          }}
-                        >
-                          Get a Quote
-                        </Link>
-                      </div>
-                      <div className="offcanvas-btn d-xl-none ml-20">
-                        <button
-                          className="offcanvas-open-btn"
-                          onClick={() => setOpenCanvas(true)}
-                          aria-label="Open mobile menu"
-                        >
-                          <i className="fa-solid fa-bars" aria-hidden="true"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div className="vastora-navbar-container">
+            {/* 1. Brand Logo */}
+            <div className="vastora-navbar-brand">
+              <Link href="/" aria-label="Vastora Tech - Home" className="brand-logo-link">
+                <HeaderLogoHomeFive className="vastora-brand-logo header-logo-home-five" />
+              </Link>
+            </div>
+
+            {/* 2. Desktop Navigation Menu */}
+            <div className="vastora-navbar-nav d-none d-xl-block">
+              <nav className="tp-main-menu-content" aria-label="Main Navigation">
+                <NavMenu />
+              </nav>
+            </div>
+
+            {/* 3. Right Action Area */}
+            <div className="vastora-navbar-actions">
+              {/* Enhanced 'Get a Quote' Call to Action */}
+              <div className="header-quote-wrapper d-none d-sm-block">
+                <Link
+                  href="/contact"
+                  className="enhanced-quote-button"
+                  aria-label="Get a Quote from Vastora Tech"
+                >
+                  <span className="btn-content">
+                    <span className="btn-label">Get a Quote</span>
+                    <span className="btn-arrow-icon" aria-hidden="true">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.33334 8H12.6667"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M8 3.33334L12.6667 8.00001L8 12.6667"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span className="btn-glow-layer" aria-hidden="true" />
+                </Link>
+              </div>
+
+              {/* Modern Hamburger Button for Mobile / Tablet */}
+              <div className="offcanvas-toggle-wrapper d-xl-none">
+                <button
+                  type="button"
+                  className="modern-hamburger-btn"
+                  onClick={() => setOpenCanvas(true)}
+                  aria-label="Open mobile menu"
+                >
+                  <span className="hamburger-line line-1" />
+                  <span className="hamburger-line line-2" />
+                  <span className="hamburger-line line-3" />
+                </button>
               </div>
             </div>
           </div>

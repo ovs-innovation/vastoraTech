@@ -1,9 +1,9 @@
 "use client";
+
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import Slider from "react-slick";
-import Wavify from "react-wavify";
-import type { CustomArrowProps, Settings } from "react-slick";
-// brands images
+
+// Brands images (34 partner logos)
 import brand_log_1 from "@/assets/img/brand/brand1.png";
 import brand_log_2 from "@/assets/img/brand/brand2.png";
 import brand_log_3 from "@/assets/img/brand/brand3.png";
@@ -39,7 +39,7 @@ import brand_log_32 from "@/assets/img/brand/brand32.png";
 import brand_log_33 from "@/assets/img/brand/brand33.png";
 import brand_log_34 from "@/assets/img/brand/brand34.png";
 
-const brands_images = [
+const allBrands = [
   brand_log_1,
   brand_log_2,
   brand_log_3,
@@ -76,149 +76,98 @@ const brands_images = [
   brand_log_34,
 ];
 
-type ArrowDirection = "next" | "prev";
-
-const ArrowButton = ({ direction, onClick }: CustomArrowProps & { direction: ArrowDirection }) => (
-  <button
-    type="button"
-    aria-label={direction === "next" ? "Next brand" : "Previous brand"}
-    className={`brand-attractor__arrow brand-attractor__arrow--${direction}`}
-    onClick={onClick}
-  >
-    <span />
-  </button>
-);
-
-const labelPool = ["FinTech", "Commerce", "Climate", "Product Studio", "AI Labs", "Marketplace"];
-const badgePool = ["Series B", "Enterprise", "Scale Up", "Bootstrapped", "Public", "Start-up"];
-const regionPool = ["San Francisco", "Singapore", "Berlin", "Toronto", "Sydney", "Dubai"];
-
-const heroSliderSettings: Settings = {
-  dots: false,
-  infinite: true,
-  speed: 750,
-  autoplay: true,
-  autoplaySpeed: 3200,
-  cssEase: "ease-out",
-  arrows: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-  centerMode: false,
-  centerPadding: "0px",
-  nextArrow: <ArrowButton direction="next" />,
-  prevArrow: <ArrowButton direction="prev" />,
-  responsive: [
-    {
-      breakpoint: 1440,
-      settings: {
-        slidesToShow: 3,
-        centerMode: true,
-        centerPadding: "40px",
-      },
-    },
-    {
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 2,
-        centerMode: true,
-        centerPadding: "40px",
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        centerMode: false,
-      },
-    },
-  ],
-};
-
-const tickerSliderSettings: Settings = {
-  dots: false,
-  arrows: true,
-  infinite: true,
-  autoplay: true,
-  speed: 4500,
-  autoplaySpeed: 0,
-  cssEase: "linear",
-  slidesToShow: 6,
-  centerMode:true,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 5,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 4,
-      },
-    },
-    {
-      breakpoint: 520,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-  ],
-};
-
-const statsHighlights = [
-  { value: "180+", label: "Launch partners" },
-  { value: "42", label: "Countries activated" },
-  { value: "82%", label: "Faster release cycles" },
-  { value: "24/7", label: "Follow-the-sun coverage" },
+const actionTags = [
+  "Enterprise Delivery",
+  "Design Systems",
+  "CX Automation",
 ];
 
 const BrandAreaHomeFour = () => {
-  const heroBrands = brands_images.slice(0, 12);
-  const marqueeBrands = brands_images.slice(12).concat(brands_images.slice(0, 6));
-  const actionTags = ["Enterprise Delivery", "Design Systems", "CX Automation"];
+  const [activeTag, setActiveTag] = useState("Enterprise Delivery");
+
+  // Split brands into 2 rows for dual-direction infinite marquee
+  const rowOneBrands = allBrands.slice(0, 17);
+  const rowTwoBrands = allBrands.slice(17, 34);
 
   return (
-    <section className="client-showcase mb-120">
-      <div className="client-showcase__glow client-showcase__glow--left" />
-      <div className="client-showcase__glow client-showcase__glow--right" />
+    <section className="client-showcase cyber-showcase-section">
       <div className="container">
-        <div className="client-showcase__inner mb-40">
-          <div className="brand-wrapper text-center">
-            <h2 className="title">Where ambitious teams partner with a trusted web development company.
-</h2>
-            <p className="subtitle">
-            From startups to global enterprises, Vastora Tech helps businesses launch and grow with modern websites, eCommerce platforms, and digital solutions.
+        <div className="client-showcase__inner">
+          <div className="text-center">
+            {/* Status Radar Eyebrow */}
+            <div className="cyber-eyebrow-pill">
+              <span className="radar-pulse-dot" aria-hidden="true">
+                <span className="pulse-ring" />
+              </span>
+              <span className="eyebrow-text">TRUSTED BY 180+ GLOBAL ENTERPRISES</span>
+            </div>
 
+            {/* Dual-Tone Cyber Heading */}
+            <h2 className="cyber-showcase-title">
+              Where ambitious teams partner with a{" "}
+              <span className="cyber-gradient-highlight">
+                trusted web development company.
+              </span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="cyber-showcase-subtitle">
+              From startups to global enterprises, Vastora Tech helps businesses launch and grow with modern websites, eCommerce platforms, and digital solutions.
             </p>
-            <div className="brand-wrapper__tags mb-4">
+
+            {/* Interactive Filter Chips */}
+            <div className="cyber-tags-row">
               {actionTags.map((tag) => (
-                <span key={tag}>{tag}</span>
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setActiveTag(tag)}
+                  className={`cyber-tag-chip ${activeTag === tag ? "is-active" : ""}`}
+                >
+                  <span className="chip-dot" aria-hidden="true" />
+                  <span>{tag}</span>
+                </button>
               ))}
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="client-slider-shell client-slider-shell--edge-to-edge">
-            <div className="client-slider-shell__edge client-slider-shell__edge--left" aria-hidden="true" />
-            <div className="client-slider-shell__edge client-slider-shell__edge--right" aria-hidden="true" />
-            <Slider {...heroSliderSettings} className="client-slider">
-              {heroBrands.map((logo, index) => {
-                const label = labelPool[index % labelPool.length];
-                const badge = badgePool[index % badgePool.length];
-                const region = regionPool[index % regionPool.length];
+      {/* Dual-Row Seamless Infinite Marquee Ribbon */}
+      <div className="cyber-marquee-shell">
+        {/* Row 1: Leftward Infinite Drift */}
+        <div className="cyber-marquee-row">
+          <div className="cyber-marquee-track track-left">
+            {[...rowOneBrands, ...rowOneBrands].map((logo, index) => (
+              <div key={`row1-brand-${index}`} className="cyber-glass-card">
+                <div className="card-logo-wrap">
+                  <Image
+                    src={logo}
+                    alt={`Partner Brand ${index + 1}`}
+                    className="brand-img"
+                    priority={index < 8}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                return (
-                  <div key={`hero-brand-${index}`} className="brand-spotlight">
-                    <div className="brand-spotlight__logo">
-                      <Image src={logo} alt={`Vastora client ${index + 1}`} className="client-logo" />
-                    </div>
-                  </div>
-                );
-              })}
-            </Slider>
+        {/* Row 2: Rightward Infinite Drift */}
+        <div className="cyber-marquee-row">
+          <div className="cyber-marquee-track track-right">
+            {[...rowTwoBrands, ...rowTwoBrands].map((logo, index) => (
+              <div key={`row2-brand-${index}`} className="cyber-glass-card">
+                <div className="card-logo-wrap">
+                  <Image
+                    src={logo}
+                    alt={`Partner Brand ${index + 18}`}
+                    className="brand-img"
+                    priority={index < 8}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,0 +1,230 @@
+/* ========================================================
+   VASTORA TECH - HERO SECTION (FULL 100VH VIEWPORT FIT)
+   1. The entire hero fills 100vh so NO other section peeks at the bottom on load.
+   2. Everything on the left fits comfortably without any scrolling.
+   3. Uses exact brand colors (#2B6BB3) and clean typography.
+   ======================================================== */
+
+.banner-area.banner-brand {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(243, 247, 244, 0.5) 0%, #F3F7F4 100%);
+}
+
+.banner-5 {
+  width: 100%;
+  padding-top: 96px !important; // Accounts for the navbar (~80px)
+  padding-bottom: 24px !important;
+  position: relative;
+  z-index: 1;
+
+  .container.custom-container {
+    max-width: 1360px !important;
+  }
+
+  @media (max-width: 991px) {
+    padding-top: 90px !important;
+    padding-bottom: 50px !important;
+    min-height: auto;
+  }
+}
+
+.banner-5-content {
+  padding-top: 0 !important;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 992px) {
+    padding-right: 15px;
+  }
+}
+
+/* Hero Title - Clean, Bold, Authentic Matching Reference */
+.banner-5-title {
+  font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(42px, 3.8vw, 54px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.035em !important;
+  color: #0f172a !important;
+  margin-bottom: 16px !important;
+
+  @media (max-width: 1399px) {
+    font-size: clamp(38px, 3.5vw, 48px) !important;
+  }
+  @media (max-width: 1199px) {
+    font-size: 38px !important;
+    line-height: 1.12 !important;
+  }
+  @media (max-width: 767px) {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+  }
+
+
+  .hero-days-highlight {
+    position: relative;
+    display: inline-block;
+    color: #0062f5 !important;
+    font-weight: 800 !important;
+
+    .days-text {
+      position: relative;
+      z-index: 2;
+      color: #0062f5 !important;
+    }
+
+    .hero-brush-stroke {
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 104%;
+      height: 18px;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+      filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.14));
+    }
+  }
+
+  .cd-words-wrapper {
+    display: inline !important;
+    color: #0062f5 !important;
+    font-weight: 800 !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .hero-title-dot {
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #0f172a !important;
+    margin-left: 6px !important;
+    vertical-align: 2px !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* Subtitle / Description */
+.banner-5-desc,
+.banner-5-content p {
+  font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  letter-spacing: -0.012em !important;
+  color: #4b5563 !important;
+  margin-bottom: 22px !important;
+  max-width: 530px !important;
+  font-weight: 400;
+
+  @media (max-width: 767px) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* Modern Split / Arrow Hero Button Matching Reference */
+.banner-5-btn {
+  margin-bottom: 0 !important;
+
+  .enhanced-hero-cta-btn,
+  .light-blue-btn {
+    position: relative;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 13px 22px !important;
+    background: #0062f5 !important;
+    color: #ffffff !important;
+    font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14.5px !important;
+    line-height: 1 !important;
+    border-radius: 9px !important;
+    border: none !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 24px -2px rgba(0, 98, 245, 0.4) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+    .btn-label-text {
+      color: #ffffff !important;
+      letter-spacing: 0.01em;
+      padding-right: 14px;
+    }
+
+    .btn-divider {
+      display: inline-block;
+      width: 1px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.3);
+      margin-right: 18px;
+    }
+
+    .btn-icon-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff !important;
+      transition: transform 0.22s ease;
+
+      svg {
+        display: block;
+        stroke: #ffffff;
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &:hover {
+      background: #0050cc !important;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0, 98, 245, 0.55) !important;
+      color: #ffffff !important;
+
+      .btn-icon-box {
+        transform: translateX(3px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(0, 98, 245, 0.3) !important;
+    }
+  }
+}
+
+/* Right Illustration - Scaled up proportionally */
+.banner-5-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.08);
+  transform-origin: center center;
+
+  @media (max-width: 991px) {
+    transform: none;
+  }
+
+  > img {
+    max-height: clamp(420px, 64vh, 580px) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Import Omnichannel 3D Glass Hero Visual styles */
+@import "./hero-visual.scss";
+
