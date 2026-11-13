@@ -1,9 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HeaderFive from '@/layout/headers/HeaderFive';
 import FooterFive from '@/layout/footers/FooterFive';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // Design Tools Categories
 type ToolCategory = 'all' | 'prototyping' | 'motion' | 'research' | 'tokens';
@@ -347,40 +353,244 @@ const FAQ_ITEMS = [
 ];
 
 const UxUiDesignServices: React.FC = () => {
-  // Tools tab filter
   const [activeToolTab, setActiveToolTab] = useState<ToolCategory>('all');
-
-  // Archetype simulator
-  const [selectedArchetype, setSelectedArchetype] = useState<ArchetypeKey>('fintech');
-
-  // Estimator state
-  const [selectedProject, setSelectedProject] = useState<string>('saas');
-  const [selectedScope, setSelectedScope] = useState<string>('core');
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(['lottie', 'storybook']);
-
-  // FAQ state
   const [activeFaq, setActiveFaq] = useState<string | null>('uiux-faq-1');
 
-  // Filtered tools
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesHeaderRef = useRef<HTMLDivElement>(null);
+  const bentoGridRef = useRef<HTMLDivElement>(null);
+
+  const processSectionRef = useRef<HTMLElement>(null);
+  const processHeaderRef = useRef<HTMLDivElement>(null);
+  const processGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = bentoGridRef.current
+      ? (Array.from(bentoGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const processCards = processGridRef.current
+      ? (Array.from(processGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const ctx = gsap.context(() => {
+      if (servicesHeaderRef.current) {
+        gsap.fromTo(
+          servicesHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: servicesHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (processHeaderRef.current) {
+        gsap.fromTo(
+          processHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: processHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[2], cards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+        }
+
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          processTl.fromTo(
+            [processCards[0], processCards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[2], processCards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[1], processCards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+
+          const badges = processCards.map((c) => c.querySelector('.step-num-badge')).filter(Boolean);
+          if (badges.length) {
+            processTl.fromTo(
+              badges,
+              { scale: 0.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.08 },
+              0.4
+            );
+          }
+        }
+      });
+
+      mm.add('(max-width: 991px) and (min-width: 701px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[2], cards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[3], cards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+
+        if (processCards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [processCards[0], processCards[2], processCards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [processCards[1], processCards[3], processCards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+      });
+
+      mm.add('(max-width: 700px)', () => {
+        cards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+
+        processCards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const filteredTools =
     activeToolTab === 'all'
       ? DESIGN_TOOLS
       : DESIGN_TOOLS.filter((t) => t.category === activeToolTab);
-
-  // Estimator current project data
-  const currentProjectData = PROJECT_TYPES.find((p) => p.id === selectedProject) || PROJECT_TYPES[0];
-
-  const toggleAddon = (id: string) => {
-    if (selectedAddons.includes(id)) {
-      if (selectedAddons.length > 1) {
-        setSelectedAddons(selectedAddons.filter((a) => a !== id));
-      }
-    } else {
-      setSelectedAddons([...selectedAddons, id]);
-    }
-  };
-
-  const currentArchetypeData = ARCHETYPE_DATA[selectedArchetype];
 
   return (
     <>
@@ -511,9 +721,9 @@ const UxUiDesignServices: React.FC = () => {
         {/* ========================================================
             2. THE 6 CORE UI/UX DESIGN SERVICES (BENTO GRID)
             ======================================================== */}
-        <section className="uiux-services-section">
+        <section className="uiux-services-section" ref={servicesSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={servicesHeaderRef}>
               <span className="section-eyebrow">Comprehensive Capabilities</span>
               <h2 className="section-heading">Our 6 Core UI/UX Design Services</h2>
               <p className="section-subtext">
@@ -522,235 +732,64 @@ const UxUiDesignServices: React.FC = () => {
               </p>
             </div>
 
-            <div className="uiux-bento-grid">
-              {SIX_SERVICES.map((srv) => (
-                <div key={srv.id} className="uiux-bento-card">
-                  <div>
-                    <div className="card-header-row">
-                      <div className="service-icon-box">{srv.iconSymbol}</div>
-                      <span className="service-idx-badge">0{srv.id}</span>
+            <div className="uiux-bento-grid" ref={bentoGridRef}>
+              {SIX_SERVICES.map((srv, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={srv.id}
+                    className={`uiux-bento-card card-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div>
+                      <div className="card-header-row">
+                        <div className="service-icon-box">{srv.iconSymbol}</div>
+                        <span className="service-idx-badge">0{srv.id}</span>
+                      </div>
+
+                      <div className="service-content-block">
+                        <h3 className="service-card-title">{srv.title}</h3>
+                        <p className="service-card-desc">{srv.desc}</p>
+
+                        <ul className="service-feature-checklist">
+                          {srv.features.map((feat, fIdx) => (
+                            <li key={fIdx}>
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                              </svg>
+                              {feat}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
-                    <div className="service-content-block">
-                      <h3 className="service-card-title">{srv.title}</h3>
-                      <p className="service-card-desc">{srv.desc}</p>
-
-                      <ul className="service-feature-checklist">
-                        {srv.features.map((feat, fIdx) => (
-                          <li key={fIdx}>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                            </svg>
-                            {feat}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="service-card-footer">
-                    <Link
-                      href={`/contact?service=${encodeURIComponent(srv.title)}`}
-                      className="service-learn-more"
-                    >
-                      <span>Design This Product</span>
-                      <span className="arrow-icon">→</span>
-                    </Link>
-                    <span className="service-tag">{srv.serviceTag}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            3. INTERACTIVE DESIGN ARHETYPE & PROTOTYPE SIMULATOR
-            ======================================================== */}
-        <section className="uiux-prototype-simulator-section">
-          <div className="container">
-            <div className="simulator-card-container">
-              <div className="simulator-header">
-                <span className="simulator-eyebrow">Design Archetype Explorer</span>
-                <h3>Preview Real-World Design Systems</h3>
-                <p>Select an industry archetype below to preview how we balance visual elegance with cognitive clarity.</p>
-              </div>
-
-              <div className="simulator-layout">
-                {/* Left: Archetype Selector */}
-                <div className="simulator-selector-side">
-                  <div className="archetype-tabs-row">
-                    {(Object.keys(ARCHETYPE_DATA) as ArchetypeKey[]).map((key) => (
-                      <button
-                        key={key}
-                        className={`archetype-tab-btn ${selectedArchetype === key ? 'active' : ''}`}
-                        onClick={() => setSelectedArchetype(key)}
+                    <div className="service-card-footer">
+                      <Link
+                        href={`/contact?service=${encodeURIComponent(srv.title)}`}
+                        className="service-learn-more"
                       >
-                        {ARCHETYPE_DATA[key].badge}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="archetype-details-card">
-                    <h4>{currentArchetypeData.title}</h4>
-                    <p>{currentArchetypeData.description}</p>
-
-                    <div className="tokens-deliverables-grid">
-                      {currentArchetypeData.deliverables.map((item, i) => (
-                        <div key={i} className="token-item">
-                          <span className="dot"></span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
+                        <span>Design This Product</span>
+                        <span className="arrow-icon">→</span>
+                      </Link>
+                      <span className="service-tag">{srv.serviceTag}</span>
                     </div>
                   </div>
-                </div>
-
-                {/* Right: Figma Canvas Mockup Card */}
-                <div className="figma-canvas-card">
-                  <div>
-                    <div className="canvas-top-bar">
-                      <div className="figma-badge">
-                        <span>❖</span> Figma Live Prototype Preview
-                      </div>
-                      <span className="render-status">● 60 FPS Micro-Interactions</span>
-                    </div>
-
-                    <div className="canvas-preview-content">
-                      <h4>{currentArchetypeData.canvasTitle}</h4>
-
-                      <div className="design-stat-row">
-                        <div className="design-stat-box">
-                          <div className="stat-lbl">{currentArchetypeData.stat1Label}</div>
-                          <div className="stat-num">{currentArchetypeData.stat1Val}</div>
-                        </div>
-                        <div className="design-stat-box">
-                          <div className="stat-lbl">{currentArchetypeData.stat2Label}</div>
-                          <div className="stat-num">{currentArchetypeData.stat2Val}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Link
-                    href={`/contact?service=UI%20UX%20Design&archetype=${encodeURIComponent(currentArchetypeData.title)}`}
-                    className="canvas-cta-btn"
-                  >
-                    <span>{currentArchetypeData.buttonText}</span>
-                  </Link>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            4. INTERACTIVE PROJECT SCOPE & DESIGN SPRINT ESTIMATOR
+            3. 6-STAGE HUMAN-CENTERED BLUEPRINT
             ======================================================== */}
-        <section className="uiux-estimator-section">
+<section className="uiux-process-section" ref={processSectionRef}>
           <div className="container">
-            <div className="estimator-card-wrapper">
-              <div className="estimator-header">
-                <span className="estimator-eyebrow">Design Sprint Estimator</span>
-                <h3>Calculate Your Project Timeline & Investment</h3>
-                <p>Customize your product type and screen complexity for an instant design roadmap.</p>
-              </div>
-
-              <div className="estimator-grid">
-                {/* Left Controls */}
-                <div className="estimator-controls">
-                  {/* Step 1: Project Type */}
-                  <div className="control-group">
-                    <label className="control-label">Step 1: Choose Product Scope</label>
-                    <div className="pill-options-wrap">
-                      {PROJECT_TYPES.map((pt) => (
-                        <button
-                          key={pt.id}
-                          className={`estimator-option-btn ${selectedProject === pt.id ? 'active' : ''}`}
-                          onClick={() => setSelectedProject(pt.id)}
-                        >
-                          {pt.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 2: Screen Scope */}
-                  <div className="control-group">
-                    <label className="control-label">Step 2: Screen Count / Complexity</label>
-                    <div className="pill-options-wrap">
-                      {SCOPE_OPTIONS.map((scope) => (
-                        <button
-                          key={scope.id}
-                          className={`estimator-option-btn ${selectedScope === scope.id ? 'active' : ''}`}
-                          onClick={() => setSelectedScope(scope.id)}
-                        >
-                          {scope.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 3: Add-on Capabilities */}
-                  <div className="control-group">
-                    <label className="control-label">Step 3: Advanced Deliverables</label>
-                    <div className="pill-options-wrap">
-                      {ADDON_OPTIONS.map((item) => {
-                        const isChecked = selectedAddons.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            className={`estimator-option-btn ${isChecked ? 'active' : ''}`}
-                            onClick={() => toggleAddon(item.id)}
-                          >
-                            {isChecked ? '✓ ' : '+ '}
-                            {item.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Summary Card */}
-                <div className="estimator-summary-card">
-                  <span className="summary-badge">Design Sprint Forecast</span>
-                  <div className="summary-title">{currentProjectData.label}</div>
-
-                  <div className="summary-metrics-row">
-                    <div className="metric-box">
-                      <div className="metric-label">Estimated Delivery</div>
-                      <div className="metric-val">{currentProjectData.baseWeeks}</div>
-                    </div>
-                    <div className="metric-box">
-                      <div className="metric-label">Investment Bracket</div>
-                      <div className="metric-val">{currentProjectData.basePrice}</div>
-                    </div>
-                  </div>
-
-                  <div className="summary-strategy-rec">
-                    <strong>Recommended Deliverables:</strong> {currentProjectData.roadmap} with{' '}
-                    {selectedAddons.length} specialized add-on{selectedAddons.length > 1 ? 's' : ''}.
-                  </div>
-
-                  <Link
-                    href={`/contact?service=UI%20UX%20Design&type=${selectedProject}&scope=${selectedScope}`}
-                    className="estimator-cta-btn"
-                  >
-                    <span>Book Your Design Sprint →</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            5. 6-STAGE HUMAN-CENTERED DESIGN LIFECYCLE
-            ======================================================== */}
-        <section className="uiux-process-section">
-          <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={processHeaderRef}>
               <span className="section-eyebrow">Design Methodology</span>
               <h2 className="section-heading">Our 6-Stage Human-Centered Blueprint</h2>
               <p className="section-subtext">
@@ -758,62 +797,30 @@ const UxUiDesignServices: React.FC = () => {
               </p>
             </div>
 
-            <div className="process-steps-grid">
-              {PROCESS_STAGES.map((stg) => (
-                <div key={stg.step} className="process-step-card">
-                  <div className="step-num-badge">{stg.step}</div>
-                  <h3 className="step-title">{stg.title}</h3>
-                  <p className="step-desc">{stg.desc}</p>
-                </div>
-              ))}
+            <div className="process-steps-grid" ref={processGridRef}>
+              {PROCESS_STAGES.map((stg, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={stg.step}
+                    className={`process-step-card step-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div className="step-num-badge">{stg.step}</div>
+                    <h3 className="step-title">{stg.title}</h3>
+                    <p className="step-desc">{stg.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            6. BENCHMARK COMPARISON MATRIX
-            ======================================================== */}
-        <section className="uiux-benchmark-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Why Vastora Tech</span>
-              <h2 className="section-heading">How We Compare Against The Industry</h2>
-              <p className="section-subtext">
-                We combine award-winning visual aesthetics with rigorous behavioral psychology and seamless code handoff.
-              </p>
-            </div>
-
-            <div className="benchmark-table-card">
-              <div className="table-responsive">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style={{ width: '34%' }}>Design Standard</th>
-                      <th className="highlight-col" style={{ width: '28%' }}>
-                        Vastora Tech (Our Studio)
-                      </th>
-                      <th style={{ width: '20%' }}>Traditional Agencies</th>
-                      <th style={{ width: '18%' }}>Freelance Coders</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {BENCHMARK_ROWS.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        <td className="feature-name">{row.feature}</td>
-                        <td className="highlight-col">✓ {row.vastora}</td>
-                        <td className="legacy-col">{row.generic}</td>
-                        <td className="legacy-col">{row.freelance}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            7. INTERACTIVE FAQ ACCORDION
+            4. FREQUENTLY ASKED QUESTIONS
             ======================================================== */}
         <section className="uiux-faq-section">
           <div className="container">

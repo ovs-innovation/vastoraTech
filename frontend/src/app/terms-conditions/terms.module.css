@@ -4,7 +4,7 @@
 
 .heroSection {
   padding: 140px 0 70px;
-  background: radial-gradient(circle at top, rgba(236, 253, 245, 0.9), rgba(248, 250, 252, 0.9));
+  background: #f8fafc;
   text-align: center;
   color: #0f172a;
 }

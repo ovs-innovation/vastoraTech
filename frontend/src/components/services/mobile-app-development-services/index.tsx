@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import Link from 'next/link';
 import HeaderFive from '@/layout/headers/HeaderFive';
 import FooterFive from '@/layout/footers/FooterFive';
@@ -347,46 +353,244 @@ const FAQ_ITEMS = [
 ];
 
 const MobileAppDevelopment: React.FC = () => {
-  // Tech stack tab state
   const [activeStackTab, setActiveStackTab] = useState<StackCategory>('all');
-
-  // Phone previewer industry tab state
-  const [selectedIndustry, setSelectedIndustry] = useState<IndustryKey>('ecommerce');
-
-  // Estimator state
-  const [selectedPlatform, setSelectedPlatform] = useState<string>('cross');
-  const [selectedComplexity, setSelectedComplexity] = useState<string>('mvp');
-  const [selectedModules, setSelectedModules] = useState<string[]>(['push', 'payment']);
-
-  // FAQ state
   const [activeFaq, setActiveFaq] = useState<string | null>('faq-1');
 
-  // Filtered tech items
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesHeaderRef = useRef<HTMLDivElement>(null);
+  const bentoGridRef = useRef<HTMLDivElement>(null);
+
+  const processSectionRef = useRef<HTMLElement>(null);
+  const processHeaderRef = useRef<HTMLDivElement>(null);
+  const processGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = bentoGridRef.current
+      ? (Array.from(bentoGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const processCards = processGridRef.current
+      ? (Array.from(processGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const ctx = gsap.context(() => {
+      if (servicesHeaderRef.current) {
+        gsap.fromTo(
+          servicesHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: servicesHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (processHeaderRef.current) {
+        gsap.fromTo(
+          processHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: processHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[2], cards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+        }
+
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          processTl.fromTo(
+            [processCards[0], processCards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[2], processCards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[1], processCards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+
+          const badges = processCards.map((c) => c.querySelector('.step-num-badge')).filter(Boolean);
+          if (badges.length) {
+            processTl.fromTo(
+              badges,
+              { scale: 0.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.08 },
+              0.4
+            );
+          }
+        }
+      });
+
+      mm.add('(max-width: 991px) and (min-width: 701px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[2], cards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[3], cards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+
+        if (processCards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [processCards[0], processCards[2], processCards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [processCards[1], processCards[3], processCards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+      });
+
+      mm.add('(max-width: 700px)', () => {
+        cards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+
+        processCards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const filteredTech =
     activeStackTab === 'all'
       ? TECH_ITEMS
       : TECH_ITEMS.filter((t) => t.category === activeStackTab);
-
-  // Estimator calculation
-  const platformData = PLATFORM_OPTIONS.find((p) => p.id === selectedPlatform) || PLATFORM_OPTIONS[0];
-  const complexityData = COMPLEXITY_OPTIONS.find((c) => c.id === selectedComplexity) || COMPLEXITY_OPTIONS[0];
-
-  const modulesWeekAddition = selectedModules.reduce((acc, modId) => {
-    const found = MODULE_OPTIONS.find((m) => m.id === modId);
-    return acc + (found ? found.weeks : 0);
-  }, 0);
-
-  const totalEstimatedWeeks = platformData.weeks + complexityData.weekMod + Math.ceil(modulesWeekAddition);
-
-  const toggleModule = (id: string) => {
-    if (selectedModules.includes(id)) {
-      setSelectedModules(selectedModules.filter((m) => m !== id));
-    } else {
-      setSelectedModules([...selectedModules, id]);
-    }
-  };
-
-  const currentPreview = INDUSTRY_PREVIEWS[selectedIndustry];
 
   return (
     <>
@@ -516,9 +720,9 @@ const MobileAppDevelopment: React.FC = () => {
         {/* ========================================================
             2. THE 6 CORE MOBILE APP SERVICES (BENTO GRID)
             ======================================================== */}
-        <section className="mobile-app-services-section">
+        <section className="mobile-app-services-section" ref={servicesSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={servicesHeaderRef}>
               <span className="section-eyebrow">Comprehensive Capabilities</span>
               <h2 className="section-heading">Our 6 Core Mobile Development Services</h2>
               <p className="section-subtext">
@@ -527,232 +731,64 @@ const MobileAppDevelopment: React.FC = () => {
               </p>
             </div>
 
-            <div className="services-bento-grid">
-              {SIX_SERVICES.map((srv) => (
-                <div key={srv.id} className="service-bento-card">
-                  <div>
-                    <div className="card-header-row">
-                      <div className="service-icon-box">{srv.iconSymbol}</div>
-                      <span className="service-idx-badge">0{srv.id}</span>
-                    </div>
+            <div className="services-bento-grid" ref={bentoGridRef}>
+              {SIX_SERVICES.map((srv, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={srv.id}
+                    className={`service-bento-card card-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div>
+                      <div className="card-header-row">
+                        <div className="service-icon-box">{srv.iconSymbol}</div>
+                        <span className="service-idx-badge">0{srv.id}</span>
+                      </div>
 
-                    <div className="service-content-block">
-                      <h3 className="service-card-title">{srv.title}</h3>
-                      <p className="service-card-desc">{srv.desc}</p>
+                      <div className="service-content-block">
+                        <h3 className="service-card-title">{srv.title}</h3>
+                        <p className="service-card-desc">{srv.desc}</p>
 
-                      <ul className="service-feature-checklist">
-                        {srv.features.map((feat, fIdx) => (
-                          <li key={fIdx}>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                            </svg>
-                            {feat}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="service-card-footer">
-                    <Link
-                      href={`/contact?service=${encodeURIComponent(srv.title)}`}
-                      className="service-learn-more"
-                    >
-                      <span>Build This App</span>
-                      <span className="arrow-icon">→</span>
-                    </Link>
-                    <span className="service-tech-tag">{srv.techTag}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            3. INTERACTIVE SMARTPHONE FEATURE & SIMULATION EXPLORER
-            ======================================================== */}
-        <section className="mobile-app-feature-previewer">
-          <div className="container">
-            <div className="previewer-card-container">
-              <div className="previewer-header">
-                <span className="previewer-eyebrow">Interactive Simulation</span>
-                <h3>Explore Real-World App Architecture</h3>
-                <p>Select an industry vertical below to preview how our apps behave in the hands of real users.</p>
-              </div>
-
-              <div className="previewer-layout">
-                {/* Left: Industry Switcher & Highlights */}
-                <div className="previewer-selector-side">
-                  <div className="industry-tabs-row">
-                    {(Object.keys(INDUSTRY_PREVIEWS) as IndustryKey[]).map((key) => (
-                      <button
-                        key={key}
-                        className={`industry-tab-btn ${selectedIndustry === key ? 'active' : ''}`}
-                        onClick={() => setSelectedIndustry(key)}
-                      >
-                        {INDUSTRY_PREVIEWS[key].badge}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="previewer-details-card">
-                    <h4>{currentPreview.title}</h4>
-                    <p>{currentPreview.description}</p>
-
-                    <div className="key-modules-grid">
-                      {currentPreview.modules.map((mod, i) => (
-                        <div key={i} className="module-item">
-                          <span className="dot"></span>
-                          <span>{mod}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: Smartphone Visual Mockup Card */}
-                <div className="previewer-phone-card">
-                  <div>
-                    <div className="phone-top-bar">
-                      <span className="brand-badge">Vastora OS • Live Demo</span>
-                      <span className="fps-indicator">● 60 FPS Locked</span>
-                    </div>
-
-                    <div className="phone-sim-content">
-                      <h4>{currentPreview.phoneTitle}</h4>
-
-                      <div className="phone-stat-row">
-                        <div className="phone-stat-box">
-                          <div className="stat-lbl">{currentPreview.stat1Label}</div>
-                          <div className="stat-num">{currentPreview.stat1Val}</div>
-                        </div>
-                        <div className="phone-stat-box">
-                          <div className="stat-lbl">{currentPreview.stat2Label}</div>
-                          <div className="stat-num">{currentPreview.stat2Val}</div>
-                        </div>
+                        <ul className="service-feature-checklist">
+                          {srv.features.map((feat, fIdx) => (
+                            <li key={fIdx}>
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                              </svg>
+                              {feat}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                  </div>
 
-                  <Link href="/contact" className="phone-cta-btn">
-                    <span>{currentPreview.buttonText}</span>
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
+                    <div className="service-card-footer">
+                      <Link
+                        href={`/contact?service=${encodeURIComponent(srv.title)}`}
+                        className="service-learn-more"
+                      >
+                        <span>Build This App</span>
+                        <span className="arrow-icon">→</span>
+                      </Link>
+                      <span className="service-tech-tag">{srv.techTag}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            4. INTERACTIVE ESTIMATOR & TIMELINE CALCULATOR
+            3. 6-STAGE MOBILE LIFECYCLE TIMELINE
             ======================================================== */}
-        <section className="mobile-app-estimator-section">
+<section className="mobile-app-process-section" ref={processSectionRef}>
           <div className="container">
-            <div className="estimator-card-wrapper">
-              <div className="estimator-header">
-                <span className="estimator-eyebrow">Sprint Estimator</span>
-                <h3>Calculate Your App Timeline & Investment</h3>
-                <p>Customize your target platform and core modules for an instant engineering forecast.</p>
-              </div>
-
-              <div className="estimator-grid">
-                {/* Left Controls */}
-                <div className="estimator-controls">
-                  {/* Platform selection */}
-                  <div className="control-group">
-                    <label className="control-label">Step 1: Choose Target Platforms</label>
-                    <div className="pill-options-wrap">
-                      {PLATFORM_OPTIONS.map((p) => (
-                        <button
-                          key={p.id}
-                          className={`estimator-option-btn ${selectedPlatform === p.id ? 'active' : ''}`}
-                          onClick={() => setSelectedPlatform(p.id)}
-                        >
-                          {p.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Complexity */}
-                  <div className="control-group">
-                    <label className="control-label">Step 2: Architecture Scope</label>
-                    <div className="pill-options-wrap">
-                      {COMPLEXITY_OPTIONS.map((c) => (
-                        <button
-                          key={c.id}
-                          className={`estimator-option-btn ${selectedComplexity === c.id ? 'active' : ''}`}
-                          onClick={() => setSelectedComplexity(c.id)}
-                        >
-                          {c.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Add-on Modules */}
-                  <div className="control-group">
-                    <label className="control-label">Step 3: Select Advanced Modules</label>
-                    <div className="pill-options-wrap">
-                      {MODULE_OPTIONS.map((m) => {
-                        const isChecked = selectedModules.includes(m.id);
-                        return (
-                          <button
-                            key={m.id}
-                            className={`estimator-option-btn ${isChecked ? 'active' : ''}`}
-                            onClick={() => toggleModule(m.id)}
-                          >
-                            {isChecked ? '✓ ' : '+ '}
-                            {m.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Summary Card */}
-                <div className="estimator-summary-card">
-                  <span className="summary-badge">Live Engineering Forecast</span>
-                  <div className="summary-title">{platformData.label}</div>
-
-                  <div className="summary-metrics-row">
-                    <div className="metric-box">
-                      <div className="metric-label">Estimated Delivery</div>
-                      <div className="metric-val">{totalEstimatedWeeks} Weeks</div>
-                    </div>
-                    <div className="metric-box">
-                      <div className="metric-label">Price Bracket</div>
-                      <div className="metric-val">{platformData.price}</div>
-                    </div>
-                  </div>
-
-                  <div className="summary-stack-rec">
-                    <strong>Recommended Architecture:</strong> {platformData.stack} with modular REST/GraphQL backend
-                    and offline SQLite sync.
-                  </div>
-
-                  <Link
-                    href={`/contact?service=Mobile%20App%20Development&platform=${selectedPlatform}&weeks=${totalEstimatedWeeks}`}
-                    className="estimator-cta-btn"
-                  >
-                    <span>Lock In Your Sprint & Get Quote</span>
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            5. 6-STAGE MOBILE LIFECYCLE TIMELINE
-            ======================================================== */}
-        <section className="mobile-app-process-section">
-          <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={processHeaderRef}>
               <span className="section-eyebrow">Engineering Methodology</span>
               <h2 className="section-heading">Our 6-Stage Mobile App Lifecycle</h2>
               <p className="section-subtext">
@@ -761,62 +797,30 @@ const MobileAppDevelopment: React.FC = () => {
               </p>
             </div>
 
-            <div className="process-steps-grid">
-              {PROCESS_STAGES.map((stg) => (
-                <div key={stg.step} className="process-step-card">
-                  <div className="step-num-badge">{stg.step}</div>
-                  <h3 className="step-title">{stg.title}</h3>
-                  <p className="step-desc">{stg.desc}</p>
-                </div>
-              ))}
+            <div className="process-steps-grid" ref={processGridRef}>
+              {PROCESS_STAGES.map((stg, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={stg.step}
+                    className={`process-step-card step-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div className="step-num-badge">{stg.step}</div>
+                    <h3 className="step-title">{stg.title}</h3>
+                    <p className="step-desc">{stg.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            6. BENCHMARK COMPARISON MATRIX
-            ======================================================== */}
-        <section className="mobile-app-benchmark-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Why Vastora Tech</span>
-              <h2 className="section-heading">How We Compare Against The Industry</h2>
-              <p className="section-subtext">
-                We don’t just write code; we take complete responsibility for performance, security, and store approval.
-              </p>
-            </div>
-
-            <div className="benchmark-table-card">
-              <div className="table-responsive">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style={{ width: '34%' }}>Feature / Delivery Standard</th>
-                      <th className="highlight-col" style={{ width: '28%' }}>
-                        Vastora Tech (Our Standard)
-                      </th>
-                      <th style={{ width: '20%' }}>Traditional Agencies</th>
-                      <th style={{ width: '18%' }}>Freelance Coders</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {BENCHMARK_ROWS.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        <td className="feature-name">{row.feature}</td>
-                        <td className="highlight-col">✓ {row.vastora}</td>
-                        <td className="legacy-col">{row.legacy}</td>
-                        <td className="legacy-col">{row.freelance}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            7. INTERACTIVE FAQ ACCORDION
+            4. FREQUENTLY ASKED QUESTIONS
             ======================================================== */}
         <section className="mobile-app-faq-section">
           <div className="container">

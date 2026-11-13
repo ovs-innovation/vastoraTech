@@ -6,7 +6,7 @@
 .blog-redesign-wrapper {
   position: relative;
   padding: 160px 0 110px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 30%, #f8fafc 70%, #ffffff 100%);
+  background: #ffffff;
   overflow: hidden;
 
   @media (max-width: 991px) {
@@ -15,32 +15,6 @@
 
   @media (max-width: 576px) {
     padding: 110px 0 60px;
-  }
-
-  /* Ambient glowing radial orbs */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0, 98, 245, 0.06) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 35%;
-    right: -100px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 65%);
-    pointer-events: none;
-    z-index: 0;
   }
 
   .container {
@@ -133,9 +107,7 @@
     margin-bottom: 16px;
 
     .gradient-highlight {
-      background: linear-gradient(135deg, #0062f5 0%, #2563eb 50%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #0062f5;
       display: inline;
     }
   }
@@ -1021,23 +993,11 @@
   /* Lead Consultation Banner in Sidebar */
   .sidebar-consultation-banner {
     position: relative;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: #0062f5;
     border-radius: 20px;
     padding: 26px 20px;
     overflow: hidden;
     color: #ffffff;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 98, 245, 0.4) 0%, transparent 70%);
-      pointer-events: none;
-    }
 
     .consultation-badge {
       display: inline-flex;

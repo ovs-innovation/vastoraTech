@@ -25,7 +25,11 @@
 @import "./social-media-service-redesign.scss";
 @import "./seo-service-redesign.scss";
 @import "./ui-ux-service-redesign.scss";
+@import "./digital-marketing-service-redesign.scss";
 @import "./home5-remaining-enhanced.scss";
+@import "./floating-3d-cards.scss";
+@import "./solutions-stacking-cards.scss";
+@import "./cinematic-portfolio.scss";
 @import "./footer-enhanced.scss";
 
 .header-logo-home-five {
@@ -232,7 +236,7 @@
   right: 0;
   bottom: 0;
   padding: 14px 10px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 90%);
+  background: transparent;
 }
 
 .demo-hero-image {
@@ -739,9 +743,9 @@
 .testimonial-card {
   position: relative;
   border-radius: 24px;
-  background: linear-gradient(180deg, #19295d 0%, #2A68AF 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 60px rgba(7, 10, 28, 0.65);
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 98, 245, 0.06);
   padding: 56px 36px 68px;
   text-align: center;
   min-height: 340px;
@@ -756,7 +760,7 @@
   bottom: 0;
   height: 4px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #69b6ff 0%, #39f1c5 100%);
+  background: #0062f5;
 }
 
 .testimonial-card__quote {
@@ -921,20 +925,20 @@
 .call-float {
   width: 54px;
   height: 54px;
-  background: linear-gradient(135deg, #12204a, #1a2f72);
-  box-shadow: 0 15px 28px rgba(5, 12, 34, 0.45);
+  background: #0062f5;
+  box-shadow: 0 15px 28px rgba(0, 98, 245, 0.35);
 }
 
 .call-float:hover,
 .call-float:focus-visible {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 20px 34px rgba(5, 12, 34, 0.55);
+  box-shadow: 0 20px 34px rgba(0, 98, 245, 0.45);
 }
 
 .whatsapp-float {
   padding: 6px;
-  background: linear-gradient(135deg, #25d366, #1ebe5d);
-  box-shadow: 0 18px 30px rgba(6, 93, 44, 0.45);
+  background: #25d366;
+  box-shadow: 0 18px 30px rgba(6, 93, 44, 0.35);
 }
 
 .whatsapp-float:hover,
@@ -1127,7 +1131,7 @@
   right: clamp(10px, 5vw, 80px);
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(138, 122, 84, 0), var(--milestone-accent, rgba(43, 107, 179, 0.55)) 25%, rgba(138, 122, 84, 0));
+  background: #0062f5;
   opacity: 0.5;
   pointer-events: none;
   z-index: 0;
@@ -1138,7 +1142,7 @@
   flex: 0 0 auto;
   width: 100%;
   max-width: 260px;
-  background: linear-gradient(180deg, #ffffff 0%, #f5fbff 40%, #edf5ff 100%);
+  background: #ffffff;
   border-radius: 20px;
   padding: 22px 20px 20px;
   text-align: center;
@@ -1161,7 +1165,7 @@
   width: 2px;
   height: 32px;
   bottom: -40px;
-  background: linear-gradient(180deg, var(--milestone-accent, rgba(43, 107, 179, 0.6)), rgba(43, 107, 179, 0));
+  background: #0062f5;
   opacity: 0.8;
   z-index: 0;
 }
@@ -1190,7 +1194,7 @@
   transform: translateY(-12px);
   box-shadow: 0 30px 55px rgba(12, 24, 58, 0.18);
 
-  background: linear-gradient(180deg, #94c7ff 6%, #fcfeff 55%, #f7f9fc 100%);
+  background: #f0f7ff;
 }
 
 .milestone-node {
@@ -1284,4 +1288,27 @@
     width: 100%;
     max-width: 300px;
   }
+}
+
+/* ========================================================
+   GLOBAL BRAND CONSISTENCY ENFORCEMENT:
+   - ZERO Black or Near-Black Section Backgrounds
+   - ZERO Gradient Text Colors (All highlights solid Vastora Blue #0062f5)
+   - ZERO Gradient Background Colors
+   ======================================================== */
+
+.gradient-highlight,
+.highlight-gradient,
+.cyber-gradient-highlight,
+.text-gradient,
+.highlight-blue,
+.highlight-purple,
+.highlight-emerald,
+.vt-title-gradient {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: #0062f5 !important;
+  display: inline !important;
 }

@@ -1,9 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HeaderFive from '@/layout/headers/HeaderFive';
 import FooterFive from '@/layout/footers/FooterFive';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // Tech Stack Categories
 type StackCategory = 'all' | 'frontend' | 'backend' | 'cloud';
@@ -112,20 +118,6 @@ const SIX_SERVICES = [
   },
 ];
 
-// Interactive Estimator Options
-const PROJECT_TYPES = [
-  { id: 'custom-web', label: 'Custom Web Application', baseWeeks: 4, basePrice: '₹35,000 – ₹75,000 ($1,500 – $3,000)' },
-  { id: 'ecommerce', label: 'E-Commerce Platform', baseWeeks: 5, basePrice: '₹45,000 – ₹90,000 ($2,000 – $4,000)' },
-  { id: 'portal', label: 'Enterprise Portal / ERP', baseWeeks: 7, basePrice: '₹60,000 – ₹1,30,000 ($2,500 – $5,500)' },
-  { id: 'brand-site', label: 'Corporate / Brand Website', baseWeeks: 3, basePrice: '₹20,000 – ₹45,000 ($800 – $1,800)' },
-];
-
-const COMPLEXITY_LEVELS = [
-  { id: 'mvp', label: 'Standard MVP (Core Features)', mult: 1, labelWeeks: 'Standard Timeline' },
-  { id: 'growth', label: 'Growth Scale (APIs + Dashboards)', mult: 1.3, labelWeeks: '+ 1-2 Sprints' },
-  { id: 'enterprise', label: 'Full Enterprise (Custom Workflows)', mult: 1.6, labelWeeks: '+ 2-3 Sprints' },
-];
-
 // Agile Process Stages
 const PROCESS_STAGES = [
   {
@@ -160,16 +152,6 @@ const PROCESS_STAGES = [
   },
 ];
 
-// Benchmark Matrix
-const BENCHMARK_ITEMS = [
-  { feature: 'Page Load Speed', vastora: '< 0.4s (Instant Edge SSR / CDN)', legacy: '3.5s – 6.0s (Slow shared servers)' },
-  { feature: 'Core Web Vitals', vastora: '100 / 100 (All green metrics)', legacy: 'Fails Google Core Web Vitals' },
-  { feature: 'Codebase Quality', vastora: 'Clean Modular TypeScript & React', legacy: 'Bloated PHP & heavy monolithic plugins' },
-  { feature: 'Mobile Experience', vastora: '100% Fluid & Mobile-First UX', legacy: 'Clunky templates with misalignments' },
-  { feature: 'Security Architecture', vastora: 'OWASP-compliant, sanitized, enterprise SSL', legacy: 'Vulnerable plugin exploits & spam' },
-  { feature: 'Future Scalability', vastora: 'Effortlessly scales to 1M+ users', legacy: 'Crashes during high-traffic spikes' },
-];
-
 // FAQ Items
 const FAQ_LIST = [
   {
@@ -200,20 +182,374 @@ const FAQ_LIST = [
 
 const WebDevelopment = () => {
   const [selectedStackCat, setSelectedStackCat] = useState<StackCategory>('all');
-  const [selectedProjectType, setSelectedProjectType] = useState<string>('custom-web');
-  const [selectedComplexity, setSelectedComplexity] = useState<string>('mvp');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesHeaderRef = useRef<HTMLDivElement>(null);
+  const bentoGridRef = useRef<HTMLDivElement>(null);
+
+  const processSectionRef = useRef<HTMLElement>(null);
+  const processHeaderRef = useRef<HTMLDivElement>(null);
+  const processGridRef = useRef<HTMLDivElement>(null);
+
+  // GSAP ScrollTrigger animation: cards fly in from left and right sides and place at center
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = bentoGridRef.current
+      ? (Array.from(bentoGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const processCards = processGridRef.current
+      ? (Array.from(processGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const ctx = gsap.context(() => {
+      // 1. Subtle Bento Section Header Reveal
+      if (servicesHeaderRef.current) {
+        gsap.fromTo(
+          servicesHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: servicesHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      // 2. Process Section Header Reveal
+      if (processHeaderRef.current) {
+        gsap.fromTo(
+          processHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: processHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      // 3. Responsive ScrollTrigger Animation
+      const mm = gsap.matchMedia();
+
+      // ==========================================
+      // DESKTOP: 3-Column Layout
+      // ==========================================
+      mm.add('(min-width: 992px)', () => {
+        // --- A. BENTO SERVICES CARDS ---
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          // Left cards (0 & 3) fly in from the far left of the screen and place at center
+          tl.fromTo(
+            [cards[0], cards[3]],
+            {
+              x: -360,
+              opacity: 0,
+              rotateY: 16,
+              scale: 0.88,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              rotateY: 0,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0
+          );
+
+          // Right cards (2 & 5) fly in from the far right of the screen and place at center
+          tl.fromTo(
+            [cards[2], cards[5]],
+            {
+              x: 360,
+              opacity: 0,
+              rotateY: -16,
+              scale: 0.88,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              rotateY: 0,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0
+          );
+
+          // Center cards (1 & 4) emerge from bottom/center into place
+          tl.fromTo(
+            [cards[1], cards[4]],
+            {
+              y: 110,
+              opacity: 0,
+              scale: 0.84,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0.08
+          );
+        }
+
+        // --- B. 6-STAGE PROCESS CARDS ---
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          // Left process cards (01 & 04): fly in from far left of screen to center
+          processTl.fromTo(
+            [processCards[0], processCards[3]].filter(Boolean),
+            {
+              x: -360,
+              opacity: 0,
+              rotateY: 16,
+              scale: 0.88,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              rotateY: 0,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0
+          );
+
+          // Right process cards (03 & 06): fly in from far right of screen to center
+          processTl.fromTo(
+            [processCards[2], processCards[5]].filter(Boolean),
+            {
+              x: 360,
+              opacity: 0,
+              rotateY: -16,
+              scale: 0.88,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              rotateY: 0,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0
+          );
+
+          // Center process cards (02 & 05): emerge from bottom/center into place
+          processTl.fromTo(
+            [processCards[1], processCards[4]].filter(Boolean),
+            {
+              y: 110,
+              opacity: 0,
+              scale: 0.84,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.05,
+              ease: 'power3.out',
+              stagger: 0.16,
+            },
+            0.08
+          );
+
+          // Pop step number badges on landing
+          const badges = processCards
+            .map((c) => c.querySelector('.step-num-badge'))
+            .filter(Boolean);
+          if (badges.length) {
+            processTl.fromTo(
+              badges,
+              { scale: 0.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.08 },
+              0.4
+            );
+          }
+        }
+      });
+
+      // ==========================================
+      // TABLET: 2-Column Layout
+      // ==========================================
+      mm.add('(max-width: 991px) and (min-width: 701px)', () => {
+        // Bento cards
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[2], cards[4]],
+            {
+              x: -240,
+              opacity: 0,
+              scale: 0.9,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.95,
+              ease: 'power3.out',
+              stagger: 0.14,
+            },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[3], cards[5]],
+            {
+              x: 240,
+              opacity: 0,
+              scale: 0.9,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.95,
+              ease: 'power3.out',
+              stagger: 0.14,
+            },
+            0
+          );
+        }
+
+        // Process cards
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          processTl.fromTo(
+            [processCards[0], processCards[2], processCards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[1], processCards[3], processCards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+      });
+
+      // ==========================================
+      // MOBILE: 1-Column Layout
+      // ==========================================
+      mm.add('(max-width: 700px)', () => {
+        // Bento cards
+        cards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            {
+              x: fromLeft ? -110 : 110,
+              opacity: 0,
+              scale: 0.92,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+
+        // Process cards
+        processCards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            {
+              x: fromLeft ? -110 : 110,
+              opacity: 0,
+              scale: 0.92,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   // Filter tech stack chips
   const filteredTech = TECH_ITEMS.filter((item) => {
     if (selectedStackCat === 'all') return true;
     return item.category === selectedStackCat;
   });
-
-  // Calculate dynamic estimate
-  const currentProj = PROJECT_TYPES.find((p) => p.id === selectedProjectType) || PROJECT_TYPES[0];
-  const currentComp = COMPLEXITY_LEVELS.find((c) => c.id === selectedComplexity) || COMPLEXITY_LEVELS[0];
-  const calculatedWeeks = Math.ceil(currentProj.baseWeeks * currentComp.mult);
 
   return (
     <>
@@ -341,9 +677,9 @@ const WebDevelopment = () => {
         {/* ========================================================
             2. THE 6 CORE WEB DEVELOPMENT SERVICES (BENTO SHOWCASE)
             ======================================================== */}
-        <section className="web-dev-services-section">
+        <section className="web-dev-services-section" ref={servicesSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={servicesHeaderRef}>
               <span className="section-eyebrow">Our Core Expertise</span>
               <h2 className="section-heading">6 Tailored Web Development Services</h2>
               <p className="section-subtext">
@@ -351,131 +687,61 @@ const WebDevelopment = () => {
               </p>
             </div>
 
-            <div className="services-bento-grid">
-              {SIX_SERVICES.map((svc) => (
-                <div key={svc.id} className="service-bento-card">
-                  <div>
-                    <div className="card-header-row">
-                      <div className="service-icon-box">{svc.iconSymbol}</div>
-                      <span className="service-idx-badge">0{svc.id}</span>
-                    </div>
-
-                    <div className="service-content-block">
-                      <h3 className="service-card-title">{svc.title}</h3>
-                      <p className="service-card-desc">{svc.desc}</p>
-
-                      <ul className="service-feature-checklist">
-                        {svc.features.map((feat, fIdx) => (
-                          <li key={fIdx}>
-                            <svg fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="service-card-footer">
-                    <Link href={`/contact?service=${encodeURIComponent(svc.title)}`} className="service-learn-more">
-                      <span>Start Project</span>
-                      <span className="arrow-icon">→</span>
-                    </Link>
-                    <span className="service-tech-tag">{svc.techTag}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            3. UNIQUE ESTIMATOR & TIMELINE CALCULATOR
-            ======================================================== */}
-        <section className="web-dev-estimator-section">
-          <div className="container">
-            <div className="estimator-card-wrapper">
-              <div className="estimator-header">
-                <span className="estimator-eyebrow">Interactive Estimator</span>
-                <h3>Calculate Your Project Timeline & Scope</h3>
-                <p>Select your requirements below to see an instant timeline estimate and recommended architecture.</p>
-              </div>
-
-              <div className="estimator-grid">
-                {/* Left Controls */}
-                <div className="estimator-controls">
-                  <div className="control-group">
-                    <label className="control-label">1. Select Project Type</label>
-                    <div className="pill-options-wrap">
-                      {PROJECT_TYPES.map((pt) => (
-                        <button
-                          key={pt.id}
-                          type="button"
-                          className={`estimator-option-btn ${selectedProjectType === pt.id ? 'active' : ''}`}
-                          onClick={() => setSelectedProjectType(pt.id)}
-                        >
-                          {pt.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="control-group">
-                    <label className="control-label">2. Select Scope & Complexity</label>
-                    <div className="pill-options-wrap">
-                      {COMPLEXITY_LEVELS.map((cl) => (
-                        <button
-                          key={cl.id}
-                          type="button"
-                          className={`estimator-option-btn ${selectedComplexity === cl.id ? 'active' : ''}`}
-                          onClick={() => setSelectedComplexity(cl.id)}
-                        >
-                          {cl.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Summary Dashboard */}
-                <div className="estimator-summary-card">
-                  <span className="summary-badge">⚡ Architecture Estimation</span>
-                  <h4 className="summary-title">{currentProj.label}</h4>
-
-                  <div className="summary-metrics-row">
-                    <div className="metric-box">
-                      <div className="metric-label">Estimated Delivery</div>
-                      <div className="metric-val">{calculatedWeeks} Weeks</div>
-                    </div>
-                    <div className="metric-box">
-                      <div className="metric-label">Agile Sprints</div>
-                      <div className="metric-val">{Math.ceil(calculatedWeeks / 2)} Sprints</div>
-                    </div>
-                  </div>
-
-                  <div className="summary-stack-rec">
-                    <strong>Recommended Stack:</strong> Next.js 14 App Router, TypeScript, Node.js Microservices, MongoDB & AWS Cloud CDN.
-                  </div>
-
-                  <Link
-                    href={`/contact?service=${encodeURIComponent(currentProj.label)}`}
-                    className="estimator-cta-btn"
+            <div className="services-bento-grid" ref={bentoGridRef}>
+              {SIX_SERVICES.map((svc, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={svc.id}
+                    className={`service-bento-card card-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
                   >
-                    <span>Claim Free Architecture Review →</span>
-                  </Link>
-                </div>
-              </div>
+                    <div>
+                      <div className="card-header-row">
+                        <div className="service-icon-box">{svc.iconSymbol}</div>
+                        <span className="service-idx-badge">0{svc.id}</span>
+                      </div>
+
+                      <div className="service-content-block">
+                        <h3 className="service-card-title">{svc.title}</h3>
+                        <p className="service-card-desc">{svc.desc}</p>
+
+                        <ul className="service-feature-checklist">
+                          {svc.features.map((feat, fIdx) => (
+                            <li key={fIdx}>
+                              <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="service-card-footer">
+                      <Link href={`/contact?service=${encodeURIComponent(svc.title)}`} className="service-learn-more">
+                        <span>Start Project</span>
+                        <span className="arrow-icon">→</span>
+                      </Link>
+                      <span className="service-tech-tag">{svc.techTag}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            4. 6-STAGE AGILE PROCESS TIMELINE
+            3. 6-STAGE AGILE PROCESS TIMELINE
             ======================================================== */}
-        <section className="web-dev-process-section">
+        <section className="web-dev-process-section" ref={processSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={processHeaderRef}>
               <span className="section-eyebrow">Agile Methodology</span>
               <h2 className="section-heading">Our 6-Stage Web Development Process</h2>
               <p className="section-subtext">
@@ -483,58 +749,30 @@ const WebDevelopment = () => {
               </p>
             </div>
 
-            <div className="process-steps-grid">
-              {PROCESS_STAGES.map((st) => (
-                <div key={st.step} className="process-step-card">
-                  <div className="step-num-badge">{st.step}</div>
-                  <h3 className="step-title">{st.title}</h3>
-                  <p className="step-desc">{st.desc}</p>
-                </div>
-              ))}
+            <div className="process-steps-grid" ref={processGridRef}>
+              {PROCESS_STAGES.map((st, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={st.step}
+                    className={`process-step-card step-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div className="step-num-badge">{st.step}</div>
+                    <h3 className="step-title">{st.title}</h3>
+                    <p className="step-desc">{st.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            5. BENCHMARK COMPARISON MATRIX
-            ======================================================== */}
-        <section className="web-dev-benchmark-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Why We Are Different</span>
-              <h2 className="section-heading">Vastora Tech vs Legacy Agencies</h2>
-              <p className="section-subtext">
-                See how modern engineering and cloud architecture directly translates to higher conversions and zero downtime.
-              </p>
-            </div>
-
-            <div className="benchmark-table-card">
-              <div className="table-responsive">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Key Architectural Metric</th>
-                      <th className="highlight-col">✨ Vastora Tech Modern Stack</th>
-                      <th>Traditional Legacy Agencies</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {BENCHMARK_ITEMS.map((item, idx) => (
-                      <tr key={idx}>
-                        <td className="feature-name">{item.feature}</td>
-                        <td className="highlight-col">{item.vastora}</td>
-                        <td className="legacy-col">{item.legacy}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            6. FAQS ACCORDION
+            4. FAQS ACCORDION
             ======================================================== */}
         <section className="contact-faq-section" style={{ padding: '80px 0' }}>
           <div className="container">

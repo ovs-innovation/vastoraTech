@@ -1,0 +1,357 @@
+/* ========================================================
+   SOLUTIONS STICKY STACKING CARDS SECTION
+   Vertical scroll-driven sticky card stacking animation
+   White Section Background (#FFFFFF) & Solid Vastora Brand Blue Cards (#296CB3)
+   Zero Gradients - Solid Colors Only
+   Features original High-Impact Services content and tags
+   ======================================================== */
+
+.solutions-stacking-section {
+  position: relative;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 120px 0 140px;
+  overflow: visible;
+
+  /* Subtle visible dot matrix texture on white bg */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(41, 108, 179, 0.08) 1.2px, transparent 1.2px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1320px;
+    z-index: 1;
+  }
+
+  /* Section Introduction (Left-Aligned Agency Style) */
+  .solutions-header-wrap {
+    max-width: 900px;
+    margin-bottom: 85px;
+    position: relative;
+    z-index: 1;
+
+    .solutions-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: #eaf2fa;
+      border: 1px solid #c0d8f0;
+      margin-bottom: 22px;
+
+      .badge-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #296cb3;
+      }
+
+      .badge-text {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #296cb3;
+      }
+    }
+
+    .solutions-header-heading {
+      font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(40px, 5.2vw, 76px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: #0f172a;
+      margin-bottom: 20px;
+
+      .gradient-highlight {
+        color: #296cb3;
+        display: inline;
+      }
+    }
+
+    .solutions-header-desc {
+      font-size: clamp(17px, 1.8vw, 22px);
+      line-height: 1.65;
+      color: #475569;
+      font-weight: 450;
+      max-width: 760px;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  /* Sticky Stacking Cards Container */
+  .solutions-cards-stack-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Individual Sticky Card Wrapper */
+  .solution-card-sticky-wrapper {
+    position: sticky;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Brand Blue Card Body */
+  .solution-card-body {
+    background-color: #296cb3;
+    color: #ffffff;
+    width: 84%;
+    max-width: 1140px;
+    min-height: 480px;
+    border-radius: 28px;
+    padding: 56px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border: 2px solid #1f538a;
+    /* Rich elevated shadows on white background */
+    box-shadow:
+      0 25px 60px -12px rgba(41, 108, 179, 0.38),
+      0 10px 24px -4px rgba(15, 23, 42, 0.12);
+    transition: all 0.3s ease;
+
+    /* Top Accent Indicator - identifies layered cards as they stack */
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 48px;
+      width: 80px;
+      height: 4px;
+      border-radius: 4px;
+      background: #ffffff;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      border-color: #174271;
+      box-shadow:
+        0 32px 75px -12px rgba(41, 108, 179, 0.48),
+        0 14px 30px -4px rgba(15, 23, 42, 0.2);
+      transform: translateY(-3px);
+
+      &::before {
+        width: 140px;
+      }
+    }
+  }
+
+  /* Card Top Row */
+  .solution-card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
+
+    .solution-card-number {
+      font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+
+    .solution-card-category {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+  }
+
+  /* Card Content */
+  .solution-card-content {
+    margin: 20px 0 35px;
+
+    .solution-card-title {
+      font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+
+    .solution-card-description {
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 450;
+      max-width: 760px;
+      margin: 0;
+    }
+  }
+
+  /* Card Bottom Row */
+  .solution-card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+
+    .solution-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .solution-card-tag-pill {
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        padding: 7px 16px;
+        border-radius: 999px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: #296cb3;
+          border-color: #ffffff;
+          background: #ffffff;
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .solution-card-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #296cb3 !important;
+      font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+
+      .link-arrow {
+        transition: transform 0.25s ease;
+      }
+
+      &:hover {
+        background: #0f172a;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+        .link-arrow {
+          transform: translate(2px, -2px);
+        }
+      }
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .solution-card-body {
+      width: 88%;
+      padding: 50px 54px;
+      min-height: 440px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 95px 0 110px;
+
+    .solutions-header-wrap {
+      margin-bottom: 60px;
+    }
+
+    .solution-card-sticky-wrapper {
+      margin-bottom: 80px;
+    }
+
+    .solution-card-body {
+      width: 94%;
+      padding: 42px 38px;
+      min-height: 400px;
+      border-radius: 22px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 75px 0 90px;
+
+    .solutions-header-wrap {
+      margin-bottom: 45px;
+    }
+
+    .solution-card-sticky-wrapper {
+      margin-bottom: 50px;
+    }
+
+    .solution-card-body {
+      width: 100%;
+      padding: 34px 26px;
+      min-height: 360px;
+      border-radius: 20px;
+    }
+
+    .solution-card-top-row {
+      margin-bottom: 18px;
+    }
+
+    .solution-card-content {
+      margin: 15px 0 25px;
+
+      .solution-card-title {
+        margin-bottom: 14px;
+      }
+    }
+
+    .solution-card-bottom-row {
+      padding-top: 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      .solution-card-link-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

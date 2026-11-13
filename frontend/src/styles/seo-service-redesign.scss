@@ -9,32 +9,6 @@
   color: #0f172a;
   font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: clip;
-
-  /* Ambient glowing radial orbs */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1050px;
-    height: 560px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.05) 45%, rgba(59, 130, 246, 0.03) 70%, transparent 85%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 32%;
-    right: -80px;
-    width: 680px;
-    height: 680px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, rgba(5, 150, 105, 0.02) 50%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 /* ========================================================
@@ -43,7 +17,7 @@
 .seo-hero-section {
   position: relative;
   padding: 160px 0 90px;
-  background: linear-gradient(180deg, #f0fdf4 0%, #f8fafc 35%, #ffffff 80%, #f0fdf4 100%);
+  background: #ffffff;
   overflow: hidden;
 
   @media (max-width: 991px) {
@@ -144,9 +118,7 @@
       margin-bottom: 18px;
 
       .highlight-emerald {
-        background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #10b981 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #0062f5;
         display: inline;
       }
     }
@@ -241,7 +213,7 @@
           width: 40px;
           height: 40px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #ecfdf5 0%, #e0f2fe 100%);
+          background: #ecfdf5;
           color: #059669;
           display: flex;
           align-items: center;
@@ -288,10 +260,10 @@
           }
 
           &.active {
-            background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+            background: #0062f5;
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 98, 245, 0.3);
           }
         }
       }
@@ -379,6 +351,7 @@
 .seo-services-section {
   padding: 85px 0;
   position: relative;
+  overflow-x: clip;
 
   .section-header-wrap {
     text-align: center;
@@ -417,6 +390,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    perspective: 1200px;
 
     @media (max-width: 1100px) {
       grid-template-columns: repeat(2, 1fr);
@@ -434,7 +408,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
       position: relative;
       overflow: hidden;
@@ -446,22 +423,21 @@
         left: 0;
         width: 100%;
         height: 3px;
-        background: linear-gradient(90deg, #10b981, #0284c7, #06b6d4);
+        background: #0062f5;
         opacity: 0;
         transition: opacity 0.3s ease;
       }
 
       &:hover {
-        transform: translateY(-6px);
-        border-color: #10b981;
-        box-shadow: 0 20px 45px rgba(16, 185, 129, 0.12);
+        border-color: #0062f5;
+        box-shadow: 0 20px 45px rgba(0, 98, 245, 0.12);
 
         &::before {
           opacity: 1;
         }
 
         .service-icon-box {
-          background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
+          background: #0062f5;
           color: #ffffff;
           transform: scale(1.06);
         }
@@ -586,7 +562,7 @@
    ======================================================== */
 .seo-serp-simulator-section {
   padding: 85px 0;
-  background: linear-gradient(180deg, #f0fdf4 0%, #f8fafc 50%, #ffffff 100%);
+  background: #f8fafc;
 
   .simulator-card-container {
     background: #ffffff;
@@ -670,10 +646,10 @@
           }
 
           &.active {
-            background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+            background: #0062f5;
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+            box-shadow: 0 4px 14px rgba(0, 98, 245, 0.25);
           }
         }
       }
@@ -860,7 +836,7 @@
           width: 100%;
           padding: 12px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+          background: #0062f5;
           color: #ffffff;
           font-size: 13.5px;
           font-weight: 800;
@@ -977,7 +953,7 @@
             }
 
             &.active {
-              background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+              background: #0062f5;
               border-color: transparent;
               color: #ffffff;
               box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28);
@@ -988,24 +964,12 @@
     }
 
     .estimator-summary-card {
-      background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+      background: #0062f5;
       border-radius: 24px;
       padding: 34px 28px;
       color: #ffffff;
       position: relative;
       overflow: hidden;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 170px;
-        height: 170px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
-        pointer-events: none;
-      }
 
       .summary-badge {
         font-size: 11px;
@@ -1073,7 +1037,7 @@
         width: 100%;
         padding: 13px;
         border-radius: 12px;
-        background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
+        background: #0062f5;
         color: #ffffff;
         font-size: 14px;
         font-weight: 800;
@@ -1095,11 +1059,13 @@
 .seo-process-section {
   padding: 85px 0;
   position: relative;
+  overflow-x: clip;
 
   .process-steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    perspective: 1200px;
 
     @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
@@ -1115,12 +1081,21 @@
       border-radius: 20px;
       padding: 26px 22px;
       position: relative;
-      transition: all 0.3s ease;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
         border-color: #10b981;
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(16, 185, 129, 0.08);
+        box-shadow: 0 16px 36px rgba(16, 185, 129, 0.15);
+
+        .step-num-badge {
+          background: #10b981;
+          color: #ffffff;
+          transform: scale(1.08);
+          box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+        }
       }
 
       .step-num-badge {
@@ -1135,6 +1110,8 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 16px;
+        will-change: transform, opacity;
+        transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .step-title {
@@ -1194,7 +1171,7 @@
           border-bottom: none;
 
           &.highlight-col {
-            background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+            background: #0062f5;
             color: #ffffff;
           }
         }
@@ -1370,29 +1347,17 @@
   padding: 85px 0;
 
   .seo-cta-box {
-    background: linear-gradient(135deg, #059669 0%, #0284c7 45%, #0f172a 100%);
+    background: #0062f5;
     border-radius: 28px;
     padding: 60px 40px;
     text-align: center;
     color: #ffffff;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 98, 245, 0.25);
 
     @media (max-width: 576px) {
       padding: 40px 20px;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-      pointer-events: none;
     }
 
     .cta-eyebrow {

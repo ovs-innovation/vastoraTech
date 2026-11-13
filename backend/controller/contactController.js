@@ -4,19 +4,27 @@ const allowedStatusValues = ["new", "in-progress", "resolved"];
 
 const createContactSubmission = async (req, res) => {
   try {
-    const { fullName, email, subject, message } = req.body;
+    const { fullName, email, subject, message, phone, website, company, hearAboutUs } = req.body;
 
-    if (!fullName || !email || !subject || !message) {
+    if (!fullName || !email || !message) {
       return res.status(400).send({
         success: false,
-        message: "Full name, email, subject and message are required.",
+        message: "Full name, email and message are required.",
       });
     }
+
+    const finalSubject =
+      subject ||
+      (company ? `Inquiry from ${company}` : `Website Inquiry from ${fullName}`);
 
     const submission = await ContactSubmission.create({
       fullName,
       email,
-      subject,
+      phone: phone || "",
+      website: website || "",
+      company: company || "",
+      hearAboutUs: hearAboutUs || "",
+      subject: finalSubject,
       message,
       meta: {
         ipAddress: req.ip,

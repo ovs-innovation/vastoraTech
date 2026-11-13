@@ -8,6 +8,7 @@ const HeaderFive = dynamic(() => import("@/layout/headers/HeaderFive"), { ssr: t
 const ProjectAreaHomeFive = dynamic(() => import("./ProjectAreaHomeFive"), { ssr: true });
 const ReviewAreaHomeFour = dynamic(() => import("../home-4/ReviewAreaHomeFour"), { ssr: true });
 const BlogAreaHomeFive = dynamic(() => import("./BlogAreaHomeFive"), { ssr: true });
+const SolutionsStackingAreaHomeFive = dynamic(() => import("./SolutionsStackingAreaHomeFive"), { ssr: true });
 const ServicesAreaHomeFour = dynamic(() => import("../home-4/ServicesAreaHomeFour"), { ssr: true });
 const AboutAreaHomeFive = dynamic(() => import("./AboutAreaHomeFive"), { ssr: true });
 const ContactAreaHomeFive = dynamic(() => import("./ContactAreaHomeFive"), { ssr: true });
@@ -32,7 +33,7 @@ const HomeFive = () => {
                 {/* <FeatureAreaHomeFive /> */}
                 <AboutAreaHomeFive />
                 <CounterAreaHomeFive />
-                <ServicesAreaHomeFour />
+                <SolutionsStackingAreaHomeFive />
                 <ToolestAeaHomeFive />
                 <ProjectAreaHomeFive style={true} />
                 <ProjectFeaturHomefive />

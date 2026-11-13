@@ -9,32 +9,6 @@
   color: #0f172a;
   font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: clip;
-
-  /* Ambient glowing radial orbs */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1050px;
-    height: 560px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.09) 0%, rgba(99, 102, 241, 0.06) 45%, rgba(236, 72, 153, 0.04) 75%, transparent 85%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 30%;
-    right: -80px;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, rgba(244, 63, 94, 0.02) 50%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 /* ========================================================
@@ -43,7 +17,7 @@
 .uiux-hero-section {
   position: relative;
   padding: 160px 0 90px;
-  background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 35%, #ffffff 80%, #faf5ff 100%);
+  background: #ffffff;
   overflow: hidden;
 
   @media (max-width: 991px) {
@@ -144,9 +118,7 @@
       margin-bottom: 18px;
 
       .highlight-purple {
-        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #3b82f6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #0062f5;
         display: inline;
       }
     }
@@ -241,7 +213,7 @@
           width: 40px;
           height: 40px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+          background: #f5f3ff;
           color: #7c3aed;
           display: flex;
           align-items: center;
@@ -288,7 +260,7 @@
           }
 
           &.active {
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            background: #0062f5;
             color: #ffffff;
             border-color: transparent;
             box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
@@ -379,6 +351,7 @@
 .uiux-services-section {
   padding: 85px 0;
   position: relative;
+  overflow-x: clip;
 
   .section-header-wrap {
     text-align: center;
@@ -417,6 +390,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    perspective: 1200px;
 
     @media (max-width: 1100px) {
       grid-template-columns: repeat(2, 1fr);
@@ -434,7 +408,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
       position: relative;
       overflow: hidden;
@@ -446,13 +423,12 @@
         left: 0;
         width: 100%;
         height: 3px;
-        background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6);
+        background: #0062f5;
         opacity: 0;
         transition: opacity 0.3s ease;
       }
 
       &:hover {
-        transform: translateY(-6px);
         border-color: #8b5cf6;
         box-shadow: 0 20px 45px rgba(139, 92, 246, 0.12);
 
@@ -461,7 +437,7 @@
         }
 
         .service-icon-box {
-          background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+          background: #0062f5;
           color: #ffffff;
           transform: scale(1.06);
         }
@@ -586,7 +562,7 @@
    ======================================================== */
 .uiux-prototype-simulator-section {
   padding: 85px 0;
-  background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 50%, #ffffff 100%);
+  background: #f8fafc;
 
   .simulator-card-container {
     background: #ffffff;
@@ -670,7 +646,7 @@
           }
 
           &.active {
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            background: #0062f5;
             color: #ffffff;
             border-color: transparent;
             box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
@@ -732,7 +708,7 @@
 
     /* Right: Figma Interactive Canvas Card */
     .figma-canvas-card {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      background: #0062f5;
       border-radius: 26px;
       padding: 30px 24px;
       color: #ffffff;
@@ -742,19 +718,7 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 380px;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.2);
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 170px;
-        height: 170px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, transparent 70%);
-        pointer-events: none;
-      }
+      box-shadow: 0 20px 45px rgba(0, 98, 245, 0.2);
 
       .canvas-top-bar {
         display: flex;
@@ -828,7 +792,7 @@
         width: 100%;
         padding: 13px;
         border-radius: 12px;
-        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+        background: #0062f5;
         color: #ffffff;
         font-size: 13.5px;
         font-weight: 800;
@@ -944,7 +908,7 @@
             }
 
             &.active {
-              background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+              background: #0062f5;
               border-color: transparent;
               color: #ffffff;
               box-shadow: 0 4px 14px rgba(139, 92, 246, 0.28);
@@ -955,24 +919,12 @@
     }
 
     .estimator-summary-card {
-      background: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
+      background: #0062f5;
       border-radius: 24px;
       padding: 34px 28px;
       color: #ffffff;
       position: relative;
       overflow: hidden;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 170px;
-        height: 170px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
-        pointer-events: none;
-      }
 
       .summary-badge {
         font-size: 11px;
@@ -1040,7 +992,7 @@
         width: 100%;
         padding: 13px;
         border-radius: 12px;
-        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+        background: #0062f5;
         color: #ffffff;
         font-size: 14px;
         font-weight: 800;
@@ -1062,11 +1014,13 @@
 .uiux-process-section {
   padding: 85px 0;
   position: relative;
+  overflow-x: clip;
 
   .process-steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    perspective: 1200px;
 
     @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
@@ -1082,12 +1036,19 @@
       border-radius: 20px;
       padding: 26px 22px;
       position: relative;
-      transition: all 0.3s ease;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
         border-color: #8b5cf6;
-        transform: translateY(-4px);
         box-shadow: 0 12px 30px rgba(139, 92, 246, 0.08);
+
+        .step-num-badge {
+          background: #7c3aed;
+          color: #ffffff;
+        }
       }
 
       .step-num-badge {
@@ -1102,6 +1063,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 16px;
+        transition: background-color 0.25s ease, color 0.25s ease;
       }
 
       .step-title {
@@ -1161,7 +1123,7 @@
           border-bottom: none;
 
           &.highlight-col {
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            background: #0062f5;
             color: #ffffff;
           }
         }
@@ -1337,29 +1299,17 @@
   padding: 85px 0;
 
   .uiux-cta-box {
-    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 45%, #0f172a 100%);
+    background: #0062f5;
     border-radius: 28px;
     padding: 60px 40px;
     text-align: center;
     color: #ffffff;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 98, 245, 0.25);
 
     @media (max-width: 576px) {
       padding: 40px 20px;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-      pointer-events: none;
     }
 
     .cta-eyebrow {

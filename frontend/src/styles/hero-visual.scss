@@ -591,7 +591,7 @@
       flex: 1;
       min-width: 8px;
       border-radius: 4px;
-      background: linear-gradient(180deg, #60a5fa 0%, #0062f5 100%);
+      background: #0062f5;
       transition:
         height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
         background 0.2s ease,
@@ -600,7 +600,7 @@
 
       &:hover,
       &.hovered {
-        background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+        background: #0284c7;
         box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
         transform: scaleY(1.05);
 
@@ -612,7 +612,7 @@
       }
 
       &.active {
-        background: linear-gradient(180deg, #38bdf8 0%, #0062f5 100%);
+        background: #0062f5;
         box-shadow: 0 0 8px rgba(0, 98, 245, 0.4);
       }
 
@@ -687,7 +687,7 @@
     }
 
     &.active {
-      background: linear-gradient(135deg, #0062f5 0%, #0284c7 100%);
+      background: #0062f5;
       color: #ffffff;
       border-color: #0062f5;
       box-shadow: 0 6px 20px rgba(0, 98, 245, 0.42);
@@ -892,7 +892,7 @@
 
     .pagespeed-progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+      background: #10b981;
       border-radius: 4px;
       transition: width 0.6s ease;
 
@@ -1375,7 +1375,7 @@
     width: 90px;
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0), #38bdf8, #ffffff);
+    background: #38bdf8;
     filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9));
     opacity: 0;
 

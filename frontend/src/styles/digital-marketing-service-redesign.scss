@@ -1,0 +1,813 @@
+/* ========================================================
+   DIGITAL MARKETING SERVICES REDESIGN STYLES
+   ======================================================== */
+
+.dm-redesign-wrapper {
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* ========================================================
+   1. HERO SECTION
+   ======================================================== */
+.dm-hero-section {
+  padding: 130px 0 80px;
+  background: radial-gradient(120% 100% at 50% 0%, rgba(0, 98, 245, 0.05) 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(80% 60% at 85% 15%, rgba(139, 92, 246, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+  position: relative;
+
+  .dm-hero-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 55px;
+
+    .vt-breadcrumb-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 20px;
+
+      .pill-home-link {
+        color: #0062f5;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .pill-dot-sep {
+        color: #94a3b8;
+      }
+
+      .pill-current-label {
+        color: #1e293b;
+      }
+    }
+
+    .dm-eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid rgba(0, 98, 245, 0.2);
+      margin-bottom: 22px;
+
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #0062f5;
+        box-shadow: 0 0 10px rgba(0, 98, 245, 0.6);
+        animation: pulseDot 2s infinite ease-in-out;
+      }
+
+      .badge-text {
+        font-size: 12.5px;
+        font-weight: 750;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #0062f5;
+      }
+    }
+
+    .dm-main-title {
+      font-size: clamp(34px, 4.2vw, 56px);
+      font-weight: 850;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      margin-bottom: 20px;
+
+      .highlight-blue {
+        background: linear-gradient(135deg, #0062f5 0%, #2563eb 50%, #7c3aed 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .dm-main-subtitle {
+      font-size: clamp(16px, 1.3vw, 18.5px);
+      line-height: 1.65;
+      color: #475569;
+      max-width: 780px;
+      margin: 0 auto 30px;
+    }
+
+    .dm-trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+
+      .trust-strip-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #334155;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        padding: 7px 18px;
+        border-radius: 999px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+          transform: translateY(-1px);
+          border-color: #cbd5e1;
+        }
+
+        &.highlight-emerald {
+          border-color: rgba(16, 185, 129, 0.3);
+          color: #065f46;
+          background: #ecfdf5;
+        }
+      }
+    }
+  }
+
+  .dm-stack-showcase-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 32px 30px;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05);
+    max-width: 1050px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      padding: 22px 18px;
+    }
+
+    .stack-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #e2e8f0;
+
+      .stack-title-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .stack-icon-badge {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: #eff6ff;
+          color: #0062f5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          box-shadow: 0 2px 8px rgba(0, 98, 245, 0.15);
+        }
+
+        h3 {
+          font-size: 18.5px;
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 2px;
+        }
+
+        p {
+          font-size: 12.5px;
+          color: #64748b;
+          margin-bottom: 0;
+        }
+      }
+
+      .stack-tabs-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+
+        .stack-tab-btn {
+          padding: 6px 14px;
+          border-radius: 999px;
+          font-size: 12.5px;
+          font-weight: 700;
+          border: 1px solid #e2e8f0;
+          background: #f8fafc;
+          color: #475569;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: #cbd5e1;
+            color: #0f172a;
+          }
+
+          &.active {
+            background: #0062f5;
+            border-color: #0062f5;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 98, 245, 0.25);
+          }
+        }
+      }
+    }
+
+    .stack-chips-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-chip-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        transition: all 0.25s ease;
+
+        &:hover {
+          background: #ffffff;
+          border-color: #0062f5;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(0, 98, 245, 0.1);
+        }
+
+        .chip-logo {
+          width: 36px;
+          height: 36px;
+          border-radius: 10px;
+          background: #ffffff;
+          box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          flex-shrink: 0;
+        }
+
+        .chip-details {
+          .chip-name {
+            font-size: 13.5px;
+            font-weight: 750;
+            color: #0f172a;
+            line-height: 1.2;
+            margin-bottom: 2px;
+          }
+
+          .chip-role {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ========================================================
+   2. THE 6 CORE DIGITAL MARKETING SERVICES (BENTO GRID)
+   ======================================================== */
+.dm-services-section {
+  padding: 85px 0;
+  position: relative;
+  overflow-x: clip;
+
+  .section-header-wrap {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px;
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0062f5;
+      background: #eff6ff;
+      padding: 4px 14px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .section-subtext {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  }
+
+  .services-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    perspective: 1200px;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
+
+    .service-bento-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #0062f5;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        border-color: #0062f5;
+        box-shadow: 0 20px 45px rgba(0, 98, 245, 0.12);
+
+        &::before {
+          opacity: 1;
+        }
+
+        .service-icon-box {
+          background: #0062f5;
+          color: #ffffff;
+          transform: scale(1.06);
+        }
+
+        .service-learn-more {
+          color: #0062f5;
+          .arrow-icon {
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      .card-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .service-icon-box {
+          width: 50px;
+          height: 50px;
+          border-radius: 14px;
+          background: #eff6ff;
+          color: #0062f5;
+          font-size: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .service-idx-badge {
+          font-size: 13px;
+          font-weight: 800;
+          color: #94a3b8;
+          background: #f8fafc;
+          padding: 4px 10px;
+          border-radius: 8px;
+        }
+      }
+
+      .service-content-block {
+        .service-card-title {
+          font-size: 19.5px;
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.35;
+          margin-bottom: 12px;
+        }
+
+        .service-card-desc {
+          font-size: 14px;
+          color: #64748b;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        .service-feature-checklist {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 26px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: #334155;
+            line-height: 1.45;
+
+            svg {
+              width: 17px;
+              height: 17px;
+              color: #10b981;
+              flex-shrink: 0;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+
+      .service-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 18px;
+        border-top: 1px dashed #e2e8f0;
+
+        .service-learn-more {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13.5px;
+          font-weight: 800;
+          color: #0f172a;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          .arrow-icon {
+            transition: transform 0.2s ease;
+          }
+        }
+
+        .service-channel-tag {
+          font-size: 11.5px;
+          font-weight: 700;
+          color: #0062f5;
+          background: #eff6ff;
+          padding: 3px 10px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+
+/* ========================================================
+   3. 6-STAGE DIGITAL GROWTH LIFECYCLE
+   ======================================================== */
+.dm-process-section {
+  padding: 85px 0;
+  position: relative;
+  overflow-x: clip;
+
+  .section-header-wrap {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px;
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0062f5;
+      background: #eff6ff;
+      padding: 4px 14px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .section-subtext {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  }
+
+  .process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    perspective: 1200px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
+    .process-step-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 26px 22px;
+      position: relative;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        border-color: #0062f5;
+        box-shadow: 0 12px 30px rgba(0, 98, 245, 0.08);
+
+        .step-num-badge {
+          background: #0062f5;
+          color: #ffffff;
+        }
+      }
+
+      .step-num-badge {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: #eff6ff;
+        color: #0062f5;
+        font-size: 15px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+
+      .step-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+
+      .step-desc {
+        font-size: 13.5px;
+        color: #64748b;
+        line-height: 1.55;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* ========================================================
+   4. FREQUENTLY ASKED QUESTIONS
+   ======================================================== */
+.dm-faq-section {
+  padding: 85px 0;
+  background: #f8fafc;
+
+  .faq-header-wrap {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 45px;
+
+    .faq-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0062f5;
+      background: #eff6ff;
+      padding: 4px 14px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .faq-title {
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .faq-subtitle {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  }
+
+  .faq-accordion-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .faq-item-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+
+      &.is-active {
+        border-color: #0062f5;
+        box-shadow: 0 8px 24px rgba(0, 98, 245, 0.08);
+
+        .faq-question-btn {
+          color: #0062f5;
+          background: #eff6ff;
+        }
+      }
+
+      .faq-question-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 22px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 750;
+        color: #0f172a;
+        transition: all 0.2s ease;
+
+        .faq-q-text {
+          flex: 1;
+          padding-right: 16px;
+        }
+
+        .faq-toggle-icon {
+          font-size: 20px;
+          font-weight: 800;
+          color: #0062f5;
+        }
+      }
+
+      .faq-answer-block {
+        padding: 0 22px 20px;
+
+        p {
+          font-size: 14.5px;
+          color: #475569;
+          line-height: 1.65;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+/* ========================================================
+   5. CLOSING CTA BANNER
+   ======================================================== */
+.dm-cta-section {
+  padding: 85px 0 100px;
+  background: #ffffff;
+
+  .dm-cta-card {
+    background: linear-gradient(135deg, #0062f5 0%, #1e40af 100%);
+    border-radius: 28px;
+    padding: 60px 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 24px 60px rgba(0, 98, 245, 0.25);
+    max-width: 1050px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      padding: 40px 24px;
+    }
+
+    .cta-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #93c5fd;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 5px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .cta-heading {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 850;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: #dbeafe;
+      max-width: 680px;
+      margin: 0 auto 34px;
+      line-height: 1.65;
+    }
+
+    .cta-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      .btn-cta-white {
+        background: #ffffff;
+        color: #0062f5;
+        font-size: 15px;
+        font-weight: 800;
+        padding: 14px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      .btn-cta-whatsapp {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 750;
+        padding: 14px 26px;
+        border-radius: 12px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.25s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.25);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+

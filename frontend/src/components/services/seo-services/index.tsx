@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import Link from 'next/link';
 import HeaderFive from '@/layout/headers/HeaderFive';
 import FooterFive from '@/layout/footers/FooterFive';
@@ -360,40 +366,242 @@ const FAQ_ITEMS = [
 ];
 
 const SeoServices: React.FC = () => {
-  // Tools tab filter
   const [activeToolTab, setActiveToolTab] = useState<ToolCategory>('all');
-
-  // SERP simulator sector
-  const [selectedSector, setSelectedSector] = useState<SectorKey>('b2b');
-
-  // Estimator state
-  const [selectedTraffic, setSelectedTraffic] = useState<string>('growing');
-  const [selectedScope, setSelectedScope] = useState<string>('national');
-  const [selectedDeliverables, setSelectedDeliverables] = useState<string[]>(['tech', 'backlinks', 'content']);
-
-  // FAQ state
   const [activeFaq, setActiveFaq] = useState<string | null>('seo-faq-1');
 
-  // Filtered tools
-  const filteredTools =
-    activeToolTab === 'all'
-      ? SEO_TOOLS
-      : SEO_TOOLS.filter((t) => t.category === activeToolTab);
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesHeaderRef = useRef<HTMLDivElement>(null);
+  const bentoGridRef = useRef<HTMLDivElement>(null);
 
-  // Estimator data
-  const currentTrafficData = TRAFFIC_OPTIONS.find((t) => t.id === selectedTraffic) || TRAFFIC_OPTIONS[1];
+  const processSectionRef = useRef<HTMLElement>(null);
+  const processHeaderRef = useRef<HTMLDivElement>(null);
+  const processGridRef = useRef<HTMLDivElement>(null);
 
-  const toggleDeliverable = (id: string) => {
-    if (selectedDeliverables.includes(id)) {
-      if (selectedDeliverables.length > 1) {
-        setSelectedDeliverables(selectedDeliverables.filter((d) => d !== id));
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = bentoGridRef.current
+      ? (Array.from(bentoGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const processCards = processGridRef.current
+      ? (Array.from(processGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const ctx = gsap.context(() => {
+      if (servicesHeaderRef.current) {
+        gsap.fromTo(
+          servicesHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: servicesHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
       }
-    } else {
-      setSelectedDeliverables([...selectedDeliverables, id]);
-    }
-  };
 
-  const currentSectorData = SECTOR_DATA[selectedSector];
+      if (processHeaderRef.current) {
+        gsap.fromTo(
+          processHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: processHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[2], cards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+        }
+
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          processTl.fromTo(
+            [processCards[0], processCards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[2], processCards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[1], processCards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+
+          const badges = processCards.map((c) => c.querySelector('.step-num-badge')).filter(Boolean);
+          if (badges.length) {
+            processTl.fromTo(
+              badges,
+              { scale: 0.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.08 },
+              0.4
+            );
+          }
+        }
+      });
+
+      mm.add('(max-width: 991px) and (min-width: 701px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[2], cards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[3], cards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+
+        if (processCards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [processCards[0], processCards[2], processCards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [processCards[1], processCards[3], processCards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+      });
+
+      mm.add('(max-width: 700px)', () => {
+        cards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+
+        processCards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  const filteredTools =
+    activeToolTab === 'all' ? SEO_TOOLS : SEO_TOOLS.filter((t) => t.category === activeToolTab);
 
   return (
     <>
@@ -525,317 +733,106 @@ const SeoServices: React.FC = () => {
         {/* ========================================================
             2. THE 6 CORE SEO SERVICES (BENTO GRID)
             ======================================================== */}
-        <section className="seo-services-section">
+        <section className="seo-services-section" ref={servicesSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={servicesHeaderRef}>
               <span className="section-eyebrow">Comprehensive Capabilities</span>
-              <h2 className="section-heading">Our 6 Core SEO Growth Services</h2>
+              <h2 className="section-heading">Our 6 Core Search Optimization Services</h2>
               <p className="section-subtext">
-                Every technical fix, keyword silo, backlink, and content hub is systematically engineered to outrank
-                competitors and capture qualified customer demand.
+                From technical architecture audits to compounding high-intent link networks, our holistic organic campaigns
+                drive lasting revenue.
               </p>
             </div>
 
-            <div className="seo-bento-grid">
-              {SIX_SERVICES.map((srv) => (
-                <div key={srv.id} className="seo-bento-card">
-                  <div>
-                    <div className="card-header-row">
-                      <div className="service-icon-box">{srv.iconSymbol}</div>
-                      <span className="service-idx-badge">0{srv.id}</span>
-                    </div>
-
-                    <div className="service-content-block">
-                      <h3 className="service-card-title">{srv.title}</h3>
-                      <p className="service-card-desc">{srv.desc}</p>
-
-                      <ul className="service-feature-checklist">
-                        {srv.features.map((feat, fIdx) => (
-                          <li key={fIdx}>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                            </svg>
-                            {feat}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="service-card-footer">
-                    <Link
-                      href={`/contact?service=${encodeURIComponent(srv.title)}`}
-                      className="service-learn-more"
-                    >
-                      <span>Rank With This</span>
-                      <span className="arrow-icon">→</span>
-                    </Link>
-                    <span className="service-tag">{srv.serviceTag}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            3. INTERACTIVE SERP SIMULATOR & GOOGLE RANK EXPLORER
-            ======================================================== */}
-        <section className="seo-serp-simulator-section">
-          <div className="container">
-            <div className="simulator-card-container">
-              <div className="simulator-header">
-                <span className="simulator-eyebrow">SERP Simulator</span>
-                <h3>Live Google Page 1 Search Preview</h3>
-                <p>Select your market sector below to preview how our optimized pages appear to high-intent buyers.</p>
-              </div>
-
-              <div className="simulator-layout">
-                {/* Left: Sector Selector */}
-                <div className="simulator-selector-side">
-                  <div className="sector-tabs-row">
-                    {(Object.keys(SECTOR_DATA) as SectorKey[]).map((key) => (
-                      <button
-                        key={key}
-                        className={`sector-tab-btn ${selectedSector === key ? 'active' : ''}`}
-                        onClick={() => setSelectedSector(key)}
-                      >
-                        {SECTOR_DATA[key].badge}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="sector-details-card">
-                    <h4>{currentSectorData.title}</h4>
-                    <p>{currentSectorData.description}</p>
-
-                    <div className="ranking-pillars-grid">
-                      {currentSectorData.pillars.map((item, i) => (
-                        <div key={i} className="pillar-item">
-                          <span className="dot"></span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: Google SERP Preview Card */}
-                <div className="serp-mockup-card">
-                  <div className="serp-google-header">
-                    <div className="google-logo-badge">
-                      <span className="g-colored">G</span> Google Search Preview
-                    </div>
-                    <span className="serp-position-tag">● Position #1 Organic</span>
-                  </div>
-
-                  <div className="serp-result-box">
-                    <div className="serp-url-row">
-                      <div className="favicon-box">V</div>
-                      <span className="site-domain">vastoratech.com</span>
-                      <span className="breadcrumb-path">› services › seo</span>
-                    </div>
-
-                    <a href="#quote" className="serp-title-link">
-                      {currentSectorData.serpTitle}
-                    </a>
-
-                    <p className="serp-snippet-desc">{currentSectorData.serpSnippet}</p>
-
-                    <div className="serp-metric-badges">
-                      <div className="s-badge">
-                        <div className="sb-lbl">{currentSectorData.stat1Label}</div>
-                        <div className="sb-val">{currentSectorData.stat1Val}</div>
-                      </div>
-                      <div className="s-badge">
-                        <div className="sb-lbl">{currentSectorData.stat2Label}</div>
-                        <div className="sb-val">{currentSectorData.stat2Val}</div>
-                      </div>
-                    </div>
-
-                    <Link
-                      href={`/contact?service=SEO%20Services&sector=${encodeURIComponent(currentSectorData.title)}`}
-                      className="serp-cta-btn"
-                    >
-                      <span>{currentSectorData.buttonText}</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            4. INTERACTIVE SEO ROI & TRAFFIC ESTIMATOR
-            ======================================================== */}
-        <section className="seo-estimator-section" id="quote">
-          <div className="container">
-            <div className="estimator-card-wrapper">
-              <div className="estimator-header">
-                <span className="estimator-eyebrow">Growth Forecaster</span>
-                <h3>Calculate Your Organic Growth Potential</h3>
-                <p>Customize your baseline traffic level and growth scope for an instant SEO roadmap and investment estimate.</p>
-              </div>
-
-              <div className="estimator-grid">
-                {/* Left Controls */}
-                <div className="estimator-controls">
-                  {/* Step 1: Baseline */}
-                  <div className="control-group">
-                    <label className="control-label">Step 1: Current Monthly Organic Visitors</label>
-                    <div className="pill-options-wrap">
-                      {TRAFFIC_OPTIONS.map((opt) => (
-                        <button
-                          key={opt.id}
-                          className={`estimator-option-btn ${selectedTraffic === opt.id ? 'active' : ''}`}
-                          onClick={() => setSelectedTraffic(opt.id)}
-                        >
-                          {opt.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 2: Scope */}
-                  <div className="control-group">
-                    <label className="control-label">Step 2: Geographic & Market Target</label>
-                    <div className="pill-options-wrap">
-                      {SCOPE_OPTIONS.map((scope) => (
-                        <button
-                          key={scope.id}
-                          className={`estimator-option-btn ${selectedScope === scope.id ? 'active' : ''}`}
-                          onClick={() => setSelectedScope(scope.id)}
-                        >
-                          {scope.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 3: Priority Deliverables */}
-                  <div className="control-group">
-                    <label className="control-label">Step 3: Core Sprint Focus Areas</label>
-                    <div className="pill-options-wrap">
-                      {DELIVERABLE_OPTIONS.map((item) => {
-                        const isChecked = selectedDeliverables.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            className={`estimator-option-btn ${isChecked ? 'active' : ''}`}
-                            onClick={() => toggleDeliverable(item.id)}
-                          >
-                            {isChecked ? '✓ ' : '+ '}
-                            {item.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Summary Card */}
-                <div className="estimator-summary-card">
-                  <span className="summary-badge">6-Month Organic Forecast</span>
-                  <div className="summary-title">{currentTrafficData.multiplier}</div>
-
-                  <div className="summary-metrics-row">
-                    <div className="metric-box">
-                      <div className="metric-label">Projected Multiplier</div>
-                      <div className="metric-val">{currentTrafficData.multiplier}</div>
-                    </div>
-                    <div className="metric-box">
-                      <div className="metric-label">Monthly Package</div>
-                      <div className="metric-val">{currentTrafficData.price}</div>
-                    </div>
-                  </div>
-
-                  <div className="summary-strategy-rec">
-                    <strong>Recommended Strategy:</strong> {currentTrafficData.roadmap} incorporating{' '}
-                    {selectedDeliverables.length} sprint modules.
-                  </div>
-
-                  <Link
-                    href={`/contact?service=SEO%20Services&traffic=${selectedTraffic}&scope=${selectedScope}`}
-                    className="estimator-cta-btn"
+            <div className="seo-bento-grid" ref={bentoGridRef}>
+              {SIX_SERVICES.map((srv, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={srv.id}
+                    className={`seo-bento-card card-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
                   >
-                    <span>Request Free Technical SEO Audit →</span>
-                  </Link>
-                </div>
-              </div>
+                    <div>
+                      <div className="card-header-row">
+                        <div className="service-icon-box">{srv.iconSymbol}</div>
+                        <span className="service-idx-badge">0{srv.id}</span>
+                      </div>
+
+                      <div className="service-content-block">
+                        <h3 className="service-card-title">{srv.title}</h3>
+                        <p className="service-card-desc">{srv.desc}</p>
+
+                        <ul className="service-feature-checklist">
+                          {srv.features.map((feat, fIdx) => (
+                            <li key={fIdx}>
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                              </svg>
+                              {feat}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="service-card-footer">
+                      <Link
+                        href={`/contact?service=${encodeURIComponent(srv.title)}`}
+                        className="service-learn-more"
+                      >
+                        <span>Rank For This</span>
+                        <span className="arrow-icon">→</span>
+                      </Link>
+                      <span className="service-discipline-tag">{srv.serviceTag}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            5. 6-STAGE ORGANIC DOMINANCE PROCESS
+            3. 6-STAGE SEARCH DOMINANCE BLUEPRINT
             ======================================================== */}
-        <section className="seo-process-section">
+<section className="seo-process-section" ref={processSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Execution Methodology</span>
-              <h2 className="section-heading">Our 6-Stage Organic Dominance Lifecycle</h2>
+            <div className="section-header-wrap" ref={processHeaderRef}>
+              <span className="section-eyebrow">Search Dominance Lifecycle</span>
+              <h2 className="section-heading">Our 6-Stage Organic Blueprint</h2>
               <p className="section-subtext">
-                How we systematically analyze, optimize, accelerate, and defend your website’s Google rankings.
+                How we methodically transform underperforming domains into authoritative, high-ranking industry leaders.
               </p>
             </div>
 
-            <div className="process-steps-grid">
-              {PROCESS_STAGES.map((stg) => (
-                <div key={stg.step} className="process-step-card">
-                  <div className="step-num-badge">{stg.step}</div>
-                  <h3 className="step-title">{stg.title}</h3>
-                  <p className="step-desc">{stg.desc}</p>
-                </div>
-              ))}
+            <div className="process-steps-grid" ref={processGridRef}>
+              {PROCESS_STAGES.map((stg, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={stg.step}
+                    className={`process-step-card step-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div className="step-num-badge">{stg.step}</div>
+                    <h3 className="step-title">{stg.title}</h3>
+                    <p className="step-desc">{stg.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            6. BENCHMARK COMPARISON MATRIX
-            ======================================================== */}
-        <section className="seo-benchmark-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Why Vastora Tech</span>
-              <h2 className="section-heading">How We Compare Against The Industry</h2>
-              <p className="section-subtext">
-                We replace outdated spam techniques with engineering-grade technical SEO and real editorial links.
-              </p>
-            </div>
-
-            <div className="benchmark-table-card">
-              <div className="table-responsive">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style={{ width: '34%' }}>SEO Delivery Standard</th>
-                      <th className="highlight-col" style={{ width: '28%' }}>
-                        Vastora Tech (Our Agency)
-                      </th>
-                      <th style={{ width: '20%' }}>Low-Cost SEO Agencies</th>
-                      <th style={{ width: '18%' }}>Freelance Link Coders</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {BENCHMARK_ROWS.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        <td className="feature-name">{row.feature}</td>
-                        <td className="highlight-col">✓ {row.vastora}</td>
-                        <td className="legacy-col">{row.generic}</td>
-                        <td className="legacy-col">{row.freelance}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            7. INTERACTIVE FAQ ACCORDION
+            4. FREQUENTLY ASKED QUESTIONS
             ======================================================== */}
         <section className="seo-faq-section">
           <div className="container">

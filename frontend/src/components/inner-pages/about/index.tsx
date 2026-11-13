@@ -1,44 +1,40 @@
+"use client";
+
 import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
-import AboutCursorLens from "@/components/about/AboutCursorLens";
 import AboutHero from "@/components/about/AboutHero";
-import WhoWeAre from "@/components/about/WhoWeAre";
 import ClientMarquee from "@/components/about/ClientMarquee";
-import ProcessTimeline from "@/components/about/ProcessTimeline";
 import JourneySection from "@/components/about/JourneySection";
+import ProcessTimeline from "@/components/about/ProcessTimeline";
 import MissionPurpose from "@/components/about/MissionPurpose";
 import CompanyStats from "@/components/about/CompanyStats";
-import TeamAreaHomeFive from "@/components/homes/home-5/TeamAreaHomeFive";
+import AboutFinalCta from "@/components/about/AboutFinalCta";
 
 const About = () => {
   return (
     <>
-      <AboutCursorLens />
       <HeaderFive />
       <main className="vt-about-page-wrapper">
-        {/* 1. About Hero Section */}
+        {/* SECTION 1: Cinematic About Hero */}
         <AboutHero />
 
-        {/* 2. Who We Are Storytelling Section */}
-        <WhoWeAre />
-
-        {/* 3. Client / Brand Logos Infinite Marquee */}
+        {/* SECTION 2: Trusted By / Brand Showcase */}
         <ClientMarquee />
 
-        {/* 4. How We Do It / Helping Others Succeed (Interactive Process Timeline) */}
-        <ProcessTimeline />
-
-        {/* 5. Our Journey Storytelling Section */}
+        {/* SECTION 3: Our Story / Company Journey */}
         <JourneySection />
 
-        {/* 6. Mission & Purpose Bento Panels */}
+        {/* SECTION 4: How We Work ("From Vision to Reality") */}
+        <ProcessTimeline />
+
+        {/* SECTION 5: Mission & Purpose Editorial Panels */}
         <MissionPurpose />
 
-        {/* 7. Company Impact Numbers / Stats */}
+        {/* SECTION 6: Company Statistics / Impact */}
         <CompanyStats />
 
-        {/* 8. Team Showcase */}
-        <TeamAreaHomeFive style={true} />
+        {/* SECTION 7: Final Closing CTA */}
+        <AboutFinalCta />
       </main>
       <FooterFive style={true} />
     </>

@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import Link from 'next/link';
 import HeaderFive from '@/layout/headers/HeaderFive';
 import FooterFive from '@/layout/footers/FooterFive';
@@ -347,40 +353,244 @@ const FAQ_ITEMS = [
 ];
 
 const SocialMediaMarketingServices: React.FC = () => {
-  // Platform filter tab
   const [activePlatformTab, setActivePlatformTab] = useState<PlatformCategory>('all');
-
-  // Campaign simulator goal
-  const [selectedGoal, setSelectedGoal] = useState<CampaignGoalKey>('d2c');
-
-  // Estimator state
-  const [selectedStage, setSelectedStage] = useState<string>('growth');
-  const [selectedFrequency, setSelectedFrequency] = useState<string>('accelerated');
-  const [selectedChannels, setSelectedChannels] = useState<string[]>(['ig', 'meta', 'li']);
-
-  // FAQ state
   const [activeFaq, setActiveFaq] = useState<string | null>('smm-faq-1');
 
-  // Filtered platforms
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesHeaderRef = useRef<HTMLDivElement>(null);
+  const bentoGridRef = useRef<HTMLDivElement>(null);
+
+  const processSectionRef = useRef<HTMLElement>(null);
+  const processHeaderRef = useRef<HTMLDivElement>(null);
+  const processGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = bentoGridRef.current
+      ? (Array.from(bentoGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const processCards = processGridRef.current
+      ? (Array.from(processGridRef.current.children) as HTMLElement[])
+      : [];
+
+    const ctx = gsap.context(() => {
+      if (servicesHeaderRef.current) {
+        gsap.fromTo(
+          servicesHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: servicesHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (processHeaderRef.current) {
+        gsap.fromTo(
+          processHeaderRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: processHeaderRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[2], cards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+        }
+
+        if (processCards.length) {
+          const processTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          processTl.fromTo(
+            [processCards[0], processCards[3]].filter(Boolean),
+            { x: -360, opacity: 0, rotateY: 16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[2], processCards[5]].filter(Boolean),
+            { x: 360, opacity: 0, rotateY: -16, scale: 0.88 },
+            { x: 0, opacity: 1, rotateY: 0, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0
+          );
+
+          processTl.fromTo(
+            [processCards[1], processCards[4]].filter(Boolean),
+            { y: 110, opacity: 0, scale: 0.84 },
+            { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: 'power3.out', stagger: 0.16 },
+            0.08
+          );
+
+          const badges = processCards.map((c) => c.querySelector('.step-num-badge')).filter(Boolean);
+          if (badges.length) {
+            processTl.fromTo(
+              badges,
+              { scale: 0.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.08 },
+              0.4
+            );
+          }
+        }
+      });
+
+      mm.add('(max-width: 991px) and (min-width: 701px)', () => {
+        if (cards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: bentoGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [cards[0], cards[2], cards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [cards[1], cards[3], cards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+
+        if (processCards.length) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: processGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          tl.fromTo(
+            [processCards[0], processCards[2], processCards[4]].filter(Boolean),
+            { x: -240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+
+          tl.fromTo(
+            [processCards[1], processCards[3], processCards[5]].filter(Boolean),
+            { x: 240, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.95, ease: 'power3.out', stagger: 0.14 },
+            0
+          );
+        }
+      });
+
+      mm.add('(max-width: 700px)', () => {
+        cards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+
+        processCards.forEach((card, idx) => {
+          const fromLeft = idx % 2 === 0;
+          gsap.fromTo(
+            card,
+            { x: fromLeft ? -60 : 60, y: 50, opacity: 0, scale: 0.94 },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const filteredPlatforms =
     activePlatformTab === 'all'
       ? PLATFORM_ITEMS
-      : PLATFORM_ITEMS.filter((item) => item.category === activePlatformTab);
-
-  // Estimator current stage
-  const currentStage = STAGE_OPTIONS.find((s) => s.id === selectedStage) || STAGE_OPTIONS[1];
-
-  const toggleChannel = (id: string) => {
-    if (selectedChannels.includes(id)) {
-      if (selectedChannels.length > 1) {
-        setSelectedChannels(selectedChannels.filter((c) => c !== id));
-      }
-    } else {
-      setSelectedChannels([...selectedChannels, id]);
-    }
-  };
-
-  const currentGoalData = CAMPAIGN_GOALS[selectedGoal];
+      : PLATFORM_ITEMS.filter((p) => p.category === activePlatformTab);
 
   return (
     <>
@@ -506,307 +716,106 @@ const SocialMediaMarketingServices: React.FC = () => {
         {/* ========================================================
             2. THE 6 CORE SOCIAL MEDIA SERVICES (BENTO GRID)
             ======================================================== */}
-        <section className="smm-services-section">
+        <section className="smm-services-section" ref={servicesSectionRef}>
           <div className="container">
-            <div className="section-header-wrap">
+            <div className="section-header-wrap" ref={servicesHeaderRef}>
               <span className="section-eyebrow">Comprehensive Capabilities</span>
-              <h2 className="section-heading">Our 6 Core Social Media Growth Services</h2>
+              <h2 className="section-heading">Our 6 Core Social Media Services</h2>
               <p className="section-subtext">
-                Every visual, caption, reel hook, and ad campaign is strategically built to capture attention, nurture
-                trust, and generate revenue.
+                From organic viral video formats to algorithm-dominating paid ad engines, we build engaged digital communities
+                that convert into high-LTV customers.
               </p>
             </div>
 
-            <div className="smm-bento-grid">
-              {SIX_SERVICES.map((srv) => (
-                <div key={srv.id} className="smm-bento-card">
-                  <div>
-                    <div className="card-header-row">
-                      <div className="service-icon-box">{srv.iconSymbol}</div>
-                      <span className="service-idx-badge">0{srv.id}</span>
-                    </div>
+            <div className="smm-bento-grid" ref={bentoGridRef}>
+              {SIX_SERVICES.map((srv, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={srv.id}
+                    className={`smm-bento-card card-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div>
+                      <div className="card-header-row">
+                        <div className="service-icon-box">{srv.iconSymbol}</div>
+                        <span className="service-idx-badge">0{srv.id}</span>
+                      </div>
 
-                    <div className="service-content-block">
-                      <h3 className="service-card-title">{srv.title}</h3>
-                      <p className="service-card-desc">{srv.desc}</p>
+                      <div className="service-content-block">
+                        <h3 className="service-card-title">{srv.title}</h3>
+                        <p className="service-card-desc">{srv.desc}</p>
 
-                      <ul className="service-feature-checklist">
-                        {srv.features.map((feat, fIdx) => (
-                          <li key={fIdx}>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                            </svg>
-                            {feat}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="service-card-footer">
-                    <Link
-                      href={`/contact?service=${encodeURIComponent(srv.title)}`}
-                      className="service-learn-more"
-                    >
-                      <span>Scale With This</span>
-                      <span className="arrow-icon">→</span>
-                    </Link>
-                    <span className="service-channel-tag">{srv.channelTag}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            3. INTERACTIVE CAMPAIGN & VIRAL REELS SIMULATOR
-            ======================================================== */}
-        <section className="smm-campaign-simulator-section">
-          <div className="container">
-            <div className="simulator-card-container">
-              <div className="simulator-header">
-                <span className="simulator-eyebrow">Growth Simulation</span>
-                <h3>Preview Your Tailored Campaign Blueprint</h3>
-                <p>Select your primary business objective to see how we structure your content and ad funnels.</p>
-              </div>
-
-              <div className="simulator-layout">
-                {/* Left: Strategy Selector */}
-                <div className="simulator-selector-side">
-                  <div className="goal-tabs-row">
-                    {(Object.keys(CAMPAIGN_GOALS) as CampaignGoalKey[]).map((key) => (
-                      <button
-                        key={key}
-                        className={`goal-tab-btn ${selectedGoal === key ? 'active' : ''}`}
-                        onClick={() => setSelectedGoal(key)}
-                      >
-                        {CAMPAIGN_GOALS[key].badge}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="goal-details-card">
-                    <h4>{currentGoalData.title}</h4>
-                    <p>{currentGoalData.description}</p>
-
-                    <div className="deliverables-grid">
-                      {currentGoalData.deliverables.map((item, i) => (
-                        <div key={i} className="deliverable-item">
-                          <span className="dot"></span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: Phone Mockup Card */}
-                <div className="simulator-phone-card">
-                  <div>
-                    <div className="phone-top-bar">
-                      <span className="brand-badge">Vastora SMM • Live Feed</span>
-                      <span className="growth-indicator">● High Virality</span>
-                    </div>
-
-                    <div className="phone-mockup-content">
-                      <h4>{currentGoalData.mockupTitle}</h4>
-
-                      <div className="social-stat-row">
-                        <div className="social-stat-box">
-                          <div className="stat-lbl">{currentGoalData.stat1Label}</div>
-                          <div className="stat-num">{currentGoalData.stat1Val}</div>
-                        </div>
-                        <div className="social-stat-box">
-                          <div className="stat-lbl">{currentGoalData.stat2Label}</div>
-                          <div className="stat-num">{currentGoalData.stat2Val}</div>
-                        </div>
+                        <ul className="service-feature-checklist">
+                          {srv.features.map((feat, fIdx) => (
+                            <li key={fIdx}>
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                              </svg>
+                              {feat}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                  </div>
 
-                  <Link
-                    href={`/contact?service=Social%20Media%20Marketing&goal=${encodeURIComponent(currentGoalData.title)}`}
-                    className="phone-cta-btn"
-                  >
-                    <span>{currentGoalData.buttonText}</span>
-                  </Link>
-                </div>
-              </div>
+                    <div className="service-card-footer">
+                      <Link
+                        href={`/contact?service=${encodeURIComponent(srv.title)}`}
+                        className="service-learn-more"
+                      >
+                        <span>Scale With This</span>
+                        <span className="arrow-icon">→</span>
+                      </Link>
+                      <span className="service-channel-tag">{srv.channelTag}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            4. INTERACTIVE SMM PACKAGE & GROWTH TIER ESTIMATOR
+            3. 6-STAGE SOCIAL MEDIA BLUEPRINT
             ======================================================== */}
-        <section className="smm-estimator-section">
+<section className="smm-process-section" ref={processSectionRef}>
           <div className="container">
-            <div className="estimator-card-wrapper">
-              <div className="estimator-header">
-                <span className="estimator-eyebrow">Investment Calculator</span>
-                <h3>Estimate Your Social Media Growth Package</h3>
-                <p>Customize your brand tier and target distribution channels for an instant monthly roadmap.</p>
-              </div>
-
-              <div className="estimator-grid">
-                {/* Left Controls */}
-                <div className="estimator-controls">
-                  {/* Step 1: Stage */}
-                  <div className="control-group">
-                    <label className="control-label">Step 1: Current Brand Stage</label>
-                    <div className="pill-options-wrap">
-                      {STAGE_OPTIONS.map((stg) => (
-                        <button
-                          key={stg.id}
-                          className={`estimator-option-btn ${selectedStage === stg.id ? 'active' : ''}`}
-                          onClick={() => setSelectedStage(stg.id)}
-                        >
-                          {stg.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 2: Frequency */}
-                  <div className="control-group">
-                    <label className="control-label">Step 2: Desired Content Frequency</label>
-                    <div className="pill-options-wrap">
-                      {FREQUENCY_OPTIONS.map((freq) => (
-                        <button
-                          key={freq.id}
-                          className={`estimator-option-btn ${selectedFrequency === freq.id ? 'active' : ''}`}
-                          onClick={() => setSelectedFrequency(freq.id)}
-                        >
-                          {freq.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 3: Channels */}
-                  <div className="control-group">
-                    <label className="control-label">Step 3: Select Focus Channels</label>
-                    <div className="pill-options-wrap">
-                      {CHANNEL_OPTIONS.map((ch) => {
-                        const isChecked = selectedChannels.includes(ch.id);
-                        return (
-                          <button
-                            key={ch.id}
-                            className={`estimator-option-btn ${isChecked ? 'active' : ''}`}
-                            onClick={() => toggleChannel(ch.id)}
-                          >
-                            {isChecked ? '✓ ' : '+ '}
-                            {ch.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Summary Card */}
-                <div className="estimator-summary-card">
-                  <span className="summary-badge">Custom Growth Projection</span>
-                  <div className="summary-title">{currentStage.label}</div>
-
-                  <div className="summary-metrics-row">
-                    <div className="metric-box">
-                      <div className="metric-label">Projected Reach</div>
-                      <div className="metric-val">{currentStage.reach}</div>
-                    </div>
-                    <div className="metric-box">
-                      <div className="metric-label">Estimated Retainer</div>
-                      <div className="metric-val">{currentStage.basePrice}</div>
-                    </div>
-                  </div>
-
-                  <div className="summary-strategy-rec">
-                    <strong>Recommended Strategy:</strong> {currentStage.strategy} across {selectedChannels.length}{' '}
-                    priority platform{selectedChannels.length > 1 ? 's' : ''}.
-                  </div>
-
-                  <Link
-                    href={`/contact?service=Social%20Media%20Marketing&stage=${selectedStage}&channels=${selectedChannels.join(',')}`}
-                    className="estimator-cta-btn"
-                  >
-                    <span>Claim Your Custom SMM Strategy →</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            5. 6-STAGE VIRAL SMM LIFECYCLE
-            ======================================================== */}
-        <section className="smm-process-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Execution Methodology</span>
-              <h2 className="section-heading">Our 6-Stage Viral Growth Blueprint</h2>
+            <div className="section-header-wrap" ref={processHeaderRef}>
+              <span className="section-eyebrow">Growth Methodology</span>
+              <h2 className="section-heading">Our 6-Stage Social Media Blueprint</h2>
               <p className="section-subtext">
-                How we take brands from zero algorithmic traction to millions of views and predictable revenue streams.
+                A data-backed organic and paid framework engineered to compound community growth, engagement, and revenue.
               </p>
             </div>
 
-            <div className="process-steps-grid">
-              {PROCESS_STAGES.map((stg) => (
-                <div key={stg.step} className="process-step-card">
-                  <div className="step-num-badge">{stg.step}</div>
-                  <h3 className="step-title">{stg.title}</h3>
-                  <p className="step-desc">{stg.desc}</p>
-                </div>
-              ))}
+            <div className="process-steps-grid" ref={processGridRef}>
+              {PROCESS_STAGES.map((stg, idx) => {
+                const isLeft = idx % 3 === 0;
+                const isCenter = idx % 3 === 1;
+                const isRight = idx % 3 === 2;
+                return (
+                  <div
+                    key={stg.step}
+                    className={`process-step-card step-idx-${idx + 1} ${
+                      isLeft ? 'card-side-left' : isRight ? 'card-side-right' : 'card-center'
+                    }`}
+                  >
+                    <div className="step-num-badge">{stg.step}</div>
+                    <h3 className="step-title">{stg.title}</h3>
+                    <p className="step-desc">{stg.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            6. BENCHMARK COMPARISON MATRIX
-            ======================================================== */}
-        <section className="smm-benchmark-section">
-          <div className="container">
-            <div className="section-header-wrap">
-              <span className="section-eyebrow">Why Vastora Tech</span>
-              <h2 className="section-heading">How We Compare Against The Industry</h2>
-              <p className="section-subtext">
-                We replace outdated stock imagery with viral short-form video and high-ROAS paid conversion systems.
-              </p>
-            </div>
-
-            <div className="benchmark-table-card">
-              <div className="table-responsive">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style={{ width: '34%' }}>Performance Standard</th>
-                      <th className="highlight-col" style={{ width: '28%' }}>
-                        Vastora Tech (Our Agency)
-                      </th>
-                      <th style={{ width: '20%' }}>Generic SMM Agencies</th>
-                      <th style={{ width: '18%' }}>In-House Novices</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {BENCHMARK_ROWS.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        <td className="feature-name">{row.feature}</td>
-                        <td className="highlight-col">✓ {row.vastora}</td>
-                        <td className="legacy-col">{row.legacy}</td>
-                        <td className="legacy-col">{row.inhouse}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            7. INTERACTIVE FAQ ACCORDION
+            4. FREQUENTLY ASKED QUESTIONS
             ======================================================== */}
         <section className="smm-faq-section">
           <div className="container">

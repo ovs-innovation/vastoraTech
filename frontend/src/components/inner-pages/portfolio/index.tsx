@@ -1,16 +1,13 @@
-import BreadcrumbSeven from "@/components/common/breadcrumb/breadcrumb-7";
 import FooterFive from "@/layout/footers/FooterFive";
-import HeaderSix from "@/layout/headers/HeaderSix";
-import PortfolioArea from "./PortfolioArea";
-
+import HeaderFive from "@/layout/headers/HeaderFive";
+import PortfolioAreaTwo from "../portfolio-2/PortfolioAreaTwo";
 
 const Portfolio = () => {
 	return (
 		<>
-			<HeaderSix style={true} />
+			<HeaderFive />
 			<main>
-				<BreadcrumbSeven top_title="Case Studies" title="Case Studies" />
-				<PortfolioArea />
+				<PortfolioAreaTwo />
 			</main>
 			<FooterFive style={true} />
 		</>

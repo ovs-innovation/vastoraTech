@@ -4,16 +4,80 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Search, Filter, ExternalLink, Info, ShoppingBag, Sparkles, CheckCircle2 } from "lucide-react";
+import { Search, Filter, ShoppingBag } from "lucide-react";
 import EcommerceInfoArea from "./EcommerceInfoArea";
 import ecommerceNoidaImg from "@/assets/img/services/ecommerce-noida.png";
+import DemosHorizontalShowcase, { DemoItem } from "./DemosHorizontalShowcase";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
 
+const DEFAULT_DEMOS: DemoItem[] = [
+  {
+    slug: "fashion-that-speaks",
+    title: "Fashion That Speaks",
+    subtitle: "Where Trend Meets Comfort",
+    description:
+      "A perfect blend of creativity, luxury, and comfort crafted to match your lifestyle and make every outfit memorable.",
+    category: "Fashion",
+    image: "/assets/img/portfolio/project-portfolio-1.png",
+    demoUrl: "https://tossmart.com/",
+  },
+  {
+    slug: "glow-and-beauty-essentials",
+    title: "Glow & Beauty Essentials",
+    subtitle: "Enhance Your Natural Radiance",
+    description:
+      "Discover premium beauty products designed to nourish your skin, elevate your glow, and bring out your inner confidence.",
+    category: "Beauty",
+    image: "/assets/img/portfolio/project-portfolio-2.png",
+    demoUrl: "https://candyflossbeautypalace.com/",
+  },
+  {
+    slug: "jewellery-ecommerce-solution",
+    title: "Jewellery E-commerce Solution",
+    subtitle: "Brilliance Engineered: High-Performance",
+    description:
+      "E-Jewellery is a complete, full-stack digital solution crafted specifically for the high-value jewellery industry.",
+    category: "Jewellery",
+    image: "/assets/img/portfolio/project-portfolio-3.png",
+    demoUrl: "https://thelearnskills.com/",
+  },
+  {
+    slug: "electromart-electronics",
+    title: "ElectroMart (One-Stop Electronics Destination)",
+    subtitle: "Smart Gadgets, Better Living",
+    description:
+      "Explore the latest mobiles, laptops, gadgets, and tech accessories with unmatched performance and best-in-class pricing.",
+    category: "Electronic",
+    image: "/assets/img/portfolio/project-portfolio-4.png",
+    demoUrl: "https://hotelsweetdreams.ovsinnovation.com/",
+  },
+  {
+    slug: "health-and-herbs",
+    title: "Health & Herbs – Natural Wellness Products",
+    subtitle: "Pure Health, Natural Life",
+    description:
+      "Health & Herbs offers a premium range of natural remedies, organic supplements, and holistic wellness solutions.",
+    category: "Health & Herbs",
+    image: "/assets/img/portfolio/project-portfolio-10.png",
+    demoUrl: "https://healthnherbs.in/",
+  },
+  {
+    slug: "fashion-apparel-ecommerce",
+    title: "Fashion and Apparel E-Commerce",
+    subtitle: "Elevate Your Wardrobe with Trend-Driven Style",
+    description:
+      "Discover a curated collection of contemporary fashion engineered for conversion, seamless checkout, and brand impact.",
+    category: "Fashion",
+    image: "/assets/img/portfolio/project-portfolio-5.png",
+    demoUrl: "https://prosperrainfra.com/",
+  },
+];
+
 const DemosListingArea: React.FC = () => {
   const router = useRouter();
-  const [demos, setDemos] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [demos, setDemos] = useState<DemoItem[]>(DEFAULT_DEMOS);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
@@ -33,11 +97,23 @@ const DemosListingArea: React.FC = () => {
       .then((res) => res.json())
       .then((data) => {
         const items = data.demos || data.data || [];
-        setDemos(items);
-        if (!opts?.category && !opts?.search) {
+        if (Array.isArray(items) && items.length > 0) {
+          setDemos(items);
+          if (!opts?.category && !opts?.search) {
+            const unique = Array.from(
+              new Set(
+                items
+                  .map((d: any) => d?.category)
+                  .filter((c: any) => typeof c === "string" && c.trim().length > 0)
+              )
+            ) as string[];
+            setCategories(unique.sort((a, b) => a.localeCompare(b)));
+          }
+        } else {
+          setDemos(DEFAULT_DEMOS);
           const unique = Array.from(
             new Set(
-              items
+              DEFAULT_DEMOS
                 .map((d: any) => d?.category)
                 .filter((c: any) => typeof c === "string" && c.trim().length > 0)
             )
@@ -45,7 +121,18 @@ const DemosListingArea: React.FC = () => {
           setCategories(unique.sort((a, b) => a.localeCompare(b)));
         }
       })
-      .catch(() => setError("Could not fetch demo projects"))
+      .catch(() => {
+        setError("Could not fetch demo projects");
+        setDemos(DEFAULT_DEMOS);
+        const unique = Array.from(
+          new Set(
+            DEFAULT_DEMOS
+              .map((d: any) => d?.category)
+              .filter((c: any) => typeof c === "string" && c.trim().length > 0)
+          )
+        ) as string[];
+        setCategories(unique.sort((a, b) => a.localeCompare(b)));
+      })
       .finally(() => setLoading(false));
   };
 
@@ -62,6 +149,20 @@ const DemosListingArea: React.FC = () => {
     setCategory(selectedCat);
     fetchDemos({ search, category: selectedCat });
   };
+
+  const activeDemos = demos.length > 0 ? demos : DEFAULT_DEMOS;
+
+  const displayDemos = activeDemos.filter((demo) => {
+    const matchesSearch = !search
+      ? true
+      : demo.title?.toLowerCase().includes(search.toLowerCase()) ||
+        demo.description?.toLowerCase().includes(search.toLowerCase()) ||
+        demo.category?.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = !category
+      ? true
+      : demo.category?.toLowerCase() === category.toLowerCase();
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <>
@@ -150,118 +251,15 @@ const DemosListingArea: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Demos Showcase Grid */}
-          <div className="vt-demos-grid-wrap">
-            {loading ? (
-              <div className="text-center py-5">
-                <div className="spinner-border text-primary" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-                <p className="mt-3 text-muted">Loading high-performance eCommerce demos...</p>
-              </div>
-            ) : error ? (
-              <div className="alert alert-warning text-center" role="alert">
-                {error}
-              </div>
-            ) : demos.length === 0 ? (
-              <div className="text-center py-5 bg-light rounded-4">
-                <ShoppingBag size={40} className="text-muted mb-2" />
-                <h4 className="text-dark">No eCommerce demos found</h4>
-                <p className="text-muted">Try adjusting your search criteria or category filter.</p>
-              </div>
-            ) : (
-              <div className="row g-4">
-                {demos.map((demo: any) => {
-                  const imageSrc = demo.images?.[0] || demo.image;
-                  const isImageFailed = !imageSrc || imageErrors[demo.slug];
+      {/* 2. Cinematic Horizontal Scrolling Portfolio Showcase */}
+      <DemosHorizontalShowcase demos={displayDemos} loading={loading && demos.length === 0} />
 
-                  return (
-                    <div className="col-md-6 col-lg-4" key={demo.slug}>
-                      <div
-                        className="vt-demo-card"
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => router.push(`/product/e-commerce-solutions/${demo.slug}`)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            router.push(`/product/e-commerce-solutions/${demo.slug}`);
-                          }
-                        }}
-                      >
-                        {/* Thumbnail Wrap */}
-                        <div className="card-img-container">
-                          {isImageFailed ? (
-                            <div className="demo-img-fallback">
-                              <div className="fallback-icon">
-                                <ShoppingBag size={24} />
-                              </div>
-                              <h4 className="fallback-title">{demo.title}</h4>
-                            </div>
-                          ) : (
-                            <Image
-                              src={imageSrc}
-                              alt={demo.title}
-                              title={demo.title}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              className="demo-main-img"
-                              onError={() =>
-                                setImageErrors((prev) => ({ ...prev, [demo.slug]: true }))
-                              }
-                            />
-                          )}
-
-                          {demo.category && (
-                            <span className="demo-category-badge">{demo.category}</span>
-                          )}
-                        </div>
-
-                        {/* Card Body */}
-                        <div className="card-body-content">
-                          <h3 className="demo-card-title">{demo.title}</h3>
-
-                          {demo.subtitle && (
-                            <div className="demo-card-subtitle">{demo.subtitle}</div>
-                          )}
-
-                          <p className="demo-card-desc">{demo.description}</p>
-
-                          {/* Action Buttons */}
-                          <div className="demo-actions-row">
-                            <Link
-                              href={`/product/e-commerce-solutions/${demo.slug}`}
-                              className="btn-know-more"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Info size={15} />
-                              <span>Know More</span>
-                            </Link>
-
-                            {demo.demoUrl && (
-                              <a
-                                href={demo.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-live-preview"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <span>Live Preview</span>
-                                <ExternalLink size={14} />
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-
-          {/* 2. Noida Agency Story & Architecture Section */}
+      {/* 3. Noida Agency Story & Architecture Section */}
+      <section className="vt-ecom-story-section">
+        <div className="container">
           <div className="vt-noida-agency-section">
             <div className="agency-story-card">
               <div className="row align-items-center">

@@ -1,93 +1,212 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { Compass, Target, Sparkles } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import { Compass, Target, Sparkles, Layers, ShieldCheck, Zap, Globe2, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const MissionPurpose: React.FC = () => {
-  const missionCardRef = useRef<HTMLDivElement>(null);
-  const purposeCardRef = useRef<HTMLDivElement>(null);
+  const missionBlockRef = useRef<HTMLDivElement>(null);
+  const visionBlockRef = useRef<HTMLDivElement>(null);
 
-  const [missionCoords, setMissionCoords] = useState({ x: 50, y: 50 });
-  const [purposeCoords, setPurposeCoords] = useState({ x: 50, y: 50 });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Gentle fade-up entrance animation for Mission block
+      if (missionBlockRef.current) {
+        gsap.fromTo(
+          missionBlockRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: missionBlockRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>,
-    ref: React.RefObject<HTMLDivElement>,
-    setCoords: (coords: { x: number; y: number }) => void
-  ) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setCoords({ x, y });
-  };
+      // Gentle fade-up entrance animation for Vision block
+      if (visionBlockRef.current) {
+        gsap.fromTo(
+          visionBlockRef.current,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: visionBlockRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="vt-mission-purpose-section" id="our-mission-purpose">
-      <div className="container">
-        <div className="vt-mission-grid">
-          {/* Panel 1: Our Mission (Luminous Light Tech Card) */}
-          <div
-            ref={missionCardRef}
-            className="vt-mission-card card-mission-variant"
-            onMouseMove={(e) => handleMouseMove(e, missionCardRef, setMissionCoords)}
-            style={{
-              ["--mouse-x" as any]: `${missionCoords.x}%`,
-              ["--mouse-y" as any]: `${missionCoords.y}%`,
-            }}
-          >
-            {/* Interactive Spotlight Overlay */}
-            <div className="card-spotlight" />
+    <section className="vt-mission-vision-section" id="mission-vision" aria-label="Our Mission and Vision">
+      {/* ========================================================
+          EDITORIAL PANEL 1: OUR MISSION (Pure White #FFFFFF)
+          ======================================================== */}
+      <div className="mission-panel-white" ref={missionBlockRef}>
+        <div className="container">
+          <div className="row g-5 align-items-center">
+            {/* Left Column: Heading and Narrative */}
+            <div className="col-lg-6">
+              <div className="editorial-text-wrap">
+                <div className="vt-section-badge">
+                  <span className="vt-badge-dot" />
+                  <span>OUR MISSION</span>
+                </div>
 
-            {/* Faint Abstract Quote / Compass Mark */}
-            <div className="card-geom-mark" aria-hidden="true">
-              “
-            </div>
+                <h2 className="editorial-main-title">
+                  Engineering Resilient Digital Systems That{" "}
+                  <span className="text-primary-blue">Fuel Market Dominance.</span>
+                </h2>
 
-            <div>
-              <div className="card-header-row">
-                <span className="card-tag">North Star</span>
-                <Compass size={22} className="text-primary" />
+                <p className="editorial-lead">
+                  At Vastora Tech, our mission is to eliminate digital friction between ambitious businesses
+                  and their customers. We blend high-performance Next.js architectures, modern cloud
+                  microservices, and human-first UX design into platforms that perform under pressure and convert relentlessly.
+                </p>
+
+                <p className="editorial-body">
+                  We don’t settle for off-the-shelf templates. Every architecture we produce is bespoke,
+                  built for speed, accessibility, and high transaction volume, ensuring your company
+                  commands digital authority from day one.
+                </p>
               </div>
-              <h3 className="card-title">Our mission</h3>
-              <p className="card-text">
-                To empower businesses with smart, scalable eCommerce solutions that drive faster growth and better customer experiences.
-              </p>
             </div>
 
-            <div className="card-accent-bar" />
+            {/* Right Column: 3 Elegant Accent Graphic Pillars */}
+            <div className="col-lg-6">
+              <div className="editorial-pillars-grid">
+                <div className="pillar-item">
+                  <div className="pillar-icon-box">
+                    <ShieldCheck size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">Architectural Rigor</h3>
+                    <p className="pillar-desc">
+                      Zero-compromise engineering, high-throughput microservices, sub-second latency, and ISO-grade security standards.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pillar-item">
+                  <div className="pillar-icon-box">
+                    <Compass size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">Human-Centered Design</h3>
+                    <p className="pillar-desc">
+                      Intuitive, bespoke UX journeys meticulously designed to elevate brand perception, reduce bounce rates, and multiply conversions.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pillar-item">
+                  <div className="pillar-icon-box">
+                    <Zap size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">Measurable Commercial ROI</h3>
+                    <p className="pillar-desc">
+                      Every code release and design iteration is mapped to measurable business outcomes, customer retention, and compounding revenue.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Panel 2: Our Purpose (Deep Navy High-Performance Card) */}
-          <div
-            ref={purposeCardRef}
-            className="vt-mission-card card-purpose-variant"
-            onMouseMove={(e) => handleMouseMove(e, purposeCardRef, setPurposeCoords)}
-            style={{
-              ["--mouse-x" as any]: `${purposeCoords.x}%`,
-              ["--mouse-y" as any]: `${purposeCoords.y}%`,
-            }}
-          >
-            {/* Interactive Spotlight Overlay */}
-            <div className="card-spotlight" />
+      {/* ========================================================
+          EDITORIAL PANEL 2: OUR VISION (Very Light Blue #F4F8FF)
+          ======================================================== */}
+      <div className="vision-panel-lightblue" ref={visionBlockRef}>
+        <div className="container">
+          <div className="row g-5 align-items-center">
+            {/* Left Column: 3 Strategic Horizon Pillars */}
+            <div className="col-lg-6 order-lg-1 order-2">
+              <div className="editorial-pillars-grid">
+                <div className="pillar-item vision-pillar">
+                  <div className="pillar-icon-box">
+                    <Globe2 size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">Headless Commerce Everywhere</h3>
+                    <p className="pillar-desc">
+                      Pioneering decoupled, ultra-fast eCommerce storefronts deployed seamlessly at the edge for instant worldwide load times.
+                    </p>
+                  </div>
+                </div>
 
-            {/* Faint Abstract Target / Compass Mark */}
-            <div className="card-geom-mark" aria-hidden="true">
-              ✦
-            </div>
+                <div className="pillar-item vision-pillar">
+                  <div className="pillar-icon-box">
+                    <Sparkles size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">AI-Accelerated Platforms</h3>
+                    <p className="pillar-desc">
+                      Integrating predictive user personalization, intelligent search, and autonomous business workflows directly into digital platforms.
+                    </p>
+                  </div>
+                </div>
 
-            <div>
-              <div className="card-header-row">
-                <span className="card-tag">Core Drive</span>
-                <Target size={22} style={{ color: "#38BDF8" }} />
+                <div className="pillar-item vision-pillar">
+                  <div className="pillar-icon-box">
+                    <Layers size={22} />
+                  </div>
+                  <div className="pillar-info">
+                    <h3 className="pillar-title">Uncapped Global Scale</h3>
+                    <p className="pillar-desc">
+                      Building elastic serverless architectures capable of seamlessly supporting millions of concurrent transactions with zero degradation.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="card-title">Our purpose</h3>
-              <p className="card-text">
-                To be a trusted eCommerce partner helping brands of all sizes launch, scale, and succeed with innovative, technology-driven solutions.
-              </p>
             </div>
 
-            <div className="card-accent-bar" />
+            {/* Right Column: Heading and Forward-Looking Narrative */}
+            <div className="col-lg-6 order-lg-2 order-1">
+              <div className="editorial-text-wrap">
+                <div className="vt-section-badge">
+                  <span className="vt-badge-dot" />
+                  <span>OUR VISION</span>
+                </div>
+
+                <h2 className="editorial-main-title">
+                  Shaping the Global Standard for{" "}
+                  <span className="text-primary-blue">Intelligent Digital Commerce.</span>
+                </h2>
+
+                <p className="editorial-lead">
+                  We envision an ecosystem where digital commerce is fluid, context-aware, and effortlessly
+                  responsive. As modern consumers demand instant gratification, Vastora Tech leads the frontier of intelligent full-stack engineering.
+                </p>
+
+                <p className="editorial-body">
+                  By converging modern frontend performance, headless composable architectures, and AI-assisted
+                  conversion optimization, we empower our partners to stay 5 steps ahead of their competitors.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -13,10 +13,30 @@ const contactSubmissionSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    phone: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    website: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    company: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    hearAboutUs: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     subject: {
       type: String,
-      required: true,
       trim: true,
+      default: "Website Inquiry",
     },
     message: {
       type: String,

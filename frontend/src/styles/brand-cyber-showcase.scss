@@ -5,37 +5,11 @@
 .client-showcase.cyber-showcase-section {
   position: relative;
   /* Matches Vastora Tech clean brand aesthetic (Light slate / subtle sky tint) */
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 60%, #ffffff 100%);
+  background: #f8fafc;
   overflow: hidden;
   padding: 46px 0 52px; /* Decreased height drastically */
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
-
-  /* Subtle ambient pattern */
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(0, 98, 245, 0.05) 1px, transparent 1px);
-    background-size: 28px 28px;
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Very subtle ambient radial glow behind header */
-  &::after {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 650px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(0, 98, 245, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 1;
-  }
 
   .cyber-ambient-orb {
     display: none; /* Remove dark heavy orbs */
@@ -98,10 +72,6 @@
     .cyber-gradient-highlight {
       display: inline;
       color: #0062f5;
-      background: linear-gradient(135deg, #0062f5 0%, #2563eb 50%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: none;
     }
   }
 

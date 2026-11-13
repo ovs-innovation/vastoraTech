@@ -5,7 +5,7 @@
 .services-area-enhanced {
   position: relative;
   padding: 85px 0 95px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #ffffff 100%);
+  background-color: #ffffff;
   overflow: hidden;
 
   /* Ambient dot pattern */
@@ -65,7 +65,7 @@
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #0062f5;
+        color: #296cb3;
       }
     }
 
@@ -80,9 +80,7 @@
       text-wrap: balance;
 
       .gradient-highlight {
-        background: linear-gradient(135deg, #0062f5 0%, #2563eb 55%, #38bdf8 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #296cb3;
         display: inline;
       }
     }
@@ -290,11 +288,11 @@
 
   /* Bottom Consultation Action Strip */
   .services-consultation-strip {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0062f5;
+    border: none;
     border-radius: 20px;
     padding: 24px 36px;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 16px 40px rgba(0, 98, 245, 0.25);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -397,16 +395,7 @@
     position: relative;
     width: 100%;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(226, 232, 240, 0.4) 15%,
-      rgba(203, 213, 225, 0.85) 35%,
-      rgba(0, 98, 245, 0.45) 50%,
-      rgba(203, 213, 225, 0.85) 65%,
-      rgba(226, 232, 240, 0.4) 85%,
-      transparent 100%
-    );
+    background: #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;

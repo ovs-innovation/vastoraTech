@@ -5,12 +5,12 @@
 
 .footer-enhanced-wrap {
   position: relative;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f1f5f9 100%);
+  background: #ffffff;
   padding-top: 85px;
   overflow: hidden;
   border-top: 1px solid #e2e8f0;
 
-  /* Top gradient hairline accent */
+  /* Top accent */
   &::before {
     content: "";
     position: absolute;
@@ -18,21 +18,13 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #0062f5 50%, transparent 100%);
+    background: #0062f5;
     z-index: 2;
   }
 
   /* Ambient soft glow */
   .footer-ambient-aura {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(0, 98, 245, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    display: none;
   }
 
   .container {
