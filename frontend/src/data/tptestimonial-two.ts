@@ -18,7 +18,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
     id: 1,
     img: avatar_2,
     sm_des:
-      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
+      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. Vastora Tech stood out with their uncompromising engineering approach.!",
     name: "Alex Baradi",
     job_title: "Developer advocate at graph expert.",
   },
@@ -26,7 +26,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
     id: 2,
     img: avatar_2,
     sm_des:
-      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
+      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. Vastora Tech stood out with their uncompromising engineering approach.!",
     name: "Robert Fox",
     job_title: "Developer advocate at graph expert.",
   },
@@ -34,7 +34,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
     id: 3,
     img: avatar_2,
     sm_des:
-      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
+      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. Vastora Tech stood out with their uncompromising engineering approach.!",
     name: "Anna Lin",
     job_title: "Developer advocate at graph expert.",
   },
@@ -42,7 +42,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
     id: 4,
     img: avatar_2,
     sm_des:
-      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
+      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. Vastora Tech stood out with their uncompromising engineering approach.!",
     name: "Byron Conner",
     job_title: "Developer advocate at graph expert.",
   },
@@ -50,7 +50,7 @@ const testimonial_data_two: testimonial_data_two_type[] = [
     id: 5,
     img: avatar_2,
     sm_des:
-      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. SEOMY stood out was surprised by approach.!",
+      "I'm the kind of person who obsesses over and hand- <br /> tunes the performance of  my websites. By now, I think I've used pretty much every tool and technique out there to save bytes and milliseconds. Vastora Tech stood out with their uncompromising engineering approach.!",
     name: "Anna Lin",
     job_title: "Developer advocate at graph expert.",
   },

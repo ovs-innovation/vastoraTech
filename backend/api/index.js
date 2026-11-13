@@ -105,14 +105,11 @@ app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 //   cors: {
 //     origin: [
 //       "http://localhost:3000",
-//       "http://localhost:4100",
-//       "https://admin-kachabazar.vercel.app",
-//       "https://dashtar-admin.vercel.app",
-//       "https://kachabazar-store.vercel.app",
-//       "https://kachabazar-admin.netlify.app",
-//       "https://dashtar-admin.netlify.app",
-//       "https://kachabazar-store-nine.vercel.app",
-//     ], //add your origin here instead of this
+//       "http://localhost:5173",
+//       "https://vastoratech.com",
+//       "https://admin.vastoratech.com",
+//       "https://api.vastoratech.com",
+//     ],
 //     methods: ["PUT", "GET", "POST", "DELETE", "PATCH", "OPTIONS"],
 //     credentials: false,
 //     transports: ["websocket"],

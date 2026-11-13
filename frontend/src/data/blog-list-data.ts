@@ -26,7 +26,7 @@ const blog_list: blog_list_type[] = [
     {
         id: 1,
         img: blog_thumb_1,
-        catagory: "SEOMY SEO",
+        catagory: "SEO & Digital Strategy",
         title: "Paid Ads vs. SEO: Which is Better?",
         sm_des: "No one rejects, dislikes, or avoids pleasure sit itself, because it is pleasure",
         time: "Jun 23, 2023",

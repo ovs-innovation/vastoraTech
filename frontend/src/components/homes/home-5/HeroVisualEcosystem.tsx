@@ -1,205 +1,318 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  TrendingUp,
-  ShoppingCart,
-  MoreHorizontal,
-  CheckCircle2,
-  Sparkles,
-  ArrowUpRight,
-} from "lucide-react";
-
-import vastoraOrb from "@/assets/img/banner/hero_vastora_pure_logo.png";
+import crystalSculptureFlawless from "@/assets/img/hero/sculpture-v-crystal-flawless.png";
 
 const HeroVisualEcosystem: React.FC = () => {
-  const [activeBarHover, setActiveBarHover] = useState<number | null>(null);
-  const [isSpeedScanning, setIsSpeedScanning] = useState(false);
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const [tiltStyle, setTiltStyle] = useState({
+    transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
+  });
+  const [isHovered, setIsHovered] = useState(false);
 
-  const salesBars = [
-    { height: 40, day: "Mon", val: "$3.1k" },
-    { height: 55, day: "Tue", val: "$4.2k" },
-    { height: 35, day: "Wed", val: "$2.8k" },
-    { height: 70, day: "Thu", val: "$5.6k" },
-    { height: 85, day: "Fri", val: "$6.9k" },
-    { height: 100, day: "Sat", val: "$8.2k" },
-  ];
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!stageRef.current) return;
+    const rect = stageRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-  const handleSpeedHover = () => {
-    setIsSpeedScanning(true);
-    setTimeout(() => setIsSpeedScanning(false), 1600);
+    // Responsive 3D perspective tilt (smooth & subtle)
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 7;
+
+    setTiltStyle({
+      transform: `perspective(1400px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.015)`,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setTiltStyle({
+      transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
+    });
   };
 
   return (
-    <div className="hero-3d-ecosystem-wrapper">
-      {/* Background Ambient Glow & Light Rays */}
-      <div className="hero-3d-backdrop" aria-hidden="true">
-        <div className="ambient-radial-glow" />
-        <div className="ambient-light-sweep" />
-      </div>
-
-      {/* Spacious 3D Interactive Stage */}
-      <div className="hero-3d-stage">
-        {/* ========================================================
-            CENTER CORE: PURE 3D BLUE VASTORA LOGO (UNCONGESTED & PROMINENT)
-            ======================================================== */}
-        <div className="hero-center-orb-wrap" title="Vastora Tech">
-          <div className="orb-glow-halo" aria-hidden="true" />
-          <Image
-            src={vastoraOrb}
-            alt="Vastora 3D Blue Logo"
-            width={380}
-            height={380}
-            className="hero-center-orb-img"
-            priority
-          />
-        </div>
-
-        {/* ========================================================
-            1. TOP-LEFT: DEDICATED SOCIAL MEDIA & CREATOR GROWTH CARD
-            (High-Priority Feature for Social Media Authority)
-            ======================================================== */}
-        <Link
-          href="/services/social-media-marketing-services"
-          className="hero-floating-card card-social-growth float-anim-1"
-          title="Explore Social Media Marketing Services"
-        >
-          <div className="social-growth-header">
-            <div className="social-title-wrap">
-              <span className="social-pulse-dot" />
-              <span className="social-card-tag">Social Growth &amp; Reach</span>
-            </div>
-            <ArrowUpRight size={13} className="social-arrow-icon" />
+    <div
+      className="monumental-sculpture-stage"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      aria-label="Vastora Tech Kinetic 3D Brand Installation"
+    >
+      {/* 3D Dynamic Parallax Chassis */}
+      <div ref={stageRef} className="sculpture-3d-chassis" style={tiltStyle}>
+        
+        {/* Layer 1: Back Elements (z-index: 1 - Strictly Behind the V) */}
+        <div className="stage-depth-layer stage-layer-back" aria-hidden="true">
+          {/* Single 3D Glass Orbital Ring - Back Arc (Loops Behind the V) */}
+          <div className="single-glass-orbit-chassis orbit-arc-back">
+            <svg
+              className="orbit-vector-canvas"
+              viewBox="0 0 620 230"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="singleRingBackGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                  <stop offset="25%" stopColor="#7dd3fc" stopOpacity="0.75" />
+                  <stop offset="55%" stopColor="#0284c7" stopOpacity="0.35" />
+                  <stop offset="85%" stopColor="#38bdf8" stopOpacity="0.75" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.95" />
+                </linearGradient>
+              </defs>
+              {/* Upper / Back Arc of the Single Continuous Glass Torus */}
+              <path
+                d="M 12 115 A 298 90 0 0 1 608 115"
+                stroke="url(#singleRingBackGrad)"
+                strokeWidth="7.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
+            <div className="orbit-specular-glint glint-back-arc" />
           </div>
 
-          <div className="social-headline-row">
-            <span className="social-reach-val">15M+</span>
-            <span className="social-reach-label">Viral Views</span>
-          </div>
-
-          {/* Official Channel Icons Row */}
-          <div className="social-channels-row">
-            {/* Instagram */}
-            <div className="channel-icon-pill insta-pill" title="Instagram Growth">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="6" stroke="#ffffff" strokeWidth="2" />
-                <circle cx="12" cy="12" r="4.5" stroke="#ffffff" strokeWidth="2" />
-                <circle cx="17.5" cy="6.5" r="1.2" fill="#ffffff" />
-              </svg>
-            </div>
-
-            {/* YouTube */}
-            <div className="channel-icon-pill yt-pill" title="YouTube Growth">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffffff">
-                <path d="M21.5 7.2a2.7 2.7 0 0 0-1.9-1.9C18 4.8 12 4.8 12 4.8s-6 0-7.6.5A2.7 2.7 0 0 0 2.5 7.2C2 8.8 2 12 2 12s0 3.2.5 4.8a2.7 2.7 0 0 0 1.9 1.9c1.6.5 7.6.5 7.6.5s6 0 7.6-.5a2.7 2.7 0 0 0 1.9-1.9c.5-1.6.5-4.8.5-4.8s0-3.2-.5-4.8zM10 15V9l5.5 3-5.5 3z" />
-              </svg>
-            </div>
-
-            {/* Facebook / Meta */}
-            <div className="channel-icon-pill fb-pill" title="Meta &amp; Facebook Ads">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffffff">
-                <path d="M14 13.5h2.5l.5-3H14v-1.8c0-.8.3-1.4 1.4-1.4H17V4.6c-.5-.1-1.4-.2-2.4-.2-2.5 0-4.1 1.5-4.1 4.3v2H8v3h2.5V22h3.5v-8.5z" />
-              </svg>
-            </div>
-
-            {/* LinkedIn */}
-            <div className="channel-icon-pill li-pill" title="LinkedIn B2B">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#ffffff">
-                <path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5s-2.48-1.12-2.48-2.5c0-1.39 1.11-2.5 2.48-2.5s2.48 1.11 2.48 2.5zm.02 4.5H0V24h5V8zm7.98 0H8.02V24h4.96v-8.4c0-4.48 5.82-4.85 5.82 0V24H24v-10.4c0-8.1-8.73-7.82-11.02-3.82V8z" />
-              </svg>
-            </div>
-
-            <span className="social-community-tag">500k+ Fans</span>
-          </div>
-        </Link>
-
-        {/* ========================================================
-            2. TOP-RIGHT: TOTAL SALES & ROI CHART
-            (Proves E-Commerce & Growth Results)
-            ======================================================== */}
-        <div className="hero-floating-card card-sales float-anim-3">
-          <div className="sales-card-header">
-            <span className="sales-label">TOTAL SALES</span>
-            <MoreHorizontal size={14} className="sales-more-dots" />
-          </div>
-          <div className="sales-metric-row">
-            <span className="sales-metric-val">$24,780</span>
-            <span className="sales-growth-pill">
-              <TrendingUp size={10} className="growth-arr" /> +42%
-            </span>
-          </div>
-
-          {/* Interactive 6-Bar Graph */}
-          <div className="sales-bars-graph">
-            {salesBars.map((bar, idx) => (
-              <div
-                key={idx}
-                className={`graph-bar ${activeBarHover === idx ? "hovered" : ""} ${
-                  idx === 5 ? "active" : ""
-                }`}
-                style={{ height: `${bar.height}%` }}
-                onMouseEnter={() => setActiveBarHover(idx)}
-                onMouseLeave={() => setActiveBarHover(null)}
-              >
-                <div className="bar-tooltip">
-                  {bar.day}: {bar.val}
-                </div>
-              </div>
-            ))}
+          {/* Floating Sapphire Chrome Sphere 2 (Mid-Depth Behind Left Arm of V) */}
+          <div className="floating-sapphire-sphere sphere-mid-back">
+            <div className="sphere-specular-core" />
+            <div className="sphere-horizon-reflection" />
+            <div className="sphere-fresnel-rim" />
+            <div className="sphere-caustic-shadow" />
           </div>
         </div>
 
-        {/* ========================================================
-            3. BOTTOM-LEFT: PAGESPEED 98 SPEED BADGE
-            (Proves Engineering Quality & Google Performance)
-            ======================================================== */}
-        <div
-          className="hero-floating-card card-pagespeed float-anim-2"
-          onMouseEnter={handleSpeedHover}
-        >
-          <div className="pagespeed-top-row">
-            <div className="pagespeed-icon-badge">
-              <TrendingUp size={13} className="speed-arr-ico" />
-            </div>
-            <span className="pagespeed-title">PageSpeed Score</span>
-            <span className="pagespeed-badge-green">Excellent</span>
-          </div>
-          <div className="pagespeed-score-big">
-            98
-            {isSpeedScanning && <span className="scanning-pill">Testing...</span>}
-          </div>
-          <div className="pagespeed-progress-track">
-            <div
-              className={`pagespeed-progress-fill ${isSpeedScanning ? "is-scanning" : ""}`}
-              style={{ width: "98%" }}
+        {/* Layer 2: Multilayer 3D Glass Pedestal Platform (z-index: 1.5 - Directly Beneath V) */}
+        <div className="glass-pedestal-stage-3d" aria-hidden="true">
+          {/* Ground Floor Volumetric Caustic Bloom */}
+          <div className="stage-floor-caustic-ambient" />
+
+          {/* Precision 3D Vector Glass Pedestal System */}
+          <svg
+            className="pedestal-vector-chassis"
+            viewBox="0 0 740 260"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              {/* Lower Tier Cylinder Wall 3D Glass Gradient */}
+              <linearGradient id="pedLowerWallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0369a1" stopOpacity="0.4" />
+                <stop offset="14%" stopColor="#38bdf8" stopOpacity="0.8" />
+                <stop offset="30%" stopColor="#ffffff" stopOpacity="0.95" />
+                <stop offset="48%" stopColor="#0284c7" stopOpacity="0.65" />
+                <stop offset="78%" stopColor="#38bdf8" stopOpacity="0.82" />
+                <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
+              </linearGradient>
+
+              {/* Upper Tier Cylinder Wall 3D Glass Gradient (Reflective Bevel) */}
+              <linearGradient id="pedUpperWallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0284c7" stopOpacity="0.5" />
+                <stop offset="16%" stopColor="#7dd3fc" stopOpacity="0.9" />
+                <stop offset="32%" stopColor="#ffffff" stopOpacity="1" />
+                <stop offset="52%" stopColor="#0284c7" stopOpacity="0.7" />
+                <stop offset="82%" stopColor="#38bdf8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#0369a1" stopOpacity="0.45" />
+              </linearGradient>
+
+              {/* Top Glass Surface Ambient Translucency */}
+              <radialGradient id="pedTopGlassSurface" cx="50%" cy="38%" rx="50%" ry="44%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
+                <stop offset="35%" stopColor="#e0f2fe" stopOpacity="0.55" />
+                <stop offset="70%" stopColor="#bae6fd" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#7dd3fc" stopOpacity="0.5" />
+              </radialGradient>
+
+              {/* Luminous Neon Rim Gradient */}
+              <linearGradient id="pedNeonEdgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.7" />
+                <stop offset="25%" stopColor="#ffffff" stopOpacity="1" />
+                <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.85" />
+                <stop offset="78%" stopColor="#ffffff" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.7" />
+              </linearGradient>
+
+              {/* V Reflection Floor Caustic */}
+              <radialGradient id="pedVReflectionGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#0062f5" stopOpacity="0.45" />
+                <stop offset="45%" stopColor="#38bdf8" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            {/* 1. Base Floor Caustic Glow */}
+            <ellipse cx="370" cy="182" rx="355" ry="72" fill="url(#pedVReflectionGlow)" />
+
+            {/* 2. LOWER TIER: Base Glass Step */}
+            {/* Lower Cylinder 3D Front Wall (Thickness: 18px from y=166 to y=184, rx=335, ry=58) */}
+            <path
+              d="M 35 166 A 335 58 0 0 0 705 166 L 705 184 A 335 58 0 0 1 35 184 Z"
+              fill="url(#pedLowerWallGrad)"
             />
-          </div>
-          <div className="pagespeed-sub-text">0.4s Fast LCP • 100% Mobile Ready</div>
+            {/* Lower Front Base Neon Rim */}
+            <path
+              d="M 35 184 A 335 58 0 0 0 705 184"
+              stroke="#38bdf8"
+              strokeWidth="2.5"
+              strokeOpacity="0.85"
+              fill="none"
+            />
+            {/* Lower Step Top Surface Disc */}
+            <ellipse
+              cx="370"
+              cy="166"
+              rx="335"
+              ry="58"
+              fill="#e0f2fe"
+              fillOpacity="0.32"
+              stroke="url(#pedNeonEdgeGrad)"
+              strokeWidth="1.5"
+            />
+
+            {/* 3. UPPER TIER: Primary Glass Pedestal Stage */}
+            {/* Upper Cylinder 3D Front Wall (Thickness: 24px from y=130 to y=154, rx=278, ry=48) */}
+            <path
+              d="M 92 130 A 278 48 0 0 0 648 130 L 648 154 A 278 48 0 0 1 92 154 Z"
+              fill="url(#pedUpperWallGrad)"
+            />
+            {/* Upper Cylinder Base Contact Rim */}
+            <path
+              d="M 92 154 A 278 48 0 0 0 648 154"
+              stroke="#0284c7"
+              strokeWidth="2"
+              strokeOpacity="0.75"
+              fill="none"
+            />
+            {/* Upper Primary Translucent Glass Surface */}
+            <ellipse
+              cx="370"
+              cy="130"
+              rx="278"
+              ry="48"
+              fill="url(#pedTopGlassSurface)"
+              stroke="url(#pedNeonEdgeGrad)"
+              strokeWidth="2.5"
+            />
+
+            {/* Concentric Electric-Blue & White Neon Ring on Top Surface */}
+            <ellipse
+              cx="370"
+              cy="130"
+              rx="215"
+              ry="36"
+              stroke="#ffffff"
+              strokeWidth="2"
+              strokeOpacity="0.9"
+              fill="none"
+            />
+            <ellipse
+              cx="370"
+              cy="130"
+              rx="218"
+              ry="37"
+              stroke="#38bdf8"
+              strokeWidth="1.2"
+              strokeOpacity="0.85"
+              fill="none"
+            />
+
+            {/* Central Specular Floor Reflection Sheen */}
+            <ellipse
+              cx="370"
+              cy="130"
+              rx="145"
+              ry="24"
+              fill="#ffffff"
+              fillOpacity="0.45"
+            />
+
+            {/* Ambient Occlusion & Contact Shadow Directly Beneath Tip of V */}
+            <ellipse
+              cx="370"
+              cy="130"
+              rx="68"
+              ry="13"
+              fill="#03256c"
+              fillOpacity="0.55"
+            />
+          </svg>
         </div>
 
-        {/* ========================================================
-            4. BOTTOM-RIGHT: NEW ORDER NOTIFICATION TOAST
-            (Proves Active Verified Transactions)
-            ======================================================== */}
-        <div className="hero-floating-card card-neworder float-anim-4">
-          <div className="order-cart-icon-sq">
-            <ShoppingCart size={14} />
+        {/* Layer 3: Central Standalone 3D Sapphire Crystal V (z-index: 2) */}
+        <div className="sculpture-monolith-body">
+          {/* Backstage Ambient Volumetric Halo behind V */}
+          <div className="sculpture-backstage-halo" aria-hidden="true" />
+
+          {/* Upward Blue Bounce Illumination from Pedestal onto underside of V */}
+          <div className="sculpture-base-illumination" aria-hidden="true" />
+
+          <Image
+            src={crystalSculptureFlawless}
+            alt="Vastora Tech Sapphire Crystal 3D Monolith Sculpture"
+            className="monolith-couture-image"
+            priority
+            draggable={false}
+          />
+
+          {/* Subtle Ambient Specular Glare */}
+          <div className="monolith-specular-glare" aria-hidden="true" />
+        </div>
+
+        {/* Layer 4: Front Elements (z-index: 3 - Strictly In Front of the V) */}
+        <div className="stage-depth-layer stage-layer-front" aria-hidden="true">
+          {/* Single 3D Glass Orbital Ring - Front Arc (Sweeps Across Front Waist of the V) */}
+          <div className="single-glass-orbit-chassis orbit-arc-front">
+            <svg
+              className="orbit-vector-canvas"
+              viewBox="0 0 620 230"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="singleRingFrontGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.98" />
+                  <stop offset="20%" stopColor="#7dd3fc" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#0062f5" stopOpacity="0.25" />
+                  <stop offset="80%" stopColor="#38bdf8" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.98" />
+                </linearGradient>
+              </defs>
+              {/* Lower / Front Arc of the Single Continuous Glass Torus */}
+              <path
+                d="M 608 115 A 298 90 0 0 1 12 115"
+                stroke="url(#singleRingFrontGrad)"
+                strokeWidth="8"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
+            {/* Front Specular Glint Highlight on Ring */}
+            <div className="orbit-specular-glint glint-front-arc" />
           </div>
-          <div className="order-details-col">
-            <div className="order-head-line">
-              <span className="order-id">New Order #4829</span>
-              <span className="order-time-tag">Just now</span>
+
+          {/* Floating Sapphire Chrome Sphere 3 with Translucent Frosted Glass Pedestal (Bottom-Right) */}
+          <div className="pedestal-sphere-assembly">
+            {/* 1. Floating Sapphire Chrome Sphere 3 (Rendered cleanly on top) */}
+            <div className="floating-sapphire-sphere sphere-pedestal-top">
+              <div className="sphere-specular-core" />
+              <div className="sphere-horizon-reflection" />
+              <div className="sphere-fresnel-rim" />
             </div>
-            <div className="order-amount-line">
-              <span className="order-price-val">$210.00</span>
-              <span className="order-verified-tag">
-                <CheckCircle2 size={11} className="v-check" /> Stripe Verified
-              </span>
+
+            {/* 2. Frosted Glass Pedestal Base (Rendered underneath the sphere) */}
+            <div className="glass-pedestal-base">
+              <span className="pedestal-cap-rim" />
+              <span className="pedestal-glass-body" />
+              <span className="pedestal-floor-rim" />
+              <span className="pedestal-contact-shadow" />
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

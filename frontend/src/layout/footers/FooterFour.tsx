@@ -55,7 +55,7 @@ const FooterFour = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="footer-widget-copyright footer-widget-copyright-4 text-center">
-                                    <span>© {new Date().getFullYear()} <Link target="_blank" href="https://themeforest.net/user/theme_pure/portfolio">Theme_Pure.</Link> All Rights Reserved.</span>
+                                    <span>© {new Date().getFullYear()} Vastora Tech. All Rights Reserved.</span>
                                 </div>
                             </div>
                         </div>

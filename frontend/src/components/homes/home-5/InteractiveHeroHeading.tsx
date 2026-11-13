@@ -1,8 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback, ReactNode } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
-const ROTATING_WORDS = ["optimized", "flexible", "simple", "scalable"];
+const PILL_HIGHLIGHTS = [
+  "High-Converting Architecture",
+  "0.8s Ultra-Fast Load Speed",
+  "Headless Next.js & Shopify Plus",
+  "Custom Smart Admin Dashboard",
+  "100% Full Code Ownership",
+];
 
 interface LiquidItemPos {
   el: HTMLElement;
@@ -13,57 +19,14 @@ interface LiquidItemPos {
 }
 
 interface InteractiveHeroHeadingProps {
-  smInfo?: ReactNode;
+  className?: string;
 }
 
-const PARAGRAPH_WORDS = [
-  { text: "Get", isKey: false },
-  { text: "your", isKey: false },
-  { text: "custom", isKey: true },
-  { text: "e-commerce", isKey: true },
-  { text: "website", isKey: true },
-  { text: "with", isKey: false },
-  { text: "a", isKey: false },
-  { text: "smart", isKey: true },
-  { text: "admin", isKey: true },
-  { text: "panel", isKey: true },
-  { text: "&", isKey: true },
-  { text: "dashboard", isKey: true },
-  { text: "from", isKey: false },
-  { text: "the", isKey: false },
-  { text: "best", isKey: true },
-  { text: "ecommerce", isKey: true },
-  { text: "website", isKey: true },
-  { text: "development", isKey: true },
-  { text: "company", isKey: true },
-  { text: "in", isKey: true },
-  { text: "India.", isKey: true },
-  { text: "Build", isKey: false },
-  { text: "a", isKey: false },
-  { text: "secure", isKey: true },
-  { text: "and", isKey: true },
-  { text: "scalable", isKey: true },
-  { text: "platform", isKey: true },
-  { text: "to", isKey: false },
-  { text: "grow", isKey: false },
-  { text: "your", isKey: false },
-  { text: "online", isKey: false },
-  { text: "business", isKey: false },
-  { text: "and", isKey: false },
-  { text: "improve", isKey: false },
-  { text: "customer", isKey: false },
-  { text: "experience.", isKey: false },
-];
-
-const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
+const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = ({ className = "" }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isActive, setIsActive] = useState(false);
-
-  // Typewriter synchronization state
-  const [wordIndex, setWordIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(ROTATING_WORDS[0].length);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [tickerIdx, setTickerIdx] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
   // Smooth lerp physics and proximity tracking refs
   const targetPos = useRef({ x: 0, y: 0 });
@@ -72,41 +35,17 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
   const rafId = useRef<number | null>(null);
   const itemsCache = useRef<LiquidItemPos[]>([]);
 
-  // Synchronized typewriter effect
+  // Smooth sliding editorial ticker
   useEffect(() => {
-    if (isPaused) {
-      const pauseTimer = setTimeout(() => {
-        setIsPaused(false);
-        setIsDeleting(true);
-      }, 2400);
-      return () => clearTimeout(pauseTimer);
-    }
-
-    if (isDeleting) {
-      if (subIndex === 0) {
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
-        return;
-      }
-      const deleteTimer = setTimeout(() => {
-        setSubIndex((prev) => prev - 1);
-      }, 40);
-      return () => clearTimeout(deleteTimer);
-    }
-
-    // Typing forward
-    if (subIndex === ROTATING_WORDS[wordIndex].length) {
-      setIsPaused(true);
-      return;
-    }
-
-    const typeTimer = setTimeout(() => {
-      setSubIndex((prev) => prev + 1);
-    }, 60);
-    return () => clearTimeout(typeTimer);
-  }, [subIndex, isDeleting, isPaused, wordIndex]);
-
-  const currentTypedWord = ROTATING_WORDS[wordIndex].substring(0, subIndex);
+    const timer = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setTickerIdx((prev) => (prev + 1) % PILL_HIGHLIGHTS.length);
+        setIsFading(false);
+      }, 300);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
 
   // Cache element positions relative to container
   const updateItemsCache = useCallback(() => {
@@ -114,10 +53,7 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
     const containerRect = containerRef.current.getBoundingClientRect();
     const items: LiquidItemPos[] = [];
 
-    // 1. Heading individual letters inside word clusters
-    const letterNodes = containerRef.current.querySelectorAll<HTMLElement>(
-      ".liquid-letter"
-    );
+    const letterNodes = containerRef.current.querySelectorAll<HTMLElement>(".liquid-letter");
     letterNodes.forEach((node) => {
       const rect = node.getBoundingClientRect();
       items.push({
@@ -129,25 +65,9 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
       });
     });
 
-    // 2. Paragraph words
-    const paraWordNodes = containerRef.current.querySelectorAll<HTMLElement>(
-      ".para-liquid-word"
-    );
-    paraWordNodes.forEach((node) => {
-      const rect = node.getBoundingClientRect();
-      items.push({
-        el: node,
-        x: rect.left - containerRect.left + rect.width / 2,
-        y: rect.top - containerRect.top + rect.height / 2,
-        maxScale: 1.08,
-        lift: -2.0,
-      });
-    });
-
     itemsCache.current = items;
   }, []);
 
-  // Recalculate cache on window resize
   useEffect(() => {
     const handleResize = () => {
       updateItemsCache();
@@ -156,11 +76,9 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [updateItemsCache]);
 
-  // Smooth lerp loop & real-time letter-by-letter liquid water magnification
   const animateDroplet = useCallback(() => {
     if (!containerRef.current) return;
 
-    // Smooth fluid easing
     const ease = 0.16;
     currentPos.current.x += (targetPos.current.x - currentPos.current.x) * ease;
     currentPos.current.y += (targetPos.current.y - currentPos.current.y) * ease;
@@ -171,10 +89,8 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
     containerRef.current.style.setProperty("--lens-x", `${lensX.toFixed(2)}px`);
     containerRef.current.style.setProperty("--lens-y", `${lensY.toFixed(2)}px`);
 
-    // Radius of magnifying influence (matches the compact 34px lens)
     const R = 38;
 
-    // Real-time letter-by-letter smooth magnification
     itemsCache.current.forEach((item) => {
       const dist = Math.hypot(item.x - lensX, item.y - lensY);
       if (dist < R && isHoveredRef.current) {
@@ -196,7 +112,6 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
       }
     });
 
-    // Continue loop while hovered or until settled
     if (isHoveredRef.current) {
       rafId.current = requestAnimationFrame(animateDroplet);
     } else {
@@ -227,8 +142,6 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
 
     isHoveredRef.current = true;
     setIsActive(true);
-
-    // Refresh positions cache
     updateItemsCache();
 
     if (!rafId.current) {
@@ -259,7 +172,6 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
     });
   };
 
-  // Cleanup requestAnimationFrame
   useEffect(() => {
     return () => {
       if (rafId.current) {
@@ -268,7 +180,6 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
     };
   }, []);
 
-  // Render a word cluster with individual liquid letters inside
   const renderWordCluster = (word: string, keyPrefix: string) => {
     return (
       <span className="word-cluster" key={keyPrefix}>
@@ -284,12 +195,12 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
   return (
     <div
       ref={containerRef}
-      className={`hero-left-story-stage ${isActive ? "lens-active" : ""}`}
+      className={`hero-left-story-stage ${isActive ? "lens-active" : ""} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* 100% Solid Typography with Letter-by-Letter Liquid Magnification */}
+      {/* 100% Solid Monumental Typography */}
       <h1 className="banner-5-title clean-hero-title">
         <span className="heading-line-wrap">
           {renderWordCluster("Launch", "w-launch")}{" "}
@@ -340,34 +251,19 @@ const InteractiveHeroHeading: React.FC<InteractiveHeroHeadingProps> = () => {
               />
             </svg>
           </span>
+          <span className="hero-title-dot" aria-hidden="true" />
         </span>
-        <br />
-        <span className="cd-words-wrapper">
-          <span className="word-cluster typewriter-dynamic-word">
-            {currentTypedWord.split("").map((c, i) => (
-              <span key={i} className="liquid-letter">
-                {c}
-              </span>
-            ))}
-          </span>
-        </span>
-        <span className="hero-title-dot" aria-hidden="true" />
       </h1>
 
-      {/* Description Paragraph with Word-by-Word Magnification */}
-      <p className="banner-5-desc">
-        {PARAGRAPH_WORDS.map((w, idx) => (
-          <React.Fragment key={idx}>
-            <span
-              className={`para-liquid-word ${w.isKey ? "para-interactive-word" : ""}`}
-            >
-              {w.text}
-            </span>{" "}
-          </React.Fragment>
-        ))}
-      </p>
+      {/* Smooth Editorial Ticker Line (No typewriter deletion glitches!) */}
+      <div className="hero-editorial-ticker-pill">
+        <span className="ticker-spark-icon" aria-hidden="true">✦</span>
+        <span className={`ticker-text-slider ${isFading ? "fade-out" : "fade-in"}`}>
+          {PILL_HIGHLIGHTS[tickerIdx]}
+        </span>
+      </div>
 
-      {/* Translucent White Liquid Water Droplet Follower */}
+      {/* Liquid Water Droplet Follower */}
       <div
         className={`hero-water-droplet ${isActive ? "is-active" : ""}`}
         aria-hidden="true"

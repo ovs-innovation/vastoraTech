@@ -4,7 +4,7 @@
 
 .vastora-header-wrapper {
   position: relative;
-  z-index: 999;
+  z-index: 99999 !important;
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 99999 !important;
   padding: 17px 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -270,7 +270,7 @@
     pointer-events: none;
     /* Exit transition with 0.18s grace delay so moving mouse down never loses hover */
     transition: opacity 0.22s ease 0.18s, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, visibility 0.22s ease 0.18s;
-    z-index: 1000;
+    z-index: 100000 !important;
 
     /* Generous invisible hover bridge between navbar link and dropdown */
     &::before {

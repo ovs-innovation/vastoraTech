@@ -1,58 +1,69 @@
+# Vastora Tech — Backend API Engine
 
-kachabazar Server Documentation - Updated backend
+Enterprise Node.js/Express API powering the **Vastora Tech** digital agency ecosystem, client lead generation, case studies, blogs, white-label demos, and administrative services.
 
+---
 
-Introduction: 
+## Technical Stack
 
-This is ready api backend for kachabazar admin and frontend built with node.js, express, mongoose, and mongodb for database. 
+- **Runtime**: Node.js & Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT (JSON Web Tokens), Bcrypt.js
+- **Integrations**: Stripe Payments, Cloudinary Media Storage, Nodemailer
+- **Security**: Helmet, Express Rate Limit, CORS protection
 
+---
 
-Tech and Packages we use in this project:
+## Key API Modules
 
-    1. Node.js framework Express.js.
-    2. Mongodb use for database .
-    3. Mongoose for all schema validation and database connection.
-    4. JsonwebToken for create jsonwebtoken.
-    5. BcryptJs for password encryption.
-    6. Day.js for data format.
-    7. Dotenv for use environment variable.
-    8. Nodemon for run on dev server.
-    9. Cors and Body parser
+- `/api/leads` — Client project inquiry intake & CRM distribution
+- `/api/contact-submissions` — Global contact form submissions
+- `/api/blogs` — Agency editorial articles, case studies & category management
+- `/api/demos` — Interactive white-label client demo booking
+- `/api/admin` — Secure administrator authentication & role management
+- `/api/customer-order` — Enterprise invoice generation & billing sync
 
-Getting Started & Installation:
+---
 
-For getting started with the template you have to follow the below procedure. First navigate to the kachabazar-server directory.
+## Getting Started
 
-Step 1 : Configure your .env file:
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-Within the project directory you'll find a .env.example file just rename it as .env and paste your Mongo_Uri and JWT_SECRET.
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+Ensure `MONGO_URI`, `JWT_SECRET`, and `PORT` are properly defined.
 
-Step 2 : Running the project:
+### 3. Run in Development
+```bash
+npm run dev
+```
 
-    ⦁	First npm install for install all packages latest version.
-    ⦁	npm run start:dev for run in development mode.
-    ⦁	npm run data:import for manually import all data into your database, this will run seed.js file and all sample data in utils file will
-            imported to your database.
+### 4. Run in Production
+```bash
+npm start
+```
 
+---
 
-Folder Structure & Customization:
+## Directory Architecture
 
-⦁   In index.js file you will find all declared api endpoint for different route.
+- `api/` — Express server initialization, middleware & socket handling
+- `config/` — Database connection & JWT authentication middleware
+- `controller/` — Business logic and request controllers
+- `models/` — Mongoose data schemas and validation models
+- `routes/` — Express route declarations
+- `lib/` — Email sender templates & external service clients
+- `utils/` — System settings, seed data & cryptographic helpers
 
-⦁   In seed.js file you will find all created model for manually imported into database.
+---
 
-⦁   /config : This folder contain auth for signInToken, isAdmin and isAuth middleware.
+## License & Ownership
 
-⦁   /models: This folder contain all model create with mongoose schema validation.
-
-⦁   /routes: This folder contain all route like admin, category, product, coupon, user, userOrder route. 
-
-⦁  /controller: This folder contain all different route controller function.
-
-⦁  /utils : This folder contain admin, user, product and category sample data.
-
-
-
-Configuration & Deployment:
-
-We use heroku for hosting this server if you want to hosting on heroku just follow their documentation, You can also hosting this any other hosting services.
+Copyright © 2014–2026 Vastora Tech. All rights reserved.
+Proprietary Agency Backend System.

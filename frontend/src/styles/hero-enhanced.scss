@@ -1,230 +1,693 @@
 /* ========================================================
-   VASTORA TECH - HERO SECTION (FULL 100VH VIEWPORT FIT)
-   1. The entire hero fills 100vh so NO other section peeks at the bottom on load.
-   2. Everything on the left fits comfortably without any scrolling.
-   3. Uses exact brand colors (#2B6BB3) and clean typography.
+   VASTORA TECH - ELITE MONUMENTAL AGENCY HERO
+   Inspired by Huge Inc (hugeinc.com) & Award-Winning Studios
+   1. 100vh Exact Viewport Fit - Zero Peeking From Below
+   2. Monumental Editorial Typography with Precision Kerning
+   3. Freestanding Photorealistic 3D Monolith Sculpture (No Box)
+   4. Couture Luxury Action Pills & Magnetic Floating Controls
    ======================================================== */
 
-.banner-area.banner-brand {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  overflow: hidden;
-  background: #F3F7F4;
-}
-
-.banner-5 {
-  width: 100%;
-  padding-top: 96px !important; // Accounts for the navbar (~80px)
-  padding-bottom: 24px !important;
+.huge-hero-section {
   position: relative;
   z-index: 1;
+  width: 100%;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  background: radial-gradient(130% 95% at 75% 35%, #ebf3ff 0%, #d8e8fe 32%, #c9e0fe 58%, #dceaff 78%, #f0f6ff 100%);
+  padding-top: 75px !important;
+  padding-bottom: 25px !important;
+
+  @media (max-width: 991px) {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh;
+    padding-top: 100px !important;
+    padding-bottom: 70px !important;
+  }
 
   .container.custom-container {
     max-width: 1360px !important;
   }
+}
 
-  @media (max-width: 991px) {
-    padding-top: 90px !important;
-    padding-bottom: 50px !important;
-    min-height: auto;
+/* Cinematic 3D Architectural Silk-Wave Atmosphere */
+.cinematic-silk-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  /* Volumetric Backdrop Light */
+  .porcelain-ambient-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 95% 85% at 78% 38%, rgba(195, 222, 255, 0.82) 0%, rgba(220, 238, 255, 0.5) 45%, transparent 78%),
+      radial-gradient(ellipse 65% 50% at 15% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(228, 240, 255, 0.55) 60%, transparent 85%);
+  }
+
+  .porcelain-volumetric-light-cone {
+    position: absolute;
+    top: -10%;
+    right: 15%;
+    width: 60%;
+    height: 90%;
+    background: radial-gradient(ellipse at 70% 20%, rgba(255, 255, 255, 0.4) 0%, rgba(200, 225, 255, 0.12) 45%, transparent 70%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* Fluted Architectural Glass Pillars (Far-Left behind content) */
+  .fluted-glass-pillars {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 110px;
+    height: 520px;
+    display: flex;
+    gap: 7px;
+    opacity: 0.72;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 75%, transparent 100%);
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+
+    .fluted-rib {
+      width: 7px;
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(200, 225, 255, 0.5) 55%, rgba(186, 230, 253, 0.22) 100%);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), inset 0 0 4px rgba(255, 255, 255, 0.9);
+      border: 0.5px solid rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  /* Scalable Vector Silk Waves */
+  .silk-waves-vector-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0 15px 35px rgba(0, 70, 190, 0.08));
+  }
+
+  /* Floating Sapphire Chrome Sphere 1 (Bottom Left above Cobalt Wave) */
+  .sphere-bottom-left {
+    position: absolute;
+    left: clamp(24px, 3.6vw, 52px);
+    bottom: clamp(140px, 25vh, 230px);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 26%, #ffffff 0%, #a5f3fc 12%, #38bdf8 28%, #0284c7 50%, #0047b3 75%, #05143b 100%);
+    box-shadow:
+      inset -3px -3px 8px rgba(3, 105, 161, 0.9),
+      inset 2px 2px 5px rgba(255, 255, 255, 0.98),
+      0 12px 26px -3px rgba(0, 98, 245, 0.55),
+      0 0 18px rgba(56, 189, 248, 0.45);
+    animation: floatingSphereOrganic1 6s ease-in-out infinite;
+
+    @media (max-width: 575px) {
+      width: 24px;
+      height: 24px;
+      bottom: 90px;
+    }
+
+    .sphere-specular-core {
+      position: absolute;
+      top: 18%;
+      left: 22%;
+      width: 8px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ffffff;
+      filter: blur(0.4px);
+      transform: rotate(-35deg);
+    }
+
+    .sphere-horizon-reflection {
+      position: absolute;
+      top: 48%;
+      left: 15%;
+      right: 15%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.75) 40%, rgba(186, 230, 253, 0.9) 60%, transparent 100%);
+      filter: blur(0.4px);
+      transform: rotate(-10deg);
+    }
+
+    .sphere-fresnel-rim {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 75% 75%, rgba(125, 211, 252, 0.5) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .sphere-caustic-shadow {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0, 75, 210, 0.38) 0%, transparent 70%);
+      filter: blur(3px);
+    }
+  }
+
+  /* Upper-Right Diamond Sparkle Star */
+  .luxury-sparkle-star {
+    position: absolute;
+    top: clamp(30px, 6vh, 60px);
+    right: clamp(120px, 16vw, 240px);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: sparkleTwinklePulse 4.5s ease-in-out infinite;
+
+    @media (max-width: 991px) {
+      right: 40px;
+      top: 25px;
+      transform: scale(0.8);
+    }
+
+    .star-photon-glow {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(56, 189, 248, 0.65) 40%, transparent 70%);
+      filter: blur(4px);
+    }
+
+    .star-diamond-shape {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 10px #38bdf8) drop-shadow(0 0 20px #0062f5);
+    }
   }
 }
 
-.banner-5-content {
-  padding-top: 0 !important;
+/* Animations for Sphere 1 & Sparkle Star */
+@keyframes floatingSphereOrganic1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+}
+
+@keyframes sparkleTwinklePulse {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Left Column: Monumental Agency Typography */
+.huge-hero-left-col {
   position: relative;
   z-index: 2;
 
   @media (min-width: 992px) {
-    padding-right: 15px;
+    padding-right: 20px;
   }
 }
 
-/* Hero Title - Clean, Bold, Authentic Matching Reference */
-.banner-5-title {
-  font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 800 !important;
-  font-size: clamp(42px, 3.8vw, 54px) !important;
-  line-height: 1.22 !important;
-  letter-spacing: -0.035em !important;
-  color: #0f172a !important;
-  margin-bottom: 16px !important;
+.huge-hero-content {
+  position: relative;
 
-  @media (max-width: 1399px) {
-    font-size: clamp(38px, 3.5vw, 48px) !important;
-  }
-  @media (max-width: 1199px) {
-    font-size: 38px !important;
-    line-height: 1.12 !important;
-  }
-  @media (max-width: 767px) {
-    font-size: 32px !important;
-    line-height: 1.15 !important;
-  }
+  /* Sleek Agency Eyebrow Pill */
+  .huge-agency-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 12px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 98, 245, 0.18);
+    border-radius: 999px;
+    margin-bottom: 24px;
+    box-shadow:
+      0 4px 18px rgba(0, 98, 245, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+    backdrop-filter: blur(12px);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 
+    &:hover {
+      border-color: rgba(0, 98, 245, 0.35);
+      box-shadow:
+        0 8px 24px rgba(0, 98, 245, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
+    }
 
-  .hero-days-highlight {
-    position: relative;
-    display: inline-block;
-    color: #0062f5 !important;
-    font-weight: 800 !important;
-
-    .days-text {
+    .eyebrow-beacon {
       position: relative;
-      z-index: 2;
-      color: #0062f5 !important;
-    }
-
-    .hero-brush-stroke {
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 104%;
-      height: 18px;
-      z-index: 1;
-      pointer-events: none;
-      overflow: visible;
-      filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.14));
-    }
-  }
-
-  .cd-words-wrapper {
-    display: inline !important;
-    color: #0062f5 !important;
-    font-weight: 800 !important;
-    background: none !important;
-    -webkit-text-fill-color: initial !important;
-    letter-spacing: -0.035em !important;
-  }
-
-  .hero-title-dot {
-    display: inline-block !important;
-    width: 10px !important;
-    height: 10px !important;
-    border-radius: 50% !important;
-    background: #0f172a !important;
-    margin-left: 6px !important;
-    vertical-align: 2px !important;
-    flex-shrink: 0 !important;
-    line-height: 1 !important;
-    box-sizing: border-box !important;
-  }
-}
-
-
-/* Subtitle / Description */
-.banner-5-desc,
-.banner-5-content p {
-  font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-  letter-spacing: -0.012em !important;
-  color: #4b5563 !important;
-  margin-bottom: 22px !important;
-  max-width: 530px !important;
-  font-weight: 400;
-
-  @media (max-width: 767px) {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    margin-bottom: 20px !important;
-  }
-}
-
-/* Modern Split / Arrow Hero Button Matching Reference */
-.banner-5-btn {
-  margin-bottom: 0 !important;
-
-  .enhanced-hero-cta-btn,
-  .light-blue-btn {
-    position: relative;
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 13px 22px !important;
-    background: #0062f5 !important;
-    color: #ffffff !important;
-    font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 14.5px !important;
-    line-height: 1 !important;
-    border-radius: 9px !important;
-    border: none !important;
-    text-decoration: none !important;
-    box-shadow: 0 8px 24px -2px rgba(0, 98, 245, 0.4) !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-
-    .btn-label-text {
-      color: #ffffff !important;
-      letter-spacing: 0.01em;
-      padding-right: 14px;
-    }
-
-    .btn-divider {
-      display: inline-block;
-      width: 1px;
-      height: 18px;
-      background: rgba(255, 255, 255, 0.3);
-      margin-right: 18px;
-    }
-
-    .btn-icon-box {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff !important;
-      transition: transform 0.22s ease;
+      width: 10px;
+      height: 10px;
 
-      svg {
-        display: block;
-        stroke: #ffffff;
-        width: 18px;
-        height: 18px;
+      .beacon-ping {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #0062f5;
+        opacity: 0.75;
+        animation: eyebrowBeaconPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+
+      .beacon-dot {
+        position: relative;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #0062f5;
       }
     }
 
-    &:hover {
-      background: #0050cc !important;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(0, 98, 245, 0.55) !important;
-      color: #ffffff !important;
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 750;
+      color: #0f172a;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
 
-      .btn-icon-box {
-        transform: translateX(3px);
+    .eyebrow-divider {
+      width: 1px;
+      height: 11px;
+      background: rgba(0, 98, 245, 0.22);
+    }
+
+    .eyebrow-tag {
+      font-size: 10px;
+      font-weight: 750;
+      color: #0056d6;
+      background: rgba(0, 98, 245, 0.08);
+      border: 1px solid rgba(0, 98, 245, 0.12);
+      padding: 2.5px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  /* Monumental Headline with Kinetic Light Sweep */
+  .huge-monumental-headline {
+    font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-weight: 850 !important;
+    font-size: clamp(56px, 5.4vw, 78px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.044em !important;
+    color: #090e1a !important;
+    margin-bottom: 32px !important;
+
+    @media (max-width: 1399px) {
+      font-size: clamp(48px, 4.6vw, 66px) !important;
+    }
+    @media (max-width: 1199px) {
+      font-size: 46px !important;
+    }
+    @media (max-width: 767px) {
+      font-size: 38px !important;
+      line-height: 1.12 !important;
+      margin-bottom: 24px !important;
+    }
+
+    .headline-row {
+      display: block;
+    }
+
+    .headline-shimmer-wrap {
+      position: relative;
+      display: inline-block;
+
+      .headline-text-gradient {
+        display: inline-block;
+        background: linear-gradient(135deg, #0052ff 0%, #0066ff 32%, #0284c7 60%, #0052ff 100%);
+        background-size: 240% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: headlineShimmerFlow 6.5s ease-in-out infinite;
       }
     }
 
-    &:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 12px rgba(0, 98, 245, 0.3) !important;
+    .word-in-just {
+      color: #090e1a;
+    }
+
+    .headline-badge-accent {
+      position: relative;
+      display: inline-flex;
+      align-items: baseline;
+
+      .headline-gradient-days {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(
+          120deg,
+          #0052ff 0%,
+          #0066ff 26%,
+          #38bdf8 48%,
+          #7dd3fc 60%,
+          #0052ff 82%,
+          #0047d4 100%
+        );
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 850 !important;
+        animation: smoothDaysLightFlow 5.5s ease-in-out infinite alternate;
+        filter: none !important;
+      }
+
+      .headline-accent-period {
+        color: #0052ff !important;
+        -webkit-text-fill-color: #0052ff !important;
+        margin-left: 2px;
+      }
+    }
+  }
+
+  /* Couture Agency CTA Button Group */
+  .huge-hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+
+    /* Primary Obsidian Luxury Pill */
+    .huge-primary-luxury-btn {
+      position: relative;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 12px;
+      padding: 13px 22px 13px 18px !important;
+      background: #090d16 !important;
+      color: #ffffff !important;
+      font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 14.5px !important;
+      line-height: 1 !important;
+      border-radius: 999px !important;
+      text-decoration: none !important;
+      overflow: hidden;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 14px 30px -4px rgba(9, 13, 22, 0.38),
+        0 4px 12px rgba(0, 98, 245, 0.22) !important;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+      .btn-shimmer-sweep {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.16),
+          transparent
+        );
+        transition: left 0.6s ease;
+        pointer-events: none;
+      }
+
+      .btn-status-beacon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 8px;
+        height: 8px;
+
+        .beacon-core {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #10b981;
+          box-shadow: 0 0 8px #10b981;
+        }
+      }
+
+      .btn-title-text {
+        color: #ffffff !important;
+        letter-spacing: -0.01em;
+      }
+
+      .btn-arrow-capsule {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff !important;
+        transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+
+        .arrow-icon {
+          transition: transform 0.24s ease;
+        }
+      }
+
+      &:hover {
+        background: #05080e !important;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.28),
+          0 20px 38px -4px rgba(0, 98, 245, 0.42),
+          0 6px 16px rgba(9, 13, 22, 0.4) !important;
+
+        .btn-shimmer-sweep {
+          left: 100%;
+        }
+
+        .btn-arrow-capsule {
+          background: #0052ff;
+          transform: translateX(3px);
+        }
+      }
+
+      &:active {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 4px 14px rgba(9, 13, 22, 0.3) !important;
+      }
+    }
+
+    /* Secondary Glass Agency Pill */
+    .huge-secondary-luxury-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px;
+      padding: 12px 20px !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      border: 1px solid rgba(15, 23, 42, 0.14) !important;
+      border-radius: 999px !important;
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      font-size: 14px !important;
+      line-height: 1 !important;
+      text-decoration: none !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+      transition: all 0.24s ease;
+
+      .secondary-sparkle-ico {
+        color: #0062f5;
+      }
+
+      .secondary-title-text {
+        color: #0f172a;
+        letter-spacing: -0.01em;
+      }
+
+      .secondary-count-tag {
+        font-size: 11px;
+        font-weight: 800;
+        color: #0062f5;
+        background: rgba(0, 98, 245, 0.09);
+        padding: 2px 7px;
+        border-radius: 999px;
+      }
+
+      &:hover {
+        border-color: #0062f5 !important;
+        background: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(0, 98, 245, 0.14);
+      }
     }
   }
 }
 
-/* Right Illustration - Scaled up proportionally */
-.banner-5-thumb {
+/* Right Column: Freestanding Monolith Placement */
+.huge-hero-right-col {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.08);
-  transform-origin: center center;
+}
 
-  @media (max-width: 991px) {
-    transform: none;
+
+
+/* Sphere 1 Floating Motion */
+@keyframes floatingSphereOrganic1 {
+  0% {
+    transform: translateY(0px) rotate(0deg);
   }
-
-  > img {
-    max-height: clamp(420px, 64vh, 580px) !important;
-    width: auto !important;
-    max-width: 100% !important;
-    object-fit: contain !important;
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
 }
 
-/* Import Omnichannel 3D Glass Hero Visual styles */
-@import "./hero-visual.scss";
+@keyframes eyebrowBeaconPing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
 
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes headlineShimmerFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Smooth Light Sheen Flow across "5 Days." */
+@keyframes smoothDaysLightFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Intentional Fixed Hero Scroll Down Indicator (Zero Overlap with Heading or 3D V) */
+.hero-scroll-indicator-pill {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+
+  &:hover {
+    transform: translateX(-50%) translateY(-2px);
+    .scroll-pill-chassis {
+      border-color: rgba(0, 98, 245, 0.35);
+      background: #ffffff;
+      box-shadow:
+        0 12px 28px rgba(0, 75, 210, 0.16),
+        0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  .scroll-pill-chassis {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 18px 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+      0 8px 24px rgba(0, 50, 160, 0.08),
+      0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+
+    .scroll-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0062f5;
+      box-shadow: 0 0 8px #38bdf8;
+      animation: scrollIndicatorDotPulse 2.2s ease-in-out infinite;
+    }
+
+    .scroll-pill-text {
+      font-family: var(--tp-ff-jakarta), -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+@keyframes scrollIndicatorDotPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    box-shadow: 0 0 12px #0062f5, 0 0 4px #ffffff;
+  }
+}
+
+@import "./hero-visual.scss";

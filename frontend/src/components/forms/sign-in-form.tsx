@@ -39,7 +39,7 @@ const SignInForm = () => {
         <>
             <div className="col-xxl-3 col-xl-4 col-lg-5">
                 <div className="signin-wrapper">
-                    <h4 className="signin-wrapper-title">Sign in to SEOMY</h4>
+                    <h4 className="signin-wrapper-title">Sign in to Vastora Tech</h4>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="signin-input-wrapper">
                             <div className="signin-input-item mb-20">
