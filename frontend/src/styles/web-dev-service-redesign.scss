@@ -898,7 +898,162 @@
 }
 
 /* ========================================================
-   6. CLOSING CTA BANNER
+   6. FAQS ACCORDION SECTION
+   ======================================================== */
+.web-dev-faq-section {
+  padding: 85px 0 95px;
+  background: #f8fafc;
+  position: relative;
+
+  .faq-header-wrap {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 48px;
+
+    .faq-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0062f5;
+      background: #eff6ff;
+      padding: 4px 14px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .faq-title {
+      font-size: clamp(28px, 3.4vw, 42px);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+    }
+
+    .faq-subtitle {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  }
+
+  .faq-accordion-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .faq-item-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+
+      &:hover {
+        border-color: #cbd5e1;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      }
+
+      &.is-active {
+        border-color: #0062f5;
+        box-shadow: 0 10px 30px rgba(0, 98, 245, 0.1);
+
+        .faq-question-btn {
+          background: #f8fafc;
+          color: #0062f5;
+
+          .faq-toggle-icon {
+            background: #0062f5;
+            color: #ffffff;
+            border-color: #0062f5;
+
+            .faq-chevron-svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      .faq-question-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        line-height: 1.4;
+        transition: all 0.2s ease;
+
+        @media (max-width: 576px) {
+          padding: 16px 18px;
+        }
+
+        .faq-question-text {
+          font-size: 16.5px;
+          font-weight: 700;
+          color: #0f172a;
+          transition: color 0.2s ease;
+
+          @media (max-width: 576px) {
+            font-size: 15px;
+          }
+        }
+
+        .faq-toggle-icon {
+          width: 32px;
+          height: 32px;
+          min-width: 32px;
+          min-height: 32px;
+          border-radius: 50%;
+          background: #eff6ff;
+          color: #0062f5;
+          border: 1px solid #bfdbfe;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+          .faq-chevron-svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
+      }
+
+      .faq-answer-pane {
+        padding: 0 24px 22px;
+        font-size: 15px;
+        line-height: 1.65;
+        color: #475569;
+        background: #f8fafc;
+        border-top: 1px solid #f1f5f9;
+
+        @media (max-width: 576px) {
+          padding: 0 18px 18px;
+          font-size: 14px;
+        }
+
+        p {
+          margin: 0;
+          padding-top: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* ========================================================
+   7. CLOSING CTA BANNER
    ======================================================== */
 .web-dev-cta-section {
   padding: 80px 0;

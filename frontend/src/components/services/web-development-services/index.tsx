@@ -774,37 +774,47 @@ const WebDevelopment = () => {
         {/* ========================================================
             4. FAQS ACCORDION
             ======================================================== */}
-        <section className="contact-faq-section" style={{ padding: '80px 0' }}>
+        <section className="web-dev-faq-section">
           <div className="container">
-            <div className="faq-header">
+            <div className="faq-header-wrap">
               <span className="faq-eyebrow">Everything You Need to Know</span>
-              <h3 className="faq-title">Website Development FAQs</h3>
+              <h2 className="faq-title">Website Development FAQs</h2>
+              <p className="faq-subtitle">
+                Clear answers regarding our web engineering stacks, delivery timelines, custom pricing, and intellectual property.
+              </p>
             </div>
 
             <div className="faq-accordion-list">
               {FAQ_LIST.map((faq, idx) => {
                 const isOpen = openFaqIndex === idx;
                 return (
-                  <div key={idx} className={`faq-accordion-item ${isOpen ? 'open' : ''}`}>
+                  <div key={idx} className={`faq-item-card ${isOpen ? 'is-active' : ''}`}>
                     <button
                       type="button"
                       className="faq-question-btn"
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
                     >
-                      <span>{faq.q}</span>
-                      <svg
-                        className="faq-toggle-icon"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
+                      <span className="faq-question-text">{faq.q}</span>
+                      <span className="faq-toggle-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="faq-chevron-svg"
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </span>
                     </button>
                     {isOpen && (
-                      <div className="faq-answer-content">
-                        <p style={{ margin: 0 }}>{faq.a}</p>
+                      <div className="faq-answer-pane">
+                        <p>{faq.a}</p>
                       </div>
                     )}
                   </div>
