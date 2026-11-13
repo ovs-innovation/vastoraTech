@@ -1,44 +1,207 @@
 /* ========================================================
-   ABOUT US & IMPACT STATS OVERHAUL (VASTORA TECH)
+   ABOUT US & IMPACT STATS — 3D SPATIAL ENVIRONMENT
+   Cinematic Spatial Design · Seamless Native Integration
+   Glassmorphic Bento Cards · 3D Parallax Founder Frame
+   Double Orbital Rings · Sweeping Cobalt Wave · Sapphire Spheres
    ======================================================== */
 
 .about-area-enhanced {
   position: relative;
-  padding: 85px 0 55px;
-  background: #ffffff;
+  background-color: transparent;
+  padding: clamp(52px, 5.5vw, 80px) 0 clamp(64px, 6.5vw, 95px);
   overflow: hidden;
 
-  /* Ambient light backdrop */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: radial-gradient(circle at 10% 20%, rgba(0, 98, 245, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.04) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+  &.about-spatial-section {
+    background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 45%, #eff6ff 100%);
   }
 
   .container {
     position: relative;
     z-index: 2;
+    max-width: 1360px;
+    width: 100%;
   }
 
-  /* Status Eyebrow Badge */
+  /* --------------------------------------------------------------------------
+     1. Atmospheric Background Environment (Silk Waves, Fluted Glass & Cobalt Wave)
+     -------------------------------------------------------------------------- */
+  .about-spatial-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+
+    /* Soft flowing porcelain silk waves */
+    .about-silk-waves {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+
+      .about-silk-svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    /* Architectural Vertical Fluted Glass Texture (Far Left) */
+    .about-fluted-glass {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: clamp(90px, 12vw, 190px);
+      height: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.85) 0px,
+        rgba(255, 255, 255, 0.25) 8px,
+        rgba(0, 98, 245, 0.04) 16px,
+        rgba(255, 255, 255, 0.75) 24px
+      );
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 45%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 45%, transparent 100%);
+      border-right: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* Sweeping Deep Royal Cobalt Wave on Upper Right */
+    .about-cobalt-wave {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: clamp(360px, 46vw, 700px);
+      height: clamp(300px, 42vw, 560px);
+      pointer-events: none;
+
+      .cobalt-wave-svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 15px 35px rgba(0, 50, 180, 0.3));
+      }
+
+      /* Cyber Grid Lines over the cobalt wave */
+      .about-cyber-grid {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 70%;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+        background-size: 26px 26px;
+        mask-image: radial-gradient(circle at top right, black 50%, transparent 90%);
+        -webkit-mask-image: radial-gradient(circle at top right, black 50%, transparent 90%);
+      }
+    }
+
+    /* Floating Sapphire Chrome Spheres with 3D Specular Highlights */
+    .about-sapphire-sphere {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 26%, #ffffff 0%, #a5f3fc 14%, #38bdf8 28%, #0284c7 50%, #0047b3 75%, #05143b 100%);
+      box-shadow:
+        inset -3px -3px 8px rgba(3, 105, 161, 0.95),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.98),
+        0 12px 26px -2px rgba(0, 82, 255, 0.55),
+        0 0 18px rgba(56, 189, 248, 0.45);
+      animation: aboutSphereFloat 6s ease-in-out infinite alternate;
+
+      .sphere-specular {
+        position: absolute;
+        top: 18%;
+        left: 22%;
+        width: 32%;
+        height: 22%;
+        border-radius: 50%;
+        background: #ffffff;
+        filter: blur(0.4px);
+        transform: rotate(-35deg);
+      }
+
+      .sphere-horizon {
+        position: absolute;
+        top: 48%;
+        left: 15%;
+        right: 15%;
+        height: 1.2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.85) 40%, rgba(186, 230, 253, 0.9) 60%, transparent 100%);
+        filter: blur(0.3px);
+        transform: rotate(-10deg);
+      }
+
+      .sphere-fresnel {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle at 75% 75%, rgba(125, 211, 252, 0.6) 0%, transparent 40%);
+      }
+
+      .sphere-shadow {
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 25%;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(0, 60, 200, 0.4) 0%, transparent 70%);
+        filter: blur(3px);
+      }
+
+      /* 1. Bottom-Left Sphere near silk wave */
+      &.sphere-bl {
+        bottom: clamp(140px, 18vh, 220px);
+        left: clamp(24px, 3.5vw, 55px);
+        width: 34px;
+        height: 34px;
+        animation-delay: 0s;
+      }
+
+      /* 2. Mid Sphere near mission cards */
+      &.sphere-mid {
+        top: clamp(380px, 44vh, 460px);
+        left: clamp(48%, 52vw, 56%);
+        width: 22px;
+        height: 22px;
+        animation-delay: 1.5s;
+      }
+
+      /* 3. Upper Inner Sphere near founder frame */
+      &.sphere-tr-inner {
+        top: clamp(75px, 10vh, 130px);
+        right: clamp(360px, 32vw, 470px);
+        width: 26px;
+        height: 26px;
+        animation-delay: 3s;
+      }
+
+      /* 4. Upper Outer Sphere in cobalt wave */
+      &.sphere-tr-outer {
+        top: clamp(140px, 18vh, 220px);
+        right: clamp(30px, 4vw, 70px);
+        width: 36px;
+        height: 36px;
+        animation-delay: 2.2s;
+      }
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     2. Status Eyebrow Badge & Main Typography
+     -------------------------------------------------------------------------- */
   .about-status-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 14px;
+    padding: 5px 15px;
     border-radius: 999px;
-    background: #f0f7ff;
+    background: #ffffff;
     border: 1px solid rgba(0, 98, 245, 0.2);
     box-shadow: 0 2px 8px rgba(0, 98, 245, 0.05);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 
     .badge-pulse-dot {
       position: relative;
@@ -71,32 +234,36 @@
   .about-main-title {
     font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 800;
-    font-size: clamp(32px, 3.2vw, 44px);
-    line-height: 1.22;
+    font-size: clamp(32px, 3.4vw, 46px);
+    line-height: 1.2;
     letter-spacing: -0.03em;
     color: #0f172a;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 
     .gradient-highlight {
-      color: #0062f5;
+      background: linear-gradient(135deg, #0052ff 0%, #2563eb 55%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: inline;
     }
   }
 
-  /* Main Subtitle Description */
+  /* Subtitle Description */
   .about-main-desc {
-    font-size: 16px;
-    line-height: 1.68;
+    font-size: 15.5px;
+    line-height: 1.65;
     color: #64748b;
     max-width: 620px;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
   }
 
-  /* Mission & Purpose Bento Value Cards */
+  /* --------------------------------------------------------------------------
+     3. Mission & Purpose Glassmorphic Bento Cards
+     -------------------------------------------------------------------------- */
   .about-bento-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
 
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
@@ -104,35 +271,36 @@
 
     .about-bento-card {
       position: relative;
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
       border-radius: 20px;
-      padding: 24px 22px;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+      padding: 22px 20px;
+      box-shadow:
+        0 8px 30px -4px rgba(0, 98, 245, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.02);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
+      overflow: hidden;
 
-      &::before {
-        content: "";
+      .card-glass-specular-rim {
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: #0062f5;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        left: 10%;
+        right: 10%;
+        height: 1.5px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
       }
 
+      /* Hover glow with signature cyan rim */
       &:hover {
         transform: translateY(-4px);
-        border-color: #0062f5;
-        box-shadow: 0 14px 34px rgba(0, 98, 245, 0.12);
-
-        &::before {
-          opacity: 1;
-        }
+        border-color: #38bdf8;
+        box-shadow:
+          0 0 26px rgba(56, 189, 248, 0.45),
+          0 14px 34px rgba(0, 98, 245, 0.12);
 
         .card-icon-box {
           transform: scale(1.08);
@@ -144,14 +312,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 14px;
+        margin-bottom: 12px;
 
         .card-icon-box {
           width: 44px;
           height: 44px;
           border-radius: 12px;
           background: #eff6ff;
-          border: 1px solid #dbeafe;
+          border: 1px solid #bfdbfe;
           color: #0062f5;
           display: flex;
           align-items: center;
@@ -160,64 +328,62 @@
 
           &.icon-cyan {
             background: #ecfeff;
-            border-color: #cffafe;
+            border-color: #a5f3fc;
             color: #0284c7;
           }
         }
 
         .card-micro-tag {
-          font-size: 10px;
+          font-size: 10.5px;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #0062f5;
-          background: rgba(0, 98, 245, 0.07);
-          padding: 3px 9px;
+          padding: 3.5px 10px;
           border-radius: 999px;
+          background: #eff6ff;
+          color: #0062f5;
+          border: 1px solid #dbeafe;
 
           &.tag-cyan {
+            background: #ecfeff;
             color: #0284c7;
-            background: rgba(2, 132, 199, 0.07);
+            border-color: #cffafe;
           }
         }
       }
 
       .card-title {
-        font-size: 19px;
-        font-weight: 700;
+        font-size: 18px;
+        font-weight: 800;
         color: #0f172a;
         margin-bottom: 6px;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.01em;
       }
 
       .card-desc {
         font-size: 13.5px;
-        line-height: 1.6;
+        line-height: 1.55;
         color: #64748b;
         margin-bottom: 16px;
       }
 
-      /* Check Deliverables Pills List */
       .card-pills-list {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        margin-top: auto;
-        padding-top: 12px;
-        border-top: 1px dashed #f1f5f9;
+        gap: 7px;
 
         .bento-check-pill {
-          display: inline-flex;
+          display: flex;
           align-items: center;
-          gap: 7px;
+          gap: 8px;
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          padding: 6.5px 12px;
           font-size: 12px;
           font-weight: 600;
           color: #334155;
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          padding: 5px 10px;
-          border-radius: 8px;
-          transition: all 0.2s ease;
+          transition: all 0.22s ease;
 
           .pill-check-icon {
             color: #0062f5;
@@ -229,22 +395,29 @@
           }
 
           &:hover {
+            border-color: #38bdf8;
             background: #ffffff;
-            border-color: #cbd5e1;
-            transform: translateX(2px);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+            color: #0062f5;
+            transform: translateX(3px);
           }
         }
       }
     }
   }
 
-  /* Interactive Tech Stack Strip */
+  /* --------------------------------------------------------------------------
+     4. Modern Engineering Stack Strip
+     -------------------------------------------------------------------------- */
   .about-tech-stack-strip {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    margin-top: 22px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
     border-radius: 16px;
-    padding: 16px 20px;
-    margin-top: 24px;
+    padding: 14px 18px;
+    box-shadow: 0 4px 18px rgba(0, 98, 245, 0.05);
 
     .tech-stack-header {
       display: flex;
@@ -256,25 +429,25 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        font-size: 12.5px;
+        font-size: 11.5px;
         font-weight: 700;
         color: #1e293b;
         text-transform: uppercase;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.05em;
       }
 
       .tech-stack-link {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        font-size: 12.5px;
+        font-size: 12px;
         font-weight: 700;
         color: #0062f5;
         text-decoration: none;
         transition: all 0.2s ease;
 
         &:hover {
-          color: #0050cc;
+          color: #0045b8;
           transform: translateX(3px);
         }
       }
@@ -283,7 +456,7 @@
     .tech-badges-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
 
       .tech-badge-chip {
@@ -307,7 +480,7 @@
         }
 
         &:hover {
-          border-color: #93c5fd;
+          border-color: #38bdf8;
           color: #0062f5;
           transform: translateY(-1px);
         }
@@ -315,70 +488,117 @@
     }
   }
 
-  /* Right Side Portrait Showcase */
-  .about-portrait-wrap {
+  /* --------------------------------------------------------------------------
+     5. Right Side: 3D Spatial Founder Stage with Glass Frame & Orbital Rings
+     -------------------------------------------------------------------------- */
+  .about-founder-3d-stage {
     position: relative;
-    max-width: 480px;
+    max-width: 470px;
     margin: 0 auto;
+    perspective: 1000px;
 
     @media (max-width: 991px) {
       margin-top: 48px;
     }
 
-    /* Ambient blue aura */
-    .portrait-ambient-glow {
-      position: absolute;
-      inset: -20px;
-      border-radius: 36px;
-      background: radial-gradient(circle at center, rgba(0, 98, 245, 0.16) 0%, transparent 70%);
-      filter: blur(40px);
-      z-index: 0;
-      pointer-events: none;
+    .founder-perspective-chassis {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Elegant Framed Portrait */
-    .portrait-frame {
+    /* Double 3D Glass Orbital Rings around Founder Stage */
+    .founder-orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+
+      &.ring-1 {
+        top: 48%;
+        left: 50%;
+        width: 122%;
+        height: 62%;
+        transform: translate(-50%, -50%) rotateX(65deg) rotateY(-20deg);
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        box-shadow:
+          0 0 22px rgba(56, 189, 248, 0.65),
+          inset 0 0 10px rgba(255, 255, 255, 0.85);
+        z-index: 0;
+      }
+
+      &.ring-2 {
+        top: 52%;
+        left: 50%;
+        width: 112%;
+        height: 52%;
+        transform: translate(-50%, -50%) rotateX(65deg) rotateY(25deg);
+        border: 1.8px solid rgba(56, 189, 248, 0.85);
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+        z-index: 3;
+      }
+    }
+
+    /* Outer Thick Glassmorphic Frame Chassis */
+    .founder-glass-frame {
       position: relative;
       z-index: 1;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 3px solid #ffffff;
+      border-radius: 30px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.95);
       box-shadow:
-        0 25px 60px rgba(15, 23, 42, 0.14),
-        0 4px 16px rgba(0, 98, 245, 0.08);
+        0 0 35px rgba(56, 189, 248, 0.4),
+        0 25px 60px rgba(0, 98, 245, 0.16);
 
-      .portrait-img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      .frame-glass-specular-edge {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
       }
 
-      &:hover .portrait-img {
-        transform: scale(1.03);
+      .founder-photo-viewport {
+        border-radius: 22px;
+        overflow: hidden;
+
+        .founder-portrait-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        &:hover .founder-portrait-img {
+          transform: scale(1.03);
+        }
       }
     }
 
-    /* Floating Glassmorphic Badges */
+    /* 3D Floating Glassmorphic Badges */
     .portrait-glass-badge {
       position: absolute;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.85);
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
       border-radius: 16px;
-      padding: 12px 18px;
+      padding: 11px 16px;
       box-shadow:
-        0 14px 34px rgba(15, 23, 42, 0.12),
-        0 2px 8px rgba(0, 98, 245, 0.08);
+        0 14px 34px rgba(0, 98, 245, 0.15),
+        0 2px 8px rgba(15, 23, 42, 0.05);
       display: flex;
       flex-direction: column;
       animation: badgeFloat 4s ease-in-out infinite alternate;
 
       &.badge-rating {
-        top: 24px;
-        left: -20px;
+        top: 20px;
+        left: -18px;
         animation-delay: 0s;
 
         @media (max-width: 576px) {
@@ -390,16 +610,16 @@
           display: flex;
           align-items: center;
           gap: 2px;
-          margin-bottom: 4px;
+          margin-bottom: 3px;
         }
       }
 
       &.badge-certified {
-        bottom: 24px;
-        right: -20px;
+        bottom: 22px;
+        right: -18px;
         flex-direction: row;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         animation-delay: 2s;
 
         @media (max-width: 576px) {
@@ -408,11 +628,11 @@
         }
 
         .badge-icon-box {
-          width: 38px;
-          height: 38px;
+          width: 36px;
+          height: 36px;
           border-radius: 10px;
           background: #eff6ff;
-          border: 1px solid #dbeafe;
+          border: 1px solid #bfdbfe;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -421,14 +641,14 @@
       }
 
       .badge-text-primary {
-        font-size: 13.5px;
+        font-size: 13px;
         font-weight: 800;
         color: #0f172a;
         line-height: 1.25;
       }
 
       .badge-text-secondary {
-        font-size: 11px;
+        font-size: 10.5px;
         font-weight: 600;
         color: #64748b;
       }
@@ -437,20 +657,20 @@
     /* Founder & Architect Identity Pill */
     .portrait-founder-pill {
       position: absolute;
-      bottom: -16px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 4;
+      z-index: 5;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
       background: #0f172a;
       color: #ffffff;
-      padding: 6px 16px;
+      padding: 6.5px 16px;
       border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
-      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.28);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
 
       .founder-check-icon {
         color: #38bdf8;
@@ -468,22 +688,191 @@
       }
 
       .founder-role {
-        font-size: 11.5px;
-        font-weight: 500;
+        font-size: 11px;
+        font-weight: 600;
         color: #94a3b8;
+        letter-spacing: 0.04em;
+      }
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     6. Bottom Row: 3D Impact Metrics Counter Grid (Unified Inside Spatial Canvas)
+     -------------------------------------------------------------------------- */
+  .about-impact-metrics-row {
+    position: relative;
+    z-index: 3;
+    margin-top: clamp(42px, 4.8vw, 64px);
+
+    .impact-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 520px) {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-stat-pod {
+        position: relative;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(255, 255, 255, 0.95);
+        border-radius: 18px;
+        padding: 20px 22px;
+        box-shadow:
+          0 6px 24px -3px rgba(0, 98, 245, 0.08),
+          0 2px 5px rgba(0, 0, 0, 0.02);
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+
+        .pod-specular-rim {
+          position: absolute;
+          top: 0;
+          left: 10%;
+          right: 10%;
+          height: 1.5px;
+          background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
+        }
+
+        /* Hover glow with signature accent */
+        &:hover {
+          transform: translateY(-4px);
+          border-color: #38bdf8;
+          box-shadow:
+            0 0 24px rgba(56, 189, 248, 0.4),
+            0 14px 30px rgba(0, 98, 245, 0.12);
+
+          .stat-icon-wrapper {
+            transform: scale(1.1);
+          }
+        }
+
+        &.pod-cyan:hover {
+          border-color: #0284c7;
+          box-shadow: 0 0 24px rgba(2, 132, 199, 0.4), 0 14px 30px rgba(2, 132, 199, 0.12);
+        }
+        &.pod-emerald:hover {
+          border-color: #10b981;
+          box-shadow: 0 0 24px rgba(16, 185, 129, 0.4), 0 14px 30px rgba(16, 185, 129, 0.12);
+        }
+        &.pod-indigo:hover {
+          border-color: #6366f1;
+          box-shadow: 0 0 24px rgba(99, 102, 241, 0.4), 0 14px 30px rgba(99, 102, 241, 0.12);
+        }
+
+        .stat-icon-wrapper {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
+          color: #0062f5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: transform 0.3s ease;
+
+          &.icon-cyan {
+            background: #ecfeff;
+            border-color: #a5f3fc;
+            color: #0284c7;
+          }
+          &.icon-emerald {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            color: #10b981;
+          }
+          &.icon-indigo {
+            background: #eef2ff;
+            border-color: #c7d2fe;
+            color: #6366f1;
+          }
+        }
+
+        .stat-content {
+          display: flex;
+          flex-direction: column;
+
+          .stat-number-row {
+            display: flex;
+            align-items: baseline;
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 3px;
+
+            .stat-value {
+              display: inline-flex;
+              align-items: baseline;
+
+              .d-flex {
+                display: inline-flex !important;
+                align-items: baseline !important;
+              }
+
+              i.fa-plus {
+                font-size: 20px;
+                font-weight: 800;
+                color: #0062f5;
+                margin-left: 2px;
+                font-style: normal;
+              }
+            }
+          }
+
+          &.pod-cyan .stat-number-row .stat-value i.fa-plus {
+            color: #0284c7;
+          }
+          &.pod-emerald .stat-number-row .stat-value i.fa-plus {
+            color: #10b981;
+          }
+          &.pod-indigo .stat-number-row .stat-value i.fa-plus {
+            color: #6366f1;
+          }
+
+          .stat-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 2px;
+            line-height: 1.3;
+          }
+
+          .stat-micro-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+          }
+        }
       }
     }
   }
 }
 
 /* ========================================================
-   LIVE IMPACT METRICS STRIP (NO DUPLICATE ++ BUG)
+   LIVE IMPACT METRICS STRIP (CounterAreaHomeFive)
    ======================================================== */
 .counter-area-enhanced {
   position: relative;
   padding: 0 0 90px;
   background: #ffffff;
   z-index: 2;
+
+  .container {
+    max-width: 1360px;
+    width: 100%;
+  }
 
   .impact-stats-grid {
     display: grid;
@@ -533,7 +922,6 @@
         background: #6366f1;
       }
 
-      /* Hover glow with signature accent */
       &:hover {
         transform: translateY(-4px);
         border-color: #0062f5;
@@ -605,7 +993,6 @@
           letter-spacing: -0.03em;
           margin-bottom: 4px;
 
-          /* CountTwo wrapper styling */
           .stat-value {
             display: inline-flex;
             align-items: baseline;
@@ -615,7 +1002,6 @@
               align-items: baseline !important;
             }
 
-            /* Single, clean, beautiful plus symbol */
             i.fa-plus {
               font-size: 21px;
               font-weight: 800;
@@ -654,7 +1040,18 @@
   }
 }
 
-/* Floating Animations */
+/* --------------------------------------------------------------------------
+   Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes aboutSphereFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
 @keyframes aboutRadarPulse {
   0% {
     transform: scale(1);
@@ -671,6 +1068,25 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion Preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .about-area-enhanced {
+    .about-sapphire-sphere,
+    .badge-pulse-dot,
+    .portrait-glass-badge {
+      animation: none !important;
+    }
+
+    .about-bento-card,
+    .founder-perspective-chassis,
+    .impact-stat-pod {
+      transition: none !important;
+    }
   }
 }

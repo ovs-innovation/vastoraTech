@@ -3,8 +3,8 @@
 import React from "react";
 
 /**
- * CounterAreaHomeFive is now seamlessly unified inside AboutAreaHomeFive.tsx
- * to preserve the continuous 3D spatial environment without duplicate counters.
+ * CounterAreaHomeFive is now unified inside AboutAreaHomeFive.tsx
+ * to keep the 3D spatial atmosphere seamless and eliminate the split background.
  */
 const CounterAreaHomeFive: React.FC = () => {
   return null;
