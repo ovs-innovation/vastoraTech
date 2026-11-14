@@ -37,22 +37,24 @@ const BlogEditorialGrid: React.FC<BlogEditorialGridProps> = ({
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      cardElementsRef.current.forEach((el, idx) => {
+      cardElementsRef.current.forEach((el) => {
         if (!el) return;
 
+        // Controlled, subtle entrance without aggressive fading or washed-out text
+        // Cards start at high contrast (opacity: 0.85) and settle at full 1.0 opacity
+        // once: true ensures cards remain sharp, legible, and never wash out when scrolling
         gsap.fromTo(
           el,
-          { y: 35, opacity: 0.2 },
+          { y: 20, opacity: 0.85 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.9,
+            duration: 0.5,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
               start: "top 92%",
-              end: "top 45%",
-              toggleActions: "play reverse play reverse",
+              once: true,
             },
           }
         );

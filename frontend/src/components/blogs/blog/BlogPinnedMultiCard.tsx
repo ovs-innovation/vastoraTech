@@ -70,15 +70,15 @@ const BlogPinnedMultiCard: React.FC<BlogPinnedMultiCardProps> = ({ articles }) =
       const slideX = isDesktop ? 55 : 28;
 
       // Master Scroll-Driven Timeline:
-      // Expanded pin duration (+=130% ~ 950-1100px) positioned right under the navbar (72px).
-      // Entrance finishes early (~0.46) so the cards remain stationary and fully readable (opacity: 1)
-      // for the majority (>54%) of the scroll interval before unpinning.
+      // Expanded pin duration (+=200% ~ 1600-1800px) positioned right under the navbar (72px).
+      // Entrance finishes early (~0.25) so the cards remain stationary and fully readable (opacity: 1)
+      // for the vast majority (~63%) of the scroll interval before a smooth, natural unpin transition.
       // scrub: 1.0 guarantees 1:1 responsive, bidirectional tactile control without lagging.
       const masterTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionEl,
           start: enablePin ? "top 72px" : "top 82%",
-          end: enablePin ? "+=130%" : "top 18%",
+          end: enablePin ? "+=200%" : "top 18%",
           pin: enablePin,
           pinSpacing: enablePin,
           scrub: 1.0,
@@ -87,115 +87,115 @@ const BlogPinnedMultiCard: React.FC<BlogPinnedMultiCardProps> = ({ articles }) =
         },
       });
 
-      // 1. Header Reveal (Progress 0.00 -> 0.20): Eyebrow, Main Headline, Lead Description
+      // 1. Header Reveal (Progress 0.00 -> 0.14): Eyebrow, Main Headline, Lead Description
       masterTl.fromTo(
         ".organic-section-header",
         {
           opacity: 0,
-          y: 24,
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.20,
+          duration: 0.14,
           ease: "power2.out",
         },
         0.0
       );
 
-      // 2. Large Left Featured Card (Progress 0.05 -> 0.35): Horizontal slide-in with subtle depth scale
+      // 2. Large Left Featured Card (Progress 0.03 -> 0.20): Horizontal slide-in with subtle depth scale
       masterTl.fromTo(
         ".choreographed-featured-card",
         {
           x: -slideX,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.97,
         },
         {
           x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.30,
+          duration: 0.17,
           ease: "power2.out",
         },
-        0.05
+        0.03
       );
 
-      // 3. First Right-Side Supporting Card (Progress 0.12 -> 0.40): Smooth glide from right
+      // 3. First Right-Side Supporting Card (Progress 0.06 -> 0.22): Smooth glide from right
       masterTl.fromTo(
         ".supporting-card-1",
         {
           x: slideX,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.97,
         },
         {
           x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.28,
+          duration: 0.16,
           ease: "power2.out",
         },
-        0.12
+        0.06
       );
 
-      // 4. Second Right-Side Supporting Card (Progress 0.18 -> 0.46): Controlled stagger
+      // 4. Second Right-Side Supporting Card (Progress 0.09 -> 0.24): Controlled stagger
       masterTl.fromTo(
         ".supporting-card-2",
         {
           x: slideX,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.97,
         },
         {
           x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.28,
+          duration: 0.15,
           ease: "power2.out",
         },
-        0.18
+        0.09
       );
 
-      // 5. Curator's Pick Pill (Progress 0.22 -> 0.46): Floats up smoothly below right cards
+      // 5. Curator's Pick Pill (Progress 0.12 -> 0.25): Floats up smoothly below right cards
       masterTl.fromTo(
         ".curators-pick-pill-wrapper",
         {
-          y: 18,
+          y: 16,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.97,
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.24,
+          duration: 0.13,
           ease: "power2.out",
         },
-        0.22
+        0.12
       );
 
-      // 6. Deliberate Stationary Reading Hold Phase (Progress 0.46 -> 1.00)
-      // All cards remain at opacity: 1 and settled in their final layout,
+      // 6. Deliberate Stationary Reading Hold Phase (Progress 0.25 -> 0.88)
+      // All cards remain at opacity: 1, scale: 1, perfectly settled and stationary,
       // giving the visitor ample scroll time to read the featured story and headlines.
-      masterTl.to({}, { duration: 0.54 }, 0.46);
+      masterTl.to({}, { duration: 0.63 }, 0.25);
 
-      // 7. Subtle, non-distracting optical parallax on images across the full scroll
+      // 7. Smooth, natural exit transition into Section 02 (Progress 0.88 -> 1.00)
+      // Gentle shift prevents sudden snaps or premature section transitions.
+      masterTl.to(
+        ".choreographed-featured-card, .supporting-card-1, .supporting-card-2, .curators-pick-pill-wrapper",
+        {
+          y: -16,
+          opacity: 0.92,
+          duration: 0.12,
+          ease: "power1.inOut",
+        },
+        0.88
+      );
+
+      // 8. Subtle, non-distracting optical parallax on images across the full scroll
       masterTl.fromTo(
         ".featured-photo-element",
-        {
-          yPercent: -4,
-        },
-        {
-          yPercent: 4,
-          duration: 1.0,
-          ease: "none",
-        },
-        0.0
-      );
-
-      masterTl.fromTo(
-        ".supporting-card-1 .supporting-photo-element",
         {
           yPercent: -3,
         },
@@ -208,12 +208,25 @@ const BlogPinnedMultiCard: React.FC<BlogPinnedMultiCardProps> = ({ articles }) =
       );
 
       masterTl.fromTo(
-        ".supporting-card-2 .supporting-photo-element",
+        ".supporting-card-1 .supporting-photo-element",
         {
-          yPercent: -4,
+          yPercent: -2,
         },
         {
-          yPercent: 3,
+          yPercent: 2,
+          duration: 1.0,
+          ease: "none",
+        },
+        0.0
+      );
+
+      masterTl.fromTo(
+        ".supporting-card-2 .supporting-photo-element",
+        {
+          yPercent: -3,
+        },
+        {
+          yPercent: 2,
           duration: 1.0,
           ease: "none",
         },

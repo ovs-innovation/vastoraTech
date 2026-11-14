@@ -83,24 +83,24 @@ const BlogStackedPanels: React.FC<BlogStackedPanelsProps> = ({ articles }) => {
       });
       gsap.set(".organic-stack-panel-2", {
         x: 0,
-        y: 20,
-        scale: 0.98,
+        y: 16,
+        scale: 0.99,
         autoAlpha: 0,
         zIndex: 9,
         pointerEvents: "none",
       });
       gsap.set(".organic-stack-panel-3", {
         x: 0,
-        y: 20,
-        scale: 0.98,
+        y: 16,
+        scale: 0.99,
         autoAlpha: 0,
         zIndex: 8,
         pointerEvents: "none",
       });
       gsap.set(".organic-stack-panel-4", {
         x: 0,
-        y: 20,
-        scale: 0.98,
+        y: 16,
+        scale: 0.99,
         autoAlpha: 0,
         zIndex: 7,
         pointerEvents: "none",
@@ -108,7 +108,7 @@ const BlogStackedPanels: React.FC<BlogStackedPanelsProps> = ({ articles }) => {
 
       // Master Scroll-Driven Timeline:
       // Pinned at "top 72px" right below the navbar.
-      // end: "+=380%" gives ~3,200px of scroll travel for relaxed, comfortable reading holds.
+      // end: "+=460%" gives ~3,800px of scroll travel for generous, comfortable reading holds.
       // scrub: 1.0 ensures 1:1 tactile, reversible control without inertia lag or jumps.
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -116,113 +116,105 @@ const BlogStackedPanels: React.FC<BlogStackedPanelsProps> = ({ articles }) => {
           pin: true,
           pinSpacing: true,
           start: "top 72px",
-          end: "+=380%",
+          end: "+=460%",
           scrub: 1.0,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const p = self.progress;
-            if (p < 0.28) setActiveLayer(1);
-            else if (p < 0.55) setActiveLayer(2);
-            else if (p < 0.82) setActiveLayer(3);
+            if (p < 0.25) setActiveLayer(1);
+            else if (p < 0.50) setActiveLayer(2);
+            else if (p < 0.75) setActiveLayer(3);
             else setActiveLayer(4);
           },
         },
       });
 
       // -------------------------------------------------------------
-      // PHASE 1: Card 01 Reading Hold (t = 0.0 -> 2.2)
-      // Only Card 01 is visible (autoAlpha: 1). Cards 02-04 are hidden.
+      // PHASE 1: Card 01 Reading Hold (t = 0.0 -> 3.6)
+      // Only Card 01 is visible at full opacity 1.0. Cards 02-04 are hidden.
       // -------------------------------------------------------------
-      tl.to({}, { duration: 2.2 }, 0.0);
+      tl.to({}, { duration: 3.6 }, 0.0);
 
       // -------------------------------------------------------------
-      // TRANSITION 1A: Card 01 Exits (t = 2.2 -> 2.6)
-      // Card 01 glides upward slightly (-20px) and fades out to autoAlpha: 0.
-      // At t = 2.6, Card 01 is completely hidden (visibility: hidden).
+      // TRANSITION 1: Card 01 -> Card 02 (t = 3.6 -> 3.9)
+      // Card 01 cleanly exits upward as Card 02 rises into full opacity.
+      // Fast, clean 0.3s transition ensures cards do not linger in faded states.
       // -------------------------------------------------------------
       tl.to(".organic-stack-panel-1", {
-        y: -20,
-        scale: 0.98,
+        y: -16,
+        scale: 0.99,
         autoAlpha: 0,
         pointerEvents: "none",
-        duration: 0.4,
-        ease: "power2.in",
-      }, 2.2);
+        zIndex: 9,
+        duration: 0.3,
+        ease: "power2.inOut",
+      }, 3.6);
 
-      // -------------------------------------------------------------
-      // TRANSITION 1B: Card 02 Enters (t = 2.6 -> 3.0)
-      // Card 01 is ALREADY hidden. Card 02 becomes visible and rises into place.
-      // ZERO simultaneous visibility: no overlapping text, no blended images!
-      // -------------------------------------------------------------
       tl.fromTo(".organic-stack-panel-2",
-        { y: 20, scale: 0.98, autoAlpha: 0, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.4, ease: "power2.out" },
-        2.6
+        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
+        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
+        3.6
       );
 
       // -------------------------------------------------------------
-      // PHASE 2: Card 02 Reading Hold (t = 3.0 -> 5.2)
-      // Card 02 is 100% visible, centered, stationary, sharp, readable.
+      // PHASE 2: Card 02 Reading Hold (t = 3.9 -> 7.5)
+      // Card 02 is 100% visible, centered, stationary, sharp, full opacity.
       // Cards 01, 03, 04 are completely hidden (visibility: hidden).
       // -------------------------------------------------------------
-      tl.to({}, { duration: 2.2 }, 3.0);
+      tl.to({}, { duration: 3.6 }, 3.9);
 
       // -------------------------------------------------------------
-      // TRANSITION 2A: Card 02 Exits (t = 5.2 -> 5.6)
+      // TRANSITION 2: Card 02 -> Card 03 (t = 7.5 -> 7.8)
       // -------------------------------------------------------------
       tl.to(".organic-stack-panel-2", {
-        y: -20,
-        scale: 0.98,
+        y: -16,
+        scale: 0.99,
         autoAlpha: 0,
         pointerEvents: "none",
-        duration: 0.4,
-        ease: "power2.in",
-      }, 5.2);
+        zIndex: 9,
+        duration: 0.3,
+        ease: "power2.inOut",
+      }, 7.5);
 
-      // -------------------------------------------------------------
-      // TRANSITION 2B: Card 03 Enters (t = 5.6 -> 6.0)
-      // -------------------------------------------------------------
       tl.fromTo(".organic-stack-panel-3",
-        { y: 20, scale: 0.98, autoAlpha: 0, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.4, ease: "power2.out" },
-        5.6
+        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
+        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
+        7.5
       );
 
       // -------------------------------------------------------------
-      // PHASE 3: Card 03 Reading Hold (t = 6.0 -> 8.2)
-      // Card 03 is 100% visible, centered, stationary, sharp, readable.
+      // PHASE 3: Card 03 Reading Hold (t = 7.8 -> 11.4)
+      // Card 03 is 100% visible, centered, stationary, sharp, full opacity.
       // Cards 01, 02, 04 are completely hidden (visibility: hidden).
       // -------------------------------------------------------------
-      tl.to({}, { duration: 2.2 }, 6.0);
+      tl.to({}, { duration: 3.6 }, 7.8);
 
       // -------------------------------------------------------------
-      // TRANSITION 3A: Card 03 Exits (t = 8.2 -> 8.6)
+      // TRANSITION 3: Card 03 -> Card 04 (t = 11.4 -> 11.7)
       // -------------------------------------------------------------
       tl.to(".organic-stack-panel-3", {
-        y: -20,
-        scale: 0.98,
+        y: -16,
+        scale: 0.99,
         autoAlpha: 0,
         pointerEvents: "none",
-        duration: 0.4,
-        ease: "power2.in",
-      }, 8.2);
+        zIndex: 9,
+        duration: 0.3,
+        ease: "power2.inOut",
+      }, 11.4);
 
-      // -------------------------------------------------------------
-      // TRANSITION 3B: Card 04 Enters (t = 8.6 -> 9.0)
-      // -------------------------------------------------------------
       tl.fromTo(".organic-stack-panel-4",
-        { y: 20, scale: 0.98, autoAlpha: 0, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, pointerEvents: "auto", duration: 0.4, ease: "power2.out" },
-        8.6
+        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
+        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
+        11.4
       );
 
       // -------------------------------------------------------------
-      // PHASE 4: Card 04 Final Reading Hold (t = 9.0 -> 11.2)
-      // Card 04 is 100% visible, centered, stationary, sharp, readable.
+      // PHASE 4: Card 04 Final Reading Hold (t = 11.7 -> 15.3)
+      // Card 04 is 100% visible, centered, stationary, sharp, full opacity.
       // Cards 01, 02, 03 are completely hidden (visibility: hidden).
       // -------------------------------------------------------------
-      tl.to({}, { duration: 2.2 }, 9.0);
+      tl.to({}, { duration: 3.6 }, 11.7);
     }, sectionRef);
 
     return () => ctx.revert();

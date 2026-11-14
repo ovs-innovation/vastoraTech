@@ -74,13 +74,13 @@ const BlogBrandStatement: React.FC = () => {
         });
 
         if (numEl) {
-          tl.fromTo(numEl, { x: 25, opacity: 0.4 }, { x: 0, opacity: 1, ease: "power1.out" }, 0);
+          tl.fromTo(numEl, { x: 20, opacity: 0.8 }, { x: 0, opacity: 1, ease: "power1.out" }, 0);
         }
         if (titleEl) {
-          tl.fromTo(titleEl, { y: 18, opacity: 0.4 }, { y: 0, opacity: 1, ease: "power1.out" }, 0.05);
+          tl.fromTo(titleEl, { y: 14, opacity: 0.8 }, { y: 0, opacity: 1, ease: "power1.out" }, 0.05);
         }
         if (descEl) {
-          tl.fromTo(descEl, { y: 15, opacity: 0.4 }, { y: 0, opacity: 1, ease: "power1.out" }, 0.1);
+          tl.fromTo(descEl, { y: 12, opacity: 0.8 }, { y: 0, opacity: 1, ease: "power1.out" }, 0.1);
         }
       });
 

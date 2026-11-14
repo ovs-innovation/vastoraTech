@@ -33,7 +33,7 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
     const trackEl = trackRef.current;
     if (!sectionEl || !trackEl) return;
 
-    const calculateDistance = () => trackEl.scrollWidth - window.innerWidth + 120;
+    const calculateDistance = () => trackEl.scrollWidth - window.innerWidth + 200;
 
     const ctx = gsap.context(() => {
       const distance = calculateDistance();
@@ -41,7 +41,8 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
       // Horizontal gallery scroll animation:
       // - start: "top 72px" docks directly below the fixed navbar (height 72px) so HUD is not clipped
       // - scrub: 1.0 ensures immediate 1:1 tactile responsiveness without sluggish inertia lag
-      // - end: distance + 700 expands scroll interval so cards glide at a comfortable, readable pace
+      // - end: distance + 950 expands scroll interval so cards glide at a deliberate, comfortable pace
+      // - distance + 200 ensures the final 6th card is completely visible and fully readable before unpinning
       gsap.to(trackEl, {
         x: () => -distance,
         ease: "none",
@@ -50,7 +51,7 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
           pin: true,
           scrub: 1.0,
           start: "top 72px",
-          end: () => `+=${distance + 700}`,
+          end: () => `+=${distance + 950}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
           onUpdate: (self) => {

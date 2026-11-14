@@ -17,8 +17,8 @@ $color-electric-hover: #0c4edb;
 $color-soft-blue: #EBF2FF;
 $color-neutral: #EAE5DC;
 $color-border-subtle: #F0EDE6;
-$color-secondary: #777777;
-$color-secondary-light: #999999;
+$color-secondary: #52525b;
+$color-secondary-light: #71717a;
 
 // 2. Typography System
 $font-heading: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -2051,25 +2051,34 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       gap: clamp(28px, 3vw, 48px);
       width: max-content;
       padding: 0 4vw;
+      padding-right: clamp(160px, 16vw, 260px);
 
       @media (max-width: 1024px) {
         padding: 0 16px;
+        padding-right: 48px;
       }
 
       .gallery-organic-item {
-        width: clamp(380px, 32vw, 480px);
+        width: clamp(380px, 30vw, 440px);
+        min-height: 540px;
         flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
 
         @media (max-width: 1024px) {
           width: 320px;
+          min-height: auto;
           scroll-snap-align: start;
         }
 
         .gallery-organic-card {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
           background: $color-ivory;
           border: 1px solid $color-neutral;
-          border-radius: 40px;
-          padding: 16px;
+          border-radius: 24px;
+          padding: 18px;
           box-shadow: 0 8px 24px rgba(17, 19, 24, 0.03);
           transition: border-color 0.25s ease, box-shadow 0.25s ease;
 
@@ -2083,10 +2092,11 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
           .card-organic-media-frame {
             position: relative;
-            height: clamp(220px, 28vh, 280px);
-            border-radius: 32px 32px 8px 32px;
+            height: 250px;
+            border-radius: 20px;
             overflow: hidden;
             margin-bottom: 20px;
+            flex-shrink: 0;
 
             .media-anchor {
               display: block;
@@ -2108,7 +2118,10 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
           }
 
           .card-organic-content {
-            padding: 0 10px 10px;
+            padding: 0 8px 8px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
 
             .meta-compact-line {
               display: flex;
@@ -2151,6 +2164,7 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
               justify-content: space-between;
               padding-top: 14px;
               border-top: 1px solid $color-neutral;
+              margin-top: auto;
 
               .author-name {
                 font-size: 12.5px;
@@ -2238,18 +2252,17 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       align-items: center;
       justify-content: space-between;
       gap: 36px;
-      padding: clamp(28px, 3.8vw, 48px);
+      padding: clamp(32px, 3.5vw, 44px) clamp(28px, 3.5vw, 48px);
       background: $color-white;
       border: 1px solid $color-neutral;
+      border-radius: 24px;
+      min-height: 140px;
       box-shadow: 0 6px 24px rgba(17, 19, 24, 0.03);
       transition: border-color 0.25s ease, box-shadow 0.25s ease;
 
-      &.slab-variant-1 {
-        border-radius: 36px 80px 36px 36px;
-      }
-
+      &.slab-variant-1,
       &.slab-variant-2 {
-        border-radius: 80px 36px 36px 80px;
+        border-radius: 24px;
       }
 
       &:hover {
@@ -2273,6 +2286,8 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         flex-direction: column;
         gap: 6px;
         min-width: 140px;
+        width: 140px;
+        flex-shrink: 0;
 
         .slab-giant-num {
           font-family: $font-heading;
@@ -2614,7 +2629,7 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
    ======================================================== */
 .organic-newsletter-section {
   position: relative;
-  padding: clamp(60px, 8vh, 100px) 0;
+  padding: clamp(60px, 8vh, 100px) 0 clamp(80px, 11vh, 130px) 0;
   background-color: $color-ivory;
 
   .newsletter-curved-crest {
