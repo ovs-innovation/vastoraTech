@@ -5,6 +5,44 @@ import { usePathname } from "next/navigation";
 import menu_data from "./menu-data";
 import Image from "next/image";
 
+interface AnimatedNavLabelProps {
+  title: string;
+}
+
+const AnimatedNavLabel: React.FC<AnimatedNavLabelProps> = ({ title }) => {
+  const characters = title.split("");
+
+  return (
+    <span className="nav-rolling-text" data-text={title}>
+      {/* Primary visible text layer */}
+      <span className="roll-layer roll-layer-visible">
+        {characters.map((char, index) => (
+          <span
+            key={index}
+            className="roll-char"
+            style={{ transitionDelay: `${index * 16}ms` }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </span>
+        ))}
+      </span>
+
+      {/* Duplicate text layer for seamless upward reveal (aria-hidden for accessibility) */}
+      <span className="roll-layer roll-layer-duplicate" aria-hidden="true">
+        {characters.map((char, index) => (
+          <span
+            key={index}
+            className="roll-char"
+            style={{ transitionDelay: `${index * 16}ms` }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+};
+
 const NavMenu = () => {
   const pathname = usePathname();
 
@@ -38,15 +76,15 @@ const NavMenu = () => {
               href={item.link}
               className={`vastora-nav-link ${active ? "active" : ""}`}
             >
-              <span className="nav-text-wrap">
-                {item.title}
-                {isEcommerce && (
-                  <span className="nav-badge-pill hot">
-                    <span className="nav-badge-dot" />
-                    HOT
-                  </span>
-                )}
-              </span>
+              <AnimatedNavLabel title={item.title} />
+
+              {isEcommerce && (
+                <span className="nav-badge-pill hot">
+                  <span className="nav-badge-dot" />
+                  HOT
+                </span>
+              )}
+
               {isServices && (
                 <span className="nav-chevron-icon" aria-hidden="true">
                   <svg
