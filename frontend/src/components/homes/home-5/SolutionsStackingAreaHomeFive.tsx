@@ -47,8 +47,6 @@ const SolutionsStackingAreaHomeFive: React.FC<SolutionsStackingAreaHomeFiveProps
         {/* Sticky Stacking Cards Container */}
         <div className="solutions-cards-stack-container">
           {solutionsCardsData.map((card: SolutionCardItem, index: number) => {
-            // Progressive top offset so previous card edges remain visible like layered sheets
-            const stickyTopOffset = 100 + index * 26; // 100px, 126px, 152px, 178px, 204px, 230px
             const zIndexVal = index + 1;
 
             return (
@@ -56,7 +54,6 @@ const SolutionsStackingAreaHomeFive: React.FC<SolutionsStackingAreaHomeFiveProps
                 key={card.id}
                 className="solution-card-sticky-wrapper"
                 style={{
-                  top: `${stickyTopOffset}px`,
                   zIndex: zIndexVal,
                 }}
               >
@@ -74,12 +71,9 @@ const SolutionsStackingAreaHomeFive: React.FC<SolutionsStackingAreaHomeFiveProps
                     )}
                   </div>
 
-                  {/* Card Center: Previous Heading & Description */}
+                  {/* Card Center: Heading */}
                   <div className="solution-card-content">
                     <h3 className="solution-card-title">{card.heading}</h3>
-                    <p className="solution-card-description">
-                      {card.description}
-                    </p>
                   </div>
 
                   {/* Card Bottom Row: Previous Chips/Tags & Explore Link */}

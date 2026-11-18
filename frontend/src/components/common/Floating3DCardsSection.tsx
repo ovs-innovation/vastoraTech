@@ -21,6 +21,8 @@ interface Floating3DCardsSectionProps {
 
 const CARD_WIDTH = 350;
 const CARD_GAP = 28;
+const CARD_TILT_ANGLES = [-4.5, 3.8, -2.8, 4.2, -3.6, 3.2, -4.0, 2.8];
+const CARD_Y_OFFSETS = [-14, 16, -10, 18, -16, 12, -12, 14];
 
 const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
   badge = "The Minds Behind Vastora",
@@ -105,8 +107,8 @@ const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
       lastTime = currentTime;
       const dt = elapsed / 16.67; // normalized to standard 60fps unit
 
-      // Elegant gentle drift base speed
-      const effectiveBaseSpeed = isHovered ? 0.08 : 0.52;
+      // Responsive drift speed (moderately fast continuous movement, slows down gently on hover)
+      const effectiveBaseSpeed = isHovered ? 0.2 : 1.15;
 
       // Smooth exponential velocity decay
       posRef.current.scrollVelocity *= Math.pow(0.93, dt);
@@ -173,6 +175,9 @@ const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
       >
         <div ref={trackRef} className="floating-3d-track team-tilt-track">
           {repeatedTeam.map((member, idx) => {
+            const tilt = CARD_TILT_ANGLES[idx % CARD_TILT_ANGLES.length];
+            const yOffset = CARD_Y_OFFSETS[idx % CARD_Y_OFFSETS.length];
+
             return (
               <div
                 key={`${member.id}-${idx}`}
@@ -182,6 +187,9 @@ const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
                   minWidth: `${CARD_WIDTH}px`,
                   maxWidth: `${CARD_WIDTH}px`,
                   flex: `0 0 ${CARD_WIDTH}px`,
+                  transform: reducedMotion
+                    ? "none"
+                    : `translate3d(0, ${yOffset}px, 0) rotate(${tilt}deg)`,
                 }}
               >
                 <div className="floating-card-inner team-tilted-card">
