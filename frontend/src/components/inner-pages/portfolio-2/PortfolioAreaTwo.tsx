@@ -237,7 +237,7 @@ const PortfolioAreaTwo: React.FC = () => {
                   />
                 </svg>
               </span>{" "}
-              hearts—
+              <span className="title-hearts-nowrap">hearts —</span>
             </span>
             <br />
             <span className="title-serif-needle title-blue">and the needle.</span>

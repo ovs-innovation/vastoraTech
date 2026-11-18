@@ -68,17 +68,22 @@ const EcommerceFaqArea: React.FC = () => {
         <div className="faq-header">
           <div className="vt-section-badge mb-3">
             <span className="vt-badge-dot" />
-            <span>FAQ</span>
+            <span>KNOWLEDGE BASE • FAQS</span>
           </div>
           <h2 className="vt-section-title">
             E-Commerce Development FAQs
           </h2>
+          <p className="faq-header-subtitle">
+            Everything you need to know about our eCommerce engineering, custom store architectures, payment integrations, and launch workflows.
+          </p>
         </div>
 
         {/* FAQ Accordion List */}
         <div className="faq-list-wrap">
-          {faq_data.map((item) => {
+          {faq_data.map((item, index) => {
             const isOpen = activeId === item.id;
+            const itemNumber = String(index + 1).padStart(2, "0");
+
             return (
               <div
                 key={item.id}
@@ -89,16 +94,33 @@ const EcommerceFaqArea: React.FC = () => {
                   className="faq-question-btn"
                   onClick={() => handleToggle(item.id)}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${item.id}`}
                 >
-                  <span>{item.question}</span>
-                  <ChevronDown size={20} className="faq-chevron" />
+                  <div className="faq-question-main">
+                    <span className="faq-num-pill">{itemNumber}</span>
+                    <span className="faq-question-text">{item.question}</span>
+                  </div>
+
+                  <div className="faq-toggle-pod" aria-hidden="true">
+                    <ChevronDown size={18} className="faq-chevron" />
+                  </div>
                 </button>
 
-                {isOpen && (
-                  <div className="faq-answer-content">
-                    <p className="mb-0">{item.answer}</p>
+                <div
+                  id={`faq-answer-${item.id}`}
+                  className={`faq-answer-collapse ${isOpen ? "is-open" : ""}`}
+                  role="region"
+                  aria-labelledby={item.id}
+                >
+                  <div className="faq-answer-inner">
+                    <div className="faq-answer-divider" />
+                    <div className="faq-answer-content">
+                      <div className="faq-answer-quote-bar">
+                        <p className="mb-0">{item.answer}</p>
+                      </div>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

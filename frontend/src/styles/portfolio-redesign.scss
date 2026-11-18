@@ -34,7 +34,7 @@
 
   /* Page Header */
   .editorial-header {
-    max-width: 1100px;
+    max-width: 1240px;
     margin-bottom: 56px;
 
     .editorial-eyebrow-line {
@@ -88,9 +88,9 @@
 
     .editorial-main-title {
       font-family: var(--tp-ff-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: clamp(40px, 5.2vw, 76px);
+      font-size: clamp(38px, 4.6vw, 68px);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.12;
       letter-spacing: -0.035em;
       margin: 0 0 22px;
 
@@ -100,6 +100,11 @@
 
       .title-blue {
         color: #0062f5;
+      }
+
+      .title-hearts-nowrap {
+        display: inline-block;
+        white-space: nowrap;
       }
 
       /* Authentic Hand-Drawn Sketch Loop around the word "move" */
