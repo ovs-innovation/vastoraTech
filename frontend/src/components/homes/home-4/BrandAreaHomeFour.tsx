@@ -1,158 +1,106 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import OrbitalBrandEcosystem from "./OrbitalBrandEcosystem";
+
+const rowOneBrands = [
+  { id: 23, name: "ACE DIVINO", logo: "/assets/img/brand/trimmed/brand23.png" },
+  { id: 6, name: "Candy Floss", logo: "/assets/img/brand/trimmed/brand6.png" },
+  { id: 7, name: "Natures Pharmaceuticals", logo: "/assets/img/brand/trimmed/brand7.png" },
+  { id: 9, name: "KHALIHAR", logo: "/assets/img/brand/trimmed/brand9.png" },
+  { id: 5, name: "Q-Travel Tech", logo: "/assets/img/brand/trimmed/brand5.png" },
+  { id: 1, name: "CredSol", logo: "/assets/img/brand/trimmed/brand1.png" },
+  { id: 2, name: "Botso AI", logo: "/assets/img/brand/trimmed/brand2.png" },
+  { id: 28, name: "Kaari Organic", logo: "/assets/img/brand/trimmed/brand28.png" },
+  { id: 20, name: "D Allure Couture", logo: "/assets/img/brand/trimmed/brand20.png" },
+  { id: 22, name: "Civic Portal", logo: "/assets/img/brand/trimmed/brand22.png" },
+];
+
+const rowTwoBrands = [
+  { id: 10, name: "Brand Ten", logo: "/assets/img/brand/trimmed/brand10.png" },
+  { id: 11, name: "Brand Eleven", logo: "/assets/img/brand/trimmed/brand11.png" },
+  { id: 12, name: "Brand Twelve", logo: "/assets/img/brand/trimmed/brand12.png" },
+  { id: 13, name: "Brand Thirteen", logo: "/assets/img/brand/trimmed/brand13.png" },
+  { id: 14, name: "Brand Fourteen", logo: "/assets/img/brand/trimmed/brand14.png" },
+  { id: 15, name: "Brand Fifteen", logo: "/assets/img/brand/trimmed/brand15.png" },
+  { id: 16, name: "Brand Sixteen", logo: "/assets/img/brand/trimmed/brand16.png" },
+  { id: 17, name: "Brand Seventeen", logo: "/assets/img/brand/trimmed/brand17.png" },
+  { id: 18, name: "Brand Eighteen", logo: "/assets/img/brand/trimmed/brand18.png" },
+  { id: 19, name: "Brand Nineteen", logo: "/assets/img/brand/trimmed/brand19.png" },
+];
 
 const BrandAreaHomeFour: React.FC = () => {
   return (
     <section
-      className="leeep-client-trust-section orbital-ecosystem-section"
+      className="vt-brand-clean-section"
       id="partnerships"
-      aria-label="Vastora Tech Client Ecosystem"
+      aria-label="Our Trusted Clients & Partners"
     >
-      {/* 1. Cinematic 3D Spatial Environment (Silk Waves, Architectural Fluted Glass & Cobalt Corner Accents) */}
-      <div className="ecosystem-backdrop-environment" aria-hidden="true">
-        {/* Soft flowing porcelain silk waves */}
-        <div className="porcelain-silk-waves">
-          <svg
-            viewBox="0 0 1440 680"
-            fill="none"
-            preserveAspectRatio="none"
-            className="silk-waves-svg"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M-60 180 C 320 80, 680 240, 1080 120 C 1240 70, 1380 100, 1520 130"
-              stroke="rgba(255, 255, 255, 0.9)"
-              strokeWidth="2"
-            />
-            <path
-              d="M-50 320 C 260 210, 640 410, 1020 280 C 1240 200, 1400 240, 1540 270"
-              stroke="rgba(56, 189, 248, 0.28)"
-              strokeWidth="2"
-            />
-            <path
-              d="M-40 480 C 380 360, 780 560, 1180 430 C 1320 380, 1440 410, 1550 440"
-              stroke="rgba(0, 98, 245, 0.15)"
-              strokeWidth="1.5"
-            />
-          </svg>
-        </div>
-
-        {/* Far Left: Architectural Vertical Fluted Glass Texture */}
-        <div className="architectural-fluted-glass" />
-
-        {/* Bottom Left Corner: Rich Royal Cobalt Wave + Floating Sapphire Sphere */}
-        <div className="corner-wave-cobalt corner-bottom-left">
-          <svg
-            className="cobalt-wave-svg"
-            viewBox="0 0 420 340"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M-40 380 L -40 160 C 80 120, 210 180, 280 280 C 320 340, 360 380, 420 400 L -40 400 Z"
-              fill="url(#cobaltWaveGradientBL)"
-            />
-            <path
-              d="M-40 160 C 80 120, 210 180, 280 280"
-              stroke="rgba(255, 255, 255, 0.7)"
-              strokeWidth="2.5"
-            />
-            <defs>
-              <linearGradient id="cobaltWaveGradientBL" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0052ff" />
-                <stop offset="55%" stopColor="#0035b8" />
-                <stop offset="100%" stopColor="#001860" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          {/* Floating Sapphire Pearl Sphere above bottom-left wave */}
-          <div className="floating-sapphire-sphere bl-corner-sphere">
-            <span className="sphere-specular-core" />
-            <span className="sphere-horizon-reflection" />
-            <span className="sphere-fresnel-rim" />
-            <span className="sphere-caustic-shadow" />
-          </div>
-        </div>
-
-        {/* Top Right Corner: Rich Royal Cobalt Wave + Grid lines + Floating Sapphire Sphere + Sparkle */}
-        <div className="corner-wave-cobalt corner-top-right">
-          <svg
-            className="cobalt-wave-svg"
-            viewBox="0 0 460 380"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M120 -20 C 180 80, 290 140, 480 160 L 480 -20 Z"
-              fill="url(#cobaltWaveGradientTR)"
-            />
-            <path
-              d="M120 -20 C 180 80, 290 140, 480 160"
-              stroke="rgba(255, 255, 255, 0.75)"
-              strokeWidth="2.5"
-            />
-            <defs>
-              <linearGradient id="cobaltWaveGradientTR" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0052ff" />
-                <stop offset="60%" stopColor="#0035b8" />
-                <stop offset="100%" stopColor="#001550" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          {/* Cyber Grid Lines over the top-right wave */}
-          <div className="corner-cyber-grid" />
-
-          {/* Floating Sapphire Pearl Sphere in top-right */}
-          <div className="floating-sapphire-sphere tr-corner-sphere">
-            <span className="sphere-specular-core" />
-            <span className="sphere-horizon-reflection" />
-            <span className="sphere-fresnel-rim" />
-            <span className="sphere-caustic-shadow" />
-          </div>
-
-          {/* 4-Point Sparkle Star */}
-          <div className="corner-sparkle-star">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 0 C12 7, 17 12, 24 12 C17 12, 12 17, 12 24 C12 17, 7 12, 0 12 C7 12, 12 7, 12 0 Z"
-                fill="#ffffff"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Open Editorial Header */}
       <div className="container">
-        <div className="stage-header text-center">
-          <div className="stage-eyebrow-badge">
-            <span className="eyebrow-pulse-dot" aria-hidden="true" />
-            <span className="eyebrow-text">PARTNERSHIP ECOSYSTEM</span>
+        {/* Section Header */}
+        <div className="vt-brand-header text-center">
+          <div className="vt-brand-eyebrow">
+            <span className="badge-dot" />
+            <span>PARTNERSHIP ECOSYSTEM</span>
           </div>
 
-          <h2 className="leeep-headline">
-            Trusted by the <span className="leeep-headline-accent">best</span>
+          <h2 className="vt-brand-heading">
+            Trusted by the <span className="vt-brand-serif-italic">best</span>
           </h2>
+
+          <p className="vt-brand-subheading">
+            Powering high-impact digital experiences for 150+ leading enterprises, fast-growing brands, and innovative startups.
+          </p>
         </div>
       </div>
 
-      {/* 3. Centerpiece: Dynamic 3D Orbital Carousel with Glassmorphic Cards & Center Core */}
-      <div className="stage-orbital-ecosystem-wrapper">
-        <OrbitalBrandEcosystem />
+      {/* Infinite Logo Slider Container */}
+      <div className="vt-brand-slider-wrapper">
+        {/* Track 1: Scrolls Left */}
+        <div className="vt-brand-marquee-row row-scroll-left">
+          <div className="vt-brand-marquee-track">
+            {[...rowOneBrands, ...rowOneBrands].map((item, idx) => (
+              <div key={`r1-${item.id}-${idx}`} className="vt-brand-card">
+                <Image
+                  src={item.logo}
+                  alt={item.name}
+                  width={140}
+                  height={42}
+                  className="brand-logo-img"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Track 2: Scrolls Right */}
+        <div className="vt-brand-marquee-row row-scroll-right">
+          <div className="vt-brand-marquee-track">
+            {[...rowTwoBrands, ...rowTwoBrands].map((item, idx) => (
+              <div key={`r2-${item.id}-${idx}`} className="vt-brand-card">
+                <Image
+                  src={item.logo}
+                  alt={item.name}
+                  width={140}
+                  height={42}
+                  className="brand-logo-img"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* 4. Action Footer with Glowing Luxury Pill Button */}
+      {/* Clean Footer Action */}
       <div className="container">
-        <div className="stage-cta-footer text-center">
-          <Link href="/portfolio" className="stage-cta-button">
-            <span>Explore Client Work</span>
-            <ArrowUpRight className="cta-icon" size={16} />
+        <div className="vt-brand-footer text-center">
+          <Link href="/portfolio" className="vt-brand-explore-btn">
+            <span>Explore Client Work & Case Studies</span>
+            <ArrowUpRight size={15} className="btn-icon" />
           </Link>
         </div>
       </div>

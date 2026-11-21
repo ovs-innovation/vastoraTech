@@ -12,7 +12,6 @@ const TeamAreaHomeFive: React.FC<TeamAreaHomeFiveProps> = ({ style }) => {
     <Floating3DCardsSection
       badge="The Minds Behind Vastora"
       title="Meet Our Team of Experts, Driving Digital Excellence."
-      description="A collaborative powerhouse of full-stack engineers, cloud architects, and growth strategists dedicated to delivering transformative client results."
     />
   );
 };

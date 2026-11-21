@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { EDITORIAL_ARTICLES, EditorialArticle } from "@/data/editorial-blog-data";
 import BlogEditorialHero from "./BlogEditorialHero";
 import BlogEditorialCategoryBar from "./BlogEditorialCategoryBar";
@@ -32,6 +33,16 @@ const BlogPostboxArea: React.FC = () => {
       setSelectedCategory(initialCategoryParam);
     }
   }, [initialCategoryParam]);
+
+  // Ensure ScrollTrigger positions are perfectly recalculated after render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [articles, selectedCategory]);
 
   // Attempt to fetch live articles from backend API if available
   useEffect(() => {

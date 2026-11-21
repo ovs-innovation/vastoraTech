@@ -1286,8 +1286,7 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   position: relative;
   padding: clamp(24px, 3vh, 36px) 0 clamp(28px, 3.5vh, 42px) 0;
   background-color: $color-ivory;
-  overflow: hidden;
-  overflow-x: clip;
+  overflow: visible;
 
   .section-curved-crest {
     position: absolute;
@@ -1347,42 +1346,44 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   .organic-stacked-viewport {
     position: relative;
-    height: clamp(540px, 68vh, 660px);
     width: 100%;
-    border-radius: 44px;
-    overflow: hidden;
-    background: $color-white;
-    border: 1px solid $color-neutral;
-    box-shadow: 0 16px 44px rgba(17, 19, 24, 0.05);
-
-    @media (max-width: 1023px) {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      overflow: visible;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
 
     .organic-stack-panel {
-      position: absolute;
-      inset: 0;
-      border-radius: 44px;
+      position: sticky;
+      top: 96px;
+      width: 100%;
+      min-height: clamp(480px, 60vh, 580px);
+      border-radius: 40px;
       overflow: hidden;
       background: $color-white;
-      will-change: transform, opacity;
+      border: 1px solid $color-neutral;
+      box-shadow:
+        0 20px 50px -10px rgba(17, 19, 24, 0.08),
+        0 8px 24px -4px rgba(17, 19, 24, 0.04);
+      margin-bottom: 28px;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      transition: box-shadow 0.3s ease;
+
+      &.organic-stack-panel-1 { z-index: 1; }
+      &.organic-stack-panel-2 { z-index: 2; }
+      &.organic-stack-panel-3 { z-index: 3; }
+      &.organic-stack-panel-4 { z-index: 4; }
 
       @media (max-width: 1023px) {
         position: relative;
-        inset: auto;
+        top: auto;
         min-height: 480px;
-        transform: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        border: 1px solid $color-neutral;
-        box-shadow: 0 16px 44px rgba(17, 19, 24, 0.05);
+        margin-bottom: 0;
       }
 
       &.organic-stack-panel-1,
@@ -2052,6 +2053,9 @@ $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       width: max-content;
       padding: 0 4vw;
       padding-right: clamp(160px, 16vw, 260px);
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
 
       @media (max-width: 1024px) {
         padding: 0 16px;

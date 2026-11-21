@@ -37,14 +37,14 @@ const BlogEditorialHero: React.FC<BlogEditorialHeroProps> = ({ onScrollToContent
       if (words && words.length > 0) {
         gsap.fromTo(
           words,
-          { yPercent: 115, opacity: 0 },
+          { yPercent: 60, opacity: 0.2 },
           {
             yPercent: 0,
             opacity: 1,
-            duration: 1.1,
-            stagger: 0.08,
-            ease: "power3.out",
-            delay: 0.15,
+            duration: 0.65,
+            stagger: 0.05,
+            ease: "power2.out",
+            delay: 0.05,
           }
         );
       }
@@ -52,52 +52,52 @@ const BlogEditorialHero: React.FC<BlogEditorialHeroProps> = ({ onScrollToContent
       // 2. Subtle Upward Reveal for Editorial Description
       gsap.fromTo(
         ".hero-manifesto-sub",
-        { y: 26, opacity: 0 },
+        { y: 16, opacity: 0.4 },
         {
           y: 0,
           opacity: 1,
-          duration: 1.0,
+          duration: 0.6,
           ease: "power2.out",
-          delay: 0.45,
+          delay: 0.15,
         }
       );
 
       // 3. Upward Reveal for Call-To-Action Row
       gsap.fromTo(
         ".hero-action-row",
-        { y: 22, opacity: 0 },
+        { y: 14, opacity: 0.4 },
         {
           y: 0,
           opacity: 1,
-          duration: 1.0,
+          duration: 0.6,
           ease: "power2.out",
-          delay: 0.6,
+          delay: 0.2,
         }
       );
 
       // 4. Smooth Organic Reveal & Subtle Scale Transition for Hero Artwork
       gsap.fromTo(
         ".sculpted-image-mask",
-        { opacity: 0, scale: 1.04 },
+        { opacity: 0.6, scale: 1.02 },
         {
           opacity: 1,
           scale: 1,
-          duration: 1.3,
-          ease: "power3.out",
-          delay: 0.25,
+          duration: 0.75,
+          ease: "power2.out",
+          delay: 0.1,
         }
       );
 
       // 5. Gentle, Controlled Parallax on Scroll (Natural, reversible, non-rotational)
       if (imageFrameRef.current && heroRef.current) {
         gsap.to(imageFrameRef.current, {
-          yPercent: 7,
+          yPercent: 6,
           ease: "none",
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 1.2,
+            scrub: 0.5,
           },
         });
       }

@@ -49,188 +49,84 @@ const BlogPinnedMultiCard: React.FC<BlogPinnedMultiCardProps> = ({ articles }) =
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
-      if (prefersReducedMotion) {
-        gsap.set(
-          ".organic-section-header, .choreographed-featured-card, .supporting-card-1, .supporting-card-2, .curators-pick-pill-wrapper, .featured-photo-element, .supporting-photo-element",
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            yPercent: 0,
-            scale: 1,
-            clearProps: "all",
-          }
-        );
-        return;
-      }
+      // Always ensure all cards and text are fully visible
+      gsap.set(
+        ".organic-section-header, .choreographed-featured-card, .supporting-card-1, .supporting-card-2, .curators-pick-pill-wrapper",
+        {
+          opacity: 1,
+          visibility: "visible",
+          x: 0,
+          y: 0,
+        }
+      );
 
-      const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
-      const isShortScreen = typeof window !== "undefined" && window.innerHeight < 720;
-      const enablePin = isDesktop && !isShortScreen;
-      const slideX = isDesktop ? 55 : 28;
+      if (prefersReducedMotion) return;
 
-      // Master Scroll-Driven Timeline:
-      // Expanded pin duration (+=200% ~ 1600-1800px) positioned right under the navbar (72px).
-      // Entrance finishes early (~0.25) so the cards remain stationary and fully readable (opacity: 1)
-      // for the vast majority (~63%) of the scroll interval before a smooth, natural unpin transition.
-      // scrub: 1.0 guarantees 1:1 responsive, bidirectional tactile control without lagging.
-      const masterTl = gsap.timeline({
+      // Smooth, natural entrance as the section scrolls into view
+      gsap.from(".organic-section-header", {
+        y: 18,
+        duration: 0.6,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionEl,
-          start: enablePin ? "top 72px" : "top 82%",
-          end: enablePin ? "+=200%" : "top 18%",
-          pin: enablePin,
-          pinSpacing: enablePin,
-          scrub: 1.0,
-          anticipatePin: enablePin ? 1 : 0,
-          invalidateOnRefresh: true,
+          start: "top 85%",
+          once: true,
         },
       });
 
-      // 1. Header Reveal (Progress 0.00 -> 0.14): Eyebrow, Main Headline, Lead Description
-      masterTl.fromTo(
-        ".organic-section-header",
-        {
-          opacity: 0,
-          y: 20,
+      gsap.from(".choreographed-featured-card", {
+        y: 24,
+        scale: 0.99,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionEl,
+          start: "top 80%",
+          once: true,
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.14,
-          ease: "power2.out",
-        },
-        0.0
-      );
+      });
 
-      // 2. Large Left Featured Card (Progress 0.03 -> 0.20): Horizontal slide-in with subtle depth scale
-      masterTl.fromTo(
-        ".choreographed-featured-card",
-        {
-          x: -slideX,
-          opacity: 0,
-          scale: 0.97,
+      gsap.from(".supporting-card-1, .supporting-card-2, .curators-pick-pill-wrapper", {
+        y: 20,
+        stagger: 0.1,
+        duration: 0.65,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionEl,
+          start: "top 80%",
+          once: true,
         },
-        {
-          x: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.17,
-          ease: "power2.out",
-        },
-        0.03
-      );
+      });
 
-      // 3. First Right-Side Supporting Card (Progress 0.06 -> 0.22): Smooth glide from right
-      masterTl.fromTo(
-        ".supporting-card-1",
-        {
-          x: slideX,
-          opacity: 0,
-          scale: 0.97,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.16,
-          ease: "power2.out",
-        },
-        0.06
-      );
-
-      // 4. Second Right-Side Supporting Card (Progress 0.09 -> 0.24): Controlled stagger
-      masterTl.fromTo(
-        ".supporting-card-2",
-        {
-          x: slideX,
-          opacity: 0,
-          scale: 0.97,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.15,
-          ease: "power2.out",
-        },
-        0.09
-      );
-
-      // 5. Curator's Pick Pill (Progress 0.12 -> 0.25): Floats up smoothly below right cards
-      masterTl.fromTo(
-        ".curators-pick-pill-wrapper",
-        {
-          y: 16,
-          opacity: 0,
-          scale: 0.97,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.13,
-          ease: "power2.out",
-        },
-        0.12
-      );
-
-      // 6. Deliberate Stationary Reading Hold Phase (Progress 0.25 -> 0.88)
-      // All cards remain at opacity: 1, scale: 1, perfectly settled and stationary,
-      // giving the visitor ample scroll time to read the featured story and headlines.
-      masterTl.to({}, { duration: 0.63 }, 0.25);
-
-      // 7. Smooth, natural exit transition into Section 02 (Progress 0.88 -> 1.00)
-      // Gentle shift prevents sudden snaps or premature section transitions.
-      masterTl.to(
-        ".choreographed-featured-card, .supporting-card-1, .supporting-card-2, .curators-pick-pill-wrapper",
-        {
-          y: -16,
-          opacity: 0.92,
-          duration: 0.12,
-          ease: "power1.inOut",
-        },
-        0.88
-      );
-
-      // 8. Subtle, non-distracting optical parallax on images across the full scroll
-      masterTl.fromTo(
+      // Subtle, non-distracting optical parallax on images across scroll
+      gsap.fromTo(
         ".featured-photo-element",
-        {
-          yPercent: -3,
-        },
-        {
-          yPercent: 3,
-          duration: 1.0,
-          ease: "none",
-        },
-        0.0
-      );
-
-      masterTl.fromTo(
-        ".supporting-card-1 .supporting-photo-element",
-        {
-          yPercent: -2,
-        },
+        { yPercent: -2 },
         {
           yPercent: 2,
-          duration: 1.0,
           ease: "none",
-        },
-        0.0
+          scrollTrigger: {
+            trigger: sectionEl,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5,
+          },
+        }
       );
 
-      masterTl.fromTo(
-        ".supporting-card-2 .supporting-photo-element",
-        {
-          yPercent: -3,
-        },
+      gsap.fromTo(
+        ".supporting-photo-element",
+        { yPercent: -2 },
         {
           yPercent: 2,
-          duration: 1.0,
           ease: "none",
-        },
-        0.0
+          scrollTrigger: {
+            trigger: sectionEl,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5,
+          },
+        }
       );
     }, sectionRef);
 

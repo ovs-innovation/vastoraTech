@@ -15,7 +15,7 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressTextRef = useRef<HTMLSpanElement>(null);
 
   // 6 articles for the horizontal curated showcase
   const galleryItems = articles.slice(0, 6);
@@ -33,32 +33,33 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
     const trackEl = trackRef.current;
     if (!sectionEl || !trackEl) return;
 
-    const calculateDistance = () => trackEl.scrollWidth - window.innerWidth + 200;
+    const calculateDistance = () => Math.max(200, trackEl.scrollWidth - window.innerWidth + 120);
 
     const ctx = gsap.context(() => {
       const distance = calculateDistance();
 
       // Horizontal gallery scroll animation:
-      // - start: "top 72px" docks directly below the fixed navbar (height 72px) so HUD is not clipped
-      // - scrub: 1.0 ensures immediate 1:1 tactile responsiveness without sluggish inertia lag
-      // - end: distance + 950 expands scroll interval so cards glide at a deliberate, comfortable pace
-      // - distance + 200 ensures the final 6th card is completely visible and fully readable before unpinning
+      // - start: "top 72px" docks directly below the fixed navbar
+      // - scrub: 0.5 ensures silky smooth, lag-free responsiveness
+      // - end: distance + 150 releases naturally into the next section
       gsap.to(trackEl, {
         x: () => -distance,
         ease: "none",
         scrollTrigger: {
           trigger: sectionEl,
           pin: true,
-          scrub: 1.0,
+          scrub: 0.5,
           start: "top 72px",
-          end: () => `+=${distance + 950}`,
+          end: () => `+=${distance + 150}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
           onUpdate: (self) => {
             const p = Math.round(self.progress * 100);
-            setScrollProgress(p);
             if (progressBarRef.current) {
-              progressBarRef.current.style.width = `${self.progress * 100}%`;
+              progressBarRef.current.style.width = `${p}%`;
+            }
+            if (progressTextRef.current) {
+              progressTextRef.current.textContent = `Progress: ${p}%`;
             }
           },
         },
@@ -89,9 +90,9 @@ const BlogHorizontalGallery: React.FC<BlogHorizontalGalleryProps> = ({ articles 
           </div>
 
           <div className="hud-progress-dock">
-            <span className="progress-text">Progress: {scrollProgress}%</span>
+            <span ref={progressTextRef} className="progress-text">Progress: 0%</span>
             <div className="progress-organic-track">
-              <div ref={progressBarRef} className="progress-organic-fill" style={{ width: `${scrollProgress}%` }} />
+              <div ref={progressBarRef} className="progress-organic-fill" style={{ width: "0%" }} />
             </div>
           </div>
         </div>

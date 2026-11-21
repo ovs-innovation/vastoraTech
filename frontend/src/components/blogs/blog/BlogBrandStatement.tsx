@@ -69,7 +69,7 @@ const BlogBrandStatement: React.FC = () => {
             trigger: slab,
             start: "top 88%",
             end: "top 58%",
-            scrub: 1.0,
+            scrub: 0.5,
           },
         });
 

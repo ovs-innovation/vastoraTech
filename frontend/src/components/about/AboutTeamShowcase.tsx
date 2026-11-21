@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Linkedin, Twitter, Mail, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Linkedin, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import team_data from "@/data/team";
@@ -146,28 +146,16 @@ const AboutTeamShowcase: React.FC = () => {
                     <p className="team-member-role">{member.job_title}</p>
 
                     <div className="team-member-socials">
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} on LinkedIn`}
-                      >
-                        <Linkedin size={15} />
-                      </a>
-                      <a
-                        href="https://twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} on Twitter`}
-                      >
-                        <Twitter size={15} />
-                      </a>
-                      <a
-                        href="mailto:vastoratech@gmail.com"
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail size={15} />
-                      </a>
+                      {member.linkedin_id && (
+                        <a
+                          href={member.linkedin_id}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} on LinkedIn`}
+                        >
+                          <Linkedin size={15} />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

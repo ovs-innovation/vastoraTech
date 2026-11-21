@@ -11,6 +11,7 @@ interface TeamMember3D {
   name: string;
   job_title: string;
   tag: string;
+  linkedin_id?: string;
 }
 
 interface Floating3DCardsSectionProps {
@@ -19,15 +20,15 @@ interface Floating3DCardsSectionProps {
   description?: string;
 }
 
-const CARD_WIDTH = 350;
-const CARD_GAP = 28;
+const CARD_WIDTH = 295;
+const CARD_GAP = 22;
 const CARD_TILT_ANGLES = [-4.5, 3.8, -2.8, 4.2, -3.6, 3.2, -4.0, 2.8];
 const CARD_Y_OFFSETS = [-14, 16, -10, 18, -16, 12, -12, 14];
 
 const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
   badge = "The Minds Behind Vastora",
   title = "Meet Our Team of Experts, Driving Digital Excellence.",
-  description = "A collaborative powerhouse of full-stack engineers, cloud architects, and growth strategists dedicated to delivering transformative client results.",
+  description,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -36,7 +37,7 @@ const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
   const enrichedTeam: TeamMember3D[] = useMemo(() => {
     return team_data.map((item) => ({
       ...item,
-      tag: item.id === 1 ? "Leadership" : "Expert",
+      tag: "Expert",
     }));
   }, []);
 
@@ -215,34 +216,20 @@ const Floating3DCardsSection: React.FC<Floating3DCardsSectionProps> = ({
 
                     <div className="floating-card-divider" />
 
-                    {/* Social Icon Links */}
-                    <div className="floating-card-socials">
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} LinkedIn`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <i className="fa-brands fa-linkedin-in" />
-                      </a>
-                      <a
-                        href="https://twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} Twitter`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <i className="fa-brands fa-twitter" />
-                      </a>
-                      <a
-                        href="mailto:vastoratech@gmail.com"
-                        aria-label={`Email ${member.name}`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <i className="fa-solid fa-envelope" />
-                      </a>
-                    </div>
+                    {/* Social Icon Links - LinkedIn Only */}
+                    {member.linkedin_id && (
+                      <div className="floating-card-socials">
+                        <a
+                          href={member.linkedin_id}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} LinkedIn`}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <i className="fa-brands fa-linkedin-in" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

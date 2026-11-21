@@ -43,13 +43,13 @@ const BlogFloatingCollage: React.FC<BlogFloatingCollageProps> = ({ articles }) =
       gsap.set(".collage-sculpture", { opacity: 1, visibility: "visible" });
 
       // Smooth organic parallax: subtle opposing drift, restrained and comfortable to read
-      // scrub: 1.0 ensures direct tactile responsiveness without inertia lag
+      // scrub: 0.5 ensures silky-smooth, lag-free parallax
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           start: "top 80%",
           end: "bottom 20%",
-          scrub: 1.0,
+          scrub: 0.5,
           invalidateOnRefresh: true,
         },
       });

@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import EditorialImage from "./EditorialImage";
 import { EditorialArticle, EDITORIAL_ARTICLES } from "@/data/editorial-blog-data";
 
@@ -49,175 +47,30 @@ const BlogStackedPanels: React.FC<BlogStackedPanelsProps> = ({ articles }) => {
   ];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    // Dynamic observer to update the activeLayer HUD badge as cards scroll into the sticky dock
+    const panels = panelsContainerRef.current?.querySelectorAll(".organic-stack-panel");
+    if (!panels || panels.length === 0) return;
 
-    const sectionEl = sectionRef.current;
-    if (!sectionEl) return;
-
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const ctx = gsap.context(() => {
-      if (prefersReducedMotion || (typeof window !== "undefined" && window.innerWidth < 1024)) {
-        // Natural stacked layout for mobile / tablet or reduced motion
-        gsap.set(".organic-stack-panel", {
-          clearProps: "all",
-          opacity: 1,
-          visibility: "visible",
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const indexStr = entry.target.getAttribute("data-panel-index");
+            if (indexStr) {
+              const idx = parseInt(indexStr, 10);
+              if (!isNaN(idx)) setActiveLayer(idx);
+            }
+          }
         });
-        return;
+      },
+      {
+        threshold: 0.35,
+        rootMargin: "-90px 0px -40% 0px",
       }
+    );
 
-      // Initial Setup:
-      // Card 01 is active in foreground, perfectly centered (y: 0, scale: 1, autoAlpha: 1).
-      // Cards 02, 03, 04 are hidden via autoAlpha: 0 (which sets visibility: hidden).
-      // Inactive cards take up zero rendering space and can NEVER ghost or peek behind the active card.
-      gsap.set(".organic-stack-panel-1", {
-        x: 0,
-        y: 0,
-        scale: 1,
-        autoAlpha: 1,
-        zIndex: 10,
-        pointerEvents: "auto",
-      });
-      gsap.set(".organic-stack-panel-2", {
-        x: 0,
-        y: 16,
-        scale: 0.99,
-        autoAlpha: 0,
-        zIndex: 9,
-        pointerEvents: "none",
-      });
-      gsap.set(".organic-stack-panel-3", {
-        x: 0,
-        y: 16,
-        scale: 0.99,
-        autoAlpha: 0,
-        zIndex: 8,
-        pointerEvents: "none",
-      });
-      gsap.set(".organic-stack-panel-4", {
-        x: 0,
-        y: 16,
-        scale: 0.99,
-        autoAlpha: 0,
-        zIndex: 7,
-        pointerEvents: "none",
-      });
-
-      // Master Scroll-Driven Timeline:
-      // Pinned at "top 72px" right below the navbar.
-      // end: "+=460%" gives ~3,800px of scroll travel for generous, comfortable reading holds.
-      // scrub: 1.0 ensures 1:1 tactile, reversible control without inertia lag or jumps.
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionEl,
-          pin: true,
-          pinSpacing: true,
-          start: "top 72px",
-          end: "+=460%",
-          scrub: 1.0,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const p = self.progress;
-            if (p < 0.25) setActiveLayer(1);
-            else if (p < 0.50) setActiveLayer(2);
-            else if (p < 0.75) setActiveLayer(3);
-            else setActiveLayer(4);
-          },
-        },
-      });
-
-      // -------------------------------------------------------------
-      // PHASE 1: Card 01 Reading Hold (t = 0.0 -> 3.6)
-      // Only Card 01 is visible at full opacity 1.0. Cards 02-04 are hidden.
-      // -------------------------------------------------------------
-      tl.to({}, { duration: 3.6 }, 0.0);
-
-      // -------------------------------------------------------------
-      // TRANSITION 1: Card 01 -> Card 02 (t = 3.6 -> 3.9)
-      // Card 01 cleanly exits upward as Card 02 rises into full opacity.
-      // Fast, clean 0.3s transition ensures cards do not linger in faded states.
-      // -------------------------------------------------------------
-      tl.to(".organic-stack-panel-1", {
-        y: -16,
-        scale: 0.99,
-        autoAlpha: 0,
-        pointerEvents: "none",
-        zIndex: 9,
-        duration: 0.3,
-        ease: "power2.inOut",
-      }, 3.6);
-
-      tl.fromTo(".organic-stack-panel-2",
-        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
-        3.6
-      );
-
-      // -------------------------------------------------------------
-      // PHASE 2: Card 02 Reading Hold (t = 3.9 -> 7.5)
-      // Card 02 is 100% visible, centered, stationary, sharp, full opacity.
-      // Cards 01, 03, 04 are completely hidden (visibility: hidden).
-      // -------------------------------------------------------------
-      tl.to({}, { duration: 3.6 }, 3.9);
-
-      // -------------------------------------------------------------
-      // TRANSITION 2: Card 02 -> Card 03 (t = 7.5 -> 7.8)
-      // -------------------------------------------------------------
-      tl.to(".organic-stack-panel-2", {
-        y: -16,
-        scale: 0.99,
-        autoAlpha: 0,
-        pointerEvents: "none",
-        zIndex: 9,
-        duration: 0.3,
-        ease: "power2.inOut",
-      }, 7.5);
-
-      tl.fromTo(".organic-stack-panel-3",
-        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
-        7.5
-      );
-
-      // -------------------------------------------------------------
-      // PHASE 3: Card 03 Reading Hold (t = 7.8 -> 11.4)
-      // Card 03 is 100% visible, centered, stationary, sharp, full opacity.
-      // Cards 01, 02, 04 are completely hidden (visibility: hidden).
-      // -------------------------------------------------------------
-      tl.to({}, { duration: 3.6 }, 7.8);
-
-      // -------------------------------------------------------------
-      // TRANSITION 3: Card 03 -> Card 04 (t = 11.4 -> 11.7)
-      // -------------------------------------------------------------
-      tl.to(".organic-stack-panel-3", {
-        y: -16,
-        scale: 0.99,
-        autoAlpha: 0,
-        pointerEvents: "none",
-        zIndex: 9,
-        duration: 0.3,
-        ease: "power2.inOut",
-      }, 11.4);
-
-      tl.fromTo(".organic-stack-panel-4",
-        { y: 16, scale: 0.99, autoAlpha: 0, zIndex: 10, pointerEvents: "none" },
-        { y: 0, scale: 1, autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0.3, ease: "power2.inOut" },
-        11.4
-      );
-
-      // -------------------------------------------------------------
-      // PHASE 4: Card 04 Final Reading Hold (t = 11.7 -> 15.3)
-      // Card 04 is 100% visible, centered, stationary, sharp, full opacity.
-      // Cards 01, 02, 03 are completely hidden (visibility: hidden).
-      // -------------------------------------------------------------
-      tl.to({}, { duration: 3.6 }, 11.7);
-    }, sectionRef);
-
-    return () => ctx.revert();
+    panels.forEach((p) => observer.observe(p));
+    return () => observer.disconnect();
   }, [articles]);
 
   return (
@@ -243,7 +96,7 @@ const BlogStackedPanels: React.FC<BlogStackedPanelsProps> = ({ articles }) => {
           </span>
         </div>
 
-        {/* Viewport Frame for Stacking Panels: Pure white fixed card frame */}
+        {/* Viewport Frame for Stacking Panels: Smooth natural sticky stacking */}
         <div ref={panelsContainerRef} className="organic-stacked-viewport">
           {cards.map((card, idx) => {
             const item = card.article;
