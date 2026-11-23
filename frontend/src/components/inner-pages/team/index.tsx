@@ -1,26 +1,31 @@
-import BreadcrumbFive from "@/components/common/breadcrumb/breadcrumb-5";
-import TestimonialAreaHomeOne from "@/components/homes/home/TestimonialAreaHomeOne";
+import React from "react";
+import HeaderFive from "@/layout/headers/HeaderFive";
 import FooterFive from "@/layout/footers/FooterFive";
-import HeaderSix from "@/layout/headers/HeaderSix";
-import KeywordCtaArea from "@/componentsservices/keyword-search/KeywordCtaArea";
+import TeamHero from "./TeamHero";
 import AboutArea from "./AboutArea";
+import TeamCulture from "./TeamCulture";
+import TeamCta from "./TeamCta";
 
- 
+const Team = () => {
+  return (
+    <>
+      <HeaderFive />
+      <main className="team-page-wrapper">
+        {/* Modern Hero with breadcrumb & stats */}
+        <TeamHero />
 
- 
- const Team = () => {
-    return (
-        <>
-            <HeaderSix style={true} />
-            <main>
-                <BreadcrumbFive />
-                <AboutArea />
-                <TestimonialAreaHomeOne />
-                <KeywordCtaArea />
-            </main>
-            <FooterFive style={true} />
-        </>
-    );
- };
- 
- export default Team;
+        {/* 6-member Team Grid with previous card style & LinkedIn only */}
+        <AboutArea />
+
+        {/* Engineering Philosophy & Culture */}
+        <TeamCulture />
+
+        {/* High-conversion CTA banner */}
+        <TeamCta />
+      </main>
+      <FooterFive style={true} />
+    </>
+  );
+};
+
+export default Team;

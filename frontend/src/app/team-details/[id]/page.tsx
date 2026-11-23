@@ -4,10 +4,10 @@ import team_data from '@/data/team';
 import ScrollToTop from '@/components/common/scroll-to-top';
 import Wrapper from '@/layout/Wrapper';
 import FooterFive from '@/layout/footers/FooterFive';
-import HeaderSix from '@/layout/headers/HeaderSix'; 
+import HeaderFive from '@/layout/headers/HeaderFive'; 
 
 export const metadata = {
-    title: "Team Details - SEO Marketing - Digital Marketing & SEO Agency Next js Template", 
+    title: "Team Details - Vastora Tech", 
 };
 
 const index = ({ params }: any) => {
@@ -15,12 +15,12 @@ const index = ({ params }: any) => {
     const single_member = team_data.find((item) => Number(item.id) === Number(id));
     return (
         <Wrapper>
-            <HeaderSix />
+            <HeaderFive />
             <main>
                 <TeamDetailsDynamic single_member={single_member} />
             </main>
             <FooterFive style={true} />
-            <ScrollToTop style={false} />te
+            <ScrollToTop style={false} />
         </Wrapper>
     );
 };
