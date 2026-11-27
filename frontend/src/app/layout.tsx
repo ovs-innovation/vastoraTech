@@ -4,28 +4,10 @@ import WhatsappButton from "@/components/common/WhatsappButton";
 import TawkMessenger from "@/components/common/TawkMessenger";
 import DelayedTracking from "@/components/common/DelayedTracking";
 import { Metadata } from 'next';
-import { DM_Sans, Plus_Jakarta_Sans, Urbanist } from 'next/font/google';
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  display: 'swap',
-  variable: '--tp-ff-dm',
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-  variable: '--tp-ff-jakarta',
-});
-
-const urbanist = Urbanist({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-  variable: '--tp-ff-urbanist',
-});
+const dmSans = { variable: 'font-dm' };
+const jakarta = { variable: 'font-jakarta' };
+const urbanist = { variable: 'font-urbanist' };
 
 export const metadata: Metadata = {
   authors: [{ name: "Vastora Tech"}],
@@ -54,7 +36,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap"
           rel="stylesheet"
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
