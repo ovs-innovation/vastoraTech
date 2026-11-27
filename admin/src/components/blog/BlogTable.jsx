@@ -18,8 +18,18 @@ import EditDeleteButton from "@/components/table/EditDeleteButton";
 import Tooltip from "@/components/tooltip/Tooltip";
 import useToggleDrawer from "@/hooks/useToggleDrawer";
 
-const BlogTable = ({ blogs, isCheck, setIsCheck }) => {
-  const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+const BlogTable = ({
+  blogs,
+  isCheck,
+  setIsCheck,
+  handleUpdate: parentHandleUpdate,
+  handleModalOpen: parentHandleModalOpen,
+}) => {
+  const localDrawer = useToggleDrawer();
+  const handleUpdate = parentHandleUpdate || localDrawer.handleUpdate;
+  const handleModalOpen = parentHandleModalOpen || localDrawer.handleModalOpen;
+  const serviceId = localDrawer.serviceId;
+  const title = localDrawer.title;
 
   const handleClick = (e) => {
     const { id, checked } = e.target;
@@ -44,12 +54,8 @@ const BlogTable = ({ blogs, isCheck, setIsCheck }) => {
 
   return (
     <>
-      {isCheck?.length < 1 && <DeleteModal id={serviceId} title={title} />}
-
-      {isCheck?.length < 2 && (
-        <MainDrawer>
-          <BlogDrawer id={serviceId} />
-        </MainDrawer>
+      {!parentHandleModalOpen && isCheck?.length < 1 && (
+        <DeleteModal id={serviceId} title={title} />
       )}
 
       <TableBody>

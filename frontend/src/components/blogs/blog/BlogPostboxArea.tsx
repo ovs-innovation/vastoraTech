@@ -16,6 +16,17 @@ import BlogNewsletterSection from "./BlogNewsletterSection";
 
 const POSTS_PER_PAGE = 6;
 
+const resolveApiUrl = () => {
+  if (
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+  ) {
+    return "http://localhost:8081/api";
+  }
+  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
+};
+
 const BlogPostboxArea: React.FC = () => {
   const searchParams = useSearchParams();
   const initialCategoryParam = searchParams.get("category") || "all";
@@ -50,11 +61,8 @@ const BlogPostboxArea: React.FC = () => {
 
     const fetchLiveArticles = async () => {
       try {
-        const blogUrl = process.env.NEXT_PUBLIC_API_URL
-          ? `${process.env.NEXT_PUBLIC_API_URL}/blogs?limit=100`
-          : "http://localhost:8081/api/blogs?limit=100";
-
-        const res = await fetch(blogUrl);
+        const apiUrl = resolveApiUrl();
+        const res = await fetch(`${apiUrl}/blogs?limit=100`, { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           const remoteBlogs = data.blogs || data.data || [];

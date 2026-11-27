@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "@/context/SidebarContext";
 
-const useAsync = (asyncFunction) => {
+const useAsync = (asyncFunction, customDeps = []) => {
   const [data, setData] = useState([] || {});
   const [error, setError] = useState("");
   // const [errCode, setErrCode] = useState('');
@@ -75,6 +75,7 @@ const useAsync = (asyncFunction) => {
     category,
     searchText,
     sortedField,
+    ...customDeps,
   ]);
 
   return {

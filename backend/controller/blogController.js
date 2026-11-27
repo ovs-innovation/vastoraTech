@@ -193,15 +193,30 @@ const updateBlog = async (req, res) => {
       req.body.publishedAt = new Date();
     }
 
-    Object.assign(blog, req.body);
-    await blog.save();
+    // Check slug uniqueness if slug was changed
+    if (req.body.slug && req.body.slug !== blog.slug) {
+      const existing = await Blog.findOne({
+        slug: req.body.slug,
+        _id: { $ne: req.params.id },
+      });
+      if (existing) {
+        req.body.slug = `${req.body.slug}-${Date.now().toString().slice(-4)}`;
+      }
+    }
+
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true, runValidators: true }
+    );
 
     res.send({
       success: true,
       message: "Blog updated successfully!",
-      data: blog,
+      data: updatedBlog,
     });
   } catch (err) {
+    console.error("updateBlog error:", err);
     res.status(500).send({
       success: false,
       message: err.message,

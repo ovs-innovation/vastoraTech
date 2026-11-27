@@ -6,9 +6,11 @@ import { getEditorialArticleContent } from '@/data/editorial-articles-content';
 async function getBlog(slug: string) {
   // 1. Try remote or local API endpoint if configured
   try {
-    const url = process.env.NEXT_PUBLIC_API_URL
-      ? `${process.env.NEXT_PUBLIC_API_URL}/blogs/slug/${slug}`
-      : `http://localhost:8081/api/blogs/slug/${slug}`;
+    const isDev = process.env.NODE_ENV === "development";
+    const baseApi = isDev
+      ? "http://localhost:8081/api"
+      : process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
+    const url = `${baseApi}/blogs/slug/${slug}`;
     const resp = await fetch(url, { cache: 'no-store' });
     if (resp.ok) {
       const data = await resp.json();

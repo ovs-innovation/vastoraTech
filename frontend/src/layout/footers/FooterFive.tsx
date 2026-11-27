@@ -277,12 +277,12 @@ const FooterFive: React.FC<FooterFiveProps> = ({ style, style_audit, style_2 }) 
               <div className="schedule-hours-body">
                 <div className="schedule-row">
                   <span className="schedule-label">Working days:</span>
-                  <span className="schedule-val">10:00 AM – 6:30 PM</span>
+                  <span className="schedule-val">9:00 AM – 5:30 PM</span>
                 </div>
 
                 <div className="schedule-row">
-                  <span className="schedule-label">Saturday:</span>
-                  <span className="schedule-val">10:00 AM – 6:30 PM</span>
+                  <span className="schedule-label">Saturday: Work from home</span>
+                  {/* <span className="schedule-val">9:00 AM – 5:30 PM</span> */}
                 </div>
 
                 <div className="schedule-row">

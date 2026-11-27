@@ -1,389 +1,397 @@
+import React, { useState, useEffect, useContext } from "react";
 import {
-  Pagination,
+  Card,
+  CardBody,
   Table,
   TableCell,
   TableContainer,
   TableFooter,
   TableHeader,
-  WindmillContext,
+  TableRow,
+  TableBody,
+  Badge,
+  Button,
+  Pagination,
 } from "@windmill/react-ui";
+import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-import isBetween from "dayjs/plugin/isBetween";
-import isToday from "dayjs/plugin/isToday";
-import isYesterday from "dayjs/plugin/isYesterday";
-import { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { FiCheck, FiRefreshCw, FiShoppingCart, FiTruck } from "react-icons/fi";
-import { ImCreditCard, ImStack } from "react-icons/im";
+import {
+  FiMail,
+  FiBriefcase,
+  FiFileText,
+  FiUsers,
+  FiPlus,
+  FiArrowRight,
+  FiMessageSquare,
+  FiEye,
+  FiCheckCircle,
+} from "react-icons/fi";
 
-//internal import
-import useAsync from "@/hooks/useAsync";
-import useFilter from "@/hooks/useFilter";
-import LineChart from "@/components/chart/LineChart/LineChart";
-import PieChart from "@/components/chart/Pie/PieChart";
-import CardItem from "@/components/dashboard/CardItem";
-import CardItemTwo from "@/components/dashboard/CardItemTwo";
-import ChartCard from "@/components/chart/ChartCard";
-import OrderTable from "@/components/order/OrderTable";
+import PageTitle from "@/components/Typography/PageTitle";
+import AnimatedContent from "@/components/common/AnimatedContent";
 import TableLoading from "@/components/preloader/TableLoading";
 import NotFound from "@/components/table/NotFound";
-import PageTitle from "@/components/Typography/PageTitle";
 import { SidebarContext } from "@/context/SidebarContext";
-import OrderServices from "@/services/OrderServices";
-import AnimatedContent from "@/components/common/AnimatedContent";
+import LeadServices from "@/services/LeadServices";
+import ContactResponseServices from "@/services/ContactResponseServices";
+import WorkServices from "@/services/WorkServices";
+import BlogServices from "@/services/BlogServices";
 
 const Dashboard = () => {
-  const { t } = useTranslation();
-  const { mode } = useContext(WindmillContext);
+  const { limitData } = useContext(SidebarContext);
 
-  dayjs.extend(isBetween);
-  dayjs.extend(isToday);
-  dayjs.extend(isYesterday);
+  const [stats, setStats] = useState({
+    totalLeads: 0,
+    contactSubmissions: 0,
+    portfolioWorks: 0,
+    blogs: 0,
+  });
+  const [statsLoading, setStatsLoading] = useState(true);
 
-  const { currentPage, handleChangePage } = useContext(SidebarContext);
+  const [recentInquiries, setRecentInquiries] = useState([]);
+  const [inquiriesLoading, setInquiriesLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalInquiries, setTotalInquiries] = useState(0);
 
-  // react hook
-  const [todayOrderAmount, setTodayOrderAmount] = useState(0);
-  const [yesterdayOrderAmount, setYesterdayOrderAmount] = useState(0);
-  const [salesReport, setSalesReport] = useState([]);
-  const [todayCashPayment, setTodayCashPayment] = useState(0);
-  const [todayCardPayment, setTodayCardPayment] = useState(0);
-  const [todayCreditPayment, setTodayCreditPayment] = useState(0);
-  const [yesterdayCashPayment, setYesterdayCashPayment] = useState(0);
-  const [yesterdayCardPayment, setYesterdayCardPayment] = useState(0);
-  const [yesterdayCreditPayment, setYesterdayCreditPayment] = useState(0);
-
-  const {
-    data: bestSellerProductChart,
-    loading: loadingBestSellerProduct,
-    error,
-  } = useAsync(OrderServices.getBestSellerProductChart);
-
-  const { data: dashboardRecentOrder, loading: loadingRecentOrder } = useAsync(
-    () => OrderServices.getDashboardRecentOrder({ page: currentPage, limit: 8 })
-  );
-
-  const { data: dashboardOrderCount, loading: loadingOrderCount } = useAsync(
-    OrderServices.getDashboardCount
-  );
-
-  const { data: dashboardOrderAmount, loading: loadingOrderAmount } = useAsync(
-    OrderServices.getDashboardAmount
-  );
-
-  // console.log("dashboardOrderCount", dashboardOrderCount);
-
-  const { dataTable, serviceData } = useFilter(dashboardRecentOrder?.orders);
-
+  // Fetch overview counts
   useEffect(() => {
-    // today orders show
-    const todayOrder = dashboardOrderAmount?.ordersData?.filter((order) =>
-      dayjs(order.updatedAt).isToday()
-    );
-    //  console.log('todayOrder',dashboardOrderAmount.ordersData)
-    const todayReport = todayOrder?.reduce((pre, acc) => pre + acc.total, 0);
-    setTodayOrderAmount(todayReport);
+    let isMounted = true;
 
-    // yesterday orders
-    const yesterdayOrder = dashboardOrderAmount?.ordersData?.filter((order) =>
-      dayjs(order.updatedAt).set(-1, "day").isYesterday()
-    );
+    const fetchStats = async () => {
+      try {
+        setStatsLoading(true);
 
-    const yesterdayReport = yesterdayOrder?.reduce(
-      (pre, acc) => pre + acc.total,
-      0
-    );
-    setYesterdayOrderAmount(yesterdayReport);
+        const [leadsRes, contactRes, worksRes, blogsRes] = await Promise.allSettled([
+          LeadServices.getAllLeads({ limit: 1 }),
+          ContactResponseServices.getAll({ limit: 1 }),
+          WorkServices.getAllWorks({ limit: 1 }),
+          BlogServices.getAllBlogs({ limit: 1 }),
+        ]);
 
-    // sales orders chart data
-    const salesOrderChartData = dashboardOrderAmount?.ordersData?.filter(
-      (order) =>
-        dayjs(order.updatedAt).isBetween(
-          new Date().setDate(new Date().getDate() - 7),
-          new Date()
-        )
-    );
+        if (!isMounted) return;
 
-    salesOrderChartData?.reduce((res, value) => {
-      let onlyDate = value.updatedAt.split("T")[0];
+        const totalLeads =
+          leadsRes.status === "fulfilled"
+            ? leadsRes.value?.totalDoc ||
+              leadsRes.value?.pagination?.total ||
+              leadsRes.value?.data?.length ||
+              0
+            : 0;
 
-      if (!res[onlyDate]) {
-        res[onlyDate] = { date: onlyDate, total: 0, order: 0 };
-        salesReport.push(res[onlyDate]);
+        const contactSubmissions =
+          contactRes.status === "fulfilled"
+            ? contactRes.value?.total || contactRes.value?.data?.length || 0
+            : 0;
+
+        const portfolioWorks =
+          worksRes.status === "fulfilled"
+            ? worksRes.value?.totalDoc || worksRes.value?.works?.length || 0
+            : 0;
+
+        const blogs =
+          blogsRes.status === "fulfilled"
+            ? blogsRes.value?.totalDoc || blogsRes.value?.blogs?.length || 0
+            : 0;
+
+        setStats({
+          totalLeads,
+          contactSubmissions,
+          portfolioWorks,
+          blogs,
+        });
+      } catch (err) {
+        console.error("Error fetching agency dashboard stats:", err);
+      } finally {
+        if (isMounted) setStatsLoading(false);
       }
-      res[onlyDate].total += value.total;
-      res[onlyDate].order += 1;
-      return res;
-    }, {});
+    };
 
-    setSalesReport(salesReport);
+    fetchStats();
 
-    const todayPaymentMethodData = [];
-    const yesterDayPaymentMethodData = [];
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
-    // today order payment method
-    dashboardOrderAmount?.ordersData?.filter((item, value) => {
-      if (dayjs(item.updatedAt).isToday()) {
-        if (item.paymentMethod === "Cash") {
-          let cashMethod = {
-            paymentMethod: "Cash",
-            total: item.total,
-          };
-          todayPaymentMethodData.push(cashMethod);
-        }
+  // Fetch recent contact inquiries table
+  useEffect(() => {
+    let isMounted = true;
 
-        if (item.paymentMethod === "Credit") {
-          const cashMethod = {
-            paymentMethod: "Credit",
-            total: item.total,
-          };
+    const fetchRecentInquiries = async () => {
+      try {
+        setInquiriesLoading(true);
+        const res = await ContactResponseServices.getAll({
+          page,
+          limit: 8,
+          sortBy: "createdAt",
+          sortOrder: "desc",
+        });
 
-          todayPaymentMethodData.push(cashMethod);
-        }
+        if (!isMounted) return;
 
-        if (item.paymentMethod === "Card") {
-          const cashMethod = {
-            paymentMethod: "Card",
-            total: item.total,
-          };
-
-          todayPaymentMethodData.push(cashMethod);
-        }
+        setRecentInquiries(res?.data || []);
+        setTotalInquiries(res?.total || res?.data?.length || 0);
+      } catch (err) {
+        console.error("Error fetching recent inquiries:", err);
+      } finally {
+        if (isMounted) setInquiriesLoading(false);
       }
+    };
 
-      return item;
-    });
-    // yesterday order payment method
-    dashboardOrderAmount?.ordersData?.filter((item, value) => {
-      if (dayjs(item.updatedAt).set(-1, "day").isYesterday()) {
-        if (item.paymentMethod === "Cash") {
-          let cashMethod = {
-            paymentMethod: "Cash",
-            total: item.total,
-          };
-          yesterDayPaymentMethodData.push(cashMethod);
-        }
+    fetchRecentInquiries();
 
-        if (item.paymentMethod === "Credit") {
-          const cashMethod = {
-            paymentMethod: "Credit",
-            total: item?.total,
-          };
+    return () => {
+      isMounted = false;
+    };
+  }, [page]);
 
-          yesterDayPaymentMethodData.push(cashMethod);
-        }
-
-        if (item.paymentMethod === "Card") {
-          const cashMethod = {
-            paymentMethod: "Card",
-            total: item?.total,
-          };
-
-          yesterDayPaymentMethodData.push(cashMethod);
-        }
-      }
-
-      return item;
-    });
-
-    const todayCsCdCit = Object.values(
-      todayPaymentMethodData.reduce((r, { paymentMethod, total }) => {
-        if (!r[paymentMethod]) {
-          r[paymentMethod] = { paymentMethod, total: 0 };
-        }
-        r[paymentMethod].total += total;
-
-        return r;
-      }, {})
-    );
-    const today_cash_payment = todayCsCdCit.find(
-      (el) => el.paymentMethod === "Cash"
-    );
-    setTodayCashPayment(today_cash_payment?.total);
-    const today_card_payment = todayCsCdCit.find(
-      (el) => el.paymentMethod === "Card"
-    );
-    setTodayCardPayment(today_card_payment?.total);
-    const today_credit_payment = todayCsCdCit.find(
-      (el) => el.paymentMethod === "Credit"
-    );
-    setTodayCreditPayment(today_credit_payment?.total);
-
-    const yesterDayCsCdCit = Object.values(
-      yesterDayPaymentMethodData.reduce((r, { paymentMethod, total }) => {
-        if (!r[paymentMethod]) {
-          r[paymentMethod] = { paymentMethod, total: 0 };
-        }
-        r[paymentMethod].total += total;
-
-        return r;
-      }, {})
-    );
-    const yesterday_cash_payment = yesterDayCsCdCit.find(
-      (el) => el.paymentMethod === "Cash"
-    );
-    setYesterdayCashPayment(yesterday_cash_payment?.total);
-    const yesterday_card_payment = yesterDayCsCdCit.find(
-      (el) => el.paymentMethod === "Card"
-    );
-    setYesterdayCardPayment(yesterday_card_payment?.total);
-    const yesterday_credit_payment = yesterDayCsCdCit.find(
-      (el) => el.paymentMethod === "Credit"
-    );
-    setYesterdayCreditPayment(yesterday_credit_payment?.total);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dashboardOrderAmount]);
+  const getStatusBadge = (status) => {
+    switch (status?.toLowerCase()) {
+      case "contacted":
+      case "completed":
+      case "replied":
+        return <Badge type="success">{status}</Badge>;
+      case "in progress":
+      case "reviewed":
+        return <Badge type="warning">{status}</Badge>;
+      case "closed":
+        return <Badge type="neutral">{status}</Badge>;
+      default:
+        return <Badge type="primary">{status || "New"}</Badge>;
+    }
+  };
 
   return (
     <>
-      <PageTitle>{t("DashboardOverview")}</PageTitle>
+      <PageTitle>Agency Operations Overview</PageTitle>
 
       <AnimatedContent>
-        <div className="grid gap-2 mb-8 xl:grid-cols-5 md:grid-cols-2">
-          <CardItemTwo
-            mode={mode}
-            title="Today Order"
-            title2="TodayOrder"
-            Icon={ImStack}
-            cash={todayCashPayment || 0}
-            card={todayCardPayment || 0}
-            credit={todayCreditPayment || 0}
-            price={todayOrderAmount || 0}
-            className="text-white dark:text-blue-100 bg-teal-600"
-            loading={loadingOrderAmount}
-          />
+        {/* Top 4 Agency Metric Cards */}
+        <div className="grid gap-4 mb-8 md:grid-cols-2 xl:grid-cols-4">
+          {/* Card 1: Total Leads */}
+          <Card className="border border-gray-100 dark:border-gray-800 shadow-xs hover:shadow-md transition-shadow">
+            <CardBody className="flex items-center p-4">
+              <div className="p-3 mr-4 text-emerald-500 bg-emerald-100 rounded-full dark:text-emerald-100 dark:bg-emerald-600 text-xl">
+                <FiMail />
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Landing & Campaign Leads
+                </p>
+                <p className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                  {statsLoading ? "..." : stats.totalLeads}
+                </p>
+              </div>
+            </CardBody>
+          </Card>
 
-          <CardItemTwo
-            mode={mode}
-            title="Yesterday Order"
-            title2="YesterdayOrder"
-            Icon={ImStack}
-            cash={yesterdayCashPayment || 0}
-            card={yesterdayCardPayment || 0}
-            credit={yesterdayCreditPayment || 0}
-            price={yesterdayOrderAmount || 0}
-            className="text-white dark:text-orange-100 bg-orange-400"
-            loading={loadingOrderAmount}
-          />
+          {/* Card 2: Contact Inquiries */}
+          <Card className="border border-gray-100 dark:border-gray-800 shadow-xs hover:shadow-md transition-shadow">
+            <CardBody className="flex items-center p-4">
+              <div className="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-600 text-xl">
+                <FiMessageSquare />
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Contact Form Inquiries
+                </p>
+                <p className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                  {statsLoading ? "..." : stats.contactSubmissions}
+                </p>
+              </div>
+            </CardBody>
+          </Card>
 
-          <CardItemTwo
-            mode={mode}
-            title2="ThisMonth"
-            Icon={FiShoppingCart}
-            price={dashboardOrderAmount?.thisMonthlyOrderAmount || 0}
-            className="text-white dark:text-blue-100 bg-blue-500"
-            loading={loadingOrderAmount}
-          />
+          {/* Card 3: Portfolio Works */}
+          <Card className="border border-gray-100 dark:border-gray-800 shadow-xs hover:shadow-md transition-shadow">
+            <CardBody className="flex items-center p-4">
+              <div className="p-3 mr-4 text-purple-500 bg-purple-100 rounded-full dark:text-purple-100 dark:bg-purple-600 text-xl">
+                <FiBriefcase />
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Showcase Portfolio Works
+                </p>
+                <p className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                  {statsLoading ? "..." : stats.portfolioWorks}
+                </p>
+              </div>
+            </CardBody>
+          </Card>
 
-          <CardItemTwo
-            mode={mode}
-            title2="LastMonth"
-            Icon={ImCreditCard}
-            loading={loadingOrderAmount}
-            price={dashboardOrderAmount?.lastMonthOrderAmount || 0}
-            className="text-white dark:text-teal-100 bg-cyan-600"
-          />
-
-          <CardItemTwo
-            mode={mode}
-            title2="AllTimeSales"
-            Icon={ImCreditCard}
-            price={dashboardOrderAmount?.totalAmount || 0}
-            className="text-white dark:text-blue-100 bg-blue-600"
-            loading={loadingOrderAmount}
-          />
+          {/* Card 4: Published Articles */}
+          <Card className="border border-gray-100 dark:border-gray-800 shadow-xs hover:shadow-md transition-shadow">
+            <CardBody className="flex items-center p-4">
+              <div className="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-600 text-xl">
+                <FiFileText />
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Published Blog Articles
+                </p>
+                <p className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                  {statsLoading ? "..." : stats.blogs}
+                </p>
+              </div>
+            </CardBody>
+          </Card>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <CardItem
-            title="Total Order"
-            Icon={FiShoppingCart}
-            loading={loadingOrderCount}
-            quantity={dashboardOrderCount?.totalOrder || 0}
-            className="text-orange-600 dark:text-orange-100 bg-orange-100 dark:bg-orange-500"
-          />
-          <CardItem
-            title={t("OrderPending")}
-            Icon={FiRefreshCw}
-            loading={loadingOrderCount}
-            quantity={dashboardOrderCount?.totalPendingOrder?.count || 0}
-            amount={dashboardOrderCount?.totalPendingOrder?.total || 0}
-            className="text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500"
-          />
-          <CardItem
-            title={t("OrderProcessing")}
-            Icon={FiTruck}
-            loading={loadingOrderCount}
-            quantity={dashboardOrderCount?.totalProcessingOrder || 0}
-            className="text-teal-600 dark:text-teal-100 bg-teal-100 dark:bg-teal-500"
-          />
-          <CardItem
-            title={t("OrderDelivered")}
-            Icon={FiCheck}
-            loading={loadingOrderCount}
-            quantity={dashboardOrderCount?.totalDeliveredOrder || 0}
-            className="text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500"
-          />
-        </div>
+        {/* Quick Operations Row */}
+        <Card className="mb-8 border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+          <CardBody className="p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-base font-semibold text-gray-800 dark:text-gray-200">
+                Quick Content & Lead Management Actions
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                Manage website case studies, respond to client inquiries, or publish new tech blogs.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Link to="/works">
+                <Button size="small" className="btn-emerald flex items-center gap-1">
+                  <FiPlus />
+                  <span>Add Work</span>
+                </Button>
+              </Link>
+              <Link to="/vastora-tech/lead-management/contact-leads">
+                <Button size="small" className="btn-gray flex items-center gap-1">
+                  <FiMail />
+                  <span>View All Inquiries</span>
+                </Button>
+              </Link>
+              <Link to="/blogs">
+                <Button size="small" className="btn-gray flex items-center gap-1">
+                  <FiFileText />
+                  <span>Manage Blogs</span>
+                </Button>
+              </Link>
+              <Link to="/our-staff">
+                <Button size="small" className="btn-gray flex items-center gap-1">
+                  <FiUsers />
+                  <span>Team Members</span>
+                </Button>
+              </Link>
+            </div>
+          </CardBody>
+        </Card>
 
-        <div className="grid gap-4 md:grid-cols-2 my-8">
-          <ChartCard
-            mode={mode}
-            loading={loadingOrderAmount}
-            title={t("WeeklySales")}
+        {/* Recent Inquiries Table Header */}
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              Recent Website Contact Submissions
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Latest client requests and consultation inquiries submitted via the website.
+            </p>
+          </div>
+          <Link
+            to="/vastora-tech/lead-management/contact-leads"
+            className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
           >
-            <LineChart salesReport={salesReport} />
-          </ChartCard>
-
-          <ChartCard
-            mode={mode}
-            loading={loadingBestSellerProduct}
-            title={t("BestSellingProducts")}
-          >
-            <PieChart data={bestSellerProductChart} />
-          </ChartCard>
+            <span>Open All Inquiries</span>
+            <FiArrowRight />
+          </Link>
         </div>
+
+        {/* Recent Inquiries Table */}
+        {inquiriesLoading ? (
+          <TableLoading row={5} col={6} />
+        ) : recentInquiries.length === 0 ? (
+          <NotFound title="No contact submissions recorded yet." />
+        ) : (
+          <TableContainer className="mb-8 rounded-lg border border-gray-100 dark:border-gray-800">
+            <Table>
+              <TableHeader>
+                <tr>
+                  <TableCell>Client Name</TableCell>
+                  <TableCell>Email</TableCell>
+                  <TableCell>Phone / Service</TableCell>
+                  <TableCell>Message Summary</TableCell>
+                  <TableCell>Submitted On</TableCell>
+                  <TableCell className="text-center">Status</TableCell>
+                  <TableCell className="text-right">Action</TableCell>
+                </tr>
+              </TableHeader>
+
+              <TableBody>
+                {recentInquiries.map((inquiry, idx) => (
+                  <TableRow key={inquiry._id || idx}>
+                    <TableCell>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                        {inquiry.name || "Anonymous Client"}
+                      </span>
+                    </TableCell>
+
+                    <TableCell>
+                      <a
+                        href={`mailto:${inquiry.email}`}
+                        className="text-xs text-blue-600 hover:underline font-mono"
+                      >
+                        {inquiry.email || "-"}
+                      </a>
+                    </TableCell>
+
+                    <TableCell>
+                      <div className="text-xs text-gray-700 dark:text-gray-300">
+                        {inquiry.phone && <div>{inquiry.phone}</div>}
+                        {inquiry.service && (
+                          <span className="inline-block mt-0.5 px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                            {inquiry.service}
+                          </span>
+                        )}
+                        {!inquiry.phone && !inquiry.service && "-"}
+                      </div>
+                    </TableCell>
+
+                    <TableCell>
+                      <p
+                        className="text-xs text-gray-600 dark:text-gray-400 max-w-xs truncate"
+                        title={inquiry.message || ""}
+                      >
+                        {inquiry.message || inquiry.notes || "-"}
+                      </p>
+                    </TableCell>
+
+                    <TableCell>
+                      <span className="text-xs text-gray-500">
+                        {inquiry.createdAt
+                          ? dayjs(inquiry.createdAt).format("DD MMM YYYY, hh:mm A")
+                          : "-"}
+                      </span>
+                    </TableCell>
+
+                    <TableCell className="text-center">
+                      {getStatusBadge(inquiry.status)}
+                    </TableCell>
+
+                    <TableCell className="text-right">
+                      <Link
+                        to="/vastora-tech/lead-management/contact-leads"
+                        className="text-xs font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 inline-flex items-center gap-1"
+                      >
+                        <span>Manage</span>
+                        <FiEye />
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+
+            <TableFooter>
+              <Pagination
+                totalResults={totalInquiries}
+                resultsPerPage={8}
+                onChange={(p) => setPage(p)}
+                label="Inquiries Navigation"
+              />
+            </TableFooter>
+          </TableContainer>
+        )}
       </AnimatedContent>
-
-      <PageTitle>{t("RecentOrder")}</PageTitle>
-
-      {/* <Loading loading={loading} /> */}
-
-      {loadingRecentOrder ? (
-        <TableLoading row={5} col={4} />
-      ) : error ? (
-        <span className="text-center mx-auto text-red-500">{error}</span>
-      ) : serviceData?.length !== 0 ? (
-        <TableContainer className="mb-8">
-          <Table>
-            <TableHeader>
-              <tr>
-                <TableCell>{t("InvoiceNo")}</TableCell>
-                <TableCell>{t("TimeTbl")}</TableCell>
-                <TableCell>{t("CustomerName")} </TableCell>
-                <TableCell> {t("MethodTbl")} </TableCell>
-                <TableCell> {t("AmountTbl")} </TableCell>
-                <TableCell>{t("OderStatusTbl")}</TableCell>
-                <TableCell>{t("ActionTbl")}</TableCell>
-                <TableCell className="text-right">{t("InvoiceTbl")}</TableCell>
-              </tr>
-            </TableHeader>
-
-            <OrderTable orders={dataTable} />
-          </Table>
-          <TableFooter>
-            <Pagination
-              totalResults={dashboardRecentOrder?.totalOrder}
-              resultsPerPage={8}
-              onChange={handleChangePage}
-              label="Table navigation"
-            />
-          </TableFooter>
-        </TableContainer>
-      ) : (
-        <NotFound title="Sorry, There are no orders right now." />
-      )}
     </>
   );
 };

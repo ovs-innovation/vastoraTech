@@ -78,6 +78,50 @@ const Uploader = ({
         const name = file.name.replaceAll(/\s/g, "");
         const public_id = name?.substring(0, name.lastIndexOf("."));
 
+        const uploadToLocalBackend = () => {
+          const reader = new FileReader();
+          reader.onload = async () => {
+            try {
+              const apiBase =
+                import.meta.env.VITE_APP_API_BASE_URL ||
+                "http://localhost:8081/api";
+              const res = await axios.post(`${apiBase}/works/upload`, {
+                image: reader.result,
+                filename: file.name,
+              });
+              if (res.data?.success && res.data?.url) {
+                notifySuccess("Image uploaded successfully!");
+                setLoading(false);
+                if (product) {
+                  setImageUrl((imgUrl) => [...imgUrl, res.data.url]);
+                } else {
+                  setImageUrl(res.data.url);
+                }
+              } else {
+                throw new Error("Invalid response from upload server");
+              }
+            } catch (localErr) {
+              console.error("Local upload failed:", localErr);
+              notifyError(
+                localErr?.response?.data?.message || "Failed to upload image"
+              );
+              setLoading(false);
+            }
+          };
+          reader.onerror = () => {
+            notifyError("Failed to read image file");
+            setLoading(false);
+          };
+          reader.readAsDataURL(file);
+        };
+
+        const cloudinaryUrl = import.meta.env.VITE_APP_CLOUDINARY_URL;
+        if (!cloudinaryUrl || cloudinaryUrl.includes("your-cloud-name")) {
+          // Cloudinary is not configured, upload directly to local backend
+          uploadToLocalBackend();
+          return;
+        }
+
         const formData = new FormData();
         formData.append("file", file);
         formData.append(
@@ -89,7 +133,7 @@ const Uploader = ({
         formData.append("public_id", public_id);
 
         axios({
-          url: import.meta.env.VITE_APP_CLOUDINARY_URL,
+          url: cloudinaryUrl,
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -106,9 +150,8 @@ const Uploader = ({
             }
           })
           .catch((err) => {
-            console.error("err", err);
-            notifyError(err.Message);
-            setLoading(false);
+            console.warn("Cloudinary upload failed, falling back to local storage...", err);
+            uploadToLocalBackend();
           });
       });
     }
@@ -177,9 +220,17 @@ const Uploader = ({
         ) : !product && imageUrl ? (
           <div className="relative">
             <img
-              className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
-              src={imageUrl}
-              alt="product"
+              className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2 object-cover"
+              src={
+                imageUrl?.startsWith("/") && !imageUrl?.startsWith("//")
+                  ? `http://localhost:3000${imageUrl}`
+                  : imageUrl
+              }
+              alt="preview"
+              onError={(e) => {
+                e.currentTarget.src =
+                  "https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png";
+              }}
             />
             <button
               type="button"

@@ -20,6 +20,7 @@ import CurrencyServices from "@/services/CurrencyServices";
 import LeadServices from "@/services/LeadServices";
 import BlogServices from "@/services/BlogServices";
 import DemoServices from "@/services/DemoServices";
+import WorkServices from "@/services/WorkServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import useDisableForDemo from "@/hooks/useDisableForDemo";
 
@@ -325,6 +326,46 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
             }
           } catch (error) {
             notifyError(error?.response?.data?.message || "Failed to delete demo");
+          } finally {
+            setIsSubmitting(false);
+          }
+        }
+      }
+
+      if (location.pathname === "/works") {
+        if (ids && Array.isArray(ids) && ids.length > 0) {
+          try {
+            for (const workId of ids) {
+              await WorkServices.deleteWork(workId);
+            }
+            setIsUpdate(true);
+            notifySuccess("Selected works deleted successfully");
+            setIsCheck([]);
+            setServiceId();
+            closeModal();
+          } catch (error) {
+            notifyError(error?.response?.data?.message || "Failed to delete some works");
+          } finally {
+            setIsSubmitting(false);
+          }
+        } else {
+          if (!id) {
+            notifyError("Please select a work item first!");
+            setIsSubmitting(false);
+            return closeModal();
+          }
+          try {
+            const res = await WorkServices.deleteWork(id);
+            if (res?.success === false) {
+              notifyError(res.message || "Failed to delete work");
+            } else {
+              setIsUpdate(true);
+              notifySuccess(res?.message || "Work deleted successfully");
+              setServiceId();
+              closeModal();
+            }
+          } catch (error) {
+            notifyError(error?.response?.data?.message || "Failed to delete work");
           } finally {
             setIsSubmitting(false);
           }

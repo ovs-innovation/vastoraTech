@@ -3,8 +3,14 @@ import Cookies from "js-cookie";
 
 // console.log("base url", import.meta.env.VITE_APP_API_BASE_URL);
 
+const apiBaseUrl =
+  import.meta.env.VITE_APP_API_BASE_URL &&
+  import.meta.env.VITE_APP_API_BASE_URL !== "undefined"
+    ? import.meta.env.VITE_APP_API_BASE_URL
+    : "http://localhost:8081/api";
+
 const instance = axios.create({
-  baseURL: `${import.meta.env.VITE_APP_API_BASE_URL}`,
+  baseURL: apiBaseUrl,
   timeout: 50000,
   headers: {
     Accept: "application/json",

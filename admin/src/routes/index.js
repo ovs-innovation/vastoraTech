@@ -32,6 +32,7 @@ const BlogCategories = lazy(() => import("@/pages/BlogCategories"));
 const Blogs = lazy(() => import("@/pages/Blogs"));
 const BlogComments = lazy(() => import("@/pages/BlogComments"));
 const Demos = lazy(() => import("@/pages/Demos"));
+const Works = lazy(() => import("@/pages/Works"));
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -165,41 +166,28 @@ const routes = [
   {
     path: "/products/demos",
     component: Demos,
+  },
+  {
+    path: "/works",
+    component: Works,
   }
 ];
 
 const routeAccessList = [
   { label: "Dashboard", value: "dashboard" },
-  { label: "Products", value: "products" },
-  { label: "Categories", value: "categories" },
-  { label: "Attributes", value: "attributes" },
-  { label: "Coupons", value: "coupons" },
-  { label: "Customers", value: "customers" },
-  { label: "Orders", value: "orders" },
-  { label: "Staff", value: "our-staff" },
+  { label: "Our Works", value: "works" },
+  { label: "Product Demos", value: "products/demos" },
+  { label: "Lead Management", value: "vastora-tech/lead-management" },
+  { label: "Contact Inquiries", value: "vastora-tech/lead-management/contact-leads" },
+  { label: "White Label Leads", value: "vastora-tech/lead-management/white-label-leads" },
+  { label: "Blogs", value: "blogs" },
+  { label: "Blog Categories", value: "blog-categories" },
+  { label: "Blog Comments", value: "blog-comments" },
+  { label: "Our Staff", value: "our-staff" },
   { label: "Settings", value: "settings" },
   { label: "Languages", value: "languages" },
-  { label: "Currencies", value: "currencies" },
-  { label: "ViewStore", value: "store" },
-  { label: "StoreCustomization", value: "customization" },
-  { label: "StoreSettings", value: "store-settings" },
-  { label: "Product Details", value: "product" },
-  { label: "Order Invoice", value: "order" },
+  { label: "Notifications", value: "notifications" },
   { label: "Edit Profile", value: "edit-profile" },
-  {
-    label: "Customer Order",
-    value: "customer-order",
-  },
-  { label: "Notification", value: "notifications" },
-  { label: "Lead Management", value: "vastora-tech/lead-management" },
-  {
-    label: "Contact Responses",
-    value: "vastora-tech/lead-management?panel=contact",
-  },
-  { label: "Blogs", value: "blogs" },
-  { label: "Coming Soon", value: "coming-soon" },
-  { label: "Demos", value: "demos" },
-  { label: "White Label Responses", value: "white-label/responses" },
 ];
 
 export { routeAccessList, routes };

@@ -29,6 +29,7 @@ const blogRoutes = require("../routes/blogRoutes");
 const blogCategoryRoutes = require("../routes/blogCategoryRoutes");
 const blogCommentRoutes = require("../routes/blogCommentRoutes");
 const demoRoutes = require("../routes/demoRoutes");
+const workRoutes = require("../routes/workRoutes");
 const whiteLabelRoutes = require("../routes/whiteLabelRoutes");
 const contactRoutes = require("../routes/contactRoutes");
 const { isAuth, isAdmin } = require("../config/auth");
@@ -45,7 +46,7 @@ const app = express();
 // app.enable('trust proxy');
 app.set("trust proxy", 1);
 
-app.use(express.json({ limit: "4mb" }));
+app.use(express.json({ limit: "15mb" }));
 app.use(helmet());
 app.options("*", cors()); // include before other routes
 app.use(cors());
@@ -71,6 +72,7 @@ app.use("/api/blogs/", blogRoutes);
 app.use("/api/blog-categories/", blogCategoryRoutes);
 app.use("/api/blog-comments/", blogCommentRoutes);
 app.use("/api/demos/", demoRoutes);
+app.use("/api/works/", workRoutes);
 app.use("/api/", whiteLabelRoutes);
 app.use("/api/", contactRoutes);
 

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import executive_photo from "@/assets/img/team/team-61.jpg";
+import digital_marketing_img from "@/assets/img/feature/digital-marketing-growth.jpg";
 
 interface ProjectFeatureContent {
   sub_title: string;
@@ -71,8 +71,8 @@ const ProjectFeaturHomefive: React.FC<ProjectFeaturHomefiveProps> = ({ style }) 
             <div className="portrait-frame-card">
               <div className="portrait-img-wrap">
                 <Image
-                  src={executive_photo}
-                  alt="Marketing & Strategic Branding"
+                  src={digital_marketing_img}
+                  alt="Strategic Digital Marketing & Brand Growth"
                   priority
                 />
               </div>

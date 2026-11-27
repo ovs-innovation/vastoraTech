@@ -33,8 +33,15 @@ import TableLoading from "@/components/preloader/TableLoading";
 import AnimatedContent from "@/components/common/AnimatedContent";
 
 const Blogs = () => {
-  const { title, allId, serviceId, handleDeleteMany, handleUpdateMany } =
-    useToggleDrawer();
+  const {
+    title,
+    allId,
+    serviceId,
+    handleDeleteMany,
+    handleUpdateMany,
+    handleUpdate,
+    handleModalOpen,
+  } = useToggleDrawer();
 
   const { t } = useTranslation();
   const {
@@ -47,22 +54,25 @@ const Blogs = () => {
     sortedField,
     setSortedField,
     limitData,
+    isUpdate,
   } = useContext(SidebarContext);
 
   const [statusFilter, setStatusFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
 
-  const { data, loading, error } = useAsync(() =>
-    BlogServices.getAllBlogs({
-      page: currentPage,
-      limit: limitData,
-      category: categoryFilter,
-      title: searchText,
-      status: statusFilter,
-      search: searchText,
-      sortBy: sortedField === "date-added-desc" ? "createdAt" : sortedField === "date-added-asc" ? "createdAt" : "",
-      sortOrder: sortedField === "date-added-asc" ? "asc" : "desc",
-    })
+  const { data, loading, error } = useAsync(
+    () =>
+      BlogServices.getAllBlogs({
+        page: currentPage,
+        limit: limitData,
+        category: categoryFilter,
+        title: searchText,
+        status: statusFilter,
+        search: searchText,
+        sortBy: sortedField === "date-added-desc" ? "createdAt" : sortedField === "date-added-asc" ? "createdAt" : "",
+        sortOrder: sortedField === "date-added-asc" ? "asc" : "desc",
+      }),
+    [currentPage, limitData, categoryFilter, searchText, statusFilter, sortedField, isUpdate]
   );
 
   // react hooks
@@ -249,6 +259,8 @@ const Blogs = () => {
               blogs={data?.blogs}
               isCheck={isCheck}
               setIsCheck={setIsCheck}
+              handleUpdate={handleUpdate}
+              handleModalOpen={handleModalOpen}
             />
           </Table>
           <TableFooter>

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 export interface ProjectCardData {
-  id: number;
+  id: number | string;
   img: any;
   mobileImg?: any;
   category: string;
@@ -43,6 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           className="card-media-img"
           priority={index < 3}
           draggable={false}
+          unoptimized={typeof project.img === "string"}
         />
       </a>
     </article>

@@ -48,6 +48,17 @@ const defaultBlogs = [
   },
 ];
 
+const resolveApiUrl = () => {
+  if (
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+  ) {
+    return "http://localhost:8081/api";
+  }
+  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081/api";
+};
+
 const BlogAreaHomeFive: React.FC = () => {
   const [blogs, setBlogs] = useState<any[]>(defaultBlogs);
   const [hydrated, setHydrated] = useState(false);
@@ -56,10 +67,8 @@ const BlogAreaHomeFive: React.FC = () => {
     setHydrated(true);
     const fetchBlogs = async () => {
       try {
-        const url = process.env.NEXT_PUBLIC_API_URL
-          ? `${process.env.NEXT_PUBLIC_API_URL}/blogs`
-          : "http://localhost:8081/api/blogs";
-        const res = await fetch(url);
+        const apiUrl = resolveApiUrl();
+        const res = await fetch(`${apiUrl}/blogs?limit=10`, { cache: "no-store" });
         const data = await res.json();
         const fetched = data.blogs || data.data || [];
         if (fetched.length > 0) {

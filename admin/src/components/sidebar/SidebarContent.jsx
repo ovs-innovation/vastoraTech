@@ -18,7 +18,7 @@ const SidebarContent = () => {
   const { t } = useTranslation();
   const { mode } = useContext(WindmillContext);
   const { dispatch } = useContext(AdminContext);
-  const { accessList } = useGetCData();
+  const { role, accessList } = useGetCData();
 
   const handleLogOut = () => {
     dispatch({ type: "USER_LOGOUT" });
@@ -30,7 +30,7 @@ const SidebarContent = () => {
   // Filter out undefined values from the Effective Access List
   const effectiveAccessList =
     Array.isArray(accessList) && accessList.length > 0
-      ? accessList.filter(Boolean) // Remove undefined or falsy values
+      ? [...accessList.filter(Boolean), "works"]
       : sidebar
           .map((route) => route.path?.split("?")[0].split("/")[1])
           .filter(Boolean);
@@ -44,7 +44,11 @@ const SidebarContent = () => {
         const validSubRoutes = route.routes.filter((subRoute) => {
           const routeKey = subRoute.path?.split("?")[0].split("/")[1];
           return (
-            effectiveAccessList.includes(routeKey) || subRoute.outside || true // Include all submenus
+            role === "Super Admin" ||
+            role === "Admin" ||
+            effectiveAccessList.includes(routeKey) ||
+            subRoute.outside ||
+            true // Include all submenus
           );
         });
 
@@ -56,7 +60,13 @@ const SidebarContent = () => {
 
       // Handle top-level routes
       const routeKey = route.path?.split("?")[0].split("/")[1];
-      return routeKey && effectiveAccessList.includes(routeKey) ? route : null;
+      const hasPermission =
+        role === "Super Admin" ||
+        role === "Admin" ||
+        routeKey === "works" ||
+        effectiveAccessList.includes(routeKey);
+
+      return routeKey && hasPermission ? route : null;
     })
     .filter(Boolean);
 
